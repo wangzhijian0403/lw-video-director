@@ -119,4 +119,6 @@ FredTalk 项目使用其实际组件 ID 和 provenance 信息；不要把 FredTa
 
 ## 6. 当前仓库的集成范围
 
-当前 LW 仓库仅添加了外部资源的链接、检索方法和许可检查规范；**尚未复制 Motion Prompt 或 FredTalk 的代码、视频、字体、图片、音效或组件素材**。因此本文件不是第三方源码导入证明，也不替代上游许可证。将来真正导入文件时，必须逐文件记录来源、许可、版本和归属，并更新 `THIRD_PARTY_NOTICES.md`。
+主工作台已有 MP-001 源码适配和真实渲染记录，MP-002 下载不等于生产适配；FredTalk 保留目录/来源及原有声明，不能因此视为全部可执行。逐条状态以 `visual-studio/external/catalog.json`、provenance 与实际适配代码为准。
+
+新增资源来源、检索入口、音效获取与许可分流见 [资源入口与许可分流](resource-providers.md) 和 `resources/providers.json`。现有两个外部目录继续保留，不把新发现的上游 Skill 整体复制进来。POC 的 Lucide、Lottie、真实音效测试结果与生产状态分开，不自动更新主片能力。

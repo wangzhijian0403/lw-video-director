@@ -116,3 +116,11 @@ receipt 保留 `rendered-unverified` 描述渲染阶段；最新核验结论以 
 设置只接受 width/height/fps/durationFrames/startFrame/rate/loop/accent/background，拒绝拼错的参数。宽高为128..1920的偶数，总像素≤250万，fps只接受30/60，最长10秒且≤600帧，rate为(0,4]。默认960×540/30fps/120帧；本轮实测540×960/30fps/90帧、6帧延迟、2x循环，并非解锁原主片的竖屏生产能力。标记换色、背景色与前述 theme token 规则一致。
 
 第三轮使用同一原创 fixture 跑通新入口；未增加第三方素材、角色或依赖。14项单元测试及类型检查通过。结果在 `evidence/round3/`；历史第一/二轮证据保留。以后的具体卡通文件仍须通过该 profile，预合成兼容不代表任意 Lottie 都兼容。
+
+## 项目素材目录与真实外部音效更新
+
+项目级入口为 `../references/resource-providers.md`、`../resources/providers.json`，原有 References 不迁移、不批量抓取。新增 `external-audio` 渲染用例与 `verify-external-audio.py <render-output> <acquired-audio-dir>`。先运行项目根 `scripts/fetch_reference_audio.py` 获取已核验的 CC0 官方公开压缩预览，将其 WAV 复制到本目录 `public/external-water.wav`，再执行 `npm run render -- <new-output> external-audio`。未下载文件时不把网页或缩略图冒充实际素材。
+
+新的 `checkRights(record, assetSha, evidenceSha, purpose='render')` 对 render 只要求 download/adapt/render；原文件分发显式使用 purpose='redistribute'。Mixkit/Pixabay 声明需提供官方许可URL、`conditions.endProductOnly=true` 与 `rightsScopes.redistribute=false`。Lottie Simple 声明需 `conditions.preserveAssetLicense=true`、`conditions.noCompetingLibrary=true`。同样保留来源、审核者、哈希和署名记录，不能把股票素材包装为本项目 MIT 原创。这里的署名字段用于来源台账，不意味着这些许可都强制视频片尾显示署名。
+
+本轮17项Node单元测试、类型检查、4项目录测试通过；6秒外部真实水花声MP4混音验证通过，仍未做真人听感验收。来源/下载/QA见 `evidence/resource-library/`。原始CC0音频可依法使用，本项目仍选择把实际音频留在本地交付，不把其他stock平台素材混入源码。

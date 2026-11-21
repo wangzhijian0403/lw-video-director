@@ -7,10 +7,11 @@ const root=path.dirname(fileURLToPath(import.meta.url));
 const output=path.resolve(process.argv[2]||path.join(root,'evidence'));
 fs.mkdirSync(output,{recursive:true});
 const compatibility=process.argv[3]==='compatibility';
-const serveUrl=await bundle({entryPoint:path.join(root,compatibility?'src/compatibility.tsx':'src/root.tsx'),rootDir:root,publicDir:path.join(root,'public'),outDir:path.join(root,compatibility?'.cache/compatibility':'.cache/bundle'),gitSource:null});
+const externalAudio=process.argv[3]==='external-audio';
+const serveUrl=await bundle({entryPoint:path.join(root,externalAudio?'src/external-audio.tsx':compatibility?'src/compatibility.tsx':'src/root.tsx'),rootDir:root,publicDir:path.join(root,'public'),outDir:path.join(root,externalAudio?'.cache/external-audio':compatibility?'.cache/compatibility':'.cache/bundle'),gitSource:null});
 const opts={browserExecutable:process.env.LW_BROWSER||(process.platform==='win32'?'C:/Program Files/Google/Chrome/Application/chrome.exe':undefined),chromiumOptions:{gl:'angle'}};
-const composition=await selectComposition({serveUrl,id:compatibility?'ResourceCompatibility':'ResourceAdaptersPOC',...opts});
-const video=path.join(output,compatibility?'resource-compatibility.mp4':'resource-adapters-poc.mp4');
+const composition=await selectComposition({serveUrl,id:externalAudio?'ExternalAudioPOC':compatibility?'ResourceCompatibility':'ResourceAdaptersPOC',...opts});
+const video=path.join(output,externalAudio?'external-audio-poc.mp4':compatibility?'resource-compatibility.mp4':'resource-adapters-poc.mp4');
 if(fs.existsSync(video))throw new Error('Output exists; choose a new evidence directory');
 await renderMedia({serveUrl,composition,outputLocation:video,codec:'h264',audioCodec:'aac',pixelFormat:'yuv420p',concurrency:2,crf:18,...opts});
 // Same frame repeatedly and out of order: compare PNG bytes for stable seeks.

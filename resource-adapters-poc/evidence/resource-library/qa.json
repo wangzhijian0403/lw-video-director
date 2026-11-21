@@ -1,0 +1,33 @@
+{
+  "status": "technical-pass",
+  "video": {
+    "sha256": "82db91ef8f9919ffc0bb138e8005a365fc8745cc29385b83b0da4767a3e42a7d",
+    "width": 960,
+    "height": 540,
+    "frames": 180,
+    "fps": 30,
+    "seconds": 6,
+    "videoCodec": "h264",
+    "audioCodec": "aac"
+  },
+  "event": {
+    "assetId": "freesound-210428-preview",
+    "startFrame": 30,
+    "startSeconds": 1,
+    "gain": 0.6,
+    "correlationWithAcquiredWav": 0.9988447710813273,
+    "sourceVariant": "public compressed HQ MP3 preview; NOT login-only original FLAC",
+    "downloadSha256": "53b73c7c8fd1d0a4b745daad3dcf1350cf42fe2a515204cc17073fe036454753",
+    "wavSha256": "b1ced748817ebd5cd5eab0c19ce2868be249ea458270b5c9bf98ca164709b1ea"
+  },
+  "audioPeak": 0.5641494393348694,
+  "silenceBeforeAndAfter": true,
+  "rights": {
+    "license": "CC0-1.0",
+    "author": "qubodup",
+    "sourceUrl": "https://freesound.org/people/qubodup/sounds/210428/"
+  },
+  "listeningReview": "pending; measured source correlation, not subjective listening",
+  "visualReview": "pending-user",
+  "productionApproved": false
+}
