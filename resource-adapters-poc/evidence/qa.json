@@ -1,0 +1,38 @@
+{
+  "status": "technical-pass",
+  "video": {
+    "sha256": "09aa336710ae6be0fd61f9b26b3584b18c84cd9b9d3b4dd92cd8a41f9e371288",
+    "codec": "h264",
+    "width": 960,
+    "height": 540,
+    "fps": 30,
+    "frames": 180,
+    "durationSeconds": 6
+  },
+  "audio": {
+    "codec": "aac",
+    "sampleRate": 48000,
+    "peak": 0.3713495433330536,
+    "quietBeforeEvents": true,
+    "events": [
+      {
+        "assetId": "pulp-splash",
+        "startSeconds": 1,
+        "correlationWithSource": 0.9431012014335182,
+        "rmsEnvelopeCorrelation": 0.9998750134084222,
+        "rms": 0.03840833902359009
+      },
+      {
+        "assetId": "paper-lift",
+        "startSeconds": 3,
+        "correlationWithSource": 0.7230719362729092,
+        "rmsEnvelopeCorrelation": 0.9978829139409737,
+        "rms": 0.05503890663385391
+      }
+    ]
+  },
+  "seekRepeatByteIdentical": true,
+  "lottieRegionMeanPixelChange": 31.683327505827506,
+  "visualReview": "keyframes inspected; full-motion/user review pending",
+  "listeningReview": "not performed; waveform and source correlation measured"
+}

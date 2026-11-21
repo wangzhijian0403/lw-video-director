@@ -1,0 +1,10 @@
+{
+  "status": "sample-frame-inspected",
+  "frame": 60,
+  "observations": [
+    "Lucide Droplets visible on paper-white background",
+    "Indicator active at scheduled external-audio event"
+  ],
+  "continuousMotionReview": "pending-user",
+  "listeningReview": "pending-user; waveform correlation checked"
+}

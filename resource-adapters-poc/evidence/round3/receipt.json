@@ -1,0 +1,73 @@
+{
+  "profile": "lw-vector-precomp/2",
+  "assetSha256": "198cdf3fd92665a6238580f6615b871e2f9d792e08d5884b7901b0c5e62c87be",
+  "rightsSha256": "e7984699da7ce592fb9a7f8396dc947c30482d9377c6ea17bc6b043d851a2624",
+  "evidenceSha256": "7eecfa7646824b06a73a02d0619ae812a46aec5c3c5f97779c622afdbdf49980",
+  "compatibility": "eligible-for-render-test",
+  "rights": {
+    "status": "declaration-validated",
+    "reason": "Human declaration and local evidence hashes match; render not yet tested"
+  },
+  "renderStatus": "rendered-unverified",
+  "productionApproved": false,
+  "sourceFps": 30,
+  "inPoint": 10,
+  "outPoint": 130,
+  "embeddedPrecomps": 2,
+  "settings": {
+    "width": 540,
+    "height": 960,
+    "fps": 30,
+    "durationFrames": 90,
+    "rate": 2,
+    "loop": true,
+    "startFrame": 6,
+    "accent": "#4f9296",
+    "background": "#f5f3eb"
+  },
+  "attribution": "LW original paper precomp fixture, MIT",
+  "source": {
+    "assetId": "paper-precomp",
+    "author": "LW, original vector fixture for POC round 2",
+    "sourceUrl": "repository:resource-adapters-poc/assets/paper-precomp.json",
+    "license": "MIT",
+    "rightsScopes": {
+      "download": true,
+      "adapt": true,
+      "render": true,
+      "redistribute": true
+    },
+    "reviewedBy": "LW POC implementer; original asset and project MIT inspected"
+  },
+  "rendererHashes": {
+    "render-asset.mjs": "efaad53e73c52ca7ab2952680d9474d4ed2aa2136e936f92cfd1108ee97deb92",
+    "verify-asset.py": "81cdf79f5c2dd05ecd28ecdf80c1918881248bcdd0b3b77ff1cdc6a601146b35",
+    "intake.mjs": "54bd5e5070ffa7bccd502f4ca399102093646569c2f23067e06bdd8bacf8f282",
+    "src/asset-root.tsx": "f617ba691072cd7523614fe928093a6df9b61e0fdf25a112d3f067cc7da7c0a2",
+    "src/adapters.tsx": "2f993631c8c48da59455792ee302a495980269859053ca3dc29e19a04edd5942",
+    "src/timing.mjs": "641383eda7f54b0af7f1b436c1ae5d60c94138f36ff43f93387ad5230e42db54",
+    "src/rights.mjs": "c9cd7884fdacbaa8720547dbfc22ff2b223ef420e7b5f1e09888d0be362bbfc6",
+    "package-lock.json": "dd9c85af065999c70d8308f7909116ee210f4ea2dd86641b2f5fe958c693fa9c"
+  },
+  "runtime": {
+    "node": "v24.22.1",
+    "platform": "win32"
+  },
+  "frames": [
+    0,
+    30,
+    60,
+    89,
+    30
+  ],
+  "files": {
+    "asset.mp4": "6bde678836a7385c198683b03825cc65ad546b52eb751a45b83a507c371a2bc1",
+    "frame-0-0.png": "2eae855738aeb4d3ab530f8951ce27c3eb57f2c85ffdd4d149210177633d7c4a",
+    "frame-1-30.png": "10e59d83c4ee19b4c1bac51178c9840df17abdaf5b6460fa2059394c8a6290d1",
+    "frame-2-60.png": "fd40c8abe3b1ab9b37461ff6ce708f67c03efbc584a324005913bd6186d5690d",
+    "frame-3-89.png": "802eb7272c57131ed6957ab341bd31182670413b81a76f81175355569de416bb",
+    "frame-4-30.png": "10e59d83c4ee19b4c1bac51178c9840df17abdaf5b6460fa2059394c8a6290d1",
+    "input-snapshot.json": "0a339c3d6ccb4ec04a5fadef6062f434bcd4112f3a7d8f3ebe5f42ed312461e3"
+  },
+  "visualReview": "pending"
+}

@@ -1,0 +1,30 @@
+
+> test
+> node --test test/*.test.mjs
+
+✔ actual fixture intake requires matching reviewed rights for render preparation (11.245ms)
+✔ render settings reject typos, excessive dimensions/duration and invalid playback (0.6061ms)
+✔ missing rights, stale hash and escaped evidence block before creating render outputs (115.1214ms)
+✔ nested vector precomps, shape groups and null parenting pass (3.5293ms)
+✔ recursive theme is immutable and reaches precomp/group fill (2.6995ms)
+✔ missing refs and precomp cycles fail even in unused assets (3.5321ms)
+✔ missing/cyclic parents, duplicate layer and asset ids fail (2.4954ms)
+✔ nested unsupported media, expression and effects fail closed (3.128ms)
+✔ non-finite timing and dimensions fail (1.0092ms)
+✔ no declaration remains reference-only; reviewed hash match is not render approval (1.5905ms)
+✔ rights gate rejects missing scope, reviewer, attribution, unknown license and mismatched evidence (0.7336ms)
+✔ fps conversion, offset, loop and end hold (1.5173ms)
+✔ reject external assets, fonts, expressions and non-shape layers (0.7892ms)
+✔ invalid timing fails closed (0.2169ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 244.3877
+
+> typecheck
+> tsc --noEmit
+

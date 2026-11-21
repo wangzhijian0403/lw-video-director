@@ -1,0 +1,39 @@
+{
+  "main": "0a08171658711f331de445e28a0d9418fb30fb79",
+  "pr4": "4d10fcd361eaf44f51b3b83f52b551232d3bd212",
+  "pr5": "5fe4ad4214d562c4926503b5239e9cec07621289",
+  "reviewedFiles": [
+    {
+      "commit": "4d10fcd361eaf44f51b3b83f52b551232d3bd212",
+      "path": "references/production-contract.md",
+      "sha256": "4843e23f4303ee6d6b023efa8e9ec5660fffb683ae060bf67393ff1d56193d0e",
+      "bytes": 5406
+    },
+    {
+      "commit": "4d10fcd361eaf44f51b3b83f52b551232d3bd212",
+      "path": "templates/episode-manifest.example.json",
+      "sha256": "bc58e479ade999af2646ea00d97a4286b0a9f36d280b1ec179e0b4090950b3e3",
+      "bytes": 4829
+    },
+    {
+      "commit": "5fe4ad4214d562c4926503b5239e9cec07621289",
+      "path": "references/asset-engine.md",
+      "sha256": "0bb4a780c2e5d5020a787f6b91485e54df76b8277471d6fc5a0a173cb86a9fc5",
+      "bytes": 6916
+    },
+    {
+      "commit": "5fe4ad4214d562c4926503b5239e9cec07621289",
+      "path": "scripts/asset_engine.py",
+      "sha256": "661f9a5981b2c1344e07697dc8f4081ebf8cfb61769c84d90ba401398617681e",
+      "bytes": 2818
+    },
+    {
+      "commit": "5fe4ad4214d562c4926503b5239e9cec07621289",
+      "path": "scripts/asset_timeline.py",
+      "sha256": "8347c60e0fd5a3cd829af1ad059802f8e3599d6eb84836c0ef1f1054e6e6730b",
+      "bytes": 18362
+    }
+  ],
+  "branchBase": "main",
+  "productionBranchTouched": false
+}

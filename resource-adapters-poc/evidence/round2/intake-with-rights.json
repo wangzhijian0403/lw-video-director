@@ -1,0 +1,15 @@
+{
+  "profile": "lw-vector-precomp/2",
+  "assetSha256": "198cdf3fd92665a6238580f6615b871e2f9d792e08d5884b7901b0c5e62c87be",
+  "compatibility": "eligible-for-render-test",
+  "rights": {
+    "status": "declaration-validated",
+    "reason": "Human declaration and local evidence hashes match; render not yet tested"
+  },
+  "renderStatus": "not-run",
+  "productionApproved": false,
+  "sourceFps": 30,
+  "inPoint": 10,
+  "outPoint": 130,
+  "embeddedPrecomps": 2
+}

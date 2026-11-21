@@ -1,0 +1,10 @@
+{
+  "status": "sample-frame-inspected",
+  "frame": 30,
+  "observations": [
+    "Original paper sheet centered on native portrait canvas",
+    "Theme color and paper-white background retained"
+  ],
+  "continuousMotionReview": "pending-user",
+  "audio": "none, standalone Lottie asset only"
+}

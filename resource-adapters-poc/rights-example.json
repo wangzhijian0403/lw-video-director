@@ -1,0 +1,19 @@
+{
+  "assetId": "paper-precomp",
+  "author": "LW, original vector fixture for POC round 2",
+  "reviewedBy": "LW POC implementer; original asset and project MIT inspected",
+  "sourceUrl": "repository:resource-adapters-poc/assets/paper-precomp.json",
+  "license": "MIT",
+  "assetSha256": "198cdf3fd92665a6238580f6615b871e2f9d792e08d5884b7901b0c5e62c87be",
+  "evidence": {
+    "path": "licenses/LW-MIT.txt",
+    "sha256": "7eecfa7646824b06a73a02d0619ae812a46aec5c3c5f97779c622afdbdf49980"
+  },
+  "attribution": "LW original paper precomp fixture, MIT",
+  "rightsScopes": {
+    "download": true,
+    "adapt": true,
+    "render": true,
+    "redistribute": true
+  }
+}

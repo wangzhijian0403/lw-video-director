@@ -1,0 +1,11 @@
+{
+  "width": 540,
+  "height": 960,
+  "fps": 30,
+  "durationFrames": 90,
+  "startFrame": 6,
+  "rate": 2,
+  "loop": true,
+  "accent": "#4f9296",
+  "background": "#f5f3eb"
+}

@@ -7,6 +7,19 @@
 - **主要语言：** 中文
 - **默认模式：** 学习分析；只有用户明确要求制作时才进入制作流程。
 
+## 外部素材选型入口（资源分支更新）
+
+使用本项目版本制作视频时，SKILL.md 会路由到 [资源选型说明](references/resource-providers.md)。`resources/providers.json` 收录26个来源/工具/候选入口，包括原有 Motion Prompt、FredTalk，以及图标、Lottie、免费音效、风格与专项工作流；来源可检索不等于所有组件都已适配。原 LW References 目录和逐项状态继续保留。
+
+```sh
+python scripts/resource_catalog.py --kind audio
+python scripts/resource_catalog.py --kind style
+python scripts/resource_catalog.py --items --query MP-001
+python scripts/fetch_reference_audio.py freesound-210428-preview --output projects/demo/audio/water-new
+```
+
+无需先入个人素材库：允许按项目获取、适配并直接入片；可选入库用于复用。成片使用权与原素材分发权分别检查。真实 CC0 水花声的下载/转码/混音 POC 已通过，Mixkit 访问本轮403、其他未实测来源保持候选。详细限制和许可见上述说明与第三方声明。此更新仍在独立资源分支，不自动合并 main，也不自动覆盖已有全局安装版。
+
 ## 能做什么
 
 - 清点本地视频文件，记录媒体流信息与 SHA256 去重结果。

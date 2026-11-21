@@ -1,0 +1,29 @@
+{
+  "assetId": "freesound-210428-preview",
+  "title": "Water Splash 1",
+  "author": "qubodup",
+  "provider": "Freesound",
+  "sourceUrl": "https://freesound.org/people/qubodup/sounds/210428/",
+  "downloadUrl": "https://cdn.freesound.org/previews/210/210428_71257-hq.mp3",
+  "downloadVariant": "public compressed HQ MP3 preview; NOT login-only original FLAC",
+  "license": "CC0-1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "sha256": "53b73c7c8fd1d0a4b745daad3dcf1350cf42fe2a515204cc17073fe036454753",
+  "purpose": "Paper-making: water/pulp contact; select on sound, not the filename alone",
+  "checkedOn": "2026-11-21",
+  "attribution": "Water Splash 1 — qubodup / Freesound / CC0 (voluntary credit)",
+  "notes": "Source page explicitly says changed to CC0 on 2024-11-23. Retain source proof; recording is water splashed onto soil/plants, not a historical papermaking recording.",
+  "status": "downloaded-and-decoded",
+  "sourcePageSha256": "ce84587bf91530cc1f8d1c8a97cfc7245713032f6ced5b51b407dddcd1aa77f5",
+  "downloadSha256": "53b73c7c8fd1d0a4b745daad3dcf1350cf42fe2a515204cc17073fe036454753",
+  "wavSha256": "b1ced748817ebd5cd5eab0c19ce2868be249ea458270b5c9bf98ca164709b1ea",
+  "rightsScopes": {
+    "reference": true,
+    "download": true,
+    "adapt": true,
+    "render": true,
+    "redistribute": true
+  },
+  "renderStatus": "not-run",
+  "productionApproved": false
+}

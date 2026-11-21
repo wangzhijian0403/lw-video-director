@@ -1,0 +1,20 @@
+{
+  "width": 800,
+  "height": 400,
+  "fps": 60,
+  "frames": 240,
+  "node": "v24.22.1",
+  "platform": "win32",
+  "renderConcurrency": 2,
+  "seekOrder": [
+    0,
+    30,
+    90,
+    120,
+    150,
+    180,
+    239,
+    30,
+    120
+  ]
+}

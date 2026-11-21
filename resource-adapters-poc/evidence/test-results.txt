@@ -1,0 +1,58 @@
+
+> test
+> node --test test/*.test.mjs
+
+✔ fps conversion, offset, loop and end hold (1.4432ms)
+✔ reject external assets, fonts, expressions and non-shape layers (0.5286ms)
+✔ invalid timing fails closed (0.1983ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 105.3324
+
+> typecheck
+> tsc --noEmit
+
+{
+  "status": "technical-pass",
+  "video": {
+    "sha256": "09aa336710ae6be0fd61f9b26b3584b18c84cd9b9d3b4dd92cd8a41f9e371288",
+    "codec": "h264",
+    "width": 960,
+    "height": 540,
+    "fps": 30,
+    "frames": 180,
+    "durationSeconds": 6
+  },
+  "audio": {
+    "codec": "aac",
+    "sampleRate": 48000,
+    "peak": 0.3713495433330536,
+    "quietBeforeEvents": true,
+    "events": [
+      {
+        "assetId": "pulp-splash",
+        "startSeconds": 1,
+        "correlationWithSource": 0.9431012014335182,
+        "rmsEnvelopeCorrelation": 0.9998750134084222,
+        "rms": 0.03840833902359009
+      },
+      {
+        "assetId": "paper-lift",
+        "startSeconds": 3,
+        "correlationWithSource": 0.7230719362729092,
+        "rmsEnvelopeCorrelation": 0.9978829139409737,
+        "rms": 0.05503890663385391
+      }
+    ]
+  },
+  "seekRepeatByteIdentical": true,
+  "lottieRegionMeanPixelChange": 31.683327505827506,
+  "visualReview": "keyframes inspected; full-motion/user review pending",
+  "listeningReview": "not performed; waveform and source correlation measured"
+}
+npm audit (2026-11-21): total 0 vulnerabilities; production 169, dev 4, total incl optional/peer 225. Chrome 157.0.8103.80. Real render exited 0. Initial unprivileged render failed on browser connection; permitted local render succeeded. Initial waveform threshold .85 rejected high-frequency AAC rustle at .723; final verification also checks 10 ms RMS envelope correlation >.95 and documents raw correlation.

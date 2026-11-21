@@ -1,0 +1,18 @@
+{
+  "width": 960,
+  "height": 540,
+  "fps": 30,
+  "frames": 180,
+  "node": "v24.22.1",
+  "platform": "win32",
+  "renderConcurrency": 2,
+  "seekOrder": [
+    0,
+    30,
+    60,
+    110,
+    170,
+    60,
+    30
+  ]
+}

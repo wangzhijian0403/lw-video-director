@@ -1,0 +1,24 @@
+{
+  "status": "technical-pass",
+  "assetId": "paper-precomp",
+  "video": {
+    "sha256": "6bde678836a7385c198683b03825cc65ad546b52eb751a45b83a507c371a2bc1",
+    "width": 540,
+    "height": 960,
+    "frames": 90,
+    "fps": 30,
+    "durationSeconds": 3.0,
+    "audio": "none"
+  },
+  "checks": {
+    "receiptSha256": "4ad597dfdb073a14d8522fe7371c569baabe1696bf59bbb57c070bfcc904df10",
+    "allArtifactHashesMatch": true,
+    "rendererHashesMatch": true,
+    "repeatSeekByteIdentical": true,
+    "maxVisiblePixelFraction": 0.12672453703703704,
+    "changedFramePairs": 70
+  },
+  "visualReview": "pending",
+  "rights": "human declaration validated, not automatic legal verification",
+  "productionApproved": false
+}

@@ -1,0 +1,9 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
+import {validateLottie,applyTheme,lottieFrame} from '../src/timing.mjs';
+const fixture=()=>JSON.parse(fs.readFileSync(new URL('../assets/paper-precomp.json',import.meta.url)));
+test('nested vector precomps, shape groups and null parenting pass',()=>{validateLottie(fixture());});
+test('recursive theme is immutable and reaches precomp/group fill',()=>{const d=fixture(),before=JSON.stringify(d),result=applyTheme(d,'#ff0000');assert.equal(JSON.stringify(d),before);assert.deepEqual(result.assets[1].layers[1].shapes[0].it[1].c.k,[1,0,0,1]);assert.throws(()=>applyTheme(d,'red'));});
+test('missing refs and precomp cycles fail even in unused assets',()=>{for(const mutate of [d=>d.layers[0].refId='missing',d=>d.assets[0].layers[0].refId='wrapper',d=>d.assets.push({id:'unused',layers:[{...d.layers[0],refId:'unused'}]})]){const d=fixture();mutate(d);assert.throws(()=>validateLottie(d));}});
+test('missing/cyclic parents, duplicate layer and asset ids fail',()=>{for(const mutate of [d=>d.assets[1].layers[1].parent=99,d=>d.assets[1].layers[0].parent=2,d=>d.assets[1].layers[1].ind=1,d=>d.assets.push(d.assets[0])]){const d=fixture();mutate(d);assert.throws(()=>validateLottie(d));}});
+test('nested unsupported media, expression and effects fail closed',()=>{for(const mutate of [d=>d.assets.push({id:'image',p:'data:image/png;base64,xxx'}),d=>d.assets[1].layers[1].ty=2,d=>d.assets[1].layers[1].ks.p.x='time*3',d=>d.assets[1].layers[1].ef=[],d=>d.assets[1].layers[1].shapes[0].it[0].ty='unknown']){const d=fixture();mutate(d);assert.throws(()=>validateLottie(d));}});
+test('non-finite timing and dimensions fail',()=>{const d=fixture();for(const f of [NaN,Infinity])assert.throws(()=>lottieFrame(f,60,d));for(const patch of [{w:Infinity},{h:9000}])assert.throws(()=>validateLottie({...d,...patch}));});

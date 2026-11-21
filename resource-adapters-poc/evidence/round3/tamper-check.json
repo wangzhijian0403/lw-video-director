@@ -1,0 +1,8 @@
+{
+  "exitCode": 2,
+  "qa": {
+    "status": "blocked",
+    "reason": "('Artifact hash mismatch', 'input-snapshot.json')",
+    "productionApproved": false
+  }
+}

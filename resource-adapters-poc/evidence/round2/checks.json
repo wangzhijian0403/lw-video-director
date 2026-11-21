@@ -1,0 +1,22 @@
+{
+  "tests": {
+    "command": "npm test",
+    "passed": 11,
+    "failed": 0
+  },
+  "typecheck": {
+    "command": "npm run typecheck",
+    "exitCode": 0
+  },
+  "compatibilityVerify": {
+    "command": "python verify-compatibility.py <actual-output>",
+    "exitCode": 0
+  },
+  "regressionVerify": {
+    "command": "python verify.py <actual-output>",
+    "exitCode": 0
+  },
+  "dependencyChange": false,
+  "audit": "No additional audit run; dependency lock unchanged from round1 audit with 0 advisories",
+  "baseCommit": "988ee2c7c9f661537428d3eae9482c0aef135197"
+}

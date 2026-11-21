@@ -18,3 +18,7 @@ Thumbs.db
 *.png
 *.json
 *.csv
+# Per-project downloaded media and license-page snapshots stay local.
+projects/
+!resources/providers.json
+!resources/audio-examples.json

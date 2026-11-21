@@ -1,0 +1,36 @@
+{
+  "providers": 26,
+  "upstreamGitHubLicensesRead": 15,
+  "nodeTestsPassed": 17,
+  "pythonCatalogTestsPassed": 4,
+  "typecheck": "passed",
+  "skillValidation": "quick_validate passed in UTF-8 mode",
+  "dependenciesChanged": false,
+  "oldCatalogs": [
+    {
+      "path": "visual-studio/external/catalog.json",
+      "unchangedFromMain": true,
+      "sha256": "063d6d9cff554581e4913c65dd4c97192f71edfc6535e4faa5554a77fb49398c"
+    },
+    {
+      "path": "visual-studio/external/provenance.json",
+      "unchangedFromMain": true,
+      "sha256": "62bf580ae89d58be2f21368274c16868cf5b44e8516306ed95339d94e4205f6e"
+    },
+    {
+      "path": "visual-studio/external/THIRD_PARTY_NOTICES.md",
+      "unchangedFromMain": true,
+      "sha256": "33d13118c6544ade157134c6a25c0deb366e939c94cc5c35319978774c37c380"
+    }
+  ],
+  "blockers": [
+    {
+      "provider": "Mixkit",
+      "reason": "HTTP 403 on page fetch; no bypass",
+      "fallback": "Freesound CC0 public preview successfully acquired and rendered"
+    }
+  ],
+  "globalInstallChanged": false,
+  "mainMerged": false,
+  "productionBranchTouched": false
+}

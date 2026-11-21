@@ -1,0 +1,43 @@
+[
+  {
+    "name": "papermaking",
+    "props": {
+      "steps": [
+        "原料浸泡",
+        "蒸煮软化",
+        "捣制纸浆",
+        "抄纸成形",
+        "压榨脱水",
+        "晾晒成纸"
+      ],
+      "title": "造纸术的制作流程",
+      "accent": "#85c4c4",
+      "background": "#f5f3eb",
+      "highlight": 3,
+      "speed": 1
+    },
+    "width": 1280,
+    "height": 720,
+    "fps": 60,
+    "frames": 420
+  },
+  {
+    "name": "three-steps",
+    "props": {
+      "steps": [
+        "准备材料",
+        "形成纸页",
+        "完成晾晒"
+      ],
+      "title": "三步验证：内容可替换",
+      "accent": "#f0bd84",
+      "background": "#f5f3eb",
+      "highlight": 1,
+      "speed": 2
+    },
+    "width": 1280,
+    "height": 720,
+    "fps": 60,
+    "frames": 210
+  }
+]

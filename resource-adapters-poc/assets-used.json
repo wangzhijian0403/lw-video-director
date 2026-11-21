@@ -1,0 +1,139 @@
+{
+  "schemaVersion": "lw-resource-poc/1",
+  "checkedOn": "2026-11-21",
+  "assets": [
+    {
+      "assetId": "icon-droplets",
+      "path": "node_modules/lucide-react/dist/esm/icons/droplets.js",
+      "sha256": "4f3d2ef23c97940e40a0aed3fb8b43eee9df121b9a1474d5f1a7d8afb6857c1c",
+      "ownerLibrary": "lw-references",
+      "author": "Lucide Contributors",
+      "license": "ISC; Feather portions MIT",
+      "sourceUrl": "https://github.com/lucide-icons/lucide/tree/0.468.0",
+      "version": "0.468.0",
+      "licenseEvidence": "THIRD_PARTY_NOTICES.md and licenses/",
+      "rightsScopes": {
+        "reference": true,
+        "download": true,
+        "adapt": true,
+        "render": true,
+        "redistribute": true
+      },
+      "attributionRequired": true,
+      "status": "render-tested",
+      "visualReview": "keyframes-inspected; full-motion-review-pending"
+    },
+    {
+      "assetId": "icon-paper",
+      "path": "node_modules/lucide-react/dist/esm/icons/file-text.js",
+      "sha256": "225eb4bf9bb2fbce57368bed00e0c695381e7dc4a9dc878895f5ba6d77aeb812",
+      "ownerLibrary": "lw-references",
+      "author": "Lucide Contributors; Cole Bemis / Feather portions",
+      "license": "ISC; Feather portions MIT",
+      "sourceUrl": "https://github.com/lucide-icons/lucide/tree/0.468.0",
+      "version": "0.468.0",
+      "licenseEvidence": "THIRD_PARTY_NOTICES.md and licenses/",
+      "rightsScopes": {
+        "reference": true,
+        "download": true,
+        "adapt": true,
+        "render": true,
+        "redistribute": true
+      },
+      "attributionRequired": true,
+      "status": "render-tested",
+      "visualReview": "keyframes-inspected; full-motion-review-pending"
+    },
+    {
+      "assetId": "paper-lottie",
+      "path": "assets/paper-sheet.json",
+      "sha256": "02e1224dfe81d46795afcae914634a7d683112d365026f363e15614fce5bd5d2",
+      "ownerLibrary": "lw-originals",
+      "author": "LW, generated for this POC",
+      "license": "MIT",
+      "sourceUrl": "repository:resource-adapters-poc/assets/paper-sheet.json",
+      "version": "poc-01",
+      "licenseEvidence": "THIRD_PARTY_NOTICES.md and licenses/",
+      "rightsScopes": {
+        "reference": true,
+        "download": true,
+        "adapt": true,
+        "render": true,
+        "redistribute": true
+      },
+      "attributionRequired": true,
+      "status": "render-tested",
+      "visualReview": "keyframes-inspected; full-motion-review-pending"
+    },
+    {
+      "assetId": "pulp-splash",
+      "path": "public/pulp-splash.wav",
+      "sha256": "adffc32cc6d7002d0234a13ca5d57185773877f1a31a14f3e72382c2bd24e47d",
+      "ownerLibrary": "lw-originals",
+      "author": "LW procedural foley, seed 417",
+      "license": "MIT",
+      "sourceUrl": "repository:resource-adapters-poc/generate-audio.py",
+      "version": "poc-01",
+      "licenseEvidence": "THIRD_PARTY_NOTICES.md and licenses/",
+      "rightsScopes": {
+        "reference": true,
+        "download": true,
+        "adapt": true,
+        "render": true,
+        "redistribute": true
+      },
+      "attributionRequired": true,
+      "status": "render-tested",
+      "visualReview": "keyframes-inspected; full-motion-review-pending"
+    },
+    {
+      "assetId": "paper-lift",
+      "path": "public/paper-lift.wav",
+      "sha256": "9aece274e0d016fa47aa022f9094b3ca707ca6f82505e65215e4b3ffa80f9c20",
+      "ownerLibrary": "lw-originals",
+      "author": "LW procedural foley, seed 418",
+      "license": "MIT",
+      "sourceUrl": "repository:resource-adapters-poc/generate-audio.py",
+      "version": "poc-01",
+      "licenseEvidence": "THIRD_PARTY_NOTICES.md and licenses/",
+      "rightsScopes": {
+        "reference": true,
+        "download": true,
+        "adapt": true,
+        "render": true,
+        "redistribute": true
+      },
+      "attributionRequired": true,
+      "status": "render-tested",
+      "visualReview": "keyframes-inspected; full-motion-review-pending"
+    },
+    {
+      "assetId": "paper-precomp",
+      "path": "assets/paper-precomp.json",
+      "sha256": "198cdf3fd92665a6238580f6615b871e2f9d792e08d5884b7901b0c5e62c87be",
+      "ownerLibrary": "lw-originals",
+      "author": "LW, original vector precomp fixture",
+      "license": "MIT",
+      "sourceUrl": "repository:resource-adapters-poc/assets/paper-precomp.json",
+      "version": "poc-02",
+      "licenseEvidence": "licenses/LW-MIT.txt; rights-example.json",
+      "rightsScopes": {
+        "reference": true,
+        "download": true,
+        "adapt": true,
+        "render": true,
+        "redistribute": true
+      },
+      "attributionRequired": true,
+      "status": "render-tested",
+      "visualReview": "keyframes-inspected; full-motion-review-pending"
+    }
+  ],
+  "runtime": {
+    "remotion": "4.0.545",
+    "lucide-react": "0.468.0",
+    "lottie-web": "5.13.0",
+    "remotionLicenseScope": "noncommercial evaluation; future use eligibility must be checked"
+  },
+  "audioOrigin": "procedural original; no field recordings; no third-party audio"
+}
