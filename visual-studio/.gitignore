@@ -13,3 +13,4 @@ test-results/
 !public/**/*.png
 !public/**/*.jpg
 !public/**/*.jpeg
+public/fredtalk/*.ttf

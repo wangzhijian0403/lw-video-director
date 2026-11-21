@@ -1,0 +1,31 @@
+{
+  "status": "technical-pass",
+  "variants": [
+    {
+      "name": "papermaking",
+      "sha256": "4a73eb2adcd9188152279ebec93c7927fdf1db5c0929bc57a53acf3c9e990c5b",
+      "width": 1280,
+      "height": 720,
+      "fps": "60/1",
+      "frames": 420,
+      "seconds": 7.0,
+      "audio": "none; original SFX deliberately not imported",
+      "repeatSeekIdentical": true,
+      "motionMeanPixelDifference": 7.853355396412037
+    },
+    {
+      "name": "three-steps",
+      "sha256": "5d24bb8dcd9881f598781bb7675d36ae7a3bdc03d3e26f0c95b6e71407e274cd",
+      "width": 1280,
+      "height": 720,
+      "fps": "60/1",
+      "frames": 210,
+      "seconds": 3.5,
+      "audio": "none; original SFX deliberately not imported",
+      "repeatSeekIdentical": true,
+      "motionMeanPixelDifference": 2.5779973234953704
+    }
+  ],
+  "visualReview": "papermaking final frame inspected; continuous user review pending",
+  "productionApproved": false
+}

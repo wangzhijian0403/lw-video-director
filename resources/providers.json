@@ -333,8 +333,8 @@
       "licenseUrl": "https://github.com/njrhts2kvv-star/FredTalk/blob/59b9e9957957dc9f3fd94ab78f95cec33c29e915/docs/license-scope.md",
       "checkedOn": "2026-11-21",
       "discoveryStatus": "license-reviewed",
-      "adapterStatus": "metadata-only",
-      "renderStatus": "not-run",
+      "adapterStatus": "T03e-StepChain-source-preview-and-MP4-export-tested",
+      "renderStatus": "one-item-render-tested",
       "ownership": "lw-references",
       "tags": [
         "动效",
@@ -342,8 +342,9 @@
         "lottie",
         "运镜"
       ],
-      "notes": "Existing catalog and notices preserved. Public previews do not grant component/media rights.",
-      "existingCatalogPath": "visual-studio/external/catalog.json"
+      "notes": "Official source T03e downloaded anonymously and SHA verified. Source availability is separate from installation. Other records remain preview/pending adapter; 286 regular plus146 archived is not an all-rendered claim.",
+      "existingCatalogPath": "visual-studio/external/catalog.json",
+      "api": "visual-studio/src/references/FredTalkAdapter.tsx"
     },
     {
       "id": "lucide",

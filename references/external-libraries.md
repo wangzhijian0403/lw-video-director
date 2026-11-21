@@ -122,3 +122,5 @@ FredTalk 项目使用其实际组件 ID 和 provenance 信息；不要把 FredTa
 主工作台已有 MP-001 源码适配和真实渲染记录，MP-002 下载不等于生产适配；FredTalk 保留目录/来源及原有声明，不能因此视为全部可执行。逐条状态以 `visual-studio/external/catalog.json`、provenance 与实际适配代码为准。
 
 新增资源来源、检索入口、音效获取与许可分流见 [资源入口与许可分流](resource-providers.md) 和 `resources/providers.json`。现有两个外部目录继续保留，不把新发现的上游 Skill 整体复制进来。POC 的 Lucide、Lottie、真实音效测试结果与生产状态分开，不自动更新主片能力。
+
+FredTalk T03e（步骤折行串起）已从官方公开接口匿名取得源码并核对三个文件SHA，完成LW参数化预览与真实MP4导出；编号 `FT-T03e-414`。详见 `visual-studio/external/fredtalk/t03e/README.md`。其余条目仅按各自状态选用，旧会员元数据不能当成当前仍未公开的证明；官网当前286条常用/146条归档不等于本机已将所有条目渲染验收。
