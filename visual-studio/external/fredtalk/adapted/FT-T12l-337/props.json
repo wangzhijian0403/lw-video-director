@@ -1,0 +1,20 @@
+{
+  "defaultProps": {
+    "index": 3,
+    "label": "第 3 部分",
+    "title": "内容交接：换成新的章节名",
+    "origin": {
+      "x": 960,
+      "y": 540
+    }
+  },
+  "editableKeys": [
+    "index",
+    "label",
+    "title",
+    "origin"
+  ],
+  "accent": "#19191c",
+  "background": "#f5f3eb",
+  "notes": "index 为章节序号；label/title 可替换中文；origin 是黑圆起点（1920×1080 坐标）。"
+}

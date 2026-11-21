@@ -1,0 +1,76 @@
+{
+  "lwId": "FT-T09n-374",
+  "ftId": "T09n",
+  "name": "等待快进",
+  "category": "录屏聚焦",
+  "strategy": "kit-overlay",
+  "upstream": {
+    "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
+    "publicTag": "v2.5.0",
+    "project": null,
+    "officialUrl": "https://www.fred-fu.com/visual-library"
+  },
+  "license": {
+    "firstPartyCode": "MIT (FredTalk owner grant 2026-10-13)",
+    "thirdPartyMedia": "not covered; upstream media intentionally not redistributed",
+    "font": "SmileySans-Oblique OFL-1.1, unmodified, bundled by LW host",
+    "audio": "upstream SFX omitted; adapter is silent",
+    "attribution": "FredTalk component library; adapted by LW, not claimed as LW original"
+  },
+  "entry": "src/components/T09n-WaitSkip.tsx",
+  "files": [
+    {
+      "upstreamPath": "src/components/T09n-WaitSkip.tsx",
+      "copy": "components/T09n-WaitSkip.tsx",
+      "sha256": "4fd7108953d9cbd2f1e07af31481ad5b281551a1ce3c68f24aec101523c53afc",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/theme.ts",
+      "copy": "kit/theme.ts",
+      "sha256": "a235e95c652137b43c31a9c680dabfd8fce3bbb45fac8559cd0af70ce2e9b1a3",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/ui.tsx",
+      "copy": "kit/ui.tsx",
+      "sha256": "05ce402324f5e11521b15dacc30de3ee1f89adb0a1b5c20b220a29890d8e3ba9",
+      "channel": "api",
+      "status": "verified"
+    }
+  ],
+  "hostEdits": [
+    "theme body -> LW font",
+    "theme display -> LW font",
+    "theme mono -> LW font",
+    "theme kai -> LW font",
+    "configureTheme added",
+    "host context import",
+    "useT respects host speed",
+    "Fonts -> OFL SmileySans",
+    "Brand removed",
+    "Sfx muted",
+    "Frame background -> host",
+    "source patch components/T09n-WaitSkip.tsx: SmileySans 数字字面 1em，上游 MiSans 按 0.62em 建格；按宿主字体改格宽避免裁字",
+    "source patch components/T09n-WaitSkip.tsx: 同步数字行宽"
+  ],
+  "sourcePatches": [
+    {
+      "file": "components/T09n-WaitSkip.tsx",
+      "from": "size * 0.62",
+      "to": "size * 1.0",
+      "occurrences": 1,
+      "reason": "SmileySans 数字字面 1em，上游 MiSans 按 0.62em 建格；按宿主字体改格宽避免裁字"
+    },
+    {
+      "file": "components/T09n-WaitSkip.tsx",
+      "from": "digits * BIG * 0.62",
+      "to": "digits * BIG * 1.0",
+      "occurrences": 1,
+      "reason": "同步数字行宽"
+    }
+  ],
+  "notes": "等待快进；上游真实界面截图换成 LW 自有截图。"
+}

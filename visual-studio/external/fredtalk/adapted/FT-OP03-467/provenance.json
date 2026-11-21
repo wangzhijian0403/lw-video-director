@@ -1,0 +1,95 @@
+{
+  "lwId": "FT-OP03-467",
+  "ftId": "OP03",
+  "name": "圆形入口展开为视频窗",
+  "category": "录屏与视频入场",
+  "strategy": "project-expand",
+  "upstream": {
+    "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
+    "publicTag": "v2.5.0",
+    "project": "components/projects/expansion-selected-20261007/expansion-selected-20261007",
+    "officialUrl": "https://www.fred-fu.com/visual-library"
+  },
+  "license": {
+    "firstPartyCode": "MIT (FredTalk owner grant 2026-10-13)",
+    "thirdPartyMedia": "not covered; upstream media intentionally not redistributed",
+    "font": "SmileySans-Oblique OFL-1.1, unmodified, bundled by LW host",
+    "audio": "upstream SFX omitted; adapter is silent",
+    "attribution": "FredTalk component library; adapted by LW, not claimed as LW original"
+  },
+  "entry": "OpeningScenes.tsx",
+  "files": [
+    {
+      "upstreamPath": "/home/user/ft_up/components/projects/expansion-selected-20261007/expansion-selected-20261007/src/ExplainScenes.tsx",
+      "copy": "ExplainScenes.tsx",
+      "sha256": "59232a697a30852dc7b9edfc535d662054adb953839c3f97729088607fcef806",
+      "channel": "tag-tree"
+    },
+    {
+      "upstreamPath": "/home/user/ft_up/components/projects/expansion-selected-20261007/expansion-selected-20261007/src/FullscreenVideoWindow.tsx",
+      "copy": "FullscreenVideoWindow.tsx",
+      "sha256": "1a98c1d7d12d51872df94e52a4e4fa55a6ed023157610272e07489c9399db7e2",
+      "channel": "tag-tree"
+    },
+    {
+      "upstreamPath": "/home/user/ft_up/components/projects/expansion-selected-20261007/expansion-selected-20261007/src/HandoffScenes.tsx",
+      "copy": "HandoffScenes.tsx",
+      "sha256": "b84d76ec35984ea80b9983b084aafe6ffcaf68f7363ea3fe4ded722be8a8f45a",
+      "channel": "tag-tree"
+    },
+    {
+      "upstreamPath": "/home/user/ft_up/components/projects/expansion-selected-20261007/expansion-selected-20261007/src/NovelScenes.tsx",
+      "copy": "NovelScenes.tsx",
+      "sha256": "ed2b5a341fbdcff7d8bbba48b351975c323832e21b759e4fe0f58e21639e5a7c",
+      "channel": "tag-tree"
+    },
+    {
+      "upstreamPath": "/home/user/ft_up/components/projects/expansion-selected-20261007/expansion-selected-20261007/src/OpeningScenes.tsx",
+      "copy": "OpeningScenes.tsx",
+      "sha256": "7ffd8e123f571e373a7012bed97ca238ce3ecc22631da6637ed284e3ec4451fe",
+      "channel": "tag-tree"
+    },
+    {
+      "upstreamPath": "/home/user/ft_up/components/projects/expansion-selected-20261007/expansion-selected-20261007/src/RecordingScenes.tsx",
+      "copy": "RecordingScenes.tsx",
+      "sha256": "9be3f5d0622018d546726e642e8c970534098c71b238b493f6aded9ee2612e92",
+      "channel": "tag-tree"
+    },
+    {
+      "upstreamPath": "/home/user/ft_up/components/projects/expansion-selected-20261007/expansion-selected-20261007/src/assets.json",
+      "copy": "assets.json",
+      "sha256": "93553fd4bd3cd1e45ccbc322c5d1b80635da6c3adc5fddff88231567c834a226",
+      "channel": "tag-tree"
+    },
+    {
+      "upstreamPath": "/home/user/ft_up/components/projects/expansion-selected-20261007/expansion-selected-20261007/src/fullscreen-video-window-geometry.ts",
+      "copy": "fullscreen-video-window-geometry.ts",
+      "sha256": "a4e69abe316ce8f3c161da709431da480519496c2225f70beef914b2bce01948",
+      "channel": "tag-tree"
+    },
+    {
+      "upstreamPath": "/home/user/ft_up/components/projects/expansion-selected-20261007/expansion-selected-20261007/src/index.tsx",
+      "copy": "index.tsx",
+      "sha256": "b27a41cda22c3aadb28d85976e1a4da5063395e655dc85f9a070918da2780deb",
+      "channel": "tag-tree"
+    },
+    {
+      "upstreamPath": "/home/user/ft_up/components/projects/expansion-selected-20261007/expansion-selected-20261007/src/shared.tsx",
+      "copy": "shared.tsx",
+      "sha256": "b589565211dd4ceca0aab1fdd3bbe57b3db327bc393747fd72c98977d9ab362b",
+      "channel": "tag-tree"
+    }
+  ],
+  "hostEdits": [
+    "host context import",
+    "Fonts -> OFL SmileySans",
+    "useT respects host speed",
+    "Brand removed",
+    "Frame background -> host",
+    "theme font -> LW font",
+    "configureTheme added",
+    "assets.json -> LW placeholders (upstream media not redistributed)"
+  ],
+  "sourcePatches": [],
+  "notes": "公开目录只登记 3 个文件，其余共享模块从公开 tag 的同一项目展开；共享宿主已替换字体/角标/音效，assets.json 指向 LW 占位素材。"
+}

@@ -1,0 +1,13 @@
+{
+  "endpoint": "POST http://127.0.0.1:4173/api/render-reference",
+  "request": {
+    "id": "FT-T14e-378",
+    "props": {"stats": [{"label": "测试接入", "value": 12, "suffix": " 条", "unit": "round-1"}, {"label": "渲染通过", "value": 12, "suffix": " 条", "unit": "MP4"}, {"label": "视觉通过", "value": 12, "suffix": " 条", "unit": "审片"}], "hero": 0},
+    "accent": "#c4553f",
+    "background": "#f5f3eb",
+    "speed": 1
+  },
+  "job": {"id": "c7012397-c2e9-49f6-8a34-ba2bcb98b9c7", "status": "done", "url": "/exports/c7012397-c2e9-49f6-8a34-ba2bcb98b9c7.mp4"},
+  "result": "external/fredtalk/batch/evidence/FT-T14e-378/studio-api.mp4",
+  "note": "End-to-end call through the LW Visual Studio server and generic fred-batch render branch. Params changed (accent #c4553f, hero 0) to prove user input reaches the component."
+}

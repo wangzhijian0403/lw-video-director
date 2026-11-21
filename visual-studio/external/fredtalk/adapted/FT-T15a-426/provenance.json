@@ -1,0 +1,59 @@
+{
+  "lwId": "FT-T15a-426",
+  "ftId": "T15a",
+  "name": "跑分条形图：条依次长出，主角高亮",
+  "category": "数值与图表",
+  "strategy": "kit-overlay",
+  "upstream": {
+    "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
+    "publicTag": "v2.5.0",
+    "project": null,
+    "officialUrl": "https://www.fred-fu.com/visual-library"
+  },
+  "license": {
+    "firstPartyCode": "MIT (FredTalk owner grant 2026-10-13)",
+    "thirdPartyMedia": "not covered; upstream media intentionally not redistributed",
+    "font": "SmileySans-Oblique OFL-1.1, unmodified, bundled by LW host",
+    "audio": "upstream SFX omitted; adapter is silent",
+    "attribution": "FredTalk component library; adapted by LW, not claimed as LW original"
+  },
+  "entry": "src/components/T15a-ScoreBars.tsx",
+  "files": [
+    {
+      "upstreamPath": "src/components/T15a-ScoreBars.tsx",
+      "copy": "components/T15a-ScoreBars.tsx",
+      "sha256": "91fb61d53fe11ba7e0a1a51fc15e0f9c4cc59ec7e7cb471ea457499f8b3e4178",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/theme.ts",
+      "copy": "kit/theme.ts",
+      "sha256": "a235e95c652137b43c31a9c680dabfd8fce3bbb45fac8559cd0af70ce2e9b1a3",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/ui.tsx",
+      "copy": "kit/ui.tsx",
+      "sha256": "05ce402324f5e11521b15dacc30de3ee1f89adb0a1b5c20b220a29890d8e3ba9",
+      "channel": "api",
+      "status": "verified"
+    }
+  ],
+  "hostEdits": [
+    "theme body -> LW font",
+    "theme display -> LW font",
+    "theme mono -> LW font",
+    "theme kai -> LW font",
+    "configureTheme added",
+    "host context import",
+    "useT respects host speed",
+    "Fonts -> OFL SmileySans",
+    "Brand removed",
+    "Sfx muted",
+    "Frame background -> host"
+  ],
+  "sourcePatches": [],
+  "notes": "跑分条形图；上游为模型跑分，本轮改为 LW 流水线统计并明确标注测试口径。"
+}

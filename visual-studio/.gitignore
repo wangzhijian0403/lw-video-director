@@ -14,3 +14,7 @@ test-results/
 !public/**/*.jpg
 !public/**/*.jpeg
 public/fredtalk/*.ttf
+
+# Round-1 render evidence and LW-owned placeholder clips must ship with the repo.
+!external/fredtalk/batch/evidence/**/*.mp4
+!public/fredtalk/media/*.mp4

@@ -1,0 +1,28 @@
+{
+  "id": "FT-T15a-426",
+  "checks": {
+    "decodes": true,
+    "frameCountMatches": true,
+    "fpsMatches": true,
+    "resolution1280x720": true,
+    "blackFrameRatio": 0.0,
+    "notMostlyBlack": true,
+    "meanLuma": 232.05,
+    "motionMean": 0.215,
+    "hasMotion": true,
+    "notFlatWhite": true,
+    "stills": 5,
+    "hasHeadMidTail": true
+  },
+  "notes": [],
+  "video": {
+    "width": 1280,
+    "height": 720,
+    "fps": 60.0,
+    "frames": 300,
+    "declaredFrames": 300,
+    "durationSec": 5.0,
+    "expectedFrames": 300,
+    "bytes": 236566
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "defaultProps": {
+    "image": "fredtalk/media/lw-ui-screenshot.png",
+    "imageSize": {
+      "w": 3024,
+      "h": 1712
+    },
+    "maskBoxes": [],
+    "maskColor": "#ffffff",
+    "label": "安装依赖",
+    "minutes": 8,
+    "prefix": "约",
+    "suffix": "分钟后"
+  },
+  "editableKeys": [
+    "image",
+    "imageSize",
+    "maskBoxes",
+    "maskColor",
+    "label",
+    "minutes",
+    "prefix",
+    "suffix"
+  ],
+  "accent": "#8554e8",
+  "background": "#f5f3eb",
+  "notes": "image 换成用户自己的录屏截图；label/minutes/prefix/suffix 为中文；maskBoxes 用于盖掉敏感区域。"
+}

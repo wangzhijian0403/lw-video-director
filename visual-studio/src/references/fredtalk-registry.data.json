@@ -1,0 +1,411 @@
+[
+  {
+    "id": "FT-OP03-467",
+    "ftId": "OP03",
+    "name": "圆形入口展开为视频窗",
+    "category": "录屏与视频入场",
+    "strategy": "project-expand",
+    "nativeFrames": 240,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#8554e8",
+    "background": "#f5f3eb",
+    "sampleProps": {
+      "src": "fredtalk/media/lw-recording.mp4"
+    },
+    "editableKeys": [
+      "src"
+    ],
+    "importPath": "../../external/fredtalk/adapted/FT-OP03-467/src/adapter",
+    "sourceFrames": 240
+  },
+  {
+    "id": "FT-RC02-471",
+    "ftId": "RC02",
+    "name": "整页镜头推近与回全貌",
+    "category": "录屏聚焦",
+    "strategy": "project-expand",
+    "nativeFrames": 480,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#e0a34b",
+    "background": "#f5f3eb",
+    "sampleProps": {
+      "src": "fredtalk/media/lw-recording.mp4",
+      "start": 1.0,
+      "roi": {
+        "x": 1292,
+        "y": 132,
+        "w": 557,
+        "h": 530
+      },
+      "clock": {
+        "freezeFrom": 2.2,
+        "freezeTo": 5.4
+      }
+    },
+    "editableKeys": [
+      "src",
+      "start",
+      "roi",
+      "clock"
+    ],
+    "importPath": "../../external/fredtalk/adapted/FT-RC02-471/src/adapter",
+    "sourceFrames": 480
+  },
+  {
+    "id": "FT-T05a-436",
+    "ftId": "T05a",
+    "name": "滑杆前后对比",
+    "category": "图片与作品",
+    "strategy": "kit-overlay",
+    "nativeFrames": 300,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#8554e8",
+    "background": "#f5f3eb",
+    "sampleProps": {
+      "before": "fredtalk/media/lw-work-01.jpg",
+      "after": "fredtalk/media/lw-work-02.jpg",
+      "beforeLabel": "上一版",
+      "afterLabel": "这一版",
+      "caption": "同一句提示词",
+      "rest": 0.6
+    },
+    "editableKeys": [
+      "before",
+      "after",
+      "beforeLabel",
+      "afterLabel",
+      "caption",
+      "rest"
+    ],
+    "importPath": "../../external/fredtalk/adapted/FT-T05a-436/src/adapter",
+    "sourceFrames": 300
+  },
+  {
+    "id": "FT-T09n-374",
+    "ftId": "T09n",
+    "name": "等待快进",
+    "category": "录屏聚焦",
+    "strategy": "kit-overlay",
+    "nativeFrames": 180,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#8554e8",
+    "background": "#f5f3eb",
+    "sampleProps": {
+      "image": "fredtalk/media/lw-ui-screenshot.png",
+      "imageSize": {
+        "w": 3024,
+        "h": 1712
+      },
+      "maskBoxes": [],
+      "maskColor": "#ffffff",
+      "label": "安装依赖",
+      "minutes": 8,
+      "prefix": "约",
+      "suffix": "分钟后"
+    },
+    "editableKeys": [
+      "image",
+      "imageSize",
+      "maskBoxes",
+      "maskColor",
+      "label",
+      "minutes",
+      "prefix",
+      "suffix"
+    ],
+    "importPath": "../../external/fredtalk/adapted/FT-T09n-374/src/adapter",
+    "sourceFrames": 180
+  },
+  {
+    "id": "FT-T09s-289",
+    "ftId": "T09s",
+    "name": "点击足迹：每次点击留下序号，最后连成一条路径回看",
+    "category": "讲解段落",
+    "strategy": "kit-overlay",
+    "nativeFrames": 180,
+    "fps": 30,
+    "width": 1280,
+    "height": 720,
+    "accent": "#2f7d6d",
+    "background": "#f7f5ef",
+    "sampleProps": {
+      "image": "fredtalk/media/lw-ui-screenshot.png",
+      "imageSize": {
+        "w": 3024,
+        "h": 1712
+      },
+      "clicks": [
+        {
+          "x": 150,
+          "y": 400,
+          "label": "素材",
+          "labelGap": 180
+        },
+        {
+          "x": 610,
+          "y": 260,
+          "label": "搜索",
+          "labelGap": 150
+        },
+        {
+          "x": 700,
+          "y": 740,
+          "label": "打开镜头",
+          "labelGap": 170
+        },
+        {
+          "x": 2100,
+          "y": 1090,
+          "label": "生成",
+          "labelGap": 150
+        },
+        {
+          "x": 1500,
+          "y": 1390,
+          "label": "看进度"
+        }
+      ],
+      "zoom": 1.35,
+      "summary": "改三处参数，就换成自己的素材",
+      "highlight": "自己的素材",
+      "maskBoxes": [],
+      "brand": false
+    },
+    "editableKeys": [
+      "image",
+      "imageSize",
+      "clicks",
+      "zoom",
+      "summary",
+      "highlight",
+      "maskBoxes"
+    ],
+    "importPath": "../../external/fredtalk/adapted/FT-T09s-289/src/adapter",
+    "sourceFrames": 180
+  },
+  {
+    "id": "FT-T12d-407",
+    "ftId": "T12d",
+    "name": "阶段胶囊：三枚胶囊建立，聚焦当前阶段",
+    "category": "内容交接",
+    "strategy": "kit-overlay",
+    "nativeFrames": 360,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#8554e8",
+    "background": "#f5f3eb",
+    "sampleProps": {
+      "items": [
+        {
+          "text": "拍摄前",
+          "highlight": "前"
+        },
+        {
+          "text": "拍摄中",
+          "highlight": "中"
+        },
+        {
+          "text": "拍摄后",
+          "highlight": "后"
+        }
+      ],
+      "focus": 1,
+      "background": "fredtalk/media/lw-workspace-bg.jpg"
+    },
+    "editableKeys": [
+      "items",
+      "focus",
+      "background"
+    ],
+    "importPath": "../../external/fredtalk/adapted/FT-T12d-407/src/adapter",
+    "sourceFrames": 360
+  },
+  {
+    "id": "FT-T12l-337",
+    "ftId": "T12l",
+    "name": "黑圆扩散：黑圆接管画面，序号落定后领出章节名",
+    "category": "内容交接",
+    "strategy": "kit-overlay",
+    "nativeFrames": 180,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#19191c",
+    "background": "#f5f3eb",
+    "sampleProps": {
+      "index": 3,
+      "label": "第 3 部分",
+      "title": "内容交接：换成新的章节名",
+      "origin": {
+        "x": 960,
+        "y": 540
+      }
+    },
+    "editableKeys": [
+      "index",
+      "label",
+      "title",
+      "origin"
+    ],
+    "importPath": "../../external/fredtalk/adapted/FT-T12l-337/src/adapter",
+    "sourceFrames": 180
+  },
+  {
+    "id": "FT-T14e-378",
+    "ftId": "T14e",
+    "name": "三个关键数字",
+    "category": "数值与图表",
+    "strategy": "kit-overlay",
+    "nativeFrames": 300,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#2f7d6d",
+    "background": "#f5f3eb",
+    "sampleProps": {
+      "stats": [
+        {
+          "label": "渲染耗时",
+          "value": 42,
+          "suffix": " 秒",
+          "unit": "1080p / 30fps"
+        },
+        {
+          "label": "素材占用",
+          "value": 128,
+          "suffix": " MB",
+          "unit": "单条组件"
+        },
+        {
+          "label": "复用组件",
+          "value": 12,
+          "suffix": " 条",
+          "unit": "本轮验收"
+        }
+      ],
+      "hero": 2
+    },
+    "editableKeys": [
+      "stats",
+      "hero"
+    ],
+    "importPath": "../../external/fredtalk/adapted/FT-T14e-378/src/adapter",
+    "sourceFrames": 300
+  },
+  {
+    "id": "FT-T15a-426",
+    "ftId": "T15a",
+    "name": "跑分条形图：条依次长出，主角高亮",
+    "category": "数值与图表",
+    "strategy": "kit-overlay",
+    "nativeFrames": 300,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#c4553f",
+    "background": "#f5f3eb",
+    "sampleProps": {
+      "items": [
+        {
+          "label": "自动接入",
+          "value": 135
+        },
+        {
+          "label": "需特殊适配",
+          "value": 43
+        },
+        {
+          "label": "源码阻塞",
+          "value": 0
+        }
+      ],
+      "highlight": 0,
+      "decimals": 0,
+      "prefix": "",
+      "suffix": " 条",
+      "caption": "LW 测试口径 · 非上游数据"
+    },
+    "editableKeys": [
+      "items",
+      "highlight",
+      "decimals",
+      "prefix",
+      "suffix",
+      "caption"
+    ],
+    "importPath": "../../external/fredtalk/adapted/FT-T15a-426/src/adapter",
+    "sourceFrames": 300
+  },
+  {
+    "id": "FT-T20a2-405",
+    "ftId": "T20a2",
+    "name": "成果先行开场（返修）：默认主图换单张作品",
+    "category": "图片与作品",
+    "strategy": "kit-overlay",
+    "nativeFrames": 300,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#2f7d6d",
+    "background": "#f5f3eb",
+    "sampleProps": {
+      "media": [
+        "fredtalk/media/lw-work-01.jpg",
+        "fredtalk/media/lw-work-02.jpg",
+        "fredtalk/media/lw-work-03.jpg",
+        "fredtalk/media/lw-work-04.jpg",
+        "fredtalk/media/lw-work-05.jpg",
+        "fredtalk/media/lw-work-06.jpg"
+      ],
+      "heroIndex": 0,
+      "hook": "这些图，一句话就能做出来？",
+      "highlight": "一句话"
+    },
+    "editableKeys": [
+      "media",
+      "heroIndex",
+      "hook",
+      "highlight"
+    ],
+    "importPath": "../../external/fredtalk/adapted/FT-T20a2-405/src/adapter",
+    "sourceFrames": 300
+  },
+  {
+    "id": "FT-T20f-395",
+    "ftId": "T20f",
+    "name": "先看结果再倒回来",
+    "category": "录屏与视频入场",
+    "strategy": "kit-overlay",
+    "nativeFrames": 300,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#f0bd84",
+    "background": "#f5f3eb",
+    "sampleProps": {
+      "media": "fredtalk/media/lw-recording.mp4",
+      "start": 0.5,
+      "title": "这是\n怎么做的？",
+      "highlight": "怎么做",
+      "badge": "成品"
+    },
+    "editableKeys": [
+      "media",
+      "start",
+      "title",
+      "highlight",
+      "badge"
+    ],
+    "importPath": "../../external/fredtalk/adapted/FT-T20f-395/src/adapter",
+    "sourceFrames": 300
+  }
+]

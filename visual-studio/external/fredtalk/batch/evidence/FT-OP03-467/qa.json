@@ -1,0 +1,28 @@
+{
+  "id": "FT-OP03-467",
+  "checks": {
+    "decodes": true,
+    "frameCountMatches": true,
+    "fpsMatches": true,
+    "resolution1280x720": true,
+    "blackFrameRatio": 0.0,
+    "notMostlyBlack": true,
+    "meanLuma": 242.47,
+    "motionMean": 0.548,
+    "hasMotion": true,
+    "notFlatWhite": true,
+    "stills": 5,
+    "hasHeadMidTail": true
+  },
+  "notes": [],
+  "video": {
+    "width": 1280,
+    "height": 720,
+    "fps": 60.0,
+    "frames": 240,
+    "declaredFrames": 240,
+    "durationSec": 4.0,
+    "expectedFrames": 240,
+    "bytes": 455186
+  }
+}

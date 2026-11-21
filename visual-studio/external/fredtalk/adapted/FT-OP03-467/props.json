@@ -1,0 +1,11 @@
+{
+  "defaultProps": {
+    "src": "fredtalk/media/lw-recording.mp4"
+  },
+  "editableKeys": [
+    "src"
+  ],
+  "accent": "#8554e8",
+  "background": "#f5f3eb",
+  "notes": "src 是圆形入口展开后播放的视频；换成用户自己的录屏/成片。"
+}

@@ -1,0 +1,59 @@
+{
+  "lwId": "FT-T09s-289",
+  "ftId": "T09s",
+  "name": "点击足迹：每次点击留下序号，最后连成一条路径回看",
+  "category": "讲解段落",
+  "strategy": "kit-overlay",
+  "upstream": {
+    "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
+    "publicTag": "v2.5.0",
+    "project": null,
+    "officialUrl": "https://www.fred-fu.com/visual-library"
+  },
+  "license": {
+    "firstPartyCode": "MIT (FredTalk owner grant 2026-10-13)",
+    "thirdPartyMedia": "not covered; upstream media intentionally not redistributed",
+    "font": "SmileySans-Oblique OFL-1.1, unmodified, bundled by LW host",
+    "audio": "upstream SFX omitted; adapter is silent",
+    "attribution": "FredTalk component library; adapted by LW, not claimed as LW original"
+  },
+  "entry": "source/src/components/T09s-ClickTrail.tsx",
+  "files": [
+    {
+      "upstreamPath": "source/src/components/T09s-ClickTrail.tsx",
+      "copy": "components/T09s-ClickTrail.tsx",
+      "sha256": "7d47a9d76fb9f6ebca88a06984849f1dc2ff00ef72a13a8ff5c60d8c0abf918a",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "source/src/kit/theme.ts",
+      "copy": "kit/theme.ts",
+      "sha256": "30d534daaab3c4b62468d23f16166939adfc89f94a02b954f6b0e3c05fc9701d",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "source/src/kit/ui.tsx",
+      "copy": "kit/ui.tsx",
+      "sha256": "05bdc4d6b17c5779e753c9a0b9c86c1dd7ef7e432666d6c49d0541ba367b1775",
+      "channel": "api",
+      "status": "verified"
+    }
+  ],
+  "hostEdits": [
+    "theme body -> LW font",
+    "theme display -> LW font",
+    "theme mono -> LW font",
+    "theme kai -> LW font",
+    "configureTheme added",
+    "host context import",
+    "useT respects host speed",
+    "Fonts -> OFL SmileySans",
+    "Brand removed",
+    "Sfx muted",
+    "Frame background -> host"
+  ],
+  "sourcePatches": [],
+  "notes": "点击足迹；上游为 Codex 真实截图，本轮换成 LW 自有占位截图，不声称像素一致。"
+}
