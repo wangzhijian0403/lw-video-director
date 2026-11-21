@@ -18,3 +18,9 @@ Thumbs.db
 *.png
 *.json
 *.csv
+
+# Project-local asset/voice/media state must never enter source control.
+projects/
+asset-runtime.local.json
+*.sqlite
+*.sqlite-*

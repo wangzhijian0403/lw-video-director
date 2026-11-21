@@ -12,7 +12,7 @@ import json
 import sys
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
+from lw_assets import ROOT as REPO_ROOT
 STUDIO = REPO_ROOT / "visual-studio"
 SUPPORTED_ASPECT = {"9:16": 9 / 16, "16:9": 16 / 9, "3:4": 3 / 4, "1:1": 1.0}
 
@@ -33,6 +33,32 @@ def inspect_episode(episode_path: Path, phase: str) -> dict:
     data = load_json(episode_path)
     if not isinstance(data, dict):
         raise ValueError("episode.json must be an object")
+    if data.get("schemaVersion") == "asset-engine/1":
+        from lw_assets import digest
+        from asset_timeline import compile_project
+        project = (episode_path.parent / data.get("assetEngine", {}).get("project", ".")).resolve()
+        try:
+            compiled = compile_project(project, data)
+            if phase == "render":
+                evidence_path = project / "metadata/runtime-evidence.json"
+                if not evidence_path.is_file():
+                    errors.append("asset timeline has no actual whole-film runtime evidence for this project")
+                else:
+                    evidence = load_json(evidence_path)
+                    qa_path, final = project / "qa.json", project / "renders/final.mp4"
+                    renderer = REPO_ROOT / "scripts/asset_timeline.py"
+                    if (evidence.get("rendererSha256") != digest(renderer)
+                            or not qa_path.is_file() or evidence.get("qaSha256") != digest(qa_path)
+                            or not final.is_file() or evidence.get("finalSha256") != digest(final)
+                            or evidence.get("output") != data["output"]
+                            or load_json(qa_path).get("status") != "technical-pass"):
+                        errors.append("asset runtime evidence/media is stale or not technically verified")
+        except (OSError, ValueError, KeyError, TypeError) as exc:
+            errors.append(str(exc)); compiled = {}
+        return {"phase": phase, "projectId": data.get("projectId"), "adapter": "asset-timeline-ffmpeg",
+                "shots": len(data.get("scenes", [])), "totalFrames": compiled.get("totalFrames"),
+                "errors": errors, "warnings": ["asset adapter verification does not imply universal Remotion production capability or visual approval"],
+                "status": "blocked" if errors else ("plan-ready" if phase == "plan" else "render-inputs-ready")}
     brief, output = data.get("brief", {}), data.get("output", {})
     if not isinstance(brief, dict) or not isinstance(output, dict):
         errors.append("brief/output must be objects")
@@ -165,6 +191,7 @@ def inspect_episode(episode_path: Path, phase: str) -> dict:
 
 
 def main() -> int:
+    sys.stdout.reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser(description="LW episode storyboard preflight (no video rendering)")
     parser.add_argument("episode", type=Path, help="Path to an episode.json manifest")
     parser.add_argument("--phase", choices=("plan", "render"), default="plan")

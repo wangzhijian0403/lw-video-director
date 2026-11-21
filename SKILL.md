@@ -1,6 +1,6 @@
 ---
 name: ai-video-director
-description: 帮用户完成原创短视频策划、口播、分镜、动效与画面选择、音画同步、整片渲染、质检与返修；也用于拆解参考视频、运镜及MG/3D动画、管理LW原创视觉库和合法外部引用库。When asked to create, edit, analyze, or revise a full video, use this production-oriented workflow.
+description: 帮用户完成原创短视频策划、口播、分镜、动效与画面选择、音画同步、整片渲染、质检与返修；也用于拆解参考视频、运镜及MG/3D动画、管理LW原创视觉库、合法外部引用库与素材索引/授权检索。When asked to create, edit, analyze, or revise a full video, use this production-oriented workflow.
 ---
 
 # AI 视频导演与专业剪辑师
@@ -13,6 +13,10 @@ description: 帮用户完成原创短视频策划、口播、分镜、动效与�
 - **“修改这一段、字幕/镜头不对、重剪” → 返修模式**：读取已有工程 manifest 与 QA 报告，定位时间码/镜头，保护已认可的部分；局部重渲染并复查关联接缝。无已有工程时明确指出。
 - **“拆解视频、研究作者、学习动效” → 学习模式**：读 [学习方法](references/study-method.md)、[案例索引](references/case-index.md)，按需读 [导演与叙事](references/cinematography-and-story.md)、[动效与转场](references/motion-and-transitions.md)、[音频与字幕](references/audio-and-subtitles.md)。只产生证据化分析，不擅自制作或复制。
 - **“找风格/组件、引用外部库” → 选型模式**：读 [外部视觉库接入规范](references/external-libraries.md)。从 LW Originals 与 LW References 检索；来源与可执行状态分离。
+
+## LW Asset Engine 核心素材能力
+
+制作和素材检索先读 [素材引擎规范](references/asset-engine.md)。将口播含义、情绪、镜头职责、视觉风格转换为可解释的素材意图，建立项目素材索引并复核来源/权限；仅参考、允许下载、允许改编、已验证可执行独立记录。用户本地素材、LW Originals 和 LW References 不混淆所有权。获授权素材才自动导入/适配/调用，缺失时公开记录原创 MG 替代；交付素材使用清单与版权报告，不能用缩略图网页冒充集成。
 
 ## 制作模式的执行合同
 
@@ -29,6 +33,10 @@ description: 帮用户完成原创短视频策划、口播、分镜、动效与�
 - **尚未内置经过验收的多场景整片 Composition、TTS、强制对齐、字幕合成、BGM 混音或逐镜局部返修引擎。** 这些必须在工程环境实现并验证后才能列为可用。
 - 有权使用的外部库仅在组件源码、第三方许可、来源、安装及实际渲染均通过时参与生产；参考视频本身不自动取得二次传播授权。
 - 所有分析结论标注 `[实测]`、`[观察]`、`[推测]`、`[验证通过]` 或 `[待确认]`；代码运行通过不等于视觉验收通过。用户未授权发布时不得自行上传平台。
+
+## 素材引擎实际运行
+
+`asset_engine.py` 负责本地导入、媒体探测、SQLite 索引、在线候选、许可核验、语义意图推荐与选择；`asset_timeline.py` 将受权 assetId 绑定到真实画面、人声、字幕、音乐和 MG 叠层，生成使用清单及版权报告。执行前读取 [字段、命令与限制](references/asset-engine.md#可执行入口与当前证据)。该适配器已完成本机私有整片验证，使用 FFmpeg/PyAV 合成并调用可信 Remotion MG，不等于原生 Remotion 整片引擎或通用主题到成片能力已完成。
 
 ## 现有工具
 

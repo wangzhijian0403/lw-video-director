@@ -28,6 +28,10 @@
 
 选择组件前必须读取当前 `visual-studio/src/catalog/manifest.json`、`quality.json`、`external/catalog.json` 的**真实可用状态**；只有渲染通过的组件可直接选择。类别不足时可为本期原创新场景，但需实际渲染验证；不以同一动效机械重复全片。
 
+### C2. LW Asset Engine 素材解析与调用
+
+读取 [素材引擎规范](asset-engine.md)。先导入口播对应的结构化语义，按镜头职责、情绪与主视觉推荐素材；再核验来源、授权范围与哈希，编译 assetId 到项目时间轴。在线候选默认只参考，未获授权不下载/使用；允许下载、允许改编和可执行互不替代。所有媒体、字体、MG、配音、音乐和音效使用同一台账。缺失素材时明确记录原创 MG 替代；最终强制生成使用清单和版权报告。
+
 ### D. 声画制作与同步
 
 配音为主轨，BGM/SFX 只用获授权的素材。按对齐的时间码布置字幕，字幕要控制字数、停留和安全区域。场景应在真实句意转折处衔接，不能只把若干独立 MP4 片段首尾相连。入场/停留/退场和跨场景镜头状态按场景关系设计。若没有能实际运行的整片 Composition/混音/字幕模块，不进入“成片已完成”状态。
@@ -48,7 +52,7 @@
 4. `qa.json`：技术与审片结论、已知问题、真实测试环境；
 5. `assets.json`：媒体、字体、BGM、外部源码的出处、许可和是否可发布。
 
-若尚缺 TTS、分镜时间轴、整片渲染器或字幕模块，输出项目目前的 **draft / preflight-blocked / render-ready / rendered / reviewed** 状态，不声称全自动完成。当前 repo 只具单组件渲染，整片编排依赖后续开发。
+若尚缺 TTS、分镜时间轴、整片渲染器或字幕模块，输出项目目前的 **draft / preflight-blocked / render-ready / rendered / reviewed** 状态，不声称全自动完成。v0.2 单组件渲染仍独立；新增 Asset Engine FFmpeg/PyAV 适配器已做本机私有整片技术验证，见素材引擎规范。它不替代尚未验收的原生 Remotion 整片 Composition、通用 ASR 或主题自动创作。
 
 ## 预检用法
 
@@ -58,3 +62,6 @@ python scripts/episode_preflight.py templates/episode-manifest.example.json --ph
 ```
 
 计划态应能识别合理的镜头表；渲染态对例子中的缺口必须报错。只有实际整片引擎经过测试并在 `visual-studio/production/capabilities.json` 记录已验证能力后，才能将渲染态门禁打开。不要手动写假能力来绕过门禁。
+
+
+对 `schemaVersion: asset-engine/1`，预检调用同一素材编译器；render 门禁核对本项目真实 QA、成片哈希、输出规格及当前适配器源码哈希，不接受只改 capability 布尔值。其他旧 manifest 继续遵守原门禁。
