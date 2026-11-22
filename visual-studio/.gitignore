@@ -13,3 +13,7 @@ test-results/
 !public/**/*.png
 !public/**/*.jpg
 !public/**/*.jpeg
+
+# 用户自制角色媒体为私有资产：以上 public 图片例外不适用于角色目录
+public/characters/
+public/characters/**

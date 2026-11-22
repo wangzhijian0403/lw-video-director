@@ -1,6 +1,22 @@
 import type {Params, ThemeId} from '../catalog/types';
+import type {UserCharacterId, UserCharacterAction} from '../components/characters/UserCharacterActor';
 
 export type TransitionType = 'cut' | 'fade' | 'slide' | 'zoom' | 'wipe';
+
+/** 时间轴上的用户角色叠加槽位（私有本地媒体，不进 Git / 不上传） */
+export type CharacterSlot = {
+  characterId: UserCharacterId;
+  action?: UserCharacterAction;
+  /** 1920×1080 基准坐标 */
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  /** 秒；缺省从 0 开始，时长缺省吃到整片末尾 */
+  start?: number;
+  duration?: number;
+  opacity?: number;
+};
 
 export type Transition = {type: TransitionType; duration: number};
 
@@ -59,6 +75,10 @@ export type ProjectFile = {
   timing?: 'vo' | 'fixed';
   voDuration?: number;
   scenes: SceneSpec[];
+  /** 用户角色叠加槽位（私有本地媒体） */
+  characters?: CharacterSlot[];
+  /** Node 渲染层写入的媒体存在性校验表：`角色/动作 -> 是否存在`，浏览器侧不生成 */
+  _characterMedia?: Record<string, boolean>;
 };
 
 // ---- 以下为 buildTimeline() 的输出结构（渲染侧只读） ----
@@ -80,6 +100,32 @@ export type TimelineScene = {
 
 export type TimelineCue = {from: number; duration: number; start: number; end: number; text: string; lines: string[]};
 
+/** 角色条目（与 characterRegistry.mjs 对齐的宽松结构，渲染侧只读） */
+export type CharacterEntryInfo = {
+  status: 'verified-basic' | 'wired-pending';
+  kind: 'video' | 'image';
+  file: string;
+  safeRange?: {start: number; end: number};
+  loopAllowed: boolean;
+  note: string;
+};
+
+export type TimelineCharacter = {
+  characterId: string;
+  action: string;
+  entry: CharacterEntryInfo | null;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  from: number;
+  duration: number;
+  opacity: number;
+  /** null = 未做文件系统校验（浏览器侧）；false = Node 层确认私有媒体缺失 */
+  mediaPresent: boolean | null;
+  errors: string[];
+};
+
 export type Timeline = {
   fps: number;
   width: number;
@@ -89,6 +135,8 @@ export type Timeline = {
   totalFrames: number;
   totalSeconds: number;
   scenes: TimelineScene[];
+  characters: TimelineCharacter[];
+  characterErrors: string[];
   audio: {
     vo: {src: string; from: number; start: number; duration: number; volume: number; fadeIn: number; fadeOut: number} | null;
     /** 分镜配音：每条独立落轨 */

@@ -9,6 +9,7 @@ import {FiberBridge} from '../components/papermaking/FiberBridge';
 import {MistMountains} from '../components/backdrop/MistMountains';
 import {buildTimeline, transitionPhase} from './timeline.mjs';
 import type {ProjectFile, TimelineScene} from './types';
+import {UserCharacterActor} from '../components/characters/UserCharacterActor';
 
 const resolveSrc = (src: string) =>
   /^(https?:|data:|blob:)/.test(src) ? src : staticFile(src.replace(/^\/+/, ''));
@@ -183,7 +184,7 @@ const CueView: React.FC<{cue: {duration: number; lines: string[]}; fontSize: num
               lineHeight: 1.28,
               fontWeight: 700,
               letterSpacing: 1,
-              textShadow: '0 0 14px #F8F7F2, 0 0 6px #F8F7F2, 0 1px 2px rgba(20,32,43,.32)',
+              textShadow: '0 0 4px rgba(248,247,242,.45), 0 1px 2px rgba(20,32,43,.3)',
               padding: '0 .4em',
             }}
           >
@@ -252,6 +253,29 @@ export const ProjectVideo: React.FC<{project: ProjectFile}> = ({project}) => {
           </Sequence>
         );
       })}
+
+      {timeline.characters.map((c, i) => (
+        <Sequence
+          key={`char-${i}-${c.characterId}-${c.action}`}
+          from={c.from}
+          durationInFrames={c.duration}
+          name={`CHAR-${c.characterId}-${c.action}`}
+        >
+          <UserCharacterActor
+            characterId={c.characterId}
+            action={c.action}
+            entry={c.entry}
+            mediaPresent={c.mediaPresent}
+            errors={c.errors}
+            x={c.x}
+            y={c.y}
+            width={c.width}
+            height={c.height}
+            durationInFrames={c.duration}
+            opacity={c.opacity}
+          />
+        </Sequence>
+      ))}
 
       {timeline.subtitles.enabled ? <SubtitleLayer timeline={timeline} /> : null}
 

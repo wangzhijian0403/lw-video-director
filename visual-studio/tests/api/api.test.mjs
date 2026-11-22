@@ -1,10 +1,11 @@
 import test from 'node:test';import assert from 'node:assert/strict';
+import manifest from '../../src/catalog/manifest.json' with {type:'json'};
 const base=process.env.LW_TEST_BASE_URL; if(!base)throw new Error('Run npm run test:api to manage the test server automatically');
 test('workbench serves successfully',async()=>{const r=await fetch(base);assert.equal(r.status,200);assert.match(await r.text(),/LW Visual Studio/)});
 test('unknown render job is not found',async()=>{assert.equal((await fetch(`${base}/api/jobs/missing`)).status,404)});
 test('external origins cannot submit renders',async()=>{const r=await fetch(`${base}/api/render`,{method:'POST',headers:{Origin:'https://example.com','Content-Type':'application/json'},body:'{}'});assert.equal(r.status,403)});
 test('download path rejects arbitrary filenames',async()=>{assert.equal((await fetch(`${base}/exports/private.txt`)).status,404)});
-test('unified catalog separates originals and references',async()=>{const own=await(await fetch(`${base}/api/catalog?library=originals`)).json();const mp=await(await fetch(`${base}/api/catalog?provider=Motion%20Prompt`)).json();assert.equal(own.length,5);assert.equal(mp.length,240);assert.ok(mp.every(c=>c.provider==='Motion Prompt'));});
+test('unified catalog separates originals and references',async()=>{const own=await(await fetch(`${base}/api/catalog?library=originals`)).json();const mp=await(await fetch(`${base}/api/catalog?provider=Motion%20Prompt`)).json();assert.equal(own.length,manifest.components.length);assert.equal(mp.length,240);assert.ok(mp.every(c=>c.provider==='Motion Prompt'));});
 test('only validated external sources enter production candidates',async()=>{const c=await(await fetch(`${base}/api/production-candidates`)).json();assert.equal(c.length,6);assert.ok(c.some(c=>c.id==='MP-001'));assert.ok(!c.some(c=>c.provider==='FredTalk'||c.id==='MP-002'));});
 test('server rejects metadata-only external render requests',async()=>{const r=await fetch(`${base}/api/render-reference`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:'MP-002',speed:1,scale:1})});assert.equal(r.status,400)});
 test('server rejects unvalidated render payloads',async()=>{const r=await fetch(`${base}/api/render`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({componentId:'TYPE-001',theme:'swiss',params:{title:'bad'}})});assert.equal(r.status,400)});

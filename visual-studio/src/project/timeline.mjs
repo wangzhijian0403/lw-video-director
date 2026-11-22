@@ -9,6 +9,8 @@
  *  2) episode.json —— 帧精确式，场景带 startFrame/durationFrames/componentId/props，
  *     直接按给定帧排布，不做重叠（与 episode_preflight.py 的契约一致）。
  */
+import {getCharacterEntry, CHARACTER_IDS} from '../components/characters/characterRegistry.mjs';
+
 export const DEFAULT_FPS = 30;
 export const TRANSITIONS = ['cut', 'fade', 'slide', 'zoom', 'wipe'];
 export const SAFE_MARGIN = 0.075;
@@ -354,6 +356,57 @@ export function buildTimeline(project = {}) {
           })
           .filter((c) => c.duration > 0 && c.from < totalFrames);
 
+  // 用户角色叠加层：秒 → 帧；校验角色 ID / 动作白名单 / 起止时间 / 位置，夹紧到整片与画布。
+  // 媒体存在性不在此处访问文件系统：Node 渲染层把校验结果写入 project._characterMedia。
+  const mediaMap = project._characterMedia && typeof project._characterMedia === 'object' ? project._characterMedia : {};
+  const characterErrors = [];
+  const characters = (Array.isArray(project.characters) ? project.characters : [])
+    .map((c, i) => {
+      const slotNo = i + 1;
+      const errors = [];
+      const characterId = typeof c?.characterId === 'string' ? c.characterId : '';
+      const action = typeof c?.action === 'string' && c.action ? c.action : 'idle';
+      const entry = getCharacterEntry(characterId, action);
+      if (!entry) {
+        if (!CHARACTER_IDS.includes(characterId)) errors.push(`角色槽位 ${slotNo}：未知角色 ID「${characterId}」`);
+        else errors.push(`角色槽位 ${slotNo}：角色「${characterId}」不支持动作「${action}」`);
+      }
+      const start = isNum(c.start) ? c.start : 0;
+      const totalSec = totalFrames / fps;
+      const durSec = isNum(c.duration) ? c.duration : Math.max(0.2, totalSec - Math.max(0, start));
+      if (!isNum(c.start) || start < 0) errors.push(`角色槽位 ${slotNo}：起始时间必须为不小于 0 的秒数`);
+      if (!isNum(c.duration) || durSec <= 0) errors.push(`角色槽位 ${slotNo}：时长必须大于 0 秒`);
+      const sx = isNum(c.x) ? c.x : 100;
+      const sy = isNum(c.y) ? c.y : 100;
+      const sw = isNum(c.width) && c.width > 0 ? c.width : 380;
+      const sh = isNum(c.height) && c.height > 0 ? c.height : 380;
+      if (!Number.isFinite(sx) || !Number.isFinite(sy)) errors.push(`角色槽位 ${slotNo}：位置必须为有效数字`);
+      if (sw <= 0 || sh <= 0) errors.push(`角色槽位 ${slotNo}：宽高必须大于 0`);
+
+      const from = Math.max(0, round(start * fps));
+      const duration = Math.max(1, Math.min(round(durSec * fps), totalFrames - from));
+      if (from >= totalFrames) errors.push(`角色槽位 ${slotNo}：起始时间超出整片时长`);
+
+      // 位置夹紧到画布内，避免角色出画
+      const cw = Math.min(Math.max(40, sw), width);
+      const ch = Math.min(Math.max(40, sh), height);
+      const cx = Math.min(Math.max(0, sx), Math.max(0, width - cw));
+      const cy = Math.min(Math.max(0, sy), Math.max(0, height - ch));
+      const opacity = isNum(c.opacity) ? Math.max(0, Math.min(1, c.opacity)) : 1;
+
+      const mediaKey = entry ? `${characterId}/${action}` : null;
+      const mediaPresent = mediaKey && Object.prototype.hasOwnProperty.call(mediaMap, mediaKey)
+        ? Boolean(mediaMap[mediaKey])
+        : null;
+
+      if (errors.length) characterErrors.push(...errors);
+      return {
+        characterId, action, entry,
+        x: cx, y: cy, width: cw, height: ch,
+        from, duration, opacity, mediaPresent, errors,
+      };
+    });
+
   return {
     fps,
     width,
@@ -364,6 +417,8 @@ export function buildTimeline(project = {}) {
     totalSeconds: +(totalFrames / fps).toFixed(3),
     precise,
     scenes,
+    characters,
+    characterErrors,
     audio: {vo: voTrack, voSegments, bgm, sfx: sfxEvents},
     subtitles: {
       enabled: subIn.enabled !== false && subtitleCues.length > 0,
