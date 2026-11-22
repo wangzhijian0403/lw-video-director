@@ -59,3 +59,5 @@ description: 帮用户完成原创短视频策划、口播、分镜、动效与�
 `scripts/inspect_media.py` 清点、去重与流探测；`extract_frames.py` 抽帧；`detect_shot_candidates.py` 检测候选；`analyze_audio.py` 测量混合音轨；`validate_export.py` 检查输出；`render_components.py` 渲染原创 **2D 演示**。脚本支持 `--help`。实际用法和限制见 [工作流与验收](references/workflow-and-qa.md)、[音频与字幕](references/audio-and-subtitles.md)。
 
 修改代码和知识库时保留来源、版本、数据和测试记录，不覆盖用户原片或已有工程；在独立工作区/分支开发，不静默改写全局 Skill。
+
+**工作台导航规则（统一资源库）**：工作台的 `Originals` 是唯一已安装资源入口，左侧保留15条原创组件的分类，同时进入3个原创分层场景、16条FredTalk已集成动效、24个Tabler SVG图标和5个本地角色登记。`References` 仅供外部参考检索，不能当作已执行代码。新版不再另设顶层「素材图鉴」。资源类别的浏览预览**不等于可单键导出**：当前右上角单组件MP4导出只支持Originals原有组件；新增资源须通过 `ProjectVideo`/`project.json` 的已有整片命令渲染。验证通过的 `fish/wave` 与 `codex/typing` 若本机存在私有WebM，可以在浅/深背景预览安全片段；其他角色只登记未通过状态。不要上传私有媒体。
