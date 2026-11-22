@@ -1,6 +1,6 @@
 {
   "schemaVersion": "lw-fredtalk-production/1",
-  "review": "visual-preliminary-approved",
+  "review": "15 visual-initial-approved + 1 previously end-to-end verified",
   "sourcePr": 8,
   "codeLicense": "First-party MIT only; verify media/fonts independently",
   "entries": [
@@ -108,6 +108,13 @@
       "stage": "visual-initial-approved",
       "editable": true,
       "source": "visual-studio/external/fredtalk/adapted/FT-T04f-369/src/adapter.tsx"
+    },
+    {
+      "id": "FT-T03e-414",
+      "label": "折行步骤流程",
+      "stage": "prior-e2e-verified",
+      "editable": true,
+      "source": "visual-studio/external/fredtalk/t03e/src/components/T03e-StepChain.tsx"
     }
   ]
 }
