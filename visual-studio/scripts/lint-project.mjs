@@ -86,6 +86,55 @@ export function lintProject(project, {publicDir = path.join(ROOT, 'public'), bas
     }
   }
 
+  // 5a. 具备真实授权来源的本地图标：组件在场景上叠加，而不是伪装成 FredTalk ID。
+  const iconManifest = JSON.parse(fs.readFileSync(path.join(ROOT, 'src', 'resource-packs', 'tabler-outline.json'), 'utf8'));
+  const iconMap = new Map(iconManifest.entries.map((e) => [e.id, e]));
+  if (project.iconOverlays !== undefined && !Array.isArray(project.iconOverlays)) {
+    errors.push('iconOverlays 必须是数组');
+  }
+  (Array.isArray(project.iconOverlays) ? project.iconOverlays : []).forEach((icon, i) => {
+    const label = '图标叠层 ' + (i + 1);
+    const asset = iconMap.get(icon?.id);
+    if (!asset) {
+      errors.push(label + ' 未知或未授权的图标 ID：' + String(icon?.id));
+      return;
+    }
+    if (!fs.existsSync(path.join(publicDir, asset.publicPath))) {
+      errors.push(label + ' 本地SVG不存在：' + asset.publicPath);
+    }
+    if (![icon.at, icon.duration, icon.x, icon.y, icon.size].every(Number.isFinite)) {
+      errors.push(label + ' 时间、位置、尺寸必须是有限数字');
+      return;
+    }
+    if (icon.at < 0 || icon.duration < 0.5 || icon.at + icon.duration > timeline.totalSeconds + 0.04) {
+      errors.push(label + ' 时间越界或短于0.5秒');
+    }
+    if (icon.x < 0 || icon.y < 0 || icon.size < 24 || icon.x + icon.size > w) {
+      errors.push(label + ' 尺寸/横向位置越界（至少24px）');
+    }
+    const safeBottom = sub.enabled !== false ? h * 0.82 : h;
+    const labelSpace = icon.label ? Math.max(30, Math.round(icon.size * 0.3)) : 0;
+    if (icon.y + icon.size + labelSpace + 25 > safeBottom) {
+      errors.push(label + ' 遮挡底部字幕安全区或超出画幅');
+    }
+    if (icon.motion && !['reveal', 'float', 'pulse', 'wipe'].includes(icon.motion)) {
+      errors.push(label + ' 不支持的入场动效：' + icon.motion);
+    }
+    if (icon.plate && !['none', 'soft'].includes(icon.plate)) {
+      errors.push(label + ' 不支持的底板类型：' + icon.plate);
+    }
+    if (icon.color && !/^#[0-9a-fA-F]{6}$/.test(icon.color)) {
+      errors.push(label + ' 颜色应使用 #RRGGBB');
+    }
+    if (icon.opacity !== undefined &&
+        (!Number.isFinite(icon.opacity) || icon.opacity < 0 || icon.opacity > 1)) {
+      errors.push(label + ' opacity 必须在0–1范围');
+    }
+    if (icon.label && (typeof icon.label !== 'string' || [...icon.label].length > 20)) {
+      errors.push(label + ' 标签必须是至多20字的文本');
+    }
+  });
+
   // 6. 音频与音效
   const audio = project.audio ?? {};
   const hasSceneVo = scenes.some((s) => s.vo);
