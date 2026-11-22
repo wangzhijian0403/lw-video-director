@@ -90,6 +90,31 @@
 - 工作台导出 MP4：`external/fredtalk/batch/runs/batch-20/workbench-export/`（本地验收产物，默认不入库）
 - 逐组件状态：`external/fredtalk/batch/batches/batch-20-status.json`
 
+## 9. 全新克隆复核
+
+- 克隆：`/home/user/ft_verify_9dbce24` @ `9dbce24`
+- npm ci / build：True / True
+- 字体：`npm run setup:fred`（缺字体会导致渲染网络错误）
+- 测试：{'unit': 18, 'api': 9, 'python': 15, 'fredtalkNode': 5, 'fail': 0}
+- 上游源码：inventory {'rows': 432, 'kitOverlay': 135, 'fetched': True}
+
+| 抽样重渲 | 帧数 | 结果 |
+|---|---|---|
+| FT-T01b-431 | 300 | pass |
+| FT-T09s-289 | 180 | pass |
+| FT-T20f-395 | 300 | pass |
+
+### 输入指纹实测
+- `FT-T01b-431` 参数 `term`；未改参数：rendered=0 skipped=1
+- 改参数后：rendered=1 skipped=0；SHA `742f4183f55c` → `57617d1c9dcc`
+- 改回参数后 SHA 复原为 `742f4183f55c`
+
+### 自动选件
+- 用真正 `--all-kit --dry-run` 入口选中 20 条：`{"录屏与视频入场": 1, "录屏聚焦": 6, "内容交接": 5, "图片与作品": 2, "讲解段落": 6}`
+- IDs：`FT-OP03-467, FT-RC02-471, FT-T09c-421, FT-T09d-654, FT-T09d2-404, FT-T09f-424, FT-T09g-422, FT-T12h-361, FT-T12i-362, FT-T12k-336, FT-T12m-338, FT-T12n-339, FT-T11c-417, FT-T11d-418, FT-T05g-406, FT-T05h-366, FT-T05i-367, FT-T06b-433, FT-T08e-358, FT-T08l-294`
+- 注意：必须先运行 inventory.py 拉取 pinned 上游源码；只 npm ci 会导致 auto selection 只剩 2 条 project-expand。
+- 注意：workbench-export 与 render 的 props.json 现在是渲染输入事实来源；registry 过期不再造成错误跳过。
+
 ## 8. 边界
 
 - 机器 QA 只证明结构可解码；人工视觉审核单独记录，二者不互相替代。

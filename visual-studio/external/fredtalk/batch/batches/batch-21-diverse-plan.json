@@ -1,0 +1,313 @@
+{
+  "runId": "batch-21-diverse",
+  "createdAt": "2026-11-22T02:54:08.976780+00:00",
+  "strategy": "mixed",
+  "selection": "category mix {\"project-expand\": 2, \"录屏聚焦\": 6, \"内容交接\": 5, \"录屏与视频入场\": 5, \"图片与作品\": 2}; project-expand slice reuses verified round1 profiles",
+  "count": 20,
+  "components": [
+    {
+      "lwId": "FT-OP03-467",
+      "ftId": "OP03",
+      "category": "录屏与视频入场",
+      "strategy": "project-expand",
+      "entryFile": "OpeningScenes.tsx",
+      "entryExport": "OP03",
+      "defaultsExport": null,
+      "editableKeys": [
+        "src"
+      ]
+    },
+    {
+      "lwId": "FT-RC02-471",
+      "ftId": "RC02",
+      "category": "录屏聚焦",
+      "strategy": "project-expand",
+      "entryFile": "RecordingScenes.tsx",
+      "entryExport": "RC02",
+      "defaultsExport": null,
+      "editableKeys": [
+        "src",
+        "start",
+        "roi",
+        "clock"
+      ]
+    },
+    {
+      "lwId": "FT-T08b-443",
+      "ftId": "T08b",
+      "category": "录屏聚焦",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T08b-ReadmeScroll.tsx",
+      "entryExport": "ReadmeScroll",
+      "defaultsExport": "readmeScrollDefaults",
+      "editableKeys": [
+        "page",
+        "pageWidth",
+        "pageHeight",
+        "startY",
+        "focus",
+        "bodyTop"
+      ]
+    },
+    {
+      "lwId": "FT-T08d-444",
+      "ftId": "T08d",
+      "category": "录屏聚焦",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T08d-RegionMarks.tsx",
+      "entryExport": "RegionMarks",
+      "defaultsExport": "regionMarksDefaults",
+      "editableKeys": [
+        "image",
+        "imageWidth",
+        "imageHeight",
+        "regions"
+      ]
+    },
+    {
+      "lwId": "FT-T08i-356",
+      "ftId": "T08i",
+      "category": "录屏聚焦",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T08i-FrostedFact.tsx",
+      "entryExport": "FrostedFact",
+      "defaultsExport": "frostedFactDefaults",
+      "editableKeys": [
+        "media",
+        "start",
+        "fact",
+        "highlight",
+        "note",
+        "brand"
+      ]
+    },
+    {
+      "lwId": "FT-T09a-445",
+      "ftId": "T09a",
+      "category": "录屏聚焦",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T09a-ClickPath.tsx",
+      "entryExport": "ClickPath",
+      "defaultsExport": "clickPathDefaults",
+      "editableKeys": [
+        "image",
+        "imageSize",
+        "clicks",
+        "timing",
+        "maxZoom"
+      ]
+    },
+    {
+      "lwId": "FT-T09b-423",
+      "ftId": "T09b",
+      "category": "录屏聚焦",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T09b-EnableAuth.tsx",
+      "entryExport": "EnableAuth",
+      "defaultsExport": "enableAuthDefaults",
+      "editableKeys": [
+        "image",
+        "imageSize",
+        "entry",
+        "dialog",
+        "confirm",
+        "offLabel",
+        "onLabel"
+      ]
+    },
+    {
+      "lwId": "FT-T12a-448",
+      "ftId": "T12a",
+      "category": "内容交接",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T12a-PartTitle.tsx",
+      "entryExport": "PartTitle",
+      "defaultsExport": "partTitleDefaults",
+      "editableKeys": [
+        "index",
+        "label",
+        "title",
+        "dark"
+      ]
+    },
+    {
+      "lwId": "FT-T12b-428",
+      "ftId": "T12b",
+      "category": "内容交接",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T12b-StepNumber.tsx",
+      "entryExport": "StepNumber",
+      "defaultsExport": "stepNumberDefaults",
+      "editableKeys": [
+        "index",
+        "name",
+        "highlight"
+      ]
+    },
+    {
+      "lwId": "FT-T12c-429",
+      "ftId": "T12c",
+      "category": "内容交接",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T12c-CaseTurn.tsx",
+      "entryExport": "CaseTurn",
+      "defaultsExport": "caseTurnDefaults",
+      "editableKeys": [
+        "point",
+        "highlight",
+        "media",
+        "caseTitle"
+      ]
+    },
+    {
+      "lwId": "FT-T12e-408",
+      "ftId": "T12e",
+      "category": "内容交接",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T12e-ChapterBar.tsx",
+      "entryExport": "ChapterBar",
+      "defaultsExport": "chapterBarDefaults",
+      "editableKeys": [
+        "label",
+        "title"
+      ]
+    },
+    {
+      "lwId": "FT-T12g-430",
+      "ftId": "T12g",
+      "category": "内容交接",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T12g-ChapterRecap.tsx",
+      "entryExport": "ChapterRecap",
+      "defaultsExport": "chapterRecapDefaults",
+      "editableKeys": [
+        "chapters",
+        "current",
+        "highlight"
+      ]
+    },
+    {
+      "lwId": "FT-T20i-347",
+      "ftId": "T20i",
+      "category": "录屏与视频入场",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T20i-PullBack.tsx",
+      "entryExport": "PullBack",
+      "defaultsExport": "pullBackDefaults",
+      "editableKeys": [
+        "src",
+        "srcW",
+        "srcH",
+        "focus",
+        "zoomFrom",
+        "title",
+        "highlight"
+      ]
+    },
+    {
+      "lwId": "FT-T05f-419",
+      "ftId": "T05f",
+      "category": "图片与作品",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T05f-PhoneTriptych.tsx",
+      "entryExport": "PhoneTriptych",
+      "defaultsExport": "phoneTriptychDefaults",
+      "editableKeys": [
+        "screens",
+        "focus"
+      ]
+    },
+    {
+      "lwId": "FT-T09e-399",
+      "ftId": "T09e",
+      "category": "图片与作品",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T09e-ResultBrowse.tsx",
+      "entryExport": "ResultBrowse",
+      "defaultsExport": "resultBrowseDefaults",
+      "editableKeys": [
+        "items",
+        "open"
+      ]
+    },
+    {
+      "lwId": "FT-T05b-671",
+      "ftId": "T05b",
+      "category": "讲解段落",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T05b-BeforeNow.tsx",
+      "entryExport": "BeforeNow",
+      "defaultsExport": "beforeNowDefaults",
+      "editableKeys": [
+        "beforeLabel",
+        "beforeSteps",
+        "nowLabel",
+        "nowText",
+        "highlight"
+      ]
+    },
+    {
+      "lwId": "FT-T05b2-398",
+      "ftId": "T05b2",
+      "category": "讲解段落",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T05b2-BeforeNow.tsx",
+      "entryExport": "BeforeNow",
+      "defaultsExport": "beforeNowDefaults",
+      "editableKeys": [
+        "beforeLabel",
+        "beforeSteps",
+        "nowLabel",
+        "nowText",
+        "highlight"
+      ]
+    },
+    {
+      "lwId": "FT-T05c-446",
+      "ftId": "T05c",
+      "category": "讲解段落",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T05c-RewriteLine.tsx",
+      "entryExport": "RewriteLine",
+      "defaultsExport": "rewriteLineDefaults",
+      "editableKeys": [
+        "fileName",
+        "lines",
+        "target",
+        "oldText",
+        "newText",
+        "badge"
+      ]
+    },
+    {
+      "lwId": "FT-T05d-447",
+      "ftId": "T05d",
+      "category": "讲解段落",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T05d-ToolFaceOff.tsx",
+      "entryExport": "ToolFaceOff",
+      "defaultsExport": "toolFaceOffDefaults",
+      "editableKeys": [
+        "left",
+        "right",
+        "rows"
+      ]
+    },
+    {
+      "lwId": "FT-T05e-437",
+      "ftId": "T05e",
+      "category": "讲解段落",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T05e-FitOrNot.tsx",
+      "entryExport": "FitOrNot",
+      "defaultsExport": "fitOrNotDefaults",
+      "editableKeys": [
+        "fitLabel",
+        "unfitLabel",
+        "items",
+        "highlight"
+      ]
+    }
+  ],
+  "skipped": []
+}

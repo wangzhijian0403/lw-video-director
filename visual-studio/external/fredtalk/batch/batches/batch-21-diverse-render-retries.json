@@ -1,0 +1,12 @@
+{
+  "initialPass": 16,
+  "failed": [
+    "FT-T12c-429",
+    "FT-T12e-408",
+    "FT-T12g-430",
+    "FT-T20i-347"
+  ],
+  "reason": "Chromium 渲染进程先崩溃（Runtime.callFunctionOn Target closed），后续条目报 Target.createTarget Failed to open a new tab，属级联错误；组件适配和素材未变。",
+  "retryPass": 4,
+  "command": "LW_BROWSER=/usr/local/bin/chromium node tools/fredtalk/render_batch.mjs --plan external/fredtalk/batch/runs/batch-21-diverse/plan.json --only FT-T12c-429 FT-T12e-408 FT-T12g-430 FT-T20i-347 --force"
+}

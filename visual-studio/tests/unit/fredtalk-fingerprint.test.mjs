@@ -1,6 +1,9 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {computeInputFingerprint, shouldRender} from '../../tools/fredtalk/fingerprint.mjs';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import {computeInputFingerprint, hydrateEntryFromProps, shouldRender} from '../../tools/fredtalk/fingerprint.mjs';
 
 const entry = {
   id: 'FT-TEST-1',
@@ -17,6 +20,17 @@ const entry = {
 
 test('fingerprint is stable for identical inputs', () => {
   assert.equal(computeInputFingerprint(entry), computeInputFingerprint(structuredClone(entry)));
+});
+
+test('props.json hydration changes the fingerprint', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'lw-props-'));
+  const propsPath = path.join(dir, 'props.json');
+  const clone = structuredClone(entry);
+  const before = computeInputFingerprint(clone);
+  fs.writeFileSync(propsPath, JSON.stringify({defaultProps: {title: 'edited'}}));
+  hydrateEntryFromProps(clone, propsPath);
+  assert.notEqual(computeInputFingerprint(clone), before);
+  fs.rmSync(dir, {recursive: true, force: true});
 });
 
 test('source, props, theme and adapter version all invalidate the fingerprint', () => {

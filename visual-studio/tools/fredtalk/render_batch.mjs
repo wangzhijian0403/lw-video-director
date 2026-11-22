@@ -11,7 +11,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {bundle} from '@remotion/bundler';
 import {renderMedia, renderStill, selectComposition} from '@remotion/renderer';
-import {computeInputFingerprint, fingerprintParts, shouldRender} from './fingerprint.mjs';
+import {computeInputFingerprint, fingerprintParts, hydrateEntryFromProps, shouldRender} from './fingerprint.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const vs = path.resolve(here, '../..');
@@ -19,6 +19,11 @@ const evidenceRoot = path.join(vs, 'external/fredtalk/batch/evidence');
 const runsRoot = path.join(vs, 'external/fredtalk/batch/runs');
 const registryPath = path.join(vs, 'src/references/fredtalk-registry.data.json');
 const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
+// props.json is the source of truth for editable defaults. Registry may be stale
+// after a manual parameter change; hydration keeps the fingerprint honest.
+for (const entry of registry) {
+  hydrateEntryFromProps(entry, path.join(vs, 'external/fredtalk/adapted', entry.id, 'props.json'));
+}
 const argv = process.argv.slice(2);
 
 function argValue(flag) {

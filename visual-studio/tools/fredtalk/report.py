@@ -281,7 +281,35 @@ def write_run(run_id: str) -> None:
            f"- 视频与帧：`external/fredtalk/batch/runs/{run_id}/evidence/<LW-ID>/`（本地运行产物，默认不入库）",
            f"- 工作台导出 MP4：`external/fredtalk/batch/runs/{run_id}/workbench-export/`（本地验收产物，默认不入库）",
            f"- 逐组件状态：`external/fredtalk/batch/batches/{run_id}-status.json`",
-           "", "## 8. 边界\n",
+           "", "## 9. 全新克隆复核\n",
+           f"- 克隆：`{fc.get('clone')}` @ `{fc.get('commit')}`" if (fc := (load(BATCH / "batches" / "fresh-clone-verification.json", {}) if (BATCH / "batches" / "fresh-clone-verification.json").exists() else {})) else "- 未执行。",
+           f"- npm ci / build：{fc.get('npmCi')} / {fc.get('build')}" if fc else "-",
+           f"- 字体：`{fc.get('fontSetup')}`（缺字体会导致渲染网络错误）" if fc else "-",
+           f"- 测试：{fc.get('tests')}" if fc else "-",
+           f"- 上游源码：inventory {fc.get('inventory')}" if fc else "-",
+           "",
+           "| 抽样重渲 | 帧数 | 结果 |", "|---|---|---|",
+           *( [f"| {x['id']} | {x['frames']} | {x['status']} |" for x in fc.get("sampleRenders", [])] if fc else [] ),
+           "",
+           "### 输入指纹实测",
+           *([f"- `{fc['fingerprintChange'].get('id')}` 参数 `{fc['fingerprintChange'].get('param')}`；未改参数：{fc['fingerprintChange'].get('unchangedRun')}",
+              f"- 改参数后：{fc['fingerprintChange'].get('changedRun')}；SHA `{fc['fingerprintChange'].get('oldSha256','')[:12]}` → `{fc['fingerprintChange'].get('newSha256','')[:12]}`",
+              f"- 改回参数后 SHA 复原为 `{fc['fingerprintChange'].get('restoredSha256','')[:12]}`",
+              "",
+              "### 自动选件",
+              f"- 用真正 `--all-kit --dry-run` 入口选中 {fc.get('autoSelection',{}).get('count')} 条：`{json.dumps(fc.get('autoSelection',{}).get('categories'), ensure_ascii=False)}`",
+              f"- IDs：`{', '.join(fc.get('autoSelection',{}).get('ids', []))}`",
+              *[f"- 注意：{n}" for n in fc.get("notes", [])]] if fc else ["- 未执行。"]),
+           "", "## 9. 渲染重试\n"]
+    retry_file = BATCH / "batches" / f"{run_id}-render-retries.json"
+    if retry_file.exists():
+        rr = load(retry_file, {})
+        md += [f"- 首轮：{rr.get('initialPass')} 条通过；{len(rr.get('failed', []))} 条失败。",
+               f"- 失败原因：{rr.get('reason')}",
+               f"- 新进程重跑：{rr.get('retryPass')} 条通过，未改组件内容。",
+               f"- 重跑命令：`{rr.get('command')}`"]
+    md += [
+           "", "## 10. 边界\n",
            "- 机器 QA 只证明结构可解码；人工视觉审核单独记录，二者不互相替代。",
            "- 上游媒体不随 MIT；本批次默认使用 LW 自占位素材，T04e 使用自有公开仓库页面截图。",
            "- `batch/runs/` 不永久提交，避免 432 条视频撑大仓库。\n"]

@@ -1,5 +1,6 @@
 // Deterministic render-input fingerprint. Pure module, used by render_batch.mjs and tests.
 import crypto from 'node:crypto';
+import fs from 'node:fs';
 
 export const RENDER_INPUT_SCHEMA = 2;
 export const DEFAULT_SPEED = 1;
@@ -11,6 +12,15 @@ function canonical(value) {
     return `{${keys.map((k) => `${JSON.stringify(k)}:${canonical(value[k])}`).join(',')}}`;
   }
   return JSON.stringify(value ?? null);
+}
+
+export function hydrateEntryFromProps(entry, propsPath) {
+  if (!fs.existsSync(propsPath)) return entry;
+  const props = JSON.parse(fs.readFileSync(propsPath, 'utf8'));
+  if (props.defaultProps) entry.sampleProps = props.defaultProps;
+  if (props.accent) entry.accent = props.accent;
+  if (props.background) entry.background = props.background;
+  return entry;
 }
 
 export function fingerprintParts(entry, {speed = DEFAULT_SPEED} = {}) {
