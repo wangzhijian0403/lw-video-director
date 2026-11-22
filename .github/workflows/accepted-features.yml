@@ -1,0 +1,50 @@
+name: LW Accepted Features CI
+
+on:
+  push:
+    branches:
+      - integration/v0.3-film-candidate
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  remotion-build-and-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: visual-studio
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: visual-studio/package-lock.json
+      - name: Install exact dependencies
+        run: npm ci
+      - name: Build TypeScript and Vite
+        run: npm run build
+      - name: Unit tests
+        run: npm run test:unit
+      - name: Accepted component manifest checks
+        run: npm run test:accepted
+      - name: Install checksum-validated OFL font
+        run: python scripts/install-fred-font.py
+      - name: Render integrated smoke MP4
+        run: npm run direct -- projects/accepted-ft-smoke/project.json --out exports/accepted-ft-smoke.mp4 --concurrency 2
+      - name: Check real video format
+        run: |
+          ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate -show_entries format=duration -of json exports/accepted-ft-smoke.mp4
+          test -s exports/accepted-ft-smoke.mp4
+      - name: Upload smoke video
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: accepted-fredtalk-smoke
+          path: visual-studio/exports/accepted-ft-smoke.mp4
+          if-no-files-found: warn
+          retention-days: 7
