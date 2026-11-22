@@ -194,12 +194,38 @@ class ActuallyRunIntegrationTests(unittest.TestCase):
 class RealInventoryTests(unittest.TestCase):
     @unittest.skipUnless((L.CACHE / "sources").is_dir(), "source cache absent; run inventory.py first")
     def test_real_kit_selection_against_432_inventory(self):
-        selected, skipped = adapt.select_auto_kit(inventory(), limit=200)
+        selected, skipped = adapt.select_auto_kit(inventory(), limit=200, include_adapted=True)
         ids = {p["lwId"] for p in selected}
         self.assertNotIn("FT-T03e-414", ids)
-        self.assertFalse(ids & {x["lwId"] for x in adapt.load_profiles()})
         self.assertGreaterEqual(len(selected), 120)
         self.assertEqual({s["lwId"] for s in skipped}, {"FT-T05q-250", "FT-T17i-272", "FT-T20u-279"})
+        # Default selection must never re-emit a hand-written round-1 profile.
+        default_selected, _ = adapt.select_auto_kit(inventory(), limit=200, include_adapted=False)
+        default_ids = {p["lwId"] for p in default_selected}
+        self.assertFalse(default_ids & {x["lwId"] for x in adapt.load_profiles()})
+        self.assertGreaterEqual(len(default_selected), 100)
+
+
+class MediaRewriteTests(unittest.TestCase):
+    def test_hardcoded_upstream_media_is_rewritten_to_owned_placeholders(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "src"
+            (root / "components").mkdir(parents=True)
+            f = root / "components/T.tsx"
+            f.write_text(
+                "export const d = {media: ['media/b-work.jpg', \"media/clip.mp4\"]};\n"
+                "const keep = 'media is mentioned in prose';\n",
+                encoding="utf-8",
+            )
+            ops = []
+            n = adapt.rewrite_media_literals(Path(tmp), ops)
+            text = f.read_text(encoding="utf-8")
+        self.assertEqual(n, 2)
+        self.assertIn("fredtalk/media/lw-work-", text)
+        self.assertIn("fredtalk/media/lw-recording.mp4", text)
+        self.assertNotIn("media/b-work.jpg", text)
+        self.assertIn("media is mentioned in prose", text)
+        self.assertEqual(len(ops), 1)
 
 
 if __name__ == "__main__":

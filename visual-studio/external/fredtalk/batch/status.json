@@ -6,7 +6,7 @@
     "shaVerified": true,
     "render": "pass",
     "frames": 420,
-    "fps": 60.0,
+    "fps": 60,
     "machineQa": {
       "status": "pass",
       "luma": 131.92,
@@ -28,7 +28,7 @@
     "shaVerified": true,
     "render": "pass",
     "frames": 180,
-    "fps": 30.0,
+    "fps": 30,
     "machineQa": {
       "status": "pass",
       "luma": 226.32,
@@ -50,7 +50,7 @@
     "shaVerified": true,
     "render": "pass",
     "frames": 360,
-    "fps": 60.0,
+    "fps": 60,
     "machineQa": {
       "status": "pass",
       "luma": 217.72,
@@ -72,7 +72,7 @@
     "shaVerified": true,
     "render": "pass",
     "frames": 180,
-    "fps": 60.0,
+    "fps": 60,
     "machineQa": {
       "status": "pass",
       "luma": 51.4,
@@ -94,7 +94,7 @@
     "shaVerified": true,
     "render": "pass",
     "frames": 300,
-    "fps": 60.0,
+    "fps": 60,
     "machineQa": {
       "status": "pass",
       "luma": 240.19,
@@ -116,7 +116,7 @@
     "shaVerified": true,
     "render": "pass",
     "frames": 240,
-    "fps": 60.0,
+    "fps": 60,
     "machineQa": {
       "status": "pass",
       "luma": 242.47,
@@ -138,7 +138,7 @@
     "shaVerified": true,
     "render": "pass",
     "frames": 300,
-    "fps": 60.0,
+    "fps": 60,
     "machineQa": {
       "status": "pass",
       "luma": 188.56,
@@ -160,7 +160,7 @@
     "shaVerified": true,
     "render": "pass",
     "frames": 300,
-    "fps": 60.0,
+    "fps": 60,
     "machineQa": {
       "status": "pass",
       "luma": 176.15,
@@ -182,7 +182,7 @@
     "shaVerified": true,
     "render": "pass",
     "frames": 300,
-    "fps": 60.0,
+    "fps": 60,
     "machineQa": {
       "status": "pass",
       "luma": 230.72,
@@ -195,7 +195,62 @@
     },
     "limit": "",
     "evidence": "external/fredtalk/batch/evidence/FT-T14e-378/",
-    "license": "MIT (FredTalk owner grant 2026-10-13)"
+    "license": "MIT (FredTalk owner grant 2026-10-13)",
+    "phase": "render",
+    "inputFingerprint": "6700497401a1af815f2ec45cc4fd404d08b621cb2bdd6ebb6f807e6e05b5b4d4",
+    "fingerprintParts": {
+      "schema": 2,
+      "id": "FT-T14e-378",
+      "adapterVersion": "fred-batch/1.1",
+      "adapterSha256": "01637a23dba263fab58c7d174cc886940b3e632eaaade48c157858106fbcfece",
+      "sourceSha256": "ed04d8b5fb980e9faae8c3f488d20e1058a7494adbeb84d87e8f6557ac35235b",
+      "sampleProps": {
+        "stats": [
+          {
+            "label": "渲染耗时",
+            "value": 42,
+            "suffix": " 秒",
+            "unit": "1080p / 30fps"
+          },
+          {
+            "label": "素材占用",
+            "value": 128,
+            "suffix": " MB",
+            "unit": "单条组件"
+          },
+          {
+            "label": "复用组件",
+            "value": 12,
+            "suffix": " 条",
+            "unit": "本轮验收"
+          }
+        ],
+        "hero": 2
+      },
+      "accent": "#2f7d6d",
+      "background": "#f5f3eb",
+      "speed": 1,
+      "fps": 60,
+      "nativeFrames": 300,
+      "sourceFrames": 300
+    },
+    "rerenderReason": "missing-mp4",
+    "previousMp4": "external/fredtalk/batch/evidence/FT-T14e-378/render.previous.mp4",
+    "updatedAt": "2026-11-22T00:27:36.086Z",
+    "durationInFrames": 300,
+    "width": 1280,
+    "height": 720,
+    "error": null,
+    "ms": 22541,
+    "staleReason": null,
+    "mp4": "external/fredtalk/batch/evidence/FT-T14e-378/render.mp4",
+    "stills": [
+      "external/fredtalk/batch/evidence/FT-T14e-378/frame-0-f0.png",
+      "external/fredtalk/batch/evidence/FT-T14e-378/frame-1-f150.png",
+      "external/fredtalk/batch/evidence/FT-T14e-378/frame-2-f299.png",
+      "external/fredtalk/batch/evidence/FT-T14e-378/frame-3-f60.png",
+      "external/fredtalk/batch/evidence/FT-T14e-378/frame-4-f240.png"
+    ]
   },
   "FT-T15a-426": {
     "strategy": "kit-overlay",
@@ -204,7 +259,7 @@
     "shaVerified": true,
     "render": "pass",
     "frames": 300,
-    "fps": 60.0,
+    "fps": 60,
     "machineQa": {
       "status": "pass",
       "luma": 232.05,
@@ -226,7 +281,7 @@
     "shaVerified": true,
     "render": "pass",
     "frames": 180,
-    "fps": 60.0,
+    "fps": 60,
     "machineQa": {
       "status": "pass",
       "luma": 142.86,
@@ -248,7 +303,7 @@
     "shaVerified": true,
     "render": "pass",
     "frames": 480,
-    "fps": 60.0,
+    "fps": 60,
     "machineQa": {
       "status": "pass",
       "luma": 242.91,

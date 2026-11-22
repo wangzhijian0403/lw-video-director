@@ -27,3 +27,6 @@ public/fredtalk/*.ttf
 
 # Later batch videos are separate acceptance artifacts, not permanent repo content.
 external/fredtalk/batch/runs/
+
+# Machine-generated selection snapshot; plan.json is the reproducible record.
+tools/fredtalk/profiles/auto-kit.generated.json

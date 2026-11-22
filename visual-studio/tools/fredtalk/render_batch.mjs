@@ -53,8 +53,18 @@ function outputDir(id) {
 const bundleLocation = await bundle({entryPoint: path.join(vs, 'src/remotion/root.tsx')});
 const summary = {runId: runId ?? null, startedAt: new Date().toISOString(), rendered: [], skipped: [], failed: []};
 
-for (const entry of registry) {
-  if (only && !only.includes(entry.id)) continue;
+const planById = new Map((plan?.components ?? []).map((c) => [c.lwId, c]));
+for (const baseEntry of registry) {
+  if (only && !only.includes(baseEntry.id)) continue;
+  const planned = planById.get(baseEntry.id);
+  const entry = planned
+    ? {
+        ...baseEntry,
+        sampleProps: planned.sampleProps ?? baseEntry.sampleProps,
+        accent: planned.accent ?? baseEntry.accent,
+        background: planned.background ?? baseEntry.background,
+      }
+    : baseEntry;
   const id = entry.id;
   const outDir = outputDir(id);
   fs.mkdirSync(outDir, {recursive: true});

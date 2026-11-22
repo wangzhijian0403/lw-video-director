@@ -1,0 +1,65 @@
+{
+  "lwId": "FT-T01d-451",
+  "ftId": "T01d",
+  "name": "测评结论：实测作品退后，评分卡与结论落定",
+  "category": "讲解段落",
+  "strategy": "kit-overlay",
+  "adapterVersion": "fred-batch/1.2",
+  "sourceSha256": "113591141f756d088b05dbc5dd1b396661a8ac4a376fafee0b6d2877a5342b82",
+  "adapterSha256": "68a7cabcfe091c99b73acd00e81f459999007ccdd76e6c34338512edd1e16dea",
+  "nativeFrames": 300,
+  "fps": 60,
+  "upstream": {
+    "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
+    "publicTag": "v2.5.0",
+    "project": null,
+    "officialUrl": "https://www.fred-fu.com/visual-library"
+  },
+  "license": {
+    "firstPartyCode": "MIT (FredTalk owner grant 2026-10-13)",
+    "thirdPartyMedia": "not covered; upstream media intentionally not redistributed",
+    "font": "SmileySans-Oblique OFL-1.1, unmodified, bundled by LW host",
+    "audio": "upstream SFX omitted; adapter is silent",
+    "attribution": "FredTalk component library; adapted by LW, not claimed as LW original"
+  },
+  "entry": "src/components/T01d-VerdictCard.tsx",
+  "files": [
+    {
+      "upstreamPath": "src/components/T01d-VerdictCard.tsx",
+      "copy": "components/T01d-VerdictCard.tsx",
+      "sha256": "a9a7107274534cf1b8ea1359727ecc93297026a1a87cd950e97a4c57c6d46600",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/theme.ts",
+      "copy": "kit/theme.ts",
+      "sha256": "c77ff0a6c94d35e5b41068730ebcbdc50736749c7c64b0327d4709ed88c0d15e",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/ui.tsx",
+      "copy": "kit/ui.tsx",
+      "sha256": "e7351657058edc090877cc702ee43259fd7d0d616315e208818bc519c67a0390",
+      "channel": "api",
+      "status": "verified"
+    }
+  ],
+  "hostEdits": [
+    "theme body -> LW font",
+    "theme display -> LW font",
+    "theme mono -> LW font",
+    "theme kai -> LW font",
+    "configureTheme added",
+    "host context import",
+    "useT respects host speed",
+    "Fonts -> OFL SmileySans",
+    "Brand removed",
+    "Sfx muted",
+    "Frame background -> host",
+    "media literals -> LW placeholders (3 refs; upstream media not redistributed)"
+  ],
+  "sourcePatches": [],
+  "notes": "Auto-generated kit-overlay profile. Entry/symbol/defaults are selected from inventory + source exports."
+}

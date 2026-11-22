@@ -507,14 +507,13 @@ def extract_defaults_keys(path: Path) -> tuple[str | None, list[str]]:
 
 
 def media_refs(files: list[ResolvedSource]) -> list[str]:
-    refs: list[str] = []
-    for f in files:
+    """Unique media refs in deterministic order (inventory must be reproducible)."""
+    refs: set[str] = set()
+    for f in sorted(files, key=lambda x: (str(x.local or ""), x.declared_path or "", x.label or "")):
         if not f.local or f.local.suffix not in (".tsx", ".ts"):
             continue
-        for ref in STATIC_RE.findall(read_text(f.local)):
-            if ref not in refs:
-                refs.append(ref)
-    return refs
+        refs.update(STATIC_RE.findall(read_text(f.local)))
+    return sorted(refs)
 
 
 def classify(item: dict, files: list[ResolvedSource], missing: list[str], entries: list[ResolvedSource]) -> tuple[str, str | None]:

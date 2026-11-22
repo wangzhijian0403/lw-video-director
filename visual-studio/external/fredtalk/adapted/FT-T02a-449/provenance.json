@@ -1,0 +1,64 @@
+{
+  "lwId": "FT-T02a-449",
+  "ftId": "T02a",
+  "name": "本期 N 件事：卡片依次立起，当前项抬起",
+  "category": "内容交接",
+  "strategy": "kit-overlay",
+  "adapterVersion": "fred-batch/1.2",
+  "sourceSha256": "3f71d5a48fcf5aea7689fee028fc5afcdde68807bd10fb482dd67b813864f476",
+  "adapterSha256": "69f1fbbbac7a4bbb236b8fb5382b0fe9d575fb003db13e058f2cf4a06041189c",
+  "nativeFrames": 300,
+  "fps": 60,
+  "upstream": {
+    "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
+    "publicTag": "v2.5.0",
+    "project": null,
+    "officialUrl": "https://www.fred-fu.com/visual-library"
+  },
+  "license": {
+    "firstPartyCode": "MIT (FredTalk owner grant 2026-10-13)",
+    "thirdPartyMedia": "not covered; upstream media intentionally not redistributed",
+    "font": "SmileySans-Oblique OFL-1.1, unmodified, bundled by LW host",
+    "audio": "upstream SFX omitted; adapter is silent",
+    "attribution": "FredTalk component library; adapted by LW, not claimed as LW original"
+  },
+  "entry": "src/components/T02a-AgendaThree.tsx",
+  "files": [
+    {
+      "upstreamPath": "src/components/T02a-AgendaThree.tsx",
+      "copy": "components/T02a-AgendaThree.tsx",
+      "sha256": "30b2caf98990638321ffa82116da09ddbda0a8fa52bcba64f9c51c6208d70c05",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/theme.ts",
+      "copy": "kit/theme.ts",
+      "sha256": "c77ff0a6c94d35e5b41068730ebcbdc50736749c7c64b0327d4709ed88c0d15e",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/ui.tsx",
+      "copy": "kit/ui.tsx",
+      "sha256": "e7351657058edc090877cc702ee43259fd7d0d616315e208818bc519c67a0390",
+      "channel": "api",
+      "status": "verified"
+    }
+  ],
+  "hostEdits": [
+    "theme body -> LW font",
+    "theme display -> LW font",
+    "theme mono -> LW font",
+    "theme kai -> LW font",
+    "configureTheme added",
+    "host context import",
+    "useT respects host speed",
+    "Fonts -> OFL SmileySans",
+    "Brand removed",
+    "Sfx muted",
+    "Frame background -> host"
+  ],
+  "sourcePatches": [],
+  "notes": "Auto-generated kit-overlay profile. Entry/symbol/defaults are selected from inventory + source exports."
+}

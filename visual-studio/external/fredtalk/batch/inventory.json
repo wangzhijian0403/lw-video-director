@@ -82,10 +82,10 @@
         "./ep"
       ],
       "media": [
+        "media/insert-last.png",
         "media/logo-gemini-wordmark.png",
         "media/logo-gemini.png",
-        "media/logo-google.png",
-        "media/insert-last.png"
+        "media/logo-google.png"
       ]
     },
     "rights": {
@@ -1628,8 +1628,8 @@
       ],
       "media": [
         "media/diagram-arch.png",
-        "media/hyper-spotify.png",
-        "media/heygen-logo.png"
+        "media/heygen-logo.png",
+        "media/hyper-spotify.png"
       ]
     },
     "rights": {
@@ -1733,8 +1733,8 @@
       ],
       "media": [
         "media/diagram-arch.png",
-        "media/hyper-spotify.png",
-        "media/heygen-logo.png"
+        "media/heygen-logo.png",
+        "media/hyper-spotify.png"
       ]
     },
     "rights": {
@@ -2070,9 +2070,9 @@
         "./lib/SmileySubtitle"
       ],
       "media": [
+        "media/frame-clean.jpg",
         "media/long/L${String(k).padStart(2, ",
         "media/long/L${String(t).padStart(2, ",
-        "media/frame-clean.jpg",
         "media/voice.wav"
       ]
     },
@@ -2606,8 +2606,8 @@
       ],
       "media": [
         "media/diagram-arch.png",
-        "media/hyper-spotify.png",
-        "media/heygen-logo.png"
+        "media/heygen-logo.png",
+        "media/hyper-spotify.png"
       ]
     },
     "rights": {
@@ -3184,10 +3184,10 @@
         "./ep"
       ],
       "media": [
+        "media/insert-last.png",
         "media/logo-gemini-wordmark.png",
         "media/logo-gemini.png",
-        "media/logo-google.png",
-        "media/insert-last.png"
+        "media/logo-google.png"
       ]
     },
     "rights": {
@@ -3888,11 +3888,11 @@
         "./middle/SmileySubtitle"
       ],
       "media": [
-        "middle/assets/fredtalk-ai-corner.png",
         "env/assets/S21-safe.mp4",
-        "source-frames-r4/S20/${String(recordingFrame(sid,t)).padStart(6,",
+        "env/assets/fredtalk-ai-corner.png",
         "fonts/",
-        "env/assets/fredtalk-ai-corner.png"
+        "middle/assets/fredtalk-ai-corner.png",
+        "source-frames-r4/S20/${String(recordingFrame(sid,t)).padStart(6,"
       ]
     },
     "rights": {
@@ -4233,8 +4233,8 @@
         "./episode-kit/ep"
       ],
       "media": [
-        "media/rec-1688.mp4",
-        "media/1688-main.jpg"
+        "media/1688-main.jpg",
+        "media/rec-1688.mp4"
       ]
     },
     "rights": {
@@ -4688,14 +4688,14 @@
         "./lib/SmileySubtitle"
       ],
       "media": [
+        "media/${id}.mp4",
+        "media/A_overview.mp4",
+        "media/bgm.mp3",
         "media/doubao-logo-circle.png",
         "media/doubao-result-1080.mp4",
         "media/doubao-result-last.png",
-        "media/A_overview.mp4",
         "media/doubao-vip-popup.png",
-        "media/${id}.mp4",
-        "media/voice-${i}.wav",
-        "media/bgm.mp3"
+        "media/voice-${i}.wav"
       ]
     },
     "rights": {
@@ -5637,11 +5637,11 @@
       "strategyLabel": "Kit 覆盖层（主题/字体/音效宿主替换）",
       "autoEligible": true,
       "entryPath": "source/src/components/T09s-ClickTrail.tsx",
-      "adapted": false,
-      "rendered": false,
+      "adapted": true,
+      "rendered": true,
       "visualReview": "not-reviewed",
       "blockedReason": null,
-      "evidence": null
+      "evidence": "external/fredtalk/batch/evidence/FT-T09s-289/"
     }
   },
   {
@@ -9357,8 +9357,8 @@
         "./calibration-b.json"
       ],
       "media": [
-        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,",
-        "calibration-b/slot-${i%9+1}.jpg"
+        "calibration-b/slot-${i%9+1}.jpg",
+        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,"
       ]
     },
     "rights": {
@@ -9461,8 +9461,8 @@
         "./calibration-b.json"
       ],
       "media": [
-        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,",
-        "calibration-b/slot-${i%9+1}.jpg"
+        "calibration-b/slot-${i%9+1}.jpg",
+        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,"
       ]
     },
     "rights": {
@@ -10735,11 +10735,11 @@
       "strategyLabel": "Kit 覆盖层（主题/字体/音效宿主替换）",
       "autoEligible": true,
       "entryPath": "src/components/T12l-IrisBadge.tsx",
-      "adapted": false,
-      "rendered": false,
+      "adapted": true,
+      "rendered": true,
       "visualReview": "not-reviewed",
       "blockedReason": null,
-      "evidence": null
+      "evidence": "external/fredtalk/batch/evidence/FT-T12l-337/"
     }
   },
   {
@@ -15365,11 +15365,11 @@
       "strategyLabel": "Kit 覆盖层（主题/字体/音效宿主替换）",
       "autoEligible": true,
       "entryPath": "src/components/T09n-WaitSkip.tsx",
-      "adapted": false,
-      "rendered": false,
+      "adapted": true,
+      "rendered": true,
       "visualReview": "not-reviewed",
       "blockedReason": null,
-      "evidence": null
+      "evidence": "external/fredtalk/batch/evidence/FT-T09n-374/"
     }
   },
   {
@@ -15843,11 +15843,11 @@
       "strategyLabel": "Kit 覆盖层（主题/字体/音效宿主替换）",
       "autoEligible": true,
       "entryPath": "src/components/T14e-StatTriplet.tsx",
-      "adapted": false,
-      "rendered": false,
+      "adapted": true,
+      "rendered": true,
       "visualReview": "not-reviewed",
       "blockedReason": null,
-      "evidence": null
+      "evidence": "external/fredtalk/batch/evidence/FT-T14e-378/"
     }
   },
   {
@@ -17852,11 +17852,11 @@
       "strategyLabel": "Kit 覆盖层（主题/字体/音效宿主替换）",
       "autoEligible": true,
       "entryPath": "src/components/T20f-ResultFirst.tsx",
-      "adapted": false,
-      "rendered": false,
+      "adapted": true,
+      "rendered": true,
       "visualReview": "not-reviewed",
       "blockedReason": null,
-      "evidence": null
+      "evidence": "external/fredtalk/batch/evidence/FT-T20f-395/"
     }
   },
   {
@@ -19043,11 +19043,11 @@
       "strategyLabel": "Kit 覆盖层（主题/字体/音效宿主替换）",
       "autoEligible": true,
       "entryPath": "src/components/T20a2-ResultFirstHook.tsx",
-      "adapted": false,
-      "rendered": false,
+      "adapted": true,
+      "rendered": true,
       "visualReview": "not-reviewed",
       "blockedReason": null,
-      "evidence": null
+      "evidence": "external/fredtalk/batch/evidence/FT-T20a2-405/"
     }
   },
   {
@@ -19278,11 +19278,11 @@
       "strategyLabel": "Kit 覆盖层（主题/字体/音效宿主替换）",
       "autoEligible": true,
       "entryPath": "src/components/T12d-PhaseCapsules.tsx",
-      "adapted": false,
-      "rendered": false,
+      "adapted": true,
+      "rendered": true,
       "visualReview": "not-reviewed",
       "blockedReason": null,
-      "evidence": null
+      "evidence": "external/fredtalk/batch/evidence/FT-T12d-407/"
     }
   },
   {
@@ -20101,7 +20101,7 @@
       "rendered": true,
       "visualReview": "not-reviewed",
       "blockedReason": null,
-      "evidence": null
+      "evidence": "external/fredtalk/batch/evidence/FT-T03e-414/"
     }
   },
   {
@@ -21518,11 +21518,11 @@
       "strategyLabel": "Kit 覆盖层（主题/字体/音效宿主替换）",
       "autoEligible": true,
       "entryPath": "src/components/T15a-ScoreBars.tsx",
-      "adapted": false,
-      "rendered": false,
+      "adapted": true,
+      "rendered": true,
       "visualReview": "not-reviewed",
       "blockedReason": null,
-      "evidence": null
+      "evidence": "external/fredtalk/batch/evidence/FT-T15a-426/"
     }
   },
   {
@@ -22696,11 +22696,11 @@
       "strategyLabel": "Kit 覆盖层（主题/字体/音效宿主替换）",
       "autoEligible": true,
       "entryPath": "src/components/T05a-SliderCompare.tsx",
-      "adapted": false,
-      "rendered": false,
+      "adapted": true,
+      "rendered": true,
       "visualReview": "not-reviewed",
       "blockedReason": null,
-      "evidence": null
+      "evidence": "external/fredtalk/batch/evidence/FT-T05a-436/"
     }
   },
   {
@@ -26163,11 +26163,11 @@
       "strategyLabel": "依赖文件缺失",
       "autoEligible": false,
       "entryPath": "expansion-selected-20261007/src/OpeningScenes.tsx",
-      "adapted": false,
-      "rendered": false,
+      "adapted": true,
+      "rendered": true,
       "visualReview": "not-reviewed",
       "blockedReason": "local imports unresolved: ./FullscreenVideoWindow, ./NovelScenes, ./assets.json, ./fullscreen-video-window-geometry",
-      "evidence": null
+      "evidence": "external/fredtalk/batch/evidence/FT-OP03-467/"
     }
   },
   {
@@ -26593,11 +26593,11 @@
       "strategyLabel": "依赖文件缺失",
       "autoEligible": false,
       "entryPath": "expansion-selected-20261007/src/RecordingScenes.tsx",
-      "adapted": false,
-      "rendered": false,
+      "adapted": true,
+      "rendered": true,
       "visualReview": "not-reviewed",
       "blockedReason": "local imports unresolved: ./FullscreenVideoWindow, ./assets.json",
-      "evidence": null
+      "evidence": "external/fredtalk/batch/evidence/FT-RC02-471/"
     }
   },
   {
@@ -27012,8 +27012,8 @@
         "./versions/v9/adapters/opening-v5"
       ],
       "media": [
-        "fonts/",
-        "boundaries/109-${String(number).padStart(2,"
+        "boundaries/109-${String(number).padStart(2,",
+        "fonts/"
       ]
     },
     "rights": {
@@ -27144,8 +27144,8 @@
         "./versions/white/adapters/opening-v5/OpeningV5"
       ],
       "media": [
-        "fonts/",
-        "boundaries/109-${String(number).padStart(2,"
+        "boundaries/109-${String(number).padStart(2,",
+        "fonts/"
       ]
     },
     "rights": {
@@ -27272,8 +27272,8 @@
         "./versions/white/adapters/opening-v5/OpeningV5"
       ],
       "media": [
-        "fonts/",
-        "boundaries/109-${String(number).padStart(2,"
+        "boundaries/109-${String(number).padStart(2,",
+        "fonts/"
       ]
     },
     "rights": {
@@ -27403,8 +27403,8 @@
         "./versions/white/adapters/opening-v5/OpeningV5"
       ],
       "media": [
-        "fonts/",
-        "boundaries/109-${String(number).padStart(2,"
+        "boundaries/109-${String(number).padStart(2,",
+        "fonts/"
       ]
     },
     "rights": {
@@ -27531,8 +27531,8 @@
         "./versions/white/adapters/opening-v5/OpeningV5"
       ],
       "media": [
-        "fonts/",
-        "boundaries/109-${String(number).padStart(2,"
+        "boundaries/109-${String(number).padStart(2,",
+        "fonts/"
       ]
     },
     "rights": {
@@ -28584,8 +28584,8 @@
         "./calibration-b.json"
       ],
       "media": [
-        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,",
-        "calibration-b/slot-${i%9+1}.jpg"
+        "calibration-b/slot-${i%9+1}.jpg",
+        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,"
       ]
     },
     "rights": {
@@ -28864,11 +28864,11 @@
         "./sp014-extra-native.json"
       ],
       "media": [
-        "sp001-subject.png",
+        "approved-materials/ep108-broll-2.mp4",
         "sp001-group${i<3?1:2}-${i%3}.png",
+        "sp001-subject.png",
         "sp011-card-${i}.mp4",
         "sp011-document.png",
-        "approved-materials/ep108-broll-2.mp4",
         "sp014-card-${i}.mp4"
       ]
     },
@@ -28949,8 +28949,8 @@
         "../five-fonts.ts"
       ],
       "media": [
-        "fonts/MiSans-${name}.otf",
-        "${clip.stableId}.wav"
+        "${clip.stableId}.wav",
+        "fonts/MiSans-${name}.otf"
       ]
     },
     "rights": {
@@ -29648,8 +29648,8 @@
         "./calibration-b.json"
       ],
       "media": [
-        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,",
-        "calibration-b/slot-${i%9+1}.jpg"
+        "calibration-b/slot-${i%9+1}.jpg",
+        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,"
       ]
     },
     "rights": {
@@ -30939,12 +30939,12 @@
         "./timing"
       ],
       "media": [
-        "fonts/MiSans-",
-        "brand/fredtalk-ai-dark-transparent.png",
         "brand/fredtalk-ai-corner.png",
+        "brand/fredtalk-ai-dark-transparent.png",
+        "fonts/MiSans-",
         "media/",
-        "voice.m4a",
-        "sfx/"
+        "sfx/",
+        "voice.m4a"
       ]
     },
     "rights": {
@@ -31398,9 +31398,9 @@
         "./sp022-review-opacity.json"
       ],
       "media": [
-        "code-revision/${code}${kind===",
         "characters/Fred_伸手示意_1440p30_Alpha.webm",
-        "characters/Fred_振作展示_1440p30_Alpha.webm"
+        "characters/Fred_振作展示_1440p30_Alpha.webm",
+        "code-revision/${code}${kind==="
       ]
     },
     "rights": {
@@ -32006,18 +32006,18 @@
         "../public/review-revision03/SP022-track.json"
       ],
       "media": [
-        "review-revision03/SP012-handoff/ui-${String(frame).padStart(4, ",
+        "approved-materials/ep108-broll-2.mp4",
+        "characters/Fred_伸手示意_1440p30_Alpha.webm",
+        "characters/Fred_振作展示_1440p30_Alpha.webm",
+        "code-revision/${code}${kind===",
         "review-revision03/SP012-handoff/logo-${String(frame).padStart(4, ",
         "review-revision03/SP012-handoff/phone-${String(frame).padStart(4, ",
-        "sp001-subject.png",
+        "review-revision03/SP012-handoff/ui-${String(frame).padStart(4, ",
         "sp001-group${i<3?1:2}-${i%3}.png",
+        "sp001-subject.png",
         "sp011-card-${i}.mp4",
         "sp011-document.png",
-        "approved-materials/ep108-broll-2.mp4",
-        "sp014-card-${i}.mp4",
-        "code-revision/${code}${kind===",
-        "characters/Fred_伸手示意_1440p30_Alpha.webm",
-        "characters/Fred_振作展示_1440p30_Alpha.webm"
+        "sp014-card-${i}.mp4"
       ]
     },
     "rights": {
@@ -33453,9 +33453,9 @@
         "./useSourceHan"
       ],
       "media": [
-        "revision/fred-family.jpg",
+        "batch-c/curl/${id}-${String(frame).padStart(3,",
         "batch-c/table-${id+1}.png",
-        "batch-c/curl/${id}-${String(frame).padStart(3,"
+        "revision/fred-family.jpg"
       ]
     },
     "rights": {
@@ -33936,10 +33936,10 @@
         "./versions/white/adapters/opening-v5/OpeningV5"
       ],
       "media": [
-        "fonts/",
         "boundaries/109-${String(number).padStart(2,",
-        "media/storyboard-grid.png",
-        "media/positive-preview-1080p.mp4"
+        "fonts/",
+        "media/positive-preview-1080p.mp4",
+        "media/storyboard-grid.png"
       ]
     },
     "rights": {
@@ -34252,8 +34252,8 @@
         "./calibration-b.json"
       ],
       "media": [
-        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,",
-        "calibration-b/slot-${i%9+1}.jpg"
+        "calibration-b/slot-${i%9+1}.jpg",
+        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,"
       ]
     },
     "rights": {
@@ -34404,8 +34404,8 @@
         "./calibration-b.json"
       ],
       "media": [
-        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,",
-        "calibration-b/slot-${i%9+1}.jpg"
+        "calibration-b/slot-${i%9+1}.jpg",
+        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,"
       ]
     },
     "rights": {
@@ -35992,11 +35992,11 @@
         "../material-policy"
       ],
       "media": [
-        "sp001-subject.png",
+        "approved-materials/ep108-broll-2.mp4",
         "sp001-group${i<3?1:2}-${i%3}.png",
+        "sp001-subject.png",
         "sp011-card-${i}.mp4",
         "sp011-document.png",
-        "approved-materials/ep108-broll-2.mp4",
         "sp014-card-${i}.mp4"
       ]
     },
@@ -37679,8 +37679,8 @@
         "./useSourceHan"
       ],
       "media": [
-        "shared/MiSans-Heavy.otf",
-        "reference/R033/website.jpg"
+        "reference/R033/website.jpg",
+        "shared/MiSans-Heavy.otf"
       ]
     },
     "rights": {
@@ -38143,8 +38143,8 @@
         "./calibration-b.json"
       ],
       "media": [
-        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,",
-        "calibration-b/slot-${i%9+1}.jpg"
+        "calibration-b/slot-${i%9+1}.jpg",
+        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,"
       ]
     },
     "rights": {
@@ -38269,8 +38269,8 @@
         "./calibration-b.json"
       ],
       "media": [
-        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,",
-        "calibration-b/slot-${i%9+1}.jpg"
+        "calibration-b/slot-${i%9+1}.jpg",
+        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,"
       ]
     },
     "rights": {
@@ -38358,8 +38358,8 @@
         "./calibration-b.json"
       ],
       "media": [
-        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,",
-        "calibration-b/slot-${i%9+1}.jpg"
+        "calibration-b/slot-${i%9+1}.jpg",
+        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,"
       ]
     },
     "rights": {
@@ -38752,8 +38752,8 @@
         "./calibration-b.json"
       ],
       "media": [
-        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,",
-        "calibration-b/slot-${i%9+1}.jpg"
+        "calibration-b/slot-${i%9+1}.jpg",
+        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,"
       ]
     },
     "rights": {
@@ -39713,9 +39713,9 @@
         "./S15TaskSelection"
       ],
       "media": [
-        "fonts/MiSans-",
-        "brand/fredtalk-ai-dark-transparent.png",
         "brand/fredtalk-ai-corner.png",
+        "brand/fredtalk-ai-dark-transparent.png",
+        "fonts/MiSans-",
         "media/",
         "voice.wav"
       ]
@@ -40720,18 +40720,18 @@
         "../public/review-revision03/SP022-track.json"
       ],
       "media": [
-        "review-revision03/SP012-handoff/ui-${String(frame).padStart(4, ",
+        "approved-materials/ep108-broll-2.mp4",
+        "characters/Fred_伸手示意_1440p30_Alpha.webm",
+        "characters/Fred_振作展示_1440p30_Alpha.webm",
+        "code-revision/${code}${kind===",
         "review-revision03/SP012-handoff/logo-${String(frame).padStart(4, ",
         "review-revision03/SP012-handoff/phone-${String(frame).padStart(4, ",
-        "sp001-subject.png",
+        "review-revision03/SP012-handoff/ui-${String(frame).padStart(4, ",
         "sp001-group${i<3?1:2}-${i%3}.png",
+        "sp001-subject.png",
         "sp011-card-${i}.mp4",
         "sp011-document.png",
-        "approved-materials/ep108-broll-2.mp4",
-        "sp014-card-${i}.mp4",
-        "code-revision/${code}${kind===",
-        "characters/Fred_伸手示意_1440p30_Alpha.webm",
-        "characters/Fred_振作展示_1440p30_Alpha.webm"
+        "sp014-card-${i}.mp4"
       ]
     },
     "rights": {
@@ -41086,8 +41086,8 @@
       ],
       "media": [
         "sp009-ui-background.png",
-        "sp009-ui-top.mp4",
         "sp009-ui-bottom.mp4",
+        "sp009-ui-top.mp4",
         "sp020-first.mp4",
         "sp020-man.mp4",
         "sp020-pack.mp4"
@@ -43101,8 +43101,8 @@
       "missing": [],
       "media": [
         "sp009-ui-background.png",
-        "sp009-ui-top.mp4",
         "sp009-ui-bottom.mp4",
+        "sp009-ui-top.mp4",
         "sp020-first.mp4",
         "sp020-man.mp4",
         "sp020-pack.mp4"
@@ -43578,9 +43578,9 @@
         "./useSourceHan"
       ],
       "media": [
-        "revision/fred-family.jpg",
+        "batch-c/curl/${id}-${String(frame).padStart(3,",
         "batch-c/table-${id+1}.png",
-        "batch-c/curl/${id}-${String(frame).padStart(3,"
+        "revision/fred-family.jpg"
       ]
     },
     "rights": {
@@ -43899,11 +43899,11 @@
         "../material-policy"
       ],
       "media": [
-        "sp001-subject.png",
+        "approved-materials/ep108-broll-2.mp4",
         "sp001-group${i<3?1:2}-${i%3}.png",
+        "sp001-subject.png",
         "sp011-card-${i}.mp4",
         "sp011-document.png",
-        "approved-materials/ep108-broll-2.mp4",
         "sp014-card-${i}.mp4"
       ]
     },
@@ -44534,18 +44534,18 @@
         "../public/review-revision03/SP022-track.json"
       ],
       "media": [
-        "review-revision03/SP012-handoff/ui-${String(frame).padStart(4, ",
+        "approved-materials/ep108-broll-2.mp4",
+        "characters/Fred_伸手示意_1440p30_Alpha.webm",
+        "characters/Fred_振作展示_1440p30_Alpha.webm",
+        "code-revision/${code}${kind===",
         "review-revision03/SP012-handoff/logo-${String(frame).padStart(4, ",
         "review-revision03/SP012-handoff/phone-${String(frame).padStart(4, ",
-        "sp001-subject.png",
+        "review-revision03/SP012-handoff/ui-${String(frame).padStart(4, ",
         "sp001-group${i<3?1:2}-${i%3}.png",
+        "sp001-subject.png",
         "sp011-card-${i}.mp4",
         "sp011-document.png",
-        "approved-materials/ep108-broll-2.mp4",
-        "sp014-card-${i}.mp4",
-        "code-revision/${code}${kind===",
-        "characters/Fred_伸手示意_1440p30_Alpha.webm",
-        "characters/Fred_振作展示_1440p30_Alpha.webm"
+        "sp014-card-${i}.mp4"
       ]
     },
     "rights": {
@@ -45152,18 +45152,18 @@
         "../public/review-revision03/SP022-track.json"
       ],
       "media": [
-        "review-revision03/SP012-handoff/ui-${String(frame).padStart(4, ",
+        "approved-materials/ep108-broll-2.mp4",
+        "characters/Fred_伸手示意_1440p30_Alpha.webm",
+        "characters/Fred_振作展示_1440p30_Alpha.webm",
+        "code-revision/${code}${kind===",
         "review-revision03/SP012-handoff/logo-${String(frame).padStart(4, ",
         "review-revision03/SP012-handoff/phone-${String(frame).padStart(4, ",
-        "sp001-subject.png",
+        "review-revision03/SP012-handoff/ui-${String(frame).padStart(4, ",
         "sp001-group${i<3?1:2}-${i%3}.png",
+        "sp001-subject.png",
         "sp011-card-${i}.mp4",
         "sp011-document.png",
-        "approved-materials/ep108-broll-2.mp4",
-        "sp014-card-${i}.mp4",
-        "code-revision/${code}${kind===",
-        "characters/Fred_伸手示意_1440p30_Alpha.webm",
-        "characters/Fred_振作展示_1440p30_Alpha.webm"
+        "sp014-card-${i}.mp4"
       ]
     },
     "rights": {
@@ -45365,8 +45365,8 @@
         "./calibration-b.json"
       ],
       "media": [
-        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,",
-        "calibration-b/slot-${i%9+1}.jpg"
+        "calibration-b/slot-${i%9+1}.jpg",
+        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,"
       ]
     },
     "rights": {
@@ -48517,18 +48517,18 @@
         "../public/review-revision03/SP022-track.json"
       ],
       "media": [
-        "review-revision03/SP012-handoff/ui-${String(frame).padStart(4, ",
+        "approved-materials/ep108-broll-2.mp4",
+        "characters/Fred_伸手示意_1440p30_Alpha.webm",
+        "characters/Fred_振作展示_1440p30_Alpha.webm",
+        "code-revision/${code}${kind===",
         "review-revision03/SP012-handoff/logo-${String(frame).padStart(4, ",
         "review-revision03/SP012-handoff/phone-${String(frame).padStart(4, ",
-        "sp001-subject.png",
+        "review-revision03/SP012-handoff/ui-${String(frame).padStart(4, ",
         "sp001-group${i<3?1:2}-${i%3}.png",
+        "sp001-subject.png",
         "sp011-card-${i}.mp4",
         "sp011-document.png",
-        "approved-materials/ep108-broll-2.mp4",
-        "sp014-card-${i}.mp4",
-        "code-revision/${code}${kind===",
-        "characters/Fred_伸手示意_1440p30_Alpha.webm",
-        "characters/Fred_振作展示_1440p30_Alpha.webm"
+        "sp014-card-${i}.mp4"
       ]
     },
     "rights": {
@@ -49088,8 +49088,8 @@
         "../surface-purple.ts"
       ],
       "media": [
-        "sp015-${tile.id}.png",
         "code-revision/${extended?",
+        "sp015-${tile.id}.png",
         "sp015-result.png"
       ]
     },
@@ -49637,8 +49637,8 @@
         "./calibration-b.json"
       ],
       "media": [
-        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,",
-        "calibration-b/slot-${i%9+1}.jpg"
+        "calibration-b/slot-${i%9+1}.jpg",
+        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,"
       ]
     },
     "rights": {
@@ -49727,8 +49727,8 @@
         "./calibration-b.json"
       ],
       "media": [
-        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,",
-        "calibration-b/slot-${i%9+1}.jpg"
+        "calibration-b/slot-${i%9+1}.jpg",
+        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,"
       ]
     },
     "rights": {
@@ -49966,8 +49966,8 @@
       ],
       "media": [
         "sp009-ui-background.png",
-        "sp009-ui-top.mp4",
         "sp009-ui-bottom.mp4",
+        "sp009-ui-top.mp4",
         "sp020-first.mp4",
         "sp020-man.mp4",
         "sp020-pack.mp4"
@@ -50322,8 +50322,8 @@
         "./calibration-b.json"
       ],
       "media": [
-        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,",
-        "calibration-b/slot-${i%9+1}.jpg"
+        "calibration-b/slot-${i%9+1}.jpg",
+        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,"
       ]
     },
     "rights": {
@@ -50933,8 +50933,8 @@
         "../five-fonts.ts"
       ],
       "media": [
-        "fonts/MiSans-${name}.otf",
-        "${clip.stableId}.wav"
+        "${clip.stableId}.wav",
+        "fonts/MiSans-${name}.otf"
       ]
     },
     "rights": {
@@ -52194,8 +52194,8 @@
         "./calibration-b.json"
       ],
       "media": [
-        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,",
-        "calibration-b/slot-${i%9+1}.jpg"
+        "calibration-b/slot-${i%9+1}.jpg",
+        "group-b/character/${String(Math.min(151,Math.floor(t*30)+1)).padStart(4,"
       ]
     },
     "rights": {

@@ -40,7 +40,7 @@ RUNS = L.BATCH / "runs"
 LW_FONT = "LW Fred SmileySans"
 DEFAULT_ACCENT = "#8554E8"
 DEFAULT_BACKGROUND = "#ffffff"
-ADAPTER_VERSION = "fred-batch/1.1"
+ADAPTER_VERSION = "fred-batch/1.2"
 AUTO_PROFILES = Path(__file__).resolve().parent / "profiles" / "auto-kit.generated.json"
 EXISTING_IDS = {"FT-T03e-414"}
 
@@ -284,10 +284,49 @@ def build_kit_overlay(profile: dict, row: dict, tag: L.TagTree | None) -> dict:
     entry_rel = src_relative(entry_path, entry_path.split("/")[-1], entry_root)
     symbol = profile["entryExport"]
     defaults = profile.get("defaultsExport")
+    rewrite_media_literals(dest, ops)
     adapter = make_adapter(profile, entry_rel, symbol, defaults, host_import="./kit/lw-host", theme_import="./kit/theme")
     (src_dir / "adapter.tsx").write_text(adapter, encoding="utf-8")
 
     return finish(profile, row, dest, copied, ops, entry_rel, entry_path)
+
+
+MEDIA_LITERAL = re.compile(r"(?P<q>['\"])(?P<path>/?media/[^'\"]+)(?P=q)")
+PLACEHOLDER_STILLS = [f"fredtalk/media/lw-work-0{i}.jpg" for i in range(1, 7)]
+
+
+def rewrite_media_literals(dest: Path, ops: list[str]) -> int:
+    """Point every hard-coded upstream media literal at an LW-owned placeholder.
+
+    Upstream does not redistribute its demo media.  Components that hard-code
+    ``media/foo.jpg`` would otherwise fail in a fresh clone with a 404.  The
+    rewrite is deterministic and recorded in provenance ops.
+    """
+    changed = 0
+
+    def repl(m: re.Match) -> str:
+        nonlocal changed
+        raw = m.group("path")
+        name = raw.rsplit("/", 1)[-1]
+        if re.search(r"\.(mp4|mov|webm|m4v)$", name, re.I):
+            target = "fredtalk/media/lw-recording.mp4"
+        else:
+            digest = hashlib.sha256(name.encode("utf-8")).hexdigest()
+            target = PLACEHOLDER_STILLS[(int(digest[:8], 16) + changed) % len(PLACEHOLDER_STILLS)]
+        if target != raw.lstrip("/"):
+            changed += 1
+        return f"{m.group('q')}{target}{m.group('q')}"
+
+    for f in (dest / "src").rglob("*"):
+        if not f.is_file() or f.suffix not in (".tsx", ".ts"):
+            continue
+        text = f.read_text(encoding="utf-8")
+        new = MEDIA_LITERAL.sub(repl, text)
+        if new != text:
+            f.write_text(new, encoding="utf-8")
+    if changed:
+        ops.append(f"media literals -> LW placeholders ({changed} refs; upstream media not redistributed)")
+    return changed
 
 
 def copy_project_src(project_dir: Path, dest: Path) -> list[dict]:
@@ -341,6 +380,7 @@ def build_project_expand(profile: dict, row: dict, tag: L.TagTree) -> dict:
     }
     assets.write_text(json.dumps(rewritten, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     ops.append("assets.json -> LW placeholders (upstream media not redistributed)")
+    rewrite_media_literals(dest, ops)
 
     entry_rel = profile["entryFile"]
     adapter = make_adapter(profile, entry_rel, profile["entryExport"], profile.get("defaultsExport"),
@@ -407,7 +447,8 @@ def finish(profile, row, dest, copied, ops, entry_rel, entry_path, project=None)
     adapter_path = dest / "src" / "adapter.tsx"
     source_material = json.dumps(
         sorted(
-            [{"path": f.get("upstreamPath"), "sha256": f.get("sha256")} for f in copied],
+            [{"path": f.get("copy"), "sha256": L.sha256_file(dest / "src" / f["copy"]),
+             "upstreamSha256": f.get("sha256")} for f in copied],
             key=lambda x: (x["path"] or "", x["sha256"] or ""),
         ),
         ensure_ascii=False,

@@ -94,7 +94,17 @@ def main() -> int:
     ap.add_argument("--only", nargs="*", default=None)
     args = ap.parse_args()
     evidence = BATCH / "runs" / args.run_id / "evidence" if args.run_id else BATCH / "evidence"
-    entries = [e for e in REG if not args.only or e["id"] in args.only]
+    if args.run_id:
+        plan = load_json(BATCH / "runs" / args.run_id / "plan.json", {})
+        plan_ids = {c["lwId"] for c in plan.get("components", [])}
+        if not plan_ids:
+            raise SystemExit(f"plan has no components: {args.run_id}")
+        entries = [e for e in REG if e["id"] in plan_ids and (not args.only or e["id"] in args.only)]
+        selected = [i for i in plan_ids if not args.only or i in args.only]
+        if len(entries) != len(selected):
+            raise SystemExit(f"plan/registry mismatch: plan={len(selected)} registry={len(entries)}")
+    else:
+        entries = [e for e in REG if not args.only or e["id"] in args.only]
     results = []
     for e in entries:
         r = qa_one(e, evidence / e["id"])

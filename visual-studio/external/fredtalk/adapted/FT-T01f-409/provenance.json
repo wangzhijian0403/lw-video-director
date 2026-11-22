@@ -1,0 +1,64 @@
+{
+  "lwId": "FT-T01f-409",
+  "ftId": "T01f",
+  "name": "圆点胀成关键句胶囊（快过渡）",
+  "category": "讲解段落",
+  "strategy": "kit-overlay",
+  "adapterVersion": "fred-batch/1.2",
+  "sourceSha256": "54b0f9ffe6f499e1345c90b45420af5b06b21b1db582f1802876ba31c843d509",
+  "adapterSha256": "11a66d7c24cb3f7b5e3b56641fa840d37faa33ca8d1c047cd6e82176d0c04b1d",
+  "nativeFrames": 150,
+  "fps": 60,
+  "upstream": {
+    "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
+    "publicTag": "v2.5.0",
+    "project": null,
+    "officialUrl": "https://www.fred-fu.com/visual-library"
+  },
+  "license": {
+    "firstPartyCode": "MIT (FredTalk owner grant 2026-10-13)",
+    "thirdPartyMedia": "not covered; upstream media intentionally not redistributed",
+    "font": "SmileySans-Oblique OFL-1.1, unmodified, bundled by LW host",
+    "audio": "upstream SFX omitted; adapter is silent",
+    "attribution": "FredTalk component library; adapted by LW, not claimed as LW original"
+  },
+  "entry": "src/components/T01f-DotToLine.tsx",
+  "files": [
+    {
+      "upstreamPath": "src/components/T01f-DotToLine.tsx",
+      "copy": "components/T01f-DotToLine.tsx",
+      "sha256": "eb08b94328ba1e440265678b157a0470c0d562cb964a49ca24570ac1f261eff5",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/theme.ts",
+      "copy": "kit/theme.ts",
+      "sha256": "a235e95c652137b43c31a9c680dabfd8fce3bbb45fac8559cd0af70ce2e9b1a3",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/ui.tsx",
+      "copy": "kit/ui.tsx",
+      "sha256": "05ce402324f5e11521b15dacc30de3ee1f89adb0a1b5c20b220a29890d8e3ba9",
+      "channel": "api",
+      "status": "verified"
+    }
+  ],
+  "hostEdits": [
+    "theme body -> LW font",
+    "theme display -> LW font",
+    "theme mono -> LW font",
+    "theme kai -> LW font",
+    "configureTheme added",
+    "host context import",
+    "useT respects host speed",
+    "Fonts -> OFL SmileySans",
+    "Brand removed",
+    "Sfx muted",
+    "Frame background -> host"
+  ],
+  "sourcePatches": [],
+  "notes": "Auto-generated kit-overlay profile. Entry/symbol/defaults are selected from inventory + source exports."
+}

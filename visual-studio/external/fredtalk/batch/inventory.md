@@ -10,7 +10,7 @@
 | 至少一个文件实取 | 432 |
 | 全部声明文件实取 | 416 |
 | 具备可编辑参数 | 142 |
-| 已渲染通过 | 1 |
+| 已渲染通过 | 12 |
 
 ## 类别分布
 
@@ -85,7 +85,7 @@
 | FT-T22g-286 | T22g | 讲解段落 | 2/2 | - | blocked-dependency | - | - | local imports unresolved: ../components/episode-kit/chap, ../components/episode-kit/ep, ../components/episode-kit/g4, .. |
 | FT-T09q-287 | T09q | 讲解段落 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T09r-288 | T09r | 讲解段落 | 4/4 | yes | kit-overlay | - | - |  |
-| FT-T09s-289 | T09s | 讲解段落 | 4/4 | yes | kit-overlay | - | - |  |
+| FT-T09s-289 | T09s | 讲解段落 | 4/4 | yes | kit-overlay | yes | yes |  |
 | FT-T09t-290 | T09t | 讲解段落 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T09v-291 | T09v | 讲解段落 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T09w-292 | T09w | 讲解段落 | 4/4 | yes | kit-overlay | - | - |  |
@@ -133,7 +133,7 @@
 | FT-X032-v2-334 | X032-v2 | 讲解段落 | 1/1 | - | blocked-dependency | - | - | local imports unresolved: ../manifest.json, ./BatchA, ./BatchB, ./BatchC, ./RebuiltX017, ./fonts |
 | FT-X037-v2-335 | X037-v2 | 讲解段落 | 2/2 | - | blocked-dependency | - | - | local imports unresolved: ../material-policy, ./X050TypographyRepair, ./calibration-c/AskAiHomepage, ./calibration-c/Cha |
 | FT-T12k-336 | T12k | 内容交接 | 5/5 | yes | kit-overlay | - | - |  |
-| FT-T12l-337 | T12l | 内容交接 | 5/5 | yes | kit-overlay | - | - |  |
+| FT-T12l-337 | T12l | 内容交接 | 5/5 | yes | kit-overlay | yes | yes |  |
 | FT-T12m-338 | T12m | 内容交接 | 5/5 | yes | kit-overlay | - | - |  |
 | FT-T12n-339 | T12n | 内容交接 | 5/5 | yes | kit-overlay | - | - |  |
 | FT-T12o-340 | T12o | 内容交接 | 5/5 | yes | kit-overlay | - | - |  |
@@ -170,11 +170,11 @@
 | FT-T02h-371 | T02h | 讲解段落 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T17c-372 | T17c | 讲解段落 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T09l-373 | T09l | 录屏聚焦 | 4/4 | yes | kit-overlay | - | - |  |
-| FT-T09n-374 | T09n | 录屏聚焦 | 4/4 | yes | kit-overlay | - | - |  |
+| FT-T09n-374 | T09n | 录屏聚焦 | 4/4 | yes | kit-overlay | yes | yes |  |
 | FT-T09m-375 | T09m | 录屏聚焦 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T15e-376 | T15e | 数值与图表 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T15f-377 | T15f | 数值与图表 | 4/4 | yes | kit-overlay | - | - |  |
-| FT-T14e-378 | T14e | 数值与图表 | 4/4 | yes | kit-overlay | - | - |  |
+| FT-T14e-378 | T14e | 数值与图表 | 4/4 | yes | kit-overlay | yes | yes |  |
 | FT-T14f-379 | T14f | 数值与图表 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T15g-380 | T15g | 数值与图表 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T15h-381 | T15h | 数值与图表 | 4/4 | yes | kit-overlay | - | - |  |
@@ -191,7 +191,7 @@
 | FT-T13d-392 | T13d | 讲解段落 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T04g-393 | T04g | 讲解段落 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T09o-394 | T09o | 录屏聚焦 | 4/4 | yes | kit-overlay | - | - |  |
-| FT-T20f-395 | T20f | 录屏与视频入场 | 4/4 | yes | kit-overlay | - | - |  |
+| FT-T20f-395 | T20f | 录屏与视频入场 | 4/4 | yes | kit-overlay | yes | yes |  |
 | FT-T01h-396 | T01h | 讲解段落 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T21d-397 | T21d | 内容交接 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T05b2-398 | T05b2 | 讲解段落 | 4/4 | yes | kit-overlay | - | - |  |
@@ -201,9 +201,9 @@
 | FT-T18b-402 | T18b | 讲解段落 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T14a2-403 | T14a2 | 数值与图表 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T09d2-404 | T09d2 | 录屏聚焦 | 4/4 | yes | kit-overlay | - | - |  |
-| FT-T20a2-405 | T20a2 | 图片与作品 | 4/4 | yes | kit-overlay | - | - |  |
+| FT-T20a2-405 | T20a2 | 图片与作品 | 4/4 | yes | kit-overlay | yes | yes |  |
 | FT-T05g-406 | T05g | 讲解段落 | 4/4 | yes | kit-overlay | - | - |  |
-| FT-T12d-407 | T12d | 内容交接 | 4/4 | yes | kit-overlay | - | - |  |
+| FT-T12d-407 | T12d | 内容交接 | 4/4 | yes | kit-overlay | yes | yes |  |
 | FT-T12e-408 | T12e | 内容交接 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T01f-409 | T01f | 讲解段落 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T01e-410 | T01e | 讲解段落 | 4/4 | yes | kit-overlay | - | - |  |
@@ -222,7 +222,7 @@
 | FT-T09b-423 | T09b | 录屏聚焦 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T09f-424 | T09f | 录屏聚焦 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T14d-425 | T14d | 数值与图表 | 4/4 | yes | kit-overlay | - | - |  |
-| FT-T15a-426 | T15a | 数值与图表 | 4/4 | yes | kit-overlay | - | - |  |
+| FT-T15a-426 | T15a | 数值与图表 | 4/4 | yes | kit-overlay | yes | yes |  |
 | FT-T15d-427 | T15d | 数值与图表 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T12b-428 | T12b | 内容交接 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T12c-429 | T12c | 内容交接 | 4/4 | yes | kit-overlay | - | - |  |
@@ -232,7 +232,7 @@
 | FT-T06b-433 | T06b | 讲解段落 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T04b-434 | T04b | 讲解段落 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T03d-435 | T03d | 讲解段落 | 4/4 | yes | kit-overlay | - | - |  |
-| FT-T05a-436 | T05a | 图片与作品 | 4/4 | yes | kit-overlay | - | - |  |
+| FT-T05a-436 | T05a | 图片与作品 | 4/4 | yes | kit-overlay | yes | yes |  |
 | FT-T05e-437 | T05e | 讲解段落 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T20c-438 | T20c | 内容交接 | 4/4 | yes | kit-overlay | - | - |  |
 | FT-T20b-439 | T20b | 讲解段落 | 4/4 | yes | kit-overlay | - | - |  |
@@ -263,11 +263,11 @@
 | FT-INT02-464 | INT02 | 录屏聚焦 | 2/2 | - | standalone | - | - |  |
 | FT-INT03-465 | INT03 | 内容交接 | 2/2 | - | blocked-dependency | - | - | local imports unresolved: ./components/FullscreenVideoWindow |
 | FT-INT04-466 | INT04 | 内容交接 | 2/2 | - | standalone | - | - |  |
-| FT-OP03-467 | OP03 | 录屏与视频入场 | 3/3 | - | blocked-dependency | - | - | local imports unresolved: ./FullscreenVideoWindow, ./NovelScenes, ./assets.json, ./fullscreen-video-window-geometry |
+| FT-OP03-467 | OP03 | 录屏与视频入场 | 3/3 | - | blocked-dependency | yes | yes | local imports unresolved: ./FullscreenVideoWindow, ./NovelScenes, ./assets.json, ./fullscreen-video-window-geometry |
 | FT-OP09-468 | OP09 | 录屏与视频入场 | 3/3 | - | blocked-dependency | - | - | local imports unresolved: ./FullscreenVideoWindow, ./NovelScenes, ./assets.json, ./fullscreen-video-window-geometry |
 | FT-OP10-469 | OP10 | 录屏与视频入场 | 3/3 | - | blocked-dependency | - | - | local imports unresolved: ./ExplainScenes, ./FullscreenVideoWindow, ./OpeningScenes, ./assets.json, ./fullscreen-video-w |
 | FT-RC01-470 | RC01 | 录屏聚焦 | 3/3 | - | blocked-dependency | - | - | local imports unresolved: ./FullscreenVideoWindow, ./assets.json |
-| FT-RC02-471 | RC02 | 录屏聚焦 | 3/3 | - | blocked-dependency | - | - | local imports unresolved: ./FullscreenVideoWindow, ./assets.json |
+| FT-RC02-471 | RC02 | 录屏聚焦 | 3/3 | - | blocked-dependency | yes | yes | local imports unresolved: ./FullscreenVideoWindow, ./assets.json |
 | FT-RC04-472 | RC04 | 录屏聚焦 | 3/3 | - | blocked-dependency | - | - | local imports unresolved: ./FullscreenVideoWindow, ./assets.json |
 | FT-HD02-473 | HD02 | 内容交接 | 3/3 | - | blocked-dependency | - | - | local imports unresolved: ./FullscreenVideoWindow, ./assets.json |
 | FT-HD03-474 | HD03 | 图片与作品 | 3/3 | - | blocked-dependency | - | - | local imports unresolved: ./FullscreenVideoWindow, ./assets.json |

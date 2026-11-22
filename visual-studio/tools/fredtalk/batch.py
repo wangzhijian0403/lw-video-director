@@ -37,13 +37,14 @@ def main() -> int:
     ap.add_argument("--next", dest="next_count", type=int, default=20, help="number of components to select")
     ap.add_argument("--run-id", default=None)
     ap.add_argument("--skip-render", action="store_true")
+    ap.add_argument("--readapt", action="store_true", help="re-run adaptation for selected components even if already adapted")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
     run_id = args.run_id or datetime.now(timezone.utc).strftime("auto-%Y%m%d-%H%M%S")
     plan = adapt.RUNS / run_id / "plan.json"
 
-    adapt_rc = adapt.run_auto_kit(args.next_count, run_id, args.dry_run, False)
+    adapt_rc = adapt.run_auto_kit(args.next_count, run_id, args.dry_run, args.readapt)
     if args.dry_run:
         return adapt_rc
 
