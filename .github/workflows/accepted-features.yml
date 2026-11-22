@@ -1,12 +1,13 @@
 name: LW Accepted Features CI
 
 on:
-  push:
-    branches:
-      - integration/v0.3-film-candidate
   pull_request:
     branches:
       - main
+
+concurrency:
+  group: accepted-features-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   remotion-build-and-smoke:
@@ -36,6 +37,8 @@ jobs:
         run: python scripts/install-fred-font.py
       - name: Render integrated smoke MP4
         run: npm run direct -- projects/accepted-ft-smoke/project.json --out exports/accepted-ft-smoke.mp4 --concurrency 2
+      - name: Install ffprobe for output validation
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - name: Check real video format
         run: |
           ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate -show_entries format=duration -of json exports/accepted-ft-smoke.mp4
