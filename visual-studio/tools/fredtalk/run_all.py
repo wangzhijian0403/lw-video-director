@@ -66,6 +66,19 @@ def main() -> int:
             print("Inventory retrieval failed. Stop: do not guess source availability.", file=sys.stderr)
             return rc
     rows = read(L.BATCH / "inventory.json", [])
+    # A Git clone ships the manifest but not the verified source cache. A real
+    # render run must populate it; dry-run can still count theoretical candidates.
+    if not args.dry_run and not args.refresh_inventory:
+        cached = sum(
+            1 for r in rows for f in r.get("source", {}).get("files", [])
+            if f.get("cachePath") and (L.CACHE / f["cachePath"]).is_file()
+        )
+        if cached == 0:
+            print("Fresh checkout: fetching the pinned public source inventory before adaptation")
+            rc = call([sys.executable, str(HERE / "inventory.py")])
+            if rc:
+                return rc
+            rows = read(L.BATCH / "inventory.json", [])
     if len(rows) != 432:
         print(f"Inventory has {len(rows)} rows, expected 432; stop rather than silently ignore items.", file=sys.stderr)
         return 2
@@ -75,7 +88,15 @@ def main() -> int:
         print("Duplicate/missing FredTalk IDs in inventory", file=sys.stderr)
         return 2
     strategies = dict(collections.Counter(r.get("adaptation", {}).get("strategy", "unknown") for r in rows))
-    candidates, skipped = adapt.select_auto_kit(rows, limit=args.max_items, include_adapted=True)
+    theoretical = [r for r in rows if r.get("adaptation", {}).get("strategy") == "kit-overlay"]
+    theoretical_count = len(theoretical)
+    if args.dry_run:
+        candidates = theoretical[:args.max_items] if args.max_items is not None else theoretical
+    else:
+        candidates, _ = adapt.select_auto_kit(rows, limit=args.max_items, include_adapted=True)
+        if not candidates:
+            print("No source-backed profiles resolved. Re-run with --refresh-inventory to rebuild the verified cache.", file=sys.stderr)
+            return 2
     output = adapt.RUNS / args.run_id
     output.mkdir(parents=True, exist_ok=True)
     overview = {
@@ -83,6 +104,8 @@ def main() -> int:
         "catalogCount": len(rows),
         "sourceStrategies": strategies,
         "kitSelected": len(candidates),
+        "kitStrategyCandidates": theoretical_count,
+        "cacheVerifiedSelection": not args.dry_run,
         "skipCount": len(rows) - len(candidates),
         "stages": {"inventory": "pass", "adapt": "not-run", "render": "not-run", "machineQa": "not-run", "humanVisual": "pending"},
         "notSourceReady": [
@@ -93,10 +116,10 @@ def main() -> int:
     write(output / "inventory-summary.json", overview)
     print(f"catalog={len(rows)}, kit-candidates={len(candidates)}, not-kit={overview['skipCount']} strategies={strategies}")
     if args.dry_run:
-        rc = adapt.run_auto_kit(args.max_items, args.run_id, True, True)
-        overview["stages"]["adapt"] = "plan-only"
+        overview["stages"]["adapt"] = "eligibility-plan-only"
+        overview["note"] = "Offline catalog classification; no source cache inspection, adaptation, MP4 rendering or QA."
         write(output / "all-summary.json", overview)
-        return rc
+        return 0
 
     rc_adapt = adapt.run_auto_kit(args.max_items, args.run_id, False, True)
     adaptation = read(output / "adapt-status.json", {})
