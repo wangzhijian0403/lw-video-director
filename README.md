@@ -82,6 +82,10 @@ npm run render -- CAM-001      # 需要浏览器，输出真实 MP4
 
 详细操作见 [工作台说明](visual-studio/README.md)，来源见 [第三方声明](visual-studio/external/THIRD_PARTY_NOTICES.md)，本轮记录见 [发布前检查](visual-studio/RELEASE-CHECKS.md)。不包含私人视频、密钥、node_modules、构建缓存和测试导出。
 
+## 新增：真实可用的本地视觉素材（候选验证版）
+
+首批24个 Tabler Icons MIT SVG 图标已按固定上游源码提交和SHA逐个登记，无需视频渲染时访问外网。可与 FredTalk/LW Originals 镜头叠加，支持颜色、位置、时长、进出动画、短标签等参数。使用方法见 [视觉素材包01](references/visual-asset-pack-01.md)。真实 Remotion 烟测和视觉审片必须通过后才晋级为正式推荐资源。
+
 ## 安装 Skill
 
 ### Windows（PowerShell）

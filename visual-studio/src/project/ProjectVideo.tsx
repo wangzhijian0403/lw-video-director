@@ -10,6 +10,7 @@ import {MistMountains} from '../components/backdrop/MistMountains';
 import {buildTimeline, transitionPhase} from './timeline.mjs';
 import type {ProjectFile, TimelineScene} from './types';
 import {UserCharacterActor} from '../components/characters/UserCharacterActor';
+import {IconOverlay} from '../components/resources/IconOverlay';
 
 const resolveSrc = (src: string) =>
   /^(https?:|data:|blob:)/.test(src) ? src : staticFile(src.replace(/^\/+/, ''));
@@ -250,6 +251,19 @@ export const ProjectVideo: React.FC<{project: ProjectFile}> = ({project}) => {
         return (
           <Sequence key={`bridge-${i}-${b.kind}`} from={start} durationInFrames={dur} name={`BRIDGE-${b.kind}`}>
             <BridgeTake kind={b.kind} dur={dur} contentScale={contentScale} accent={style.accent} muted={style.muted} />
+          </Sequence>
+        );
+      })}
+
+      {/* 已许可SVG图标，可叠在任意原生MG或FredTalk镜头上；时间/位置由工程控制。 */}
+      {(project.iconOverlays ?? []).map((cue, i) => {
+        const from = Math.max(0, Math.round(cue.at * timeline.fps));
+        const requested = Math.round(cue.duration * timeline.fps);
+        const frames = Math.min(requested, timeline.totalFrames - from);
+        if (!Number.isFinite(from) || !Number.isFinite(frames) || frames < 1) return null;
+        return (
+          <Sequence key={'icon-' + i + '-' + cue.id} from={from} durationInFrames={frames} name={'ICON-' + cue.id}>
+            <IconOverlay cue={cue} durationInFrames={frames} />
           </Sequence>
         );
       })}

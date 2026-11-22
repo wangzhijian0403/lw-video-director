@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "title": "LW visual asset overlay smoke",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "theme": "future",
+    "backdrop": "none"
+  },
+  "timing": "fixed",
+  "scenes": [
+    {
+      "id": "s1",
+      "component": "FT-T01b-431",
+      "duration": 4.5,
+      "text": "视觉素材应该让信息更清楚",
+      "params": {
+        "term": "视觉素材",
+        "alias": "Visual Assets",
+        "definition": "让复杂的概念更容易理解"
+      }
+    },
+    {
+      "id": "s2",
+      "component": "TYPE-001",
+      "duration": 4.5,
+      "text": "图标、分层、声音与转场一起工作",
+      "params": {
+        "title": "视觉素材＋MG",
+        "subtitle": "叠加资源，不必重新造场景",
+        "entrance": 0.6,
+        "hold": 2.9,
+        "exit": 1
+      }
+    }
+  ],
+  "iconOverlays": [
+    {
+      "id": "tabler:brain",
+      "at": 0.4,
+      "duration": 3.9,
+      "x": 75,
+      "y": 125,
+      "size": 176,
+      "color": "#6DA9C2",
+      "motion": "reveal",
+      "plate": "soft",
+      "label": "理解"
+    },
+    {
+      "id": "tabler:bulb",
+      "at": 0.9,
+      "duration": 3.4,
+      "x": 1620,
+      "y": 130,
+      "size": 150,
+      "color": "#F8C77C",
+      "motion": "float",
+      "plate": "soft",
+      "label": "灵感"
+    },
+    {
+      "id": "tabler:layers-intersect",
+      "at": 4.8,
+      "duration": 3.7,
+      "x": 100,
+      "y": 155,
+      "size": 192,
+      "color": "#89D3E0",
+      "motion": "wipe",
+      "plate": "none",
+      "label": "分层"
+    },
+    {
+      "id": "tabler:waveform",
+      "at": 5.1,
+      "duration": 3.4,
+      "x": 1600,
+      "y": 175,
+      "size": 190,
+      "color": "#F6B765",
+      "motion": "pulse",
+      "plate": "none",
+      "label": "声音"
+    }
+  ],
+  "subtitles": {
+    "enabled": false
+  },
+  "audio": {},
+  "sfx": []
+}

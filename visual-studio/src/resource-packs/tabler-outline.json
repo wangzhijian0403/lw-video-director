@@ -1,0 +1,398 @@
+{
+  "schemaVersion": "lw/visual-assets/1",
+  "packId": "tabler-outline-v1",
+  "title": "Tabler Icons · 首批24个常用视频视觉图标",
+  "upstream": "https://github.com/tabler/tabler-icons",
+  "revision": "85e870dbe8680c2d6deefd062122d30ef1544a41",
+  "license": "MIT",
+  "licensePath": "resource-packs/tabler-outline/LICENSE",
+  "usage": "Local vector overlays in Remotion. Separate from FredTalk scene code and user-private character assets.",
+  "status": "source-verified-render-pending",
+  "entries": [
+    {
+      "id": "tabler:brain",
+      "name": "brain",
+      "label": "思考与认知",
+      "tags": [
+        "concept",
+        "ai",
+        "reasoning",
+        "knowledge"
+      ],
+      "kind": "svg-icon",
+      "source": "https://github.com/tabler/tabler-icons/blob/85e870dbe8680c2d6deefd062122d30ef1544a41/icons/outline/brain.svg",
+      "gitBlob": "f7c8aec84c8dd69c4cb9e74dba09dd8791656472",
+      "publicPath": "resource-packs/tabler-outline/icons/brain.svg",
+      "technicalStatus": "source-verified",
+      "visualStatus": "not-reviewed"
+    },
+    {
+      "id": "tabler:bulb",
+      "name": "bulb",
+      "label": "创意灵感",
+      "tags": [
+        "concept",
+        "idea",
+        "highlight"
+      ],
+      "kind": "svg-icon",
+      "source": "https://github.com/tabler/tabler-icons/blob/85e870dbe8680c2d6deefd062122d30ef1544a41/icons/outline/bulb.svg",
+      "gitBlob": "4483b64cd676b00773e42f2fdef474597a844fd0",
+      "publicPath": "resource-packs/tabler-outline/icons/bulb.svg",
+      "technicalStatus": "source-verified",
+      "visualStatus": "not-reviewed"
+    },
+    {
+      "id": "tabler:hierarchy-3",
+      "name": "hierarchy-3",
+      "label": "信息层级",
+      "tags": [
+        "structure",
+        "hierarchy",
+        "process"
+      ],
+      "kind": "svg-icon",
+      "source": "https://github.com/tabler/tabler-icons/blob/85e870dbe8680c2d6deefd062122d30ef1544a41/icons/outline/hierarchy-3.svg",
+      "gitBlob": "04b24b47adad3360dd1eda99ab7733b24f5f0b9d",
+      "publicPath": "resource-packs/tabler-outline/icons/hierarchy-3.svg",
+      "technicalStatus": "source-verified",
+      "visualStatus": "not-reviewed"
+    },
+    {
+      "id": "tabler:git-branch",
+      "name": "git-branch",
+      "label": "分支选择",
+      "tags": [
+        "compare",
+        "branch",
+        "process"
+      ],
+      "kind": "svg-icon",
+      "source": "https://github.com/tabler/tabler-icons/blob/85e870dbe8680c2d6deefd062122d30ef1544a41/icons/outline/git-branch.svg",
+      "gitBlob": "221cea8bedfeeb1d283f48b6a8132cf841387b72",
+      "publicPath": "resource-packs/tabler-outline/icons/git-branch.svg",
+      "technicalStatus": "source-verified",
+      "visualStatus": "not-reviewed"
+    },
+    {
+      "id": "tabler:movie",
+      "name": "movie",
+      "label": "影片",
+      "tags": [
+        "video",
+        "film",
+        "media"
+      ],
+      "kind": "svg-icon",
+      "source": "https://github.com/tabler/tabler-icons/blob/85e870dbe8680c2d6deefd062122d30ef1544a41/icons/outline/movie.svg",
+      "gitBlob": "c8b8dbabe1e1db2f4e6c45e0b8fe6979e5db3d84",
+      "publicPath": "resource-packs/tabler-outline/icons/movie.svg",
+      "technicalStatus": "source-verified",
+      "visualStatus": "not-reviewed"
+    },
+    {
+      "id": "tabler:player-play",
+      "name": "player-play",
+      "label": "播放",
+      "tags": [
+        "video",
+        "play",
+        "action"
+      ],
+      "kind": "svg-icon",
+      "source": "https://github.com/tabler/tabler-icons/blob/85e870dbe8680c2d6deefd062122d30ef1544a41/icons/outline/player-play.svg",
+      "gitBlob": "a40eb414ba5afd546dd21d06b8b224547a631cf9",
+      "publicPath": "resource-packs/tabler-outline/icons/player-play.svg",
+      "technicalStatus": "source-verified",
+      "visualStatus": "not-reviewed"
+    },
+    {
+      "id": "tabler:volume-2",
+      "name": "volume-2",
+      "label": "音量",
+      "tags": [
+        "audio",
+        "mix",
+        "sound"
+      ],
+      "kind": "svg-icon",
+      "source": "https://github.com/tabler/tabler-icons/blob/85e870dbe8680c2d6deefd062122d30ef1544a41/icons/outline/volume-2.svg",
+      "gitBlob": "6b9c42faed5ff3a11d2d2f57db67a90154300e59",
+      "publicPath": "resource-packs/tabler-outline/icons/volume-2.svg",
+      "technicalStatus": "source-verified",
+      "visualStatus": "not-reviewed"
+    },
+    {
+      "id": "tabler:microphone",
+      "name": "microphone",
+      "label": "话筒配音",
+      "tags": [
+        "voice",
+        "narration",
+        "audio"
+      ],
+      "kind": "svg-icon",
+      "source": "https://github.com/tabler/tabler-icons/blob/85e870dbe8680c2d6deefd062122d30ef1544a41/icons/outline/microphone.svg",
+      "gitBlob": "7d3b830ba2c2cfeab196b4f895c9f61a006959ae",
+      "publicPath": "resource-packs/tabler-outline/icons/microphone.svg",
+      "technicalStatus": "source-verified",
+      "visualStatus": "not-reviewed"
+    },
+    {
+      "id": "tabler:waveform",
+      "name": "waveform",
+      "label": "声音波形",
+      "tags": [
+        "audio",
+        "waveform",
+        "beat"
+      ],
+      "kind": "svg-icon",
+      "source": "https://github.com/tabler/tabler-icons/blob/85e870dbe8680c2d6deefd062122d30ef1544a41/icons/outline/waveform.svg",
+      "gitBlob": "d9b14b765f906e2022e6d2336e9b3473e6aeac8f",
+      "publicPath": "resource-packs/tabler-outline/icons/waveform.svg",
+      "technicalStatus": "source-verified",
+      "visualStatus": "not-reviewed"
+    },
+    {
+      "id": "tabler:scissors",
+      "name": "scissors",
+      "label": "剪辑",
+      "tags": [
+        "editing",
+        "trim",
+        "video"
+      ],
+      "kind": "svg-icon",
+      "source": "https://github.com/tabler/tabler-icons/blob/85e870dbe8680c2d6deefd062122d30ef1544a41/icons/outline/scissors.svg",
+      "gitBlob": "c35670256600bed81d5960943342d41b4d33f1f6",
+      "publicPath": "resource-packs/tabler-outline/icons/scissors.svg",
+      "technicalStatus": "source-verified",
+      "visualStatus": "not-reviewed"
+    },
+    {
+      "id": "tabler:layers-intersect",
+      "name": "layers-intersect",
+      "label": "分层",
+      "tags": [
+        "layer",
+        "depth",
+        "composition"
+      ],
+      "kind": "svg-icon",
+      "source": "https://github.com/tabler/tabler-icons/blob/85e870dbe8680c2d6deefd062122d30ef1544a41/icons/outline/layers-intersect.svg",
+      "gitBlob": "bbdb9a66abe17aca6b731d89b3396eeda9528310",
+      "publicPath": "resource-packs/tabler-outline/icons/layers-intersect.svg",
+      "technicalStatus": "source-verified",
+      "visualStatus": "not-reviewed"
+    },
+    {
+      "id": "tabler:photo",
+      "name": "photo",
+      "label": "图片",
+      "tags": [
+        "photo",
+        "image",
+        "media"
+      ],
+      "kind": "svg-icon",
+      "source": "https://github.com/tabler/tabler-icons/blob/85e870dbe8680c2d6deefd062122d30ef1544a41/icons/outline/photo.svg",
+      "gitBlob": "2ea87764de3b4c29dff0abe70a143af92a1dbff7",
+      "publicPath": "resource-packs/tabler-outline/icons/photo.svg",
+      "technicalStatus": "source-verified",
+      "visualStatus": "not-reviewed"
+    },
+    {
+      "id": "tabler:mountain",
+      "name": "mountain",
+      "label": "山峦景观",
+      "tags": [
+        "landscape",
+        "nature",
+        "background"
+      ],
+      "kind": "svg-icon",
+      "source": "https://github.com/tabler/tabler-icons/blob/85e870dbe8680c2d6deefd062122d30ef1544a41/icons/outline/mountain.svg",
+      "gitBlob": "dd308ce98c6d64d5b36b1e2d1da74ff2032b0d73",
+      "publicPath": "resource-packs/tabler-outline/icons/mountain.svg",
+      "technicalStatus": "source-verified",
+      "visualStatus": "not-reviewed"
+    },
+    {
+      "id": "tabler:palette",
+      "name": "palette",
+      "label": "色彩设计",
+      "tags": [
+        "color",
+        "style",
+        "design"
+      ],
+      "kind": "svg-icon",
+      "source": "https://github.com/tabler/tabler-icons/blob/85e870dbe8680c2d6deefd062122d30ef1544a41/icons/outline/palette.svg",
+      "gitBlob": "a1070146664897ce605aa0106a5568e12148957e",
+      "publicPath": "resource-packs/tabler-outline/icons/palette.svg",
+      "technicalStatus": "source-verified",
+      "visualStatus": "not-reviewed"
+    },
+    {
+      "id": "tabler:chart-bar",
+      "name": "chart-bar",
+      "label": "柱形图",
+      "tags": [
+        "data",
+        "chart",
+        "compare"
+      ],
+      "kind": "svg-icon",
+      "source": "https://github.com/tabler/tabler-icons/blob/85e870dbe8680c2d6deefd062122d30ef1544a41/icons/outline/chart-bar.svg",
+      "gitBlob": "df44d129eb6dd8cad94103cc701f7a924dc8a367",
+      "publicPath": "resource-packs/tabler-outline/icons/chart-bar.svg",
+      "technicalStatus": "source-verified",
+      "visualStatus": "not-reviewed"
+    },
+    {
+      "id": "tabler:chart-dots-3",
+      "name": "chart-dots-3",
+      "label": "数据变化",
+      "tags": [
+        "data",
+        "trends",
+        "chart"
+      ],
+      "kind": "svg-icon",
+      "source": "https://github.com/tabler/tabler-icons/blob/85e870dbe8680c2d6deefd062122d30ef1544a41/icons/outline/chart-dots-3.svg",
+      "gitBlob": "e42a4272030a083a85ed89a460dd1926bf75573b",
+      "publicPath": "resource-packs/tabler-outline/icons/chart-dots-3.svg",
+      "technicalStatus": "source-verified",
+      "visualStatus": "not-reviewed"
+    },
+    {
+      "id": "tabler:circle-check",
+      "name": "circle-check",
+      "label": "完成勾选",
+      "tags": [
+        "complete",
+        "verify",
+        "success"
+      ],
+      "kind": "svg-icon",
+      "source": "https://github.com/tabler/tabler-icons/blob/85e870dbe8680c2d6deefd062122d30ef1544a41/icons/outline/circle-check.svg",
+      "gitBlob": "7b794b9548c81654174ed54e9d0d2d5d78129e38",
+      "publicPath": "resource-packs/tabler-outline/icons/circle-check.svg",
+      "technicalStatus": "source-verified",
+      "visualStatus": "not-reviewed"
+    },
+    {
+      "id": "tabler:sparkles",
+      "name": "sparkles",
+      "label": "闪光强调",
+      "tags": [
+        "highlight",
+        "quality",
+        "shine"
+      ],
+      "kind": "svg-icon",
+      "source": "https://github.com/tabler/tabler-icons/blob/85e870dbe8680c2d6deefd062122d30ef1544a41/icons/outline/sparkles.svg",
+      "gitBlob": "80a2bcec63fb71d8b06f40703b6ac02ea7ee4c74",
+      "publicPath": "resource-packs/tabler-outline/icons/sparkles.svg",
+      "technicalStatus": "source-verified",
+      "visualStatus": "not-reviewed"
+    },
+    {
+      "id": "tabler:arrows-shuffle",
+      "name": "arrows-shuffle",
+      "label": "切换转换",
+      "tags": [
+        "transition",
+        "shuffle",
+        "compare"
+      ],
+      "kind": "svg-icon",
+      "source": "https://github.com/tabler/tabler-icons/blob/85e870dbe8680c2d6deefd062122d30ef1544a41/icons/outline/arrows-shuffle.svg",
+      "gitBlob": "683c5dce812f68760f0f72ad0cd1b9a186bd9a9f",
+      "publicPath": "resource-packs/tabler-outline/icons/arrows-shuffle.svg",
+      "technicalStatus": "source-verified",
+      "visualStatus": "not-reviewed"
+    },
+    {
+      "id": "tabler:clock",
+      "name": "clock",
+      "label": "时间节奏",
+      "tags": [
+        "time",
+        "timing",
+        "pace"
+      ],
+      "kind": "svg-icon",
+      "source": "https://github.com/tabler/tabler-icons/blob/85e870dbe8680c2d6deefd062122d30ef1544a41/icons/outline/clock.svg",
+      "gitBlob": "9c31e876efddef0342f81a8799075b50d19c1d52",
+      "publicPath": "resource-packs/tabler-outline/icons/clock.svg",
+      "technicalStatus": "source-verified",
+      "visualStatus": "not-reviewed"
+    },
+    {
+      "id": "tabler:camera",
+      "name": "camera",
+      "label": "拍摄镜头",
+      "tags": [
+        "camera",
+        "filming",
+        "record"
+      ],
+      "kind": "svg-icon",
+      "source": "https://github.com/tabler/tabler-icons/blob/85e870dbe8680c2d6deefd062122d30ef1544a41/icons/outline/camera.svg",
+      "gitBlob": "79bb9025804e07adb20a419018255c77ad7a9c57",
+      "publicPath": "resource-packs/tabler-outline/icons/camera.svg",
+      "technicalStatus": "source-verified",
+      "visualStatus": "not-reviewed"
+    },
+    {
+      "id": "tabler:device-desktop",
+      "name": "device-desktop",
+      "label": "电脑界面",
+      "tags": [
+        "desktop",
+        "device",
+        "software"
+      ],
+      "kind": "svg-icon",
+      "source": "https://github.com/tabler/tabler-icons/blob/85e870dbe8680c2d6deefd062122d30ef1544a41/icons/outline/device-desktop.svg",
+      "gitBlob": "33ec1295640213d114104fd40c38a6f67376fceb",
+      "publicPath": "resource-packs/tabler-outline/icons/device-desktop.svg",
+      "technicalStatus": "source-verified",
+      "visualStatus": "not-reviewed"
+    },
+    {
+      "id": "tabler:device-mobile",
+      "name": "device-mobile",
+      "label": "手机界面",
+      "tags": [
+        "mobile",
+        "device",
+        "vertical"
+      ],
+      "kind": "svg-icon",
+      "source": "https://github.com/tabler/tabler-icons/blob/85e870dbe8680c2d6deefd062122d30ef1544a41/icons/outline/device-mobile.svg",
+      "gitBlob": "2fc6f41f05acb6c14946db54b3986080e127b50e",
+      "publicPath": "resource-packs/tabler-outline/icons/device-mobile.svg",
+      "technicalStatus": "source-verified",
+      "visualStatus": "not-reviewed"
+    },
+    {
+      "id": "tabler:robot",
+      "name": "robot",
+      "label": "智能机器人",
+      "tags": [
+        "ai",
+        "robot",
+        "automation"
+      ],
+      "kind": "svg-icon",
+      "source": "https://github.com/tabler/tabler-icons/blob/85e870dbe8680c2d6deefd062122d30ef1544a41/icons/outline/robot.svg",
+      "gitBlob": "62d5ab628ea928302a378d9924085e56748be113",
+      "publicPath": "resource-packs/tabler-outline/icons/robot.svg",
+      "technicalStatus": "source-verified",
+      "visualStatus": "not-reviewed"
+    }
+  ]
+}

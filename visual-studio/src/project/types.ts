@@ -1,5 +1,6 @@
 import type {Params, ThemeId} from '../catalog/types';
 import type {UserCharacterId, UserCharacterAction} from '../components/characters/UserCharacterActor';
+import type {IconOverlayCue} from '../components/resources/IconOverlay';
 
 export type TransitionType = 'cut' | 'fade' | 'slide' | 'zoom' | 'wipe';
 
@@ -77,6 +78,8 @@ export type ProjectFile = {
   scenes: SceneSpec[];
   /** 用户角色叠加槽位（私有本地媒体） */
   characters?: CharacterSlot[];
+  /** 可叠加在任意镜头之上的已许可本地图标；与 FredTalk/原创 MG 场景并存 */
+  iconOverlays?: IconOverlayCue[];
   /** Node 渲染层写入的媒体存在性校验表：`角色/动作 -> 是否存在`，浏览器侧不生成 */
   _characterMedia?: Record<string, boolean>;
 };
