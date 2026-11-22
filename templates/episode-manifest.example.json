@@ -1,0 +1,191 @@
+{
+  "schemaVersion": "0.3-draft",
+  "projectId": "lw-example-storyboard",
+  "title": "为什么 AI 视频制作需要分镜？",
+  "status": "draft",
+  "brief": {
+    "platform": "douyin",
+    "audience": "对AI创作感兴趣的普通观众",
+    "intent": "以具体镜头解释分镜如何改善AI视频的叙事、空间一致性和节奏",
+    "aspect": "9:16",
+    "durationTargetSeconds": 45,
+    "language": "zh-CN"
+  },
+  "output": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "totalFrames": 1350,
+    "container": "mp4",
+    "videoCodec": "h264",
+    "audioRequired": true
+  },
+  "visual": {
+    "theme": "future",
+    "styleNotes": "独立LW品牌视觉，不复制参考作者外观；同一主视觉、精简信息与顺滑运镜"
+  },
+  "narration": {
+    "status": "missing",
+    "source": "tts-or-recorded",
+    "audioPath": null,
+    "alignmentPath": null,
+    "usageRights": "original"
+  },
+  "subtitles": {
+    "status": "missing",
+    "filePath": null
+  },
+  "backgroundMusic": {
+    "status": "disabled",
+    "filePath": null,
+    "license": "not-applicable"
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "startFrame": 0,
+      "durationFrames": 150,
+      "purpose": "hook",
+      "narrationText": "为什么AI生成的视频看着炫，却讲不清故事？",
+      "library": "originals",
+      "componentId": "TYPE-001",
+      "props": {
+        "title": "画面很炫，故事呢？"
+      },
+      "assets": []
+    },
+    {
+      "id": "S02",
+      "startFrame": 150,
+      "durationFrames": 150,
+      "purpose": "problem",
+      "narrationText": "原因之一，是镜头之间没有明确的表达任务。",
+      "library": "originals",
+      "componentId": "CAM-001",
+      "props": {
+        "rotation": 90,
+        "title": "镜头不是随机运镜"
+      },
+      "assets": []
+    },
+    {
+      "id": "S03",
+      "startFrame": 300,
+      "durationFrames": 180,
+      "purpose": "evidence",
+      "narrationText": "有了分镜，每个画面都知道自己要解释什么。",
+      "library": "originals",
+      "componentId": "INFO-001",
+      "props": {
+        "title": "每一镜的任务",
+        "chartData": [
+          {
+            "label": "说明",
+            "value": 1
+          },
+          {
+            "label": "证明",
+            "value": 2
+          },
+          {
+            "label": "承接",
+            "value": 3
+          }
+        ],
+        "unit": "示例",
+        "dataSource": "结构示意，不是调查数据"
+      },
+      "assets": []
+    },
+    {
+      "id": "S04",
+      "startFrame": 480,
+      "durationFrames": 165,
+      "purpose": "explain",
+      "narrationText": "观众看哪里，镜头何时运动，都可以提前设计。",
+      "library": "originals",
+      "componentId": "LIGHT-001",
+      "props": {
+        "title": "视觉焦点"
+      },
+      "assets": []
+    },
+    {
+      "id": "S05",
+      "startFrame": 645,
+      "durationFrames": 165,
+      "purpose": "transition",
+      "narrationText": "让上一个画面的结束，成为下一个画面的开始。",
+      "library": "originals",
+      "componentId": "TRANS-001",
+      "props": {},
+      "assets": []
+    },
+    {
+      "id": "S06",
+      "startFrame": 810,
+      "durationFrames": 180,
+      "purpose": "contrast",
+      "narrationText": "分镜将信息、动作和声音统一到一条时间轴上。",
+      "library": "originals",
+      "componentId": "INFO-001",
+      "props": {
+        "title": "一条时间轴",
+        "chartData": [
+          {
+            "label": "文字",
+            "value": 1
+          },
+          {
+            "label": "镜头",
+            "value": 2
+          },
+          {
+            "label": "声音",
+            "value": 3
+          }
+        ],
+        "unit": "示意",
+        "dataSource": "概念示意，不是统计数据"
+      },
+      "assets": []
+    },
+    {
+      "id": "S07",
+      "startFrame": 990,
+      "durationFrames": 180,
+      "purpose": "payoff",
+      "narrationText": "于是画面不再只是在动，而是真的在表达。",
+      "library": "originals",
+      "componentId": "CAM-001",
+      "props": {
+        "rotation": 150,
+        "title": "让运动服务内容"
+      },
+      "assets": []
+    },
+    {
+      "id": "S08",
+      "startFrame": 1170,
+      "durationFrames": 180,
+      "purpose": "conclusion",
+      "narrationText": "好的AI视频，先有清晰的导演思路，再有漂亮的动效。",
+      "library": "originals",
+      "componentId": "TYPE-001",
+      "props": {
+        "title": "先有表达，再有动效"
+      },
+      "assets": []
+    }
+  ],
+  "technicalQa": {
+    "status": "not-run"
+  },
+  "visualQa": {
+    "status": "not-reviewed"
+  },
+  "rights": {
+    "originalNarration": true,
+    "externalMediaReviewed": false
+  }
+}

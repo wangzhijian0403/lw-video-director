@@ -1,5 +1,8 @@
 # AI 视频导演与专业剪辑师
 
+> **v0.3.0-preview.1 · 短视频工作流预览（Draft，非稳定版）**：本开发分支从已完成83.7秒工程验证的整片引擎提交延伸，更新了 Skill 的 30 秒新题材制作协议，但**还没有验证新题材可自动生成高质量成片**。不影响 main 的 v0.2，visual-studio/package.json 仍是 0.2.0，未创建 Release。参见 [版本状态](references/v0.3-shortform-preview-status.md)、[30秒生产协议](references/shortform-30s-production.md)、[可交付给其他智能体的样例](templates/shortform-30s-brief.example.md)。FredTalk PR #8 未合并本分支；旧《造纸术》只作工程案例，不再返修。
+
+
 这是一个面向 Codex 的视频分析与制作辅助 Skill。它用于拆解经授权的参考视频、整理可核查的镜头与音频证据、规划分镜和动效，并对原创组件及视频导出进行基础技术检查。
 
 - **GitHub 仓库名：** `lw-video-director`
@@ -19,6 +22,23 @@
 - 检查视频流、帧解码、首尾帧亮度、帧间隔和音视频时长差异。
 
 **边界：** 镜头检测结果只是候选，不是精确剪辑点；混合音轨低能量不等于人声停顿；元数据检查不能代替人工观看成片。该 Skill 不会仅凭参考视频推断作者使用了什么软件，也不会把可运行代码自动视为视觉验收通过。
+
+## 整片制作 Skill（研发中的制作协议）
+
+**用户的最终目标是直接出高质量成片，而不是只生成五个静音动效。**
+
+已为 `ai-video-director` 增加完整制作指挥流程：
+
+- [整片制作协议](references/production-contract.md)：主题 → 口播 → 真实时间对齐 → 分镜 → 视觉组件 → 多场景合成 → 音乐字幕 → QA → 局部返修。
+- [视觉质量门禁](references/visual-quality-gate.md)：美观性、表达准确、流畅运镜、字幕与视听同步的独立评价。
+- [45秒分镜数据模板](templates/episode-manifest.example.json) 和 [镜头预检脚本](scripts/episode_preflight.py)，用于记录统一时间轴并拒绝尚不可用的外部组件。
+
+```sh
+python scripts/episode_preflight.py templates/episode-manifest.example.json --phase plan
+python scripts/episode_preflight.py templates/episode-manifest.example.json --phase render
+```
+
+**重要：** 现有 `visual-studio/` v0.2 仅实现**单组件、无音轨、16:9 视频渲染**。制作流程已经有明确约定，但尚缺经过验证的多场景整片引擎、TTS/录音接入、真实时间码字幕与混音。示例必须能通过计划预检、却因这些真实缺口无法通过成片预检。不要把接口/计划写成已经能一键出片；待独立工程开发、真实完整视频测试后再宣布生产可用。
 
 ## 外部视觉库
 
