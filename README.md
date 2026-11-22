@@ -1,5 +1,8 @@
 # AI 视频导演与专业剪辑师
 
+> **v0.3.0-preview.1 · 短视频工作流预览（Draft，非稳定版）**：本开发分支从已完成83.7秒工程验证的整片引擎提交延伸，更新了 Skill 的 30 秒新题材制作协议，但**还没有验证新题材可自动生成高质量成片**。不影响 main 的 v0.2，visual-studio/package.json 仍是 0.2.0，未创建 Release。参见 [版本状态](references/v0.3-shortform-preview-status.md)、[30秒生产协议](references/shortform-30s-production.md)、[可交付给其他智能体的样例](templates/shortform-30s-brief.example.md)。FredTalk PR #8 未合并本分支；旧《造纸术》只作工程案例，不再返修。
+
+
 这是一个面向 Codex 的视频分析与制作辅助 Skill。它用于拆解经授权的参考视频、整理可核查的镜头与音频证据、规划分镜和动效，并对原创组件及视频导出进行基础技术检查。
 
 - **GitHub 仓库名：** `lw-video-director`
