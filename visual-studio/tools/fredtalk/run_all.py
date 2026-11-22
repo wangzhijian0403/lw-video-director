@@ -42,6 +42,26 @@ def call(cmd: list[str], env: dict | None = None) -> int:
     return subprocess.run(cmd, cwd=VS, env=env or os.environ.copy(), check=False).returncode
 
 
+def isolate_registry(registry_code: str, registry_data: list[dict], ids: set[str]) -> tuple[str, list[dict]]:
+    """Use only current-batch imports so one broken component cannot block all chunks.
+
+    Generated file has one import and one data entry per ID; original registry
+    is restored in a finally block after each Chromium subprocess.
+    """
+    lines = registry_code.splitlines()
+    if len(lines) < 5 or "AUTO-GENERATED" not in lines[0]:
+        raise ValueError("Unexpected registry format; refusing to rewrite")
+    head = lines[:3]
+    imports = [line for line in lines[3:] if line.startswith("import {Adapter as A")
+               and any("/adapted/" + cid + "/src/adapter" in line for cid in ids)]
+    entries = [line for line in lines[3:] if line.lstrip().startswith("{adapter:A")
+               and any('id:"' + cid + '"' in line for cid in ids)]
+    filtered = [x for x in registry_data if x["id"] in ids]
+    if len(imports) != len(ids) or len(entries) != len(ids) or len(filtered) != len(ids):
+        raise ValueError(f"Registry/plan mismatch: imports={len(imports)} entries={len(entries)} data={len(filtered)} ids={len(ids)}")
+    return "\n".join([*head, *imports, "", "export const fredBatch: FredBatchEntry[] = [", *entries, "];", ""]), filtered
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Run all source-eligible FredTalk kit components in restartable batches")
     ap.add_argument("--run-id", default=datetime.now(timezone.utc).strftime("fred-all-%Y%m%d-%H%M%S"))
@@ -144,30 +164,44 @@ def main() -> int:
         env["LW_BROWSER"] = args.browser
     passes, render_fail, machine_fail = set(), {}, {}
     batch_results = []
+    code_path = VS / "src/references/fredtalk-registry.generated.tsx"
+    data_path = VS / "src/references/fredtalk-registry.data.json"
+    original_code = code_path.read_text(encoding="utf-8")
+    original_data_text = data_path.read_text(encoding="utf-8")
+    original_data = json.loads(original_data_text)
     for offset in range(0, len(components), args.batch_size):
         chunk = components[offset:offset + args.batch_size]
         batch_id = f"{args.run_id}-part-{offset // args.batch_size + 1:03d}"
         batch_dir = adapt.RUNS / batch_id
         subplan = {**plan, "runId": batch_id, "count": len(chunk), "components": chunk, "skipped": []}
         write(batch_dir / "plan.json", subplan)
-        rc = call([node, str(HERE / "render_batch.mjs"), "--plan", str(batch_dir / "plan.json")], env)
-        render = read(batch_dir / "render-summary.json", {"failed": [], "rendered": [], "skipped": []})
         attempted = [x["lwId"] for x in chunk]
-        for attempt in range(args.retry_failures):
-            failed = [x["id"] for x in render.get("failed", [])]
-            if not failed:
-                break
-            print(f"{batch_id}: retry #{attempt + 1} ({len(failed)} failed) in fresh renderer process")
-            call([node, str(HERE / "render_batch.mjs"), "--plan", str(batch_dir / "plan.json"), "--only", *failed, "--force"], env)
-            st = read(batch_dir / "status.json", {})
-            still_failed = [id for id in attempted if st.get(id, {}).get("render") != "pass"]
-            if not still_failed:
-                break
-        state = read(batch_dir / "status.json", {})
+        # Keep the generated registry private to this chunk. The full adapted
+        # sources remain untouched, and the original index is restored even
+        # when Remotion/Chromium exits with an error.
+        subset_code, subset_data = isolate_registry(original_code, original_data, set(attempted))
+        try:
+            code_path.write_text(subset_code, encoding="utf-8")
+            write(data_path, subset_data)
+            rc = call([node, str(HERE / "render_batch.mjs"), "--plan", str(batch_dir / "plan.json")], env)
+            render = read(batch_dir / "render-summary.json", {"failed": [], "rendered": [], "skipped": []})
+            for attempt in range(args.retry_failures):
+                failed = [x["id"] for x in render.get("failed", [])]
+                if not failed:
+                    break
+                print(f"{batch_id}: retry #{attempt + 1} ({len(failed)} failed) in fresh renderer process")
+                call([node, str(HERE / "render_batch.mjs"), "--plan", str(batch_dir / "plan.json"), "--only", *failed, "--force"], env)
+                st = read(batch_dir / "status.json", {})
+                if all(st.get(cid, {}).get("render") == "pass" for cid in attempted):
+                    break
+            state = read(batch_dir / "status.json", {})
+            # Machine QA separately, including failures, so result codes never get invented.
+            qa_rc = call([sys.executable, str(HERE / "qa_media.py"), "--run-id", batch_id])
+            quality = read(batch_dir / "qa-summary.json", [])
+        finally:
+            code_path.write_text(original_code, encoding="utf-8")
+            data_path.write_text(original_data_text, encoding="utf-8")
         render_fail.update({id: state.get(id, {}).get("error", "missing render result") for id in attempted if state.get(id, {}).get("render") != "pass"})
-        # Machine QA separately, including failures, so result codes never get invented.
-        qa_rc = call([sys.executable, str(HERE / "qa_media.py"), "--run-id", batch_id])
-        quality = read(batch_dir / "qa-summary.json", [])
         for row in quality:
             cid = row.get("id")
             if cid not in attempted:
