@@ -1,6 +1,6 @@
 # AI 视频导演与专业剪辑师
 
-> **v0.3.0-preview.1 · 短视频工作流预览（Draft，非稳定版）**：本开发分支从已完成83.7秒工程验证的整片引擎提交延伸，更新了 Skill 的 30 秒新题材制作协议，但**还没有验证新题材可自动生成高质量成片**。不影响 main 的 v0.2，visual-studio/package.json 仍是 0.2.0，未创建 Release。参见 [版本状态](references/v0.3-shortform-preview-status.md)、[30秒生产协议](references/shortform-30s-production.md)、[可交付给其他智能体的样例](templates/shortform-30s-brief.example.md)。FredTalk PR #8 未合并本分支；旧《造纸术》只作工程案例，不再返修。
+> **v0.3.0-preview.1 · 通用视频制作 Skill 工作流（已纳入 main，尚非稳定 Release）**：已合入有83.7秒成片实证的 Remotion 多镜头整片引擎。**本 Skill 不限30秒，也没有全局固定镜头数或时长区间**，所有视频由用户需求、脚本内容与实测语音确定。新题材高质量自动出片尚待实测。参见 [时长政策](references/video-duration-policy.md)、[能力状态](references/v0.3-shortform-preview-status.md)。[30秒协议](references/shortform-30s-production.md)及[30秒任务样例](templates/shortform-30s-brief.example.md)只用于特定回归样片，不能作为通用限制。FredTalk 独立集成仍需成功通过端到端测试；旧《造纸术》只作工程案例。
 
 
 这是一个面向 Codex 的视频分析与制作辅助 Skill。它用于拆解经授权的参考视频、整理可核查的镜头与音频证据、规划分镜和动效，并对原创组件及视频导出进行基础技术检查。
@@ -38,7 +38,7 @@ python scripts/episode_preflight.py templates/episode-manifest.example.json --ph
 python scripts/episode_preflight.py templates/episode-manifest.example.json --phase render
 ```
 
-**重要：** 现有 `visual-studio/` v0.2 仅实现**单组件、无音轨、16:9 视频渲染**。制作流程已经有明确约定，但尚缺经过验证的多场景整片引擎、TTS/录音接入、真实时间码字幕与混音。示例必须能通过计划预检、却因这些真实缺口无法通过成片预检。不要把接口/计划写成已经能一键出片；待独立工程开发、真实完整视频测试后再宣布生产可用。
+**重要更新：** 现在 `main` 已合入通过83.7秒项目技术验证的 Remotion 多场景整片引擎、字幕、配音音轨及混音流程；但通用题材自动分镜、素材选择与专业视觉质量并未整体通过验收。`visual-studio/package.json` 版本仍是 `0.2.0`，本次并未创建正式 Release。示例预检与视频渲染的能力应分别检查。
 
 ## 外部视觉库
 
