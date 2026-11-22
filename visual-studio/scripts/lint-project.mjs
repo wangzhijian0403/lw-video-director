@@ -19,7 +19,8 @@ export function lintProject(project, {publicDir = path.join(ROOT, 'public'), bas
 
   if (!project || typeof project !== 'object') return {errors: ['project 不是对象'], warnings};
   const manifest = JSON.parse(fsp.readFileSync(manifestPath, 'utf8'));
-  const ids = new Set(manifest.components.map((c) => c.id));
+  const vetted = JSON.parse(fsp.readFileSync(path.join(ROOT, 'src', 'integrations', 'fredtalk-approved.json'), 'utf8'));
+  const ids = new Set([...manifest.components.map((c) => c.id), ...vetted.entries.map((x) => x.id)]);
 
   // 1. 画幅与帧率
   const fps = project.meta?.fps ?? 30;
