@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "lw-scenes/1",
+  "title": "LW Scenes · 原创分层插画与环境场景 01",
+  "license": "LW original first-party source; no third-party media or logos",
+  "status": "implementation-testing",
+  "entries": [
+    {
+      "id": "ILLUS-STUDIO-01",
+      "title": "创意工作室",
+      "description": "采光窗景、桌面、显示器、设计草图与绿植的多层空间，适合设计、剪辑与创作工作流",
+      "tags": [
+        "设计",
+        "剪辑",
+        "工作台",
+        "软件",
+        "创作",
+        "studio",
+        "workspace"
+      ],
+      "palette": [
+        "#F5EDDD",
+        "#207985",
+        "#C38359"
+      ],
+      "layout": "left-headline",
+      "motion": "desk depth + plant drift",
+      "renderer": "remotion"
+    },
+    {
+      "id": "ILLUS-CITY-01",
+      "title": "暮色城市",
+      "description": "暮色城市、灯光窗格、河岸倒影与深景空间，适合科技、趋势、城市叙事",
+      "tags": [
+        "科技",
+        "都市",
+        "城市",
+        "产业",
+        "夜景",
+        "city",
+        "technology"
+      ],
+      "palette": [
+        "#091B2F",
+        "#296E79",
+        "#F2C58F"
+      ],
+      "layout": "left-headline",
+      "motion": "skyline drift + reflections",
+      "renderer": "remotion"
+    },
+    {
+      "id": "ILLUS-NATURE-01",
+      "title": "青山河谷",
+      "description": "青灰层峦、河流、树林与木屋分层场景，适合自然、旅行、知识及宁静叙事",
+      "tags": [
+        "青山",
+        "山水",
+        "自然",
+        "河流",
+        "风景",
+        "旅行",
+        "landscape"
+      ],
+      "palette": [
+        "#C8DFDF",
+        "#487C77",
+        "#F6D69D"
+      ],
+      "layout": "left-headline",
+      "motion": "mountain parallax + clouds",
+      "renderer": "remotion"
+    }
+  ]
+}

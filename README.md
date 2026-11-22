@@ -86,6 +86,10 @@ npm run render -- CAM-001      # 需要浏览器，输出真实 MP4
 
 首批24个 Tabler Icons MIT SVG 图标已按固定上游源码提交和SHA逐个登记，无需视频渲染时访问外网。可与 FredTalk/LW Originals 镜头叠加，支持颜色、位置、时长、进出动画、短标签等参数。使用方法见 [视觉素材包01](references/visual-asset-pack-01.md)。真实 Remotion 烟测和视觉审片必须通过后才晋级为正式推荐资源。
 
+## 本地资源图鉴 / 3个原创分层插画场景
+
+已在工作台新增「素材图鉴」以查看并真实预览已安装的 FredTalk 动效、24个 SVG 图标和3个原创插画场景；本地角色的私有文件仍只存电脑，不上传GitHub。Windows 更新到相应版本后，可双击仓库根目录的 `start-lw-studio.cmd` 启动工作台，启动器待 `/api/health` 就绪后再打开浏览器，避免先打开网页导致连接拒绝。参考 [插画场景素材包及打开指南](references/illustration-scene-pack-02.md)。
+
 ## 安装 Skill
 
 ### Windows（PowerShell）

@@ -11,6 +11,7 @@ import {buildTimeline, transitionPhase} from './timeline.mjs';
 import type {ProjectFile, TimelineScene} from './types';
 import {UserCharacterActor} from '../components/characters/UserCharacterActor';
 import {IconOverlay} from '../components/resources/IconOverlay';
+import {IllustratedScene, type IllustrationId} from '../scene-packs/IllustratedScene';
 
 const resolveSrc = (src: string) =>
   /^(https?:|data:|blob:)/.test(src) ? src : staticFile(src.replace(/^\/+/, ''));
@@ -74,7 +75,13 @@ const SceneTake: React.FC<{scene: TimelineScene; contentScale: number}> = ({scen
     <AbsoluteFill style={{opacity, transform, clipPath, overflow: 'hidden', maskImage, WebkitMaskImage: maskImage}}>
       {/* 画面整体等比缩到字幕条之上：组件底部标题/坐标不会被字幕压住 */}
       <div style={{position: 'absolute', inset: 0, transform: `scale(${contentScale})`, transformOrigin: '50% 0%'}}>
-        {scene.component.startsWith('FT-')
+        {scene.component.startsWith('ILLUS-')
+          ? <IllustratedScene
+              id={scene.component as IllustrationId}
+              title={String(scene.params.title || '') || undefined}
+              subtitle={String(scene.params.subtitle || '') || undefined}
+            />
+          : scene.component.startsWith('FT-')
           ? <FredTalkApprovedScene id={scene.component}
               sceneProps={scene.params as unknown as Record<string, unknown>}
               accent={themes[scene.theme].accent}
