@@ -43,6 +43,14 @@ jobs:
         run: npm run direct -- projects/accepted-ft-smoke/project.json --out exports/accepted-ft-smoke.mp4 --concurrency 2
       - name: Render icon overlays on real FredTalk/LW scenes
         run: npm run direct -- projects/visual-assets-smoke/project.json --out exports/visual-assets-smoke.mp4 --concurrency 2
+      - name: Render all three original illustrated scenes as real MP4
+        run: npm run direct -- projects/illustration-scene-smoke/project.json --out exports/illustration-scene-smoke.mp4 --concurrency 2
+      - name: Check local workbench health endpoint
+        run: |
+          node server.mjs > /tmp/lw-studio.log 2>&1 &
+          studio_pid=$!
+          trap 'kill "$studio_pid" 2>/dev/null || true' EXIT
+          node --input-type=module -e 'let ok=false;for(let i=0;i<50;i++){try{const r=await fetch("http://127.0.0.1:4173/api/health");const j=await r.json();if(r.ok&&j.service==="LW Visual Studio"&&j.ready){ok=true;break}}catch{}await new Promise(done=>setTimeout(done,400))}if(!ok)process.exit(1);console.log("Local workbench /api/health: READY")'
       - name: Install ffprobe for output validation
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - name: Check real video format
@@ -51,3 +59,5 @@ jobs:
           test -s exports/accepted-ft-smoke.mp4
           ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate -show_entries format=duration -of json exports/visual-assets-smoke.mp4
           test -s exports/visual-assets-smoke.mp4
+          ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate -show_entries format=duration -of json exports/illustration-scene-smoke.mp4
+          test -s exports/illustration-scene-smoke.mp4
