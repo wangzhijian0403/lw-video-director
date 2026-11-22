@@ -1,0 +1,39 @@
+name: FredTalk Whole-Library Source Eligibility
+on:
+  push:
+    branches: [feature/fredtalk-batch-adapter]
+    paths:
+      - 'visual-studio/tools/fredtalk/run_all.py'
+      - '.github/workflows/fredtalk-whole-library-plan.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  catalog-plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Whole-catalog plan without downloads or rendering
+        working-directory: visual-studio
+        run: |
+          python tools/fredtalk/run_all.py --dry-run --run-id ci-fredtalk-whole-library
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('external/fredtalk/batch/runs/ci-fredtalk-whole-library/all-summary.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          assert d['catalogCount'] == 432, d['catalogCount']
+          assert d['kitSelected'] > 0, d
+          assert d['stages']['adapt'] == 'plan-only', d
+          print(f"Source-eligible kit candidates: {d['kitSelected']} / {d['catalogCount']}")
+          print(f"Blocked/non-kit reasons: {d['sourceStrategies']}")
+          with open(__import__('os').environ['GITHUB_STEP_SUMMARY'], 'a') as f:
+              f.write(f"## FredTalk source eligibility\n\nCatalog: **{d['catalogCount']}**; kit candidates: **{d['kitSelected']}**.\n\n")
+              f.write("This check is only a deterministic **plan**; it does not render MP4, grant licensing, approve visuals, or merge into main.\n")
+          PY
