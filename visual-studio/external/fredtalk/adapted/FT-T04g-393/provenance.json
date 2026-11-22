@@ -5,7 +5,7 @@
   "category": "讲解段落",
   "strategy": "kit-overlay",
   "adapterVersion": "fred-batch/1.2",
-  "sourceSha256": "6f3396ffd9a8974fdfbb45c7dd31ff3f0bccfd5b3b4123652496d365d9c567a4",
+  "sourceSha256": "a7b60a0e52e0075148199846e1c428e273b1fd1a2f65f853f72f2f13ea13cacb",
   "adapterSha256": "b550431f9f8ff52e04fbb8f975a2b0c5e406ac6927bcb99c5fc0d720b0cf5af3",
   "nativeFrames": 360,
   "fps": 60,
@@ -57,8 +57,33 @@
     "Fonts -> OFL SmileySans",
     "Brand removed",
     "Sfx muted",
-    "Frame background -> host"
+    "Frame background -> host",
+    "source patch components/T04g-DecisionTree.tsx: raise inactive-branch text floor",
+    "source patch components/T04g-DecisionTree.tsx: use ink instead of muted for notes",
+    "source patch components/T04g-DecisionTree.tsx: keep connector visible"
   ],
-  "sourcePatches": [],
+  "sourcePatches": [
+    {
+      "file": "components/T04g-DecisionTree.tsx",
+      "from": "        const fade = isRec ? 1 : 1 - 0.6 * dim;   // 只退文字，卡和条件签保持实心，不透出后面的线",
+      "to": "        const fade = isRec ? 1 : 1 - 0.2 * dim;   // 未推荐分支最多降到 0.8，保证说明文字可读",
+      "occurrences": 1,
+      "reason": "raise inactive-branch text floor"
+    },
+    {
+      "file": "components/T04g-DecisionTree.tsx",
+      "from": "    {b.note ? <span style={{ ...textBase(noteSize, dark ? 900 : 500), color: dark ? accentOn(true) : S.muted,",
+      "to": "    {b.note ? <span style={{ ...textBase(noteSize, dark ? 900 : 500), color: dark ? accentOn(true) : S.ink,",
+      "occurrences": 1,
+      "reason": "use ink instead of muted for notes"
+    },
+    {
+      "file": "components/T04g-DecisionTree.tsx",
+      "from": "            strokeDasharray=\"1 1\" strokeDashoffset={1 - draw} opacity={isRec ? 1 : 1 - 0.6 * dim} />;",
+      "to": "            strokeDasharray=\"1 1\" strokeDashoffset={1 - draw} opacity={isRec ? 1 : 1 - 0.3 * dim} />;",
+      "occurrences": 1,
+      "reason": "keep connector visible"
+    }
+  ],
   "notes": "Auto-generated kit-overlay profile. Entry/symbol/defaults are selected from inventory + source exports."
 }

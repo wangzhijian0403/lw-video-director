@@ -89,11 +89,11 @@ export function AgendaThree(props: Partial<AgendaThreeProps>) {
       const b = boxOf(i);
       return <div key={i} style={{
         position: 'absolute', left: 0, top: 0, width: 1920, height: 1080, pointerEvents: 'none',
-        opacity: e * mix(1, 0.35, dim), zIndex: isCur ? 2 : 1,
+        opacity: e, zIndex: isCur ? 2 : 1,
         transform: stacked ? `translateX(${(1 - e) * 120 + 30 * lift}px)` : `translateY(${(1 - e) * 80 - 40 * lift}px)`,
       }}>
         <Surface box={b} shadow={lift > 0 ? `0 ${16 + 18 * lift}px ${25 + 20 * lift}px 0 rgba(0,0,0,${0.133 + 0.07 * lift})` : S.shadow}
-          style={{ transform: `scale(${mix(1, stacked ? 1.05 : 1.08, lift) * mix(1, 0.97, dim)})`, overflow: 'visible' }}>
+          style={{ transform: `scale(${mix(1, stacked ? 1.05 : 1.08, lift) * mix(1, 0.98, dim)})`, overflow: 'visible' }}>
           <Pill box={stacked ? { x: 30, y: 30, w: pillW, h: pillH } : { x: PAD, y: PAD, w: pillW, h: pillH }} style={{ opacity: num, transform: `scale(${mix(0.6, 1, num)})` }}>
             <span style={{ ...textBase(stacked ? pillH * 0.62 : 60, 900), color: S.accentDark }}>{String(i + 1).padStart(2, '0')}</span>
           </Pill>

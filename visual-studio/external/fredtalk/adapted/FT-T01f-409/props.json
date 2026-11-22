@@ -1,5 +1,8 @@
 {
-  "defaultProps": {},
+  "defaultProps": {
+    "text": "把声音留成记忆",
+    "highlight": "记忆"
+  },
   "editableKeys": [
     "text",
     "highlight"

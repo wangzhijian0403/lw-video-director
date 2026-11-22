@@ -1,5 +1,21 @@
 {
-  "defaultProps": {},
+  "defaultProps": {
+    "keyName": "GitHub CLI",
+    "abilities": [
+      {
+        "label": "下载",
+        "sub": "把别人的项目拉下来"
+      },
+      {
+        "label": "上传",
+        "sub": "把改动推上去"
+      },
+      {
+        "label": "建仓库",
+        "sub": "新建一个项目文件夹"
+      }
+    ]
+  },
   "editableKeys": [
     "keyName",
     "abilities"

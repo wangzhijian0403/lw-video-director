@@ -16,6 +16,8 @@ BATCH = EXT / "batch"
 INV = json.loads((BATCH / "inventory.json").read_text())
 REG = json.loads((VS / "src/references/fredtalk-registry.data.json").read_text())
 ROUND1 = json.loads((BATCH / "round1.json").read_text()) if (BATCH / "round1.json").exists() else {"items": []}
+HUMAN_FILE = BATCH / "runs" / "batch-20" / "reviews.json"
+WB_FILE = BATCH / "runs" / "batch-20" / "workbench-export" / "workbench-export.json"
 REVIEWS1 = json.loads((BATCH / "reviews-round1.json").read_text()) if (BATCH / "reviews-round1.json").exists() else {"reviews": {}}
 
 LIMITS = {
@@ -58,7 +60,7 @@ def channel_of(row) -> str:
 
 def review_for(cid: str, run_id: str | None) -> dict:
     if run_id:
-        run_reviews = load(BATCH / "runs" / run_id / "reviews.json", {}) or {}
+        run_reviews = load(BATCH / "runs" / run_id / "reviews.json", {}) or load(BATCH / "batches" / f"{run_id}-reviews.json", {}) or {}
         rec = (run_reviews.get("reviews") or {}).get(cid) or load(BATCH / "reviews" / f"{cid}.json", {})
     else:
         rec = REVIEWS1.get("reviews", {}).get(cid, {})
@@ -70,6 +72,7 @@ def review_for(cid: str, run_id: str | None) -> dict:
 def component_rows(ids: list[str], evidence: Path, status: dict, run_id: str | None = None) -> list[dict]:
     inv = {r["lwId"]: r for r in INV}
     rows = []
+    wb = (load(WB_FILE, {}).get("results") if WB_FILE.exists() else {}) or {}
     for cid in ids:
         inv_row = inv[cid]
         ev = evidence / cid
@@ -105,6 +108,9 @@ def component_rows(ids: list[str], evidence: Path, status: dict, run_id: str | N
             "error": st.get("error"),
             "inputFingerprint": st.get("inputFingerprint"),
             "license": prov.get("license", {}).get("firstPartyCode", "MIT (FredTalk)") if prov else "MIT (FredTalk)",
+            "sourcePatches": len(prov.get("sourcePatches", [])),
+            "workbenchExport": (wb.get(cid) or {}).get("status") if run_id == "batch-20" else None,
+            "workbenchEditedKey": (wb.get(cid) or {}).get("editedKey") if run_id == "batch-20" else None,
         })
     return rows
 
@@ -117,8 +123,9 @@ def counts(rows: list[dict]) -> dict:
         "machineQaFail": sum(1 for r in rows if r["machineQa"] == "fail"),
         "machineQaMissing": sum(1 for r in rows if r["machineQa"] == "missing"),
         "humanVisualPass": sum(1 for r in rows if r["visual"] in ("pass", "pass-with-note")),
+        "humanVisualConditional": sum(1 for r in rows if r["visual"] == "conditional"),
+        "humanVisualRework": sum(1 for r in rows if r["visual"] in ("rework", "fail")),
         "humanVisualPending": sum(1 for r in rows if r["visual"] == "pending"),
-        "humanVisualFail": sum(1 for r in rows if r["visual"] == "fail"),
     }
 
 
@@ -155,8 +162,9 @@ def write_main() -> None:
           f"| 纳入验收组件 | {c['total']} | 六类代表组件 |",
           f"| 机器 QA 通过 | {c['machineQaPass']} | 仅代表解码/帧数/fps/分辨率/黑帧/运动等结构检查 |",
           f"| 人工视觉通过 | {c['humanVisualPass']} | 人工审片记录，见 `reviews-round1.json` |",
+          f"| 人工视觉有条件通过 | {c['humanVisualConditional']} | 修复后需按修改参数重渲复审 |",
+          f"| 人工视觉待返修 | {c['humanVisualRework']} | 暂不晋级正式生产库，保留开发预览 |",
           f"| 人工视觉待审 | {c['humanVisualPending']} | 机器通过不等于视觉通过 |",
-          f"| 人工视觉不通过 | {c['humanVisualFail']} | — |",
           f"| 真实 Remotion MP4 | {c['machineQaPass']} | 1280×720，h264 |",
           "",
           "> 机器 QA 只证明视频可解码、帧数/fps/分辨率匹配、不是纯黑/纯白且有帧间运动；它**不证明排版、可读性、审美或内容正确**。人工视觉结论单独记录。\n",
@@ -229,6 +237,8 @@ def write_run(run_id: str) -> None:
           f"| 真实 MP4 机器 QA 通过 | {c['machineQaPass']} |",
           f"| 机器 QA 失败 | {c['machineQaFail']} |",
           f"| 人工视觉通过 | {c['humanVisualPass']} |",
+          f"| 人工视觉有条件通过 | {c['humanVisualConditional']} |",
+          f"| 人工视觉待返修 | {c['humanVisualRework']} |",
           f"| 人工视觉待审 | {c['humanVisualPending']} |",
           f"| 自动选件跳过 | {len(skipped)} |",
           "",
@@ -242,12 +252,38 @@ def write_run(run_id: str) -> None:
         md.append("- 无适配或渲染失败。")
     for s in skipped:
         md.append(f"- 跳过 **{s['lwId']}**：{s['reason']}")
-    md += ["", "## 4. 产物位置\n",
+    human_file = BATCH / "runs" / run_id / "reviews.json"
+    if not human_file.exists():
+        human_file = BATCH / "batches" / f"{run_id}-reviews.json"
+    wb_file = BATCH / "batches" / f"{run_id}-workbench-export.json"
+    md += ["", "## 4. 人工审核与返修\n"]
+    if human_file.exists():
+        hv = load(human_file, {}).get("reviews", {})
+        for cid, rec in hv.items():
+            if rec.get("status") in ("conditional", "rework", "fail"):
+                md.append(f"- **{cid}** `{rec['status']}`：{rec.get('note','')}")
+        md.append("")
+    md += ["## 5. 工作台端到端导出（参数编辑 → MP4）\n",
+           "> 测试入口是 LW 工作台实际使用的 `POST /api/render-reference` + `/api/jobs/{id}` + `/exports/{id}.mp4`，不是 Remotion CLI 直渲。\n"]
+    wb = load(wb_file, {}) if wb_file.exists() else {}
+    if wb.get("results"):
+        md += ["| LW ID | 修改参数 | 文件大小 | SHA-256（前12） |", "|---|---|---|---|"]
+        for cid, r in wb["results"].items():
+            if r.get("status") == "pass":
+                md.append(f"| {cid} | `{r.get('editedKey')}` | {r.get('bytes')} B | `{r.get('sha256','')[:12]}` |")
+        md += ["", f"逐条结果：`{wb_file.relative_to(BATCH)}`"]
+    else:
+        md.append("- 尚未执行工作台导出验收。")
+    md += ["", "## 6. 返修实现方式\n",
+           "- 五个组件通过 `tools/fredtalk/profiles/source-patches.json` 的声明式补丁落地，`adapt.py` 在适配后确定性应用，`--readapt` 不会丢失。",
+           "- T01d 增加 `dataNote`，默认显式标注“演示数据 · 非真实测评”；T02a 未激活卡不再整体降透明度；T04g 未推荐分支文字下限 0.8；T04a 默认关闭非透明占位图且只接受透明 PNG；T04e 改用自有公开仓库页面截图（965×1607）并补 `object-fit: cover`。",
+           "", "## 7. 产物位置\n",
            f"- 视频与帧：`external/fredtalk/batch/runs/{run_id}/evidence/<LW-ID>/`（本地运行产物，默认不入库）",
+           f"- 工作台导出 MP4：`external/fredtalk/batch/runs/{run_id}/workbench-export/`（本地验收产物，默认不入库）",
            f"- 逐组件状态：`external/fredtalk/batch/batches/{run_id}-status.json`",
-           "", "## 5. 边界\n",
-           "- 本批次只证明自动选件、适配、渲染和机器结构 QA 可跑通；视觉质量仍需人工审片。",
-           "- 上游媒体不随 MIT，自动适配只使用 LW 占位素材。",
+           "", "## 8. 边界\n",
+           "- 机器 QA 只证明结构可解码；人工视觉审核单独记录，二者不互相替代。",
+           "- 上游媒体不随 MIT；本批次默认使用 LW 自占位素材，T04e 使用自有公开仓库页面截图。",
            "- `batch/runs/` 不永久提交，避免 432 条视频撑大仓库。\n"]
     (out_dir / f"{run_id}-acceptance.md").write_text("\n".join(md) + "\n")
     print(json.dumps(c, ensure_ascii=False, indent=2))

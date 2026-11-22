@@ -1,5 +1,10 @@
 {
-  "defaultProps": {},
+  "defaultProps": {
+    "subject": "JEV-27B",
+    "clarify": "不是 JEV 官方出的",
+    "highlight": "不是",
+    "stamp": "注意"
+  },
   "editableKeys": [
     "subject",
     "clarify",

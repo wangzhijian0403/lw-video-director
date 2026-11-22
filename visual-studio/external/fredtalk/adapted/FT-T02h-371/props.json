@@ -1,5 +1,38 @@
 {
-  "defaultProps": {},
+  "defaultProps": {
+    "files": [
+      {
+        "name": "README.md",
+        "preview": [
+          "# FredTalk",
+          "用 Codex，把口播稿",
+          "变成动态视频。"
+        ],
+        "purpose": "这是什么、怎么用",
+        "highlight": "怎么用"
+      },
+      {
+        "name": "LICENSE",
+        "preview": [
+          "MIT License",
+          "Copyright (c) 2026",
+          "Permission is hereby"
+        ],
+        "purpose": "别人能不能用、能不能改",
+        "highlight": "能不能改"
+      },
+      {
+        "name": ".gitignore",
+        "preview": [
+          "node_modules/",
+          ".env",
+          "media/"
+        ],
+        "purpose": "密码、密钥不要传上去",
+        "highlight": "不要传上去"
+      }
+    ]
+  },
   "editableKeys": [
     "files"
   ],

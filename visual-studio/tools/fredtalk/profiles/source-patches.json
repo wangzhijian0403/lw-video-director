@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "patches": {
+    "FT-T01d-451": [
+      {
+        "file": "components/T01d-VerdictCard.tsx",
+        "from": "  highlight: string;        // 结论里染紫的关键词（浅底 #8554E8）\n",
+        "to": "  highlight: string;        // 结论里染紫的关键词（浅底 #8554E8）\n  dataNote?: string;        // 显式数据来源/演示标识；空字符串隐藏\n",
+        "reason": "expose data provenance badge"
+      },
+      {
+        "file": "components/T01d-VerdictCard.tsx",
+        "from": "  highlight: '画质能打',\n",
+        "to": "  highlight: '画质能打',\n  dataNote: '演示数据 · 非真实测评，仅用于版式演示',\n",
+        "reason": "mark default scores as demo data"
+      },
+      {
+        "file": "components/T01d-VerdictCard.tsx",
+        "from": "  const cardH = PAD + dims.length * rowH + (dims.length - 1) * rowGap + 64 + verdictH + PAD;",
+        "to": "  const CARD_HEAD = 52;\n  const cardH = PAD + CARD_HEAD + dims.length * rowH + (dims.length - 1) * rowGap + 64 + verdictH + PAD;",
+        "reason": "reserve space for provenance badge"
+      },
+      {
+        "file": "components/T01d-VerdictCard.tsx",
+        "from": "        const y = PAD + i * (rowH + rowGap);",
+        "to": "        const y = PAD + CARD_HEAD + i * (rowH + rowGap);",
+        "reason": "shift rows below badge"
+      },
+      {
+        "file": "components/T01d-VerdictCard.tsx",
+        "from": "      {dims.map((d, i) => {",
+        "to": "      {c.dataNote ? <div style={{\n        position: 'absolute', left: PAD, top: 18, padding: '8px 18px', borderRadius: 999,\n        background: '#f1ede2', color: S.ink, opacity: 0.9, ...textBase(36, 700), whiteSpace: 'nowrap',\n      }}>{c.dataNote}</div> : null}\n      {dims.map((d, i) => {",
+        "reason": "render visible demo-data badge"
+      }
+    ],
+    "FT-T02a-449": [
+      {
+        "file": "components/T02a-AgendaThree.tsx",
+        "from": "        opacity: e * mix(1, 0.35, dim), zIndex: isCur ? 2 : 1,",
+        "to": "        opacity: e, zIndex: isCur ? 2 : 1,",
+        "reason": "keep inactive card text fully opaque"
+      },
+      {
+        "file": "components/T02a-AgendaThree.tsx",
+        "from": "          style={{ transform: `scale(${mix(1, stacked ? 1.05 : 1.08, lift) * mix(1, 0.97, dim)})`, overflow: 'visible' }}>",
+        "to": "          style={{ transform: `scale(${mix(1, stacked ? 1.05 : 1.08, lift) * mix(1, 0.98, dim)})`, overflow: 'visible' }}>",
+        "reason": "reduce only scale, not contrast"
+      }
+    ],
+    "FT-T04g-393": [
+      {
+        "file": "components/T04g-DecisionTree.tsx",
+        "from": "        const fade = isRec ? 1 : 1 - 0.6 * dim;   // 只退文字，卡和条件签保持实心，不透出后面的线",
+        "to": "        const fade = isRec ? 1 : 1 - 0.2 * dim;   // 未推荐分支最多降到 0.8，保证说明文字可读",
+        "reason": "raise inactive-branch text floor"
+      },
+      {
+        "file": "components/T04g-DecisionTree.tsx",
+        "from": "    {b.note ? <span style={{ ...textBase(noteSize, dark ? 900 : 500), color: dark ? accentOn(true) : S.muted,",
+        "to": "    {b.note ? <span style={{ ...textBase(noteSize, dark ? 900 : 500), color: dark ? accentOn(true) : S.ink,",
+        "reason": "use ink instead of muted for notes"
+      },
+      {
+        "file": "components/T04g-DecisionTree.tsx",
+        "from": "            strokeDasharray=\"1 1\" strokeDashoffset={1 - draw} opacity={isRec ? 1 : 1 - 0.6 * dim} />;",
+        "to": "            strokeDasharray=\"1 1\" strokeDashoffset={1 - draw} opacity={isRec ? 1 : 1 - 0.3 * dim} />;",
+        "reason": "keep connector visible"
+      }
+    ],
+    "FT-T04a-452": [
+      {
+        "file": "components/T04a-MetaphorMap.tsx",
+        "from": "  fred: 'fredtalk/media/lw-work-06.jpg',",
+        "to": "  fred: '',",
+        "reason": "disable non-transparent placeholder by default"
+      },
+      {
+        "file": "components/T04a-MetaphorMap.tsx",
+        "from": "    {c.fred ? <Img src={staticFile(c.fred)} style={{\n      position: 'absolute', right: -6 - (1 - fredIn) * 330, bottom: -40, height: 560, opacity: fredIn,\n    }} /> : null}",
+        "to": "    {c.fred && /\\\\.png$/i.test(c.fred) ? <Img src={staticFile(c.fred)} style={{\n      position: 'absolute', right: 24, bottom: 16, maxWidth: 360, maxHeight: 460, objectFit: 'contain', opacity: fredIn,\n    }} /> : null}",
+        "reason": "only accept transparent PNG and clamp to frame"
+      }
+    ],
+    "FT-T04e-365": [
+      {
+        "file": "components/T04e-PackOpen.tsx",
+        "from": "  cardImage: 'fredtalk/media/lw-work-01.jpg',",
+        "to": "  cardImage: 'fredtalk/media/t04e/repo-page.png',",
+        "reason": "use real repo-page screenshot"
+      },
+      {
+        "file": "components/T04e-PackOpen.tsx",
+        "from": "  cardCrop: { x: 700, y: 330, w: 2480, h: 2640 },",
+        "to": "  cardCrop: { x: 0, y: 0, w: 965, h: 1607 },",
+        "reason": "match real screenshot crop"
+      },
+      {
+        "file": "components/T04e-PackOpen.tsx",
+        "from": "    { image: 'fredtalk/media/lw-work-06.jpg', box: { x: 716, y: 818, w: 434, h: 410 }, label: '代码' },                 // 文件列表 5 个文件夹",
+        "to": "    { image: 'fredtalk/media/t04e/file-list.png', box: { x: 0, y: 270, w: 965, h: 520 }, label: '代码目录' },",
+        "reason": "replace part 1 with real crop"
+      },
+      {
+        "file": "components/T04e-PackOpen.tsx",
+        "from": "    { image: 'fredtalk/media/lw-work-04.jpg', box: { x: 1240, y: 2440, w: 760, h: 240 }, label: 'README 说明书' },      // README 标题 + 一句话介绍",
+        "to": "    { image: 'fredtalk/media/t04e/readme-intro.png', box: { x: 0, y: 1200, w: 965, h: 380 }, label: 'README 说明' },",
+        "reason": "replace part 2 with real crop"
+      },
+      {
+        "file": "components/T04e-PackOpen.tsx",
+        "from": "    { image: 'fredtalk/media/lw-work-03.jpg', box: { x: 2592, y: 1374, w: 552, h: 230 }, label: 'Releases 软件' },      // 右侧 Releases 区块",
+        "to": "    { image: 'fredtalk/media/t04e/repo-title.png', box: { x: 0, y: 0, w: 965, h: 260 }, label: '仓库概览' },",
+        "reason": "replace part 3 with real crop"
+      },
+      {
+        "file": "components/T04e-PackOpen.tsx",
+        "from": "  const fill = (src: string) => <Img src={staticFile(src)} style={{ position: 'absolute', left: 0, top: 0, width: '100%', height: '100%', display: 'block' }} />;",
+        "to": "  const fill = (src: string) => <Img src={staticFile(src)} style={{ position: 'absolute', left: 0, top: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />;",
+        "reason": "prevent image distortion while cropping"
+      }
+    ]
+  }
+}

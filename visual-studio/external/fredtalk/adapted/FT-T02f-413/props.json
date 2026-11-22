@@ -1,5 +1,12 @@
 {
-  "defaultProps": {},
+  "defaultProps": {
+    "background": "fredtalk/media/lw-work-05.jpg",
+    "items": [
+      "文生视频",
+      "图生视频",
+      "参考图生视频"
+    ]
+  },
   "editableKeys": [
     "background",
     "items"

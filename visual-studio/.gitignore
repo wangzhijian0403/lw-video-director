@@ -24,6 +24,7 @@ public/fredtalk/*.ttf
 !external/fredtalk/batch/round1.json
 !external/fredtalk/batch/reviews-round1.json
 !external/fredtalk/batch/batches/*.json
+!external/fredtalk/batch/batches/*.png
 
 # Later batch videos are separate acceptance artifacts, not permanent repo content.
 external/fredtalk/batch/runs/

@@ -1,5 +1,10 @@
 {
-  "defaultProps": {},
+  "defaultProps": {
+    "term": "API",
+    "alias": "应用程序编程接口",
+    "definition": "按约定的规则，调用别人做好的能力",
+    "highlight": "别人做好的能力"
+  },
   "editableKeys": [
     "term",
     "alias",

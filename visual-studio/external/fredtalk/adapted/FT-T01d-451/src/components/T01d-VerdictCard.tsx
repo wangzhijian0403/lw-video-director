@@ -10,6 +10,7 @@ export type VerdictCardProps = {
   dimensions: Dimension[];  // 2–3 个维度
   verdict: string;          // 一句结论
   highlight: string;        // 结论里染紫的关键词（浅底 #8554E8）
+  dataNote?: string;        // 显式数据来源/演示标识；空字符串隐藏
 };
 
 export const verdictCardDefaults: VerdictCardProps = {
@@ -21,6 +22,7 @@ export const verdictCardDefaults: VerdictCardProps = {
   ],
   verdict: '画质能打，中文字还要多试几次',
   highlight: '画质能打',
+  dataNote: '演示数据 · 非真实测评，仅用于版式演示',
 };
 
 const CARD_W = 1180;
@@ -66,7 +68,8 @@ export function VerdictCard(props: Partial<VerdictCardProps>) {
   const vSize = Math.min(78, (inner * (vLines === 1 ? 1 : vLines * 0.9)) / units);
   const twoLines = vLines > 1;
   const verdictH = vSize * 1.22 * vLines;
-  const cardH = PAD + dims.length * rowH + (dims.length - 1) * rowGap + 64 + verdictH + PAD;
+  const CARD_HEAD = 52;
+  const cardH = PAD + CARD_HEAD + dims.length * rowH + (dims.length - 1) * rowGap + 64 + verdictH + PAD;
   const cardX = (1920 - CARD_W) / 2, cardY = (1080 - cardH) / 2 + 20;
 
   const hi = c.highlight && c.verdict.includes(c.highlight) ? c.verdict.indexOf(c.highlight) : -1;
@@ -91,10 +94,14 @@ export function VerdictCard(props: Partial<VerdictCardProps>) {
       background: '#fff', borderRadius: S.radius, boxShadow: S.shadow, opacity: clamp(card * 1.4),
       transform: `scale(${mix(0.97, 1, card)})`,
     }}>
+      {c.dataNote ? <div style={{
+        position: 'absolute', left: PAD, top: 18, padding: '8px 18px', borderRadius: 999,
+        background: '#f1ede2', color: S.ink, opacity: 0.9, ...textBase(36, 700), whiteSpace: 'nowrap',
+      }}>{c.dataNote}</div> : null}
       {dims.map((d, i) => {
         const v = p(t, barAt(i), barAt(i) + 0.8);
         const score = clamp(d.score, 0, 10);
-        const y = PAD + i * (rowH + rowGap);
+        const y = PAD + CARD_HEAD + i * (rowH + rowGap);
         const decimals = dims.some((x) => !Number.isInteger(x.score));
         return <React.Fragment key={i}>
           <div style={{ ...textBase(labelSize, 900), lineHeight: 1.12, whiteSpace: 'normal', position: 'absolute', left: PAD, top: y, width: labelW - 30, height: rowH, display: 'flex', alignItems: 'center', color: S.ink }}>{d.label}</div>

@@ -1,5 +1,13 @@
 {
-  "defaultProps": {},
+  "defaultProps": {
+    "topic": "记录",
+    "categories": [
+      "会议纪要",
+      "日常想法",
+      "工作待办"
+    ],
+    "focus": 0
+  },
   "editableKeys": [
     "topic",
     "categories",

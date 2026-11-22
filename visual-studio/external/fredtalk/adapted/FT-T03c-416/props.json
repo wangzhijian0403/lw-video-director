@@ -1,5 +1,13 @@
 {
-  "defaultProps": {},
+  "defaultProps": {
+    "nodes": [
+      "记录",
+      "检索",
+      "整理"
+    ],
+    "result": "重要内容随时找回",
+    "highlight": "随时找回"
+  },
   "editableKeys": [
     "nodes",
     "result",

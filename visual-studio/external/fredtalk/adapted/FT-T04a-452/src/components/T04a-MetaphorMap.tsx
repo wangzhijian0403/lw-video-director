@@ -23,7 +23,7 @@ export const metaphorMapDefaults: MetaphorMapProps = {
     { left: '返回结果', right: '上菜' },
   ],
   summary: 'API ≈ 餐厅服务员',
-  fred: 'fredtalk/media/lw-work-06.jpg',
+  fred: '',
 };
 
 const L_CX = 640;          // 左列中心
@@ -145,8 +145,8 @@ export function MetaphorMap(props: Partial<MetaphorMapProps>) {
     </div>
 
     {/* 可选：Fred 从右下探头看配对过程，合拢前退出 */}
-    {c.fred ? <Img src={staticFile(c.fred)} style={{
-      position: 'absolute', right: -6 - (1 - fredIn) * 330, bottom: -40, height: 560, opacity: fredIn,
+    {c.fred && /\\.png$/i.test(c.fred) ? <Img src={staticFile(c.fred)} style={{
+      position: 'absolute', right: 24, bottom: 16, maxWidth: 360, maxHeight: 460, objectFit: 'contain', opacity: fredIn,
     }} /> : null}
 
     <Sfx name="pop" at={0.05} />

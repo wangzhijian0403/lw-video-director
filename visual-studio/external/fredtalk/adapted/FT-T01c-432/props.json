@@ -1,5 +1,16 @@
 {
-  "defaultProps": {},
+  "defaultProps": {
+    "lines": [
+      "API 是调用能力的接口",
+      "Key 是你的通行证",
+      ".env 是存配置的文件"
+    ],
+    "highlights": [
+      "调用能力",
+      "通行证",
+      "存配置"
+    ]
+  },
   "editableKeys": [
     "lines",
     "highlights"

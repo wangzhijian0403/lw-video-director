@@ -1,0 +1,141 @@
+{
+  "runId": "batch-20",
+  "reviewedAt": "2026-11-22",
+  "scope": "batch-20 全部 20 条真实 MP4",
+  "reviewer": "external-human-review",
+  "method": "人工逐条播放并检查真实 MP4；机器 QA 只做解码/帧数/fps/分辨率/黑帧/运动的预检，不参与视觉结论。",
+  "reviews": {
+    "FT-T01b-431": {
+      "status": "pass",
+      "note": "人工视觉初审通过：画面结构、文字可读性、节奏与收尾符合本轮验收；机器结构 QA 仅为前置预检，不作为本结论。",
+      "reviewer": "external-human-review",
+      "stage": "visual-first-pass"
+    },
+    "FT-T01c-432": {
+      "status": "pass",
+      "note": "人工视觉初审通过：画面结构、文字可读性、节奏与收尾符合本轮验收；机器结构 QA 仅为前置预检，不作为本结论。",
+      "reviewer": "external-human-review",
+      "stage": "visual-first-pass"
+    },
+    "FT-T01e-410": {
+      "status": "pass",
+      "note": "人工视觉初审通过：画面结构、文字可读性、节奏与收尾符合本轮验收；机器结构 QA 仅为前置预检，不作为本结论。",
+      "reviewer": "external-human-review",
+      "stage": "visual-first-pass"
+    },
+    "FT-T01f-409": {
+      "status": "pass",
+      "note": "人工视觉初审通过：画面结构、文字可读性、节奏与收尾符合本轮验收；机器结构 QA 仅为前置预检，不作为本结论。",
+      "reviewer": "external-human-review",
+      "stage": "visual-first-pass"
+    },
+    "FT-T01g-411": {
+      "status": "pass",
+      "note": "人工视觉初审通过：画面结构、文字可读性、节奏与收尾符合本轮验收；机器结构 QA 仅为前置预检，不作为本结论。",
+      "reviewer": "external-human-review",
+      "stage": "visual-first-pass"
+    },
+    "FT-T01h-396": {
+      "status": "pass",
+      "note": "人工视觉初审通过：画面结构、文字可读性、节奏与收尾符合本轮验收；机器结构 QA 仅为前置预检，不作为本结论。",
+      "reviewer": "external-human-review",
+      "stage": "visual-first-pass"
+    },
+    "FT-T02e-412": {
+      "status": "pass",
+      "note": "人工视觉初审通过：画面结构、文字可读性、节奏与收尾符合本轮验收；机器结构 QA 仅为前置预检，不作为本结论。",
+      "reviewer": "external-human-review",
+      "stage": "visual-first-pass"
+    },
+    "FT-T02f-413": {
+      "status": "pass",
+      "note": "人工视觉初审通过：画面结构、文字可读性、节奏与收尾符合本轮验收；机器结构 QA 仅为前置预检，不作为本结论。",
+      "reviewer": "external-human-review",
+      "stage": "visual-first-pass"
+    },
+    "FT-T02g-360": {
+      "status": "pass",
+      "note": "人工视觉初审通过：画面结构、文字可读性、节奏与收尾符合本轮验收；机器结构 QA 仅为前置预检，不作为本结论。",
+      "reviewer": "external-human-review",
+      "stage": "visual-first-pass"
+    },
+    "FT-T02h-371": {
+      "status": "pass",
+      "note": "人工视觉初审通过：画面结构、文字可读性、节奏与收尾符合本轮验收；机器结构 QA 仅为前置预检，不作为本结论。",
+      "reviewer": "external-human-review",
+      "stage": "visual-first-pass"
+    },
+    "FT-T03c-416": {
+      "status": "pass",
+      "note": "人工视觉初审通过：画面结构、文字可读性、节奏与收尾符合本轮验收；机器结构 QA 仅为前置预检，不作为本结论。",
+      "reviewer": "external-human-review",
+      "stage": "visual-first-pass"
+    },
+    "FT-T03d-435": {
+      "status": "pass",
+      "note": "人工视觉初审通过：画面结构、文字可读性、节奏与收尾符合本轮验收；机器结构 QA 仅为前置预检，不作为本结论。",
+      "reviewer": "external-human-review",
+      "stage": "visual-first-pass"
+    },
+    "FT-T04b-434": {
+      "status": "pass",
+      "note": "人工视觉初审通过：画面结构、文字可读性、节奏与收尾符合本轮验收；机器结构 QA 仅为前置预检，不作为本结论。",
+      "reviewer": "external-human-review",
+      "stage": "visual-first-pass"
+    },
+    "FT-T04d-415": {
+      "status": "pass",
+      "note": "人工视觉初审通过：画面结构、文字可读性、节奏与收尾符合本轮验收；机器结构 QA 仅为前置预检，不作为本结论。",
+      "reviewer": "external-human-review",
+      "stage": "visual-first-pass"
+    },
+    "FT-T04f-369": {
+      "status": "pass",
+      "note": "人工视觉初审通过：画面结构、文字可读性、节奏与收尾符合本轮验收；机器结构 QA 仅为前置预检，不作为本结论。",
+      "reviewer": "external-human-review",
+      "stage": "visual-first-pass"
+    },
+    "FT-T01d-451": {
+      "status": "conditional",
+      "note": "测评数值必须有实际来源；示例数据必须标注为“演示数据”。",
+      "reviewer": "external-human-review",
+      "stage": "visual-first-pass",
+      "requiredFix": "测评数值必须有实际来源；示例数据必须标注为“演示数据”。",
+      "reReviewOn": "changed-params"
+    },
+    "FT-T02a-449": {
+      "status": "conditional",
+      "note": "提高未激活卡片的文字对比度，不能靠整体降低透明度表达弱化。",
+      "reviewer": "external-human-review",
+      "stage": "visual-first-pass",
+      "requiredFix": "提高未激活卡片的文字对比度，不能靠整体降低透明度表达弱化。",
+      "reReviewOn": "changed-params"
+    },
+    "FT-T04g-393": {
+      "status": "conditional",
+      "note": "提高未选择分支说明文字的对比度，说明文字需保持可读。",
+      "reviewer": "external-human-review",
+      "stage": "visual-first-pass",
+      "requiredFix": "提高未选择分支说明文字的对比度，说明文字需保持可读。",
+      "reReviewOn": "changed-params"
+    },
+    "FT-T04a-452": {
+      "status": "rework",
+      "note": "右下角 LW 占位卡与主体流程叠加并被裁切；默认关闭非透明占位图，保留可选透明 PNG。",
+      "reviewer": "external-human-review",
+      "stage": "visual-first-pass",
+      "requiredFix": "右下角 LW 占位卡与主体流程叠加并被裁切；默认关闭非透明占位图，保留可选透明 PNG。",
+      "productionCandidate": false,
+      "devPreview": true
+    },
+    "FT-T04e-365": {
+      "status": "rework",
+      "note": "三张彩色占位素材需替换为真实合法图片，并验证布局、裁切和动画。",
+      "reviewer": "external-human-review",
+      "stage": "visual-first-pass",
+      "requiredFix": "三张彩色占位素材需替换为真实合法图片，并验证布局、裁切和动画。",
+      "productionCandidate": false,
+      "devPreview": true
+    }
+  }
+}

@@ -1,5 +1,8 @@
 {
-  "defaultProps": {},
+  "defaultProps": {
+    "condition": "8G显存笔记本",
+    "extra": "+量化模型"
+  },
   "editableKeys": [
     "condition",
     "extra"

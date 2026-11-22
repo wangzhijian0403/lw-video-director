@@ -91,7 +91,7 @@ export function DecisionTree(props: Partial<DecisionTreeProps>) {
     display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 14, color: 'inherit',
   }}><div style={{ opacity: textOpacity, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14 }}>
     <span style={{ ...textBase(ansSize, 900), color: dark ? '#fff' : S.ink }}>{b.answer}</span>
-    {b.note ? <span style={{ ...textBase(noteSize, dark ? 900 : 500), color: dark ? accentOn(true) : S.muted,
+    {b.note ? <span style={{ ...textBase(noteSize, dark ? 900 : 500), color: dark ? accentOn(true) : S.ink,
       opacity: dark && isRec ? mix(0.35, 1, noteIn) : 1 }}>{b.note}</span> : null}
   </div></div>;
 
@@ -104,7 +104,7 @@ export function DecisionTree(props: Partial<DecisionTreeProps>) {
           if (draw <= 0) return null;
           const isRec = i === rec;
           return <path key={i} d={pathOf(i)} pathLength={1} fill="none" stroke="#c9c9ce" strokeWidth={7} strokeLinecap="round" strokeLinejoin="round"
-            strokeDasharray="1 1" strokeDashoffset={1 - draw} opacity={isRec ? 1 : 1 - 0.6 * dim} />;
+            strokeDasharray="1 1" strokeDashoffset={1 - draw} opacity={isRec ? 1 : 1 - 0.3 * dim} />;
         })}
         {rec >= 0 && trace > 0 && <path d={pathOf(rec)} pathLength={1} fill="none" stroke={S.ink} strokeWidth={9} strokeLinecap="round" strokeLinejoin="round"
           strokeDasharray="1 1" strokeDashoffset={1 - trace} />}
@@ -119,7 +119,7 @@ export function DecisionTree(props: Partial<DecisionTreeProps>) {
         const e = p(t, appear[i], appear[i] + 0.45);
         if (e <= 0) return null;
         const isRec = i === rec;
-        const fade = isRec ? 1 : 1 - 0.6 * dim;   // 只退文字，卡和条件签保持实心，不透出后面的线
+        const fade = isRec ? 1 : 1 - 0.2 * dim;   // 未推荐分支最多降到 0.8，保证说明文字可读
         const x = bx(i);
         const chipW = textWidth(b.condition, chipSize) + chipSize * 1.4;
         const up = isRec ? -16 * lift : 0;

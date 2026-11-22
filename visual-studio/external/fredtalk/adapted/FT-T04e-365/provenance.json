@@ -5,7 +5,7 @@
   "category": "讲解段落",
   "strategy": "kit-overlay",
   "adapterVersion": "fred-batch/1.2",
-  "sourceSha256": "4f01d26c142489c54fcda38a1f700f187bf551c59ec72dc49d755ee3317f4ccb",
+  "sourceSha256": "f723d2830045ced0cbb4c049281ae3df8fe035eff6764eaa9ff08e4fbeebf7ab",
   "adapterSha256": "7dcf28f7fe2807dde0eeecd4831af36433692799b7427af547246e6179310070",
   "nativeFrames": 360,
   "fps": 60,
@@ -58,8 +58,57 @@
     "Brand removed",
     "Sfx muted",
     "Frame background -> host",
-    "media literals -> LW placeholders (4 refs; upstream media not redistributed)"
+    "media literals -> LW placeholders (4 refs; upstream media not redistributed)",
+    "source patch components/T04e-PackOpen.tsx: use real repo-page screenshot",
+    "source patch components/T04e-PackOpen.tsx: match real screenshot crop",
+    "source patch components/T04e-PackOpen.tsx: replace part 1 with real crop",
+    "source patch components/T04e-PackOpen.tsx: replace part 2 with real crop",
+    "source patch components/T04e-PackOpen.tsx: replace part 3 with real crop",
+    "source patch components/T04e-PackOpen.tsx: prevent image distortion while cropping"
   ],
-  "sourcePatches": [],
+  "sourcePatches": [
+    {
+      "file": "components/T04e-PackOpen.tsx",
+      "from": "  cardImage: 'fredtalk/media/lw-work-01.jpg',",
+      "to": "  cardImage: 'fredtalk/media/t04e/repo-page.png',",
+      "occurrences": 1,
+      "reason": "use real repo-page screenshot"
+    },
+    {
+      "file": "components/T04e-PackOpen.tsx",
+      "from": "  cardCrop: { x: 700, y: 330, w: 2480, h: 2640 },",
+      "to": "  cardCrop: { x: 0, y: 0, w: 965, h: 1607 },",
+      "occurrences": 1,
+      "reason": "match real screenshot crop"
+    },
+    {
+      "file": "components/T04e-PackOpen.tsx",
+      "from": "    { image: 'fredtalk/media/lw-work-06.jpg', box: { x: 716, y: 818, w: 434, h: 410 }, label: '代码' },                 // 文件列表 5 个文件夹",
+      "to": "    { image: 'fredtalk/media/t04e/file-list.png', box: { x: 0, y: 270, w: 965, h: 520 }, label: '代码目录' },",
+      "occurrences": 1,
+      "reason": "replace part 1 with real crop"
+    },
+    {
+      "file": "components/T04e-PackOpen.tsx",
+      "from": "    { image: 'fredtalk/media/lw-work-04.jpg', box: { x: 1240, y: 2440, w: 760, h: 240 }, label: 'README 说明书' },      // README 标题 + 一句话介绍",
+      "to": "    { image: 'fredtalk/media/t04e/readme-intro.png', box: { x: 0, y: 1200, w: 965, h: 380 }, label: 'README 说明' },",
+      "occurrences": 1,
+      "reason": "replace part 2 with real crop"
+    },
+    {
+      "file": "components/T04e-PackOpen.tsx",
+      "from": "    { image: 'fredtalk/media/lw-work-03.jpg', box: { x: 2592, y: 1374, w: 552, h: 230 }, label: 'Releases 软件' },      // 右侧 Releases 区块",
+      "to": "    { image: 'fredtalk/media/t04e/repo-title.png', box: { x: 0, y: 0, w: 965, h: 260 }, label: '仓库概览' },",
+      "occurrences": 1,
+      "reason": "replace part 3 with real crop"
+    },
+    {
+      "file": "components/T04e-PackOpen.tsx",
+      "from": "  const fill = (src: string) => <Img src={staticFile(src)} style={{ position: 'absolute', left: 0, top: 0, width: '100%', height: '100%', display: 'block' }} />;",
+      "to": "  const fill = (src: string) => <Img src={staticFile(src)} style={{ position: 'absolute', left: 0, top: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />;",
+      "occurrences": 1,
+      "reason": "prevent image distortion while cropping"
+    }
+  ],
   "notes": "Auto-generated kit-overlay profile. Entry/symbol/defaults are selected from inventory + source exports."
 }

@@ -10,6 +10,7 @@ The run writes its videos under batch/runs/<runId>/ so they stay out of git.
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import shutil
 import subprocess
@@ -40,11 +41,12 @@ def main() -> int:
     ap.add_argument("--readapt", action="store_true", help="re-run adaptation for selected components even if already adapted")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--mix", default=None, help="category mix JSON; implies category-aware auto selection")
     args = ap.parse_args()
     run_id = args.run_id or datetime.now(timezone.utc).strftime("auto-%Y%m%d-%H%M%S")
     plan = adapt.RUNS / run_id / "plan.json"
 
-    adapt_rc = adapt.run_auto_kit(args.next_count, run_id, args.dry_run, args.readapt)
+    adapt_rc = adapt.run_auto_kit(args.next_count, run_id, args.dry_run, args.readapt, mix=json.loads(args.mix) if args.mix else None)
     if args.dry_run:
         return adapt_rc
 

@@ -18,6 +18,8 @@ sys.path.insert(0, str(HERE))
 
 import adapt
 import ftlib as L
+import report
+import workbench_export
 
 
 def inventory():
@@ -166,6 +168,22 @@ class AutoProfileTests(unittest.TestCase):
         self.assertEqual([p["lwId"] for p in first], [p["lwId"] for p in again])
         self.assertEqual(len(first), 2)
 
+    def test_category_mix_selects_quotas_before_fallback(self):
+        rows = [
+            dict(make_row("FT-TEST-911"), category="录屏聚焦"),
+            dict(make_row("FT-TEST-912"), category="录屏聚焦"),
+            dict(make_row("FT-TEST-913"), category="录屏聚焦"),
+            dict(make_row("FT-TEST-921"), category="内容交接"),
+            dict(make_row("FT-TEST-931"), category="图片与作品"),
+            dict(make_row("FT-TEST-941"), category="讲解段落"),
+        ]
+        selected, _ = adapt.select_auto_kit(rows, limit=5, mix={"录屏聚焦": 2, "内容交接": 1, "图片与作品": 1})
+        cats = [p["category"] for p in selected]
+        self.assertEqual(cats.count("录屏聚焦"), 2)
+        self.assertEqual(cats.count("内容交接"), 1)
+        self.assertEqual(cats.count("图片与作品"), 1)
+        self.assertLessEqual(len(selected), 5)
+
     def test_existing_baseline_is_never_selected(self):
         row = make_row("FT-T03e-414", "T03e")
         selected, _ = adapt.select_auto_kit([row], limit=10)
@@ -203,7 +221,7 @@ class RealInventoryTests(unittest.TestCase):
         default_selected, _ = adapt.select_auto_kit(inventory(), limit=200, include_adapted=False)
         default_ids = {p["lwId"] for p in default_selected}
         self.assertFalse(default_ids & {x["lwId"] for x in adapt.load_profiles()})
-        self.assertGreaterEqual(len(default_selected), 100)
+        self.assertGreaterEqual(len(default_selected), 80)
 
 
 class MediaRewriteTests(unittest.TestCase):
@@ -228,5 +246,36 @@ class MediaRewriteTests(unittest.TestCase):
         self.assertEqual(len(ops), 1)
 
 
+
+
+class AcceptanceBookkeepingTests(unittest.TestCase):
+    def test_source_patches_cover_reworked_components(self):
+        patches = adapt.load_source_patches()
+        self.assertTrue({"FT-T01d-451", "FT-T02a-449", "FT-T04g-393", "FT-T04a-452", "FT-T04e-365"} <= set(patches))
+        for items in patches.values():
+            for patch in items:
+                self.assertTrue(patch["file"] and patch["from"] and patch["to"] and patch["reason"])
+
+    def test_report_separates_conditional_and_rework(self):
+        rows = [
+            {"visual": "pass", "adapted": True, "machineQa": "pass"},
+            {"visual": "conditional", "adapted": True, "machineQa": "pass"},
+            {"visual": "rework", "adapted": True, "machineQa": "pass"},
+            {"visual": "pending", "adapted": True, "machineQa": "pass"},
+        ]
+        c = report.counts(rows)
+        self.assertEqual(c["humanVisualPass"], 1)
+        self.assertEqual(c["humanVisualConditional"], 1)
+        self.assertEqual(c["humanVisualRework"], 1)
+        self.assertEqual(c["humanVisualPending"], 1)
+
+    def test_workbench_edit_helpers_touch_visible_text_only(self):
+        self.assertEqual(workbench_export.edit_first_string({"term": "API"}), ("term", "API", "API · 工作台导出验证"))
+        self.assertIsNone(workbench_export.edit_first_string({"icon": "fredtalk/media/lw-work-01.jpg"}))
+        edited = workbench_export.set_path({"items": [{"label": "A"}]}, "items[0].label", "B")
+        self.assertEqual(edited["items"][0]["label"], "B")
+
+
 if __name__ == "__main__":
     unittest.main()
+

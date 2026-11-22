@@ -27,12 +27,15 @@ python3 tools/fredtalk/adapt.py --all-kit --limit 20 --dry-run   # 只生成自�
 python3 tools/fredtalk/batch.py --next 20 # 自动选件 -> 适配 -> 渲染 -> 机器 QA -> 报告
 python3 tools/fredtalk/batch.py --next 20 --readapt  # 强制重适配已适配组件（版本升级时用）
 python3 tools/fredtalk/batch.py --next 20 --dry-run              # 只验证选件，不写文件
+python3 tools/fredtalk/batch.py --next 20 --mix '{"project-expand":2,"录屏聚焦":6,"内容交接":5,"录屏与视频入场":5,"图片与作品":2}'  # 类别配比自动选件
+python3 tools/fredtalk/workbench_export.py --ids <LW-ID...>      # 逐组件参数编辑 + 工作台 API 导出 MP4
 LW_BROWSER=/usr/local/bin/chromium \
   node tools/fredtalk/render_batch.mjs --plan external/fredtalk/batch/runs/<run>/plan.json
 python3 tools/fredtalk/qa_media.py --run-id <run>                # 机器结构 QA
 python3 tools/fredtalk/report.py --run-id <run>                  # 独立批次验收报告
 python3 tools/fredtalk/report.py          # 第一轮 status.json + round-1-acceptance.md
-python3 tools/fredtalk/update_catalog.py  # 仅把渲染+QA 通过的条目写回 external/catalog.json
+python3 tools/fredtalk/promote_candidates.py --run-id <run>  # 人工通过 + 工作台导出通过后才晋级可执行候选
+python3 tools/fredtalk/update_catalog.py  # 旧入口：仅按渲染+QA 写回，不再用于人工晋级
 npm run test:fredtalk                     # 取源/自动适配/断点/指纹回归测试
 ```
 
@@ -47,13 +50,14 @@ npm run test:fredtalk                     # 取源/自动适配/断点/指纹回
 - 第一轮 12 条：`external/fredtalk/batch/evidence/<LW-ID>/`（MP4 + 5 帧 + qa.json，随仓库交付）。
 - 后续自动批次：`external/fredtalk/batch/runs/<runId>/`（默认被 `.gitignore` 忽略，作为独立验收产物打包交付，避免把 432 条视频永久提交）。
 - 机器 QA：`qa.json` 的 `machineStatus`，只代表结构检查。
-- 人工视觉：`reviews-round1.json` / 批次 `reviews.json`，单独计数；未审片一律 `pending`。
+- 人工视觉：`reviews-round1.json` / 批次 `reviews.json`，单独计数 `pass` / `conditional` / `rework` / `pending`；未审片一律 `pending`。
+- 工作台导出：`workbench_export.py` 走工作台实际使用的 `POST /api/render-reference`，逐组件改一个可编辑参数并下载 MP4；结果写 `batch/batches/<run>-workbench-export.json`。
 
 ## 适配策略
 
 - `kit-overlay`：组件文件复制后仅做确定性媒体字面量重写与 kit 宿主化；仅替换 `kit/theme.ts`、`kit/ui.tsx` 的宿主层——字体换 OFL SmileySans、去 Fred 角标、静音 SFX、Frame 使用 host 背景、`useT` 乘 host speed、追加 `configureTheme`。
 - `project-expand`：公开目录只登记部分文件、但组件依赖同项目共享模块时，整项目 `src/` 从公开 tag 展开，再宿主化 `shared.tsx` 并把 `assets.json` 重写到 `fredtalk/media/*`（LW 自有占位素材）。
-- `sourcePatches`：声明式源内补丁，仅用于字体度量差异（例如数字滚轮单元格宽度），逐条写入 `provenance.json`。
+- `sourcePatches`：声明式源内补丁，用于字体度量差异、对比度、演示数据标识、媒体替换等确定性修复；补丁清单在 `profiles/source-patches.json`，`adapt.py` 在适配后应用并逐条写入 `provenance.json`，`--readapt` 不会丢失。
 
 每个适配目录包含：上游副本 `src/`、`adapter.tsx`（统一入参 `{props, accent, background, speed}`）、`provenance.json`（逐文件 URL/SHA、宿主改动、许可）、`props.json`（默认/示例参数）。
 
@@ -64,5 +68,7 @@ npm run test:fredtalk                     # 取源/自动适配/断点/指纹回
 ## 边界
 
 - 上游媒体（截图、录屏、图片、Logo、音效）不随 MIT 授权，仓库不收录；样片使用 LW 自有占位素材。
+- T04e 使用自有公开仓库页面截图，含 GitHub UI；商用前建议去品牌化。详见 `external/fredtalk/COPYRIGHT_AND_MEDIA.md`。
+- 音效仅保留事件语义，当前静音；对接方案见 `external/fredtalk/SFX_INTEGRATION.md`。
 - ROI、点击坐标等参数与画面强绑定，只提供参数入口，不承诺跨素材通用。
 - 所有适配组件保留 FredTalk 来源与许可，不标为 LW 原创。

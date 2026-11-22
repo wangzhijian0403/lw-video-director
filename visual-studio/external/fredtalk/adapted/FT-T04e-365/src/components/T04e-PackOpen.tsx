@@ -27,12 +27,12 @@ export type PackOpenProps = HandoffProps & {
 };
 
 export const packOpenDefaults: PackOpenProps = {
-  cardImage: 'fredtalk/media/lw-work-01.jpg',
-  cardCrop: { x: 700, y: 330, w: 2480, h: 2640 },
+  cardImage: 'fredtalk/media/t04e/repo-page.png',
+  cardCrop: { x: 0, y: 0, w: 965, h: 1607 },
   parts: [
-    { image: 'fredtalk/media/lw-work-06.jpg', box: { x: 716, y: 818, w: 434, h: 410 }, label: '代码' },                 // 文件列表 5 个文件夹
-    { image: 'fredtalk/media/lw-work-04.jpg', box: { x: 1240, y: 2440, w: 760, h: 240 }, label: 'README 说明书' },      // README 标题 + 一句话介绍
-    { image: 'fredtalk/media/lw-work-03.jpg', box: { x: 2592, y: 1374, w: 552, h: 230 }, label: 'Releases 软件' },      // 右侧 Releases 区块
+    { image: 'fredtalk/media/t04e/file-list.png', box: { x: 0, y: 270, w: 965, h: 520 }, label: '代码目录' },
+    { image: 'fredtalk/media/t04e/readme-intro.png', box: { x: 0, y: 1200, w: 965, h: 380 }, label: 'README 说明' },
+    { image: 'fredtalk/media/t04e/repo-title.png', box: { x: 0, y: 0, w: 965, h: 260 }, label: '仓库概览' },
   ],
   result: '仓库 = 这个项目的文件夹',
   highlight: '文件夹',
@@ -93,7 +93,7 @@ export function PackOpen(props: Partial<PackOpenProps>) {
   const recede = q(t, at[0], at[0] + 0.8);
   const res = p(t, resAt, resAt + 0.55) * 1.04 - 0.04 * q(t, resAt + 0.55, resAt + 0.85);   // 胶囊横向展开，过冲 4% 回落
 
-  const fill = (src: string) => <Img src={staticFile(src)} style={{ position: 'absolute', left: 0, top: 0, width: '100%', height: '100%', display: 'block' }} />;
+  const fill = (src: string) => <Img src={staticFile(src)} style={{ position: 'absolute', left: 0, top: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />;
 
   return <Frame>
     <Handoff enter={c.enter} exit={c.exit} exitAt={c.exitAt}>

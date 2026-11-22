@@ -1,5 +1,13 @@
 {
-  "defaultProps": {},
+  "defaultProps": {
+    "steps": [
+      "对话越聊越长",
+      "前面定的规则被挤出上下文",
+      "AI 又按自己的习惯写",
+      "改一处，坏一处"
+    ],
+    "highlight": "坏一处"
+  },
   "editableKeys": [
     "steps",
     "highlight"

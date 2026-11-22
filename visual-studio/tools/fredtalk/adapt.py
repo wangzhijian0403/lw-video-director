@@ -42,6 +42,7 @@ DEFAULT_ACCENT = "#8554E8"
 DEFAULT_BACKGROUND = "#ffffff"
 ADAPTER_VERSION = "fred-batch/1.2"
 AUTO_PROFILES = Path(__file__).resolve().parent / "profiles" / "auto-kit.generated.json"
+SOURCE_PATCHES = Path(__file__).resolve().parent / "profiles" / "source-patches.json"
 EXISTING_IDS = {"FT-T03e-414"}
 
 LW_HOST = """// LW host context for adapted FredTalk components. Not upstream code.
@@ -443,7 +444,8 @@ def apply_source_patches(dest: Path, patches: list[dict], ops: list[str]) -> lis
 
 def finish(profile, row, dest, copied, ops, entry_rel, entry_path, project=None) -> dict:
     lw = profile["lwId"]
-    patched = apply_source_patches(dest, profile.get("sourcePatches", []), ops)
+    declared = list(profile.get("sourcePatches", [])) + list(load_source_patches().get(lw, []))
+    patched = apply_source_patches(dest, declared, ops)
     adapter_path = dest / "src" / "adapter.tsx"
     source_material = json.dumps(
         sorted(
@@ -493,6 +495,12 @@ def finish(profile, row, dest, copied, ops, entry_rel, entry_path, project=None)
         "notes": profile.get("paramNotes", ""),
     })
     return provenance
+
+
+def load_source_patches() -> dict[str, list[dict]]:
+    if not SOURCE_PATCHES.exists():
+        return {}
+    return L.load_json(SOURCE_PATCHES).get("patches", {})
 
 
 def load_profiles() -> list[dict]:
@@ -667,41 +675,99 @@ def auto_kit_profile(row: dict) -> dict:
     }
 
 
-def select_auto_kit(rows: list[dict], limit: int | None = None, include_adapted: bool = False) -> tuple[list[dict], list[dict]]:
+DEFAULT_CATEGORY_MIX = {
+    "project-expand": 2,
+    "录屏聚焦": 6,
+    "内容交接": 5,
+    "录屏与视频入场": 5,
+    "图片与作品": 2,
+}
+
+
+def _profile_for_row(row: dict, skipped: list[dict]) -> dict | None:
+    if row["adaptation"]["strategy"] != "kit-overlay":
+        return None
+    if row["lwId"] in EXISTING_IDS:
+        return None
+    try:
+        profile = auto_kit_profile(row)
+        profile["category"] = row["category"]
+        return profile
+    except Exception as exc:
+        skipped.append({"lwId": row["lwId"], "ftId": row["ftId"], "reason": str(exc)})
+        return None
+
+
+def select_auto_kit(rows: list[dict], limit: int | None = None, include_adapted: bool = False,
+                   mix: dict[str, int] | None = None) -> tuple[list[dict], list[dict]]:
+    """Select kit-overlay profiles, optionally with a deterministic category mix.
+
+    ``mix`` keys are categories plus the pseudo-category ``project-expand``; the
+    latter re-uses existing project-expand profiles from round1.json as a
+    regression slice instead of hand-writing new profiles.
+    """
     selected: list[dict] = []
     skipped: list[dict] = []
+    seen: set[str] = set()
+
+    def add(p: dict | None) -> None:
+        if not p or p["lwId"] in seen:
+            return
+        selected.append(p)
+        seen.add(p["lwId"])
+
+    if mix:
+        projects = [dict(p, category=p.get("category") or p.get("meta", {}).get("category")) for p in load_profiles() if p["strategy"] == "project-expand"]
+        for _ in range(mix.get("project-expand", 0)):
+            if projects:
+                add(projects.pop(0))
+        for category, quota in mix.items():
+            if category == "project-expand":
+                continue
+            for row in sorted(rows, key=lambda r: r["lwId"]):
+                if len([p for p in selected if p.get("category") == category]) >= quota:
+                    break
+                if row["category"] != category:
+                    continue
+                if not include_adapted and (ADAPTED / row["lwId"] / "provenance.json").exists():
+                    continue
+                add(_profile_for_row(row, skipped))
+        if limit is not None and len(selected) >= limit:
+            selected = selected[:limit]
+            return selected, skipped
+
     for row in sorted(rows, key=lambda r: r["lwId"]):
-        if row["adaptation"]["strategy"] != "kit-overlay":
-            continue
-        if row["lwId"] in EXISTING_IDS:
-            continue
-        if not include_adapted and (ADAPTED / row["lwId"] / "provenance.json").exists():
-            continue
-        try:
-            profile = auto_kit_profile(row)
-        except Exception as exc:
-            skipped.append({"lwId": row["lwId"], "ftId": row["ftId"], "reason": str(exc)})
-            continue
-        selected.append(profile)
         if limit is not None and len(selected) >= limit:
             break
+        if row["lwId"] in seen:
+            continue
+        if mix and row["category"] in mix:
+            have = len([p for p in selected if p.get("category") == row["category"]])
+            if have >= mix[row["category"]]:
+                continue
+        if not include_adapted and (ADAPTED / row["lwId"] / "provenance.json").exists():
+            continue
+        add(_profile_for_row(row, skipped))
+    if limit is not None:
+        selected = selected[:limit]
     return selected, skipped
 
 
-def run_auto_kit(limit: int | None, run_id: str | None, dry_run: bool, include_adapted: bool) -> int:
+def run_auto_kit(limit: int | None, run_id: str | None, dry_run: bool, include_adapted: bool, mix: dict[str, int] | None = None) -> int:
     rows = L.load_json(L.BATCH / "inventory.json")
-    profiles, skipped = select_auto_kit(rows, limit=limit, include_adapted=include_adapted)
+    profiles, skipped = select_auto_kit(rows, limit=limit, include_adapted=include_adapted, mix=mix)
     run_id = run_id or datetime.now(timezone.utc).strftime("auto-%Y%m%d-%H%M%S")
     run_dir = RUNS / run_id
     plan = {
         "runId": run_id,
         "createdAt": datetime.now(timezone.utc).isoformat(),
-        "strategy": "kit-overlay",
-        "selection": "inventory.adaptation.strategy == kit-overlay; kit/theme.ts + kit/ui.tsx present; entry export resolved",
+        "strategy": "mixed" if mix else "kit-overlay",
+        "selection": ("category mix " + json.dumps(mix, ensure_ascii=False) + "; project-expand slice reuses verified round1 profiles") if mix else "inventory.adaptation.strategy == kit-overlay; kit/theme.ts + kit/ui.tsx present; entry export resolved",
         "count": len(profiles),
         "components": [
             {
-                "lwId": p["lwId"], "ftId": p["ftId"], "entryFile": p["entryFile"],
+                "lwId": p["lwId"], "ftId": p["ftId"], "category": p.get("category"),
+                "strategy": p["strategy"], "entryFile": p["entryFile"],
                 "entryExport": p["entryExport"], "defaultsExport": p["defaultsExport"],
                 "editableKeys": p["editableKeys"],
             }
@@ -729,7 +795,7 @@ def run_auto_kit(limit: int | None, run_id: str | None, dry_run: bool, include_a
     for p in profiles:
         row = inv[p["lwId"]]
         try:
-            prov = build_kit_overlay(p, row, tag)
+            prov = build_project_expand(p, row, tag) if p["strategy"] == "project-expand" else build_kit_overlay(p, row, tag)
             print(f"adapted {p['lwId']} -> {len(prov['files'])} files; edits: {len(prov['hostEdits'])}")
             results.append({"lwId": p["lwId"], "status": "adapted", "files": len(prov["files"]), "error": None})
         except Exception as exc:
@@ -753,10 +819,12 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true", help="only write the auto plan, do not adapt")
     ap.add_argument("--include-adapted", action="store_true", help="re-adapt components that already have provenance")
     ap.add_argument("--run-id", default=None, help="run directory name for --all-kit")
+    ap.add_argument("--mix", default=None, help="category mix JSON, e.g. {\"录屏聚焦\": 6}; implies --all-kit")
     args = ap.parse_args()
 
-    if args.all_kit:
-        return run_auto_kit(args.limit, args.run_id, args.dry_run, args.include_adapted)
+    mix = json.loads(args.mix) if args.mix else None
+    if args.all_kit or mix:
+        return run_auto_kit(args.limit, args.run_id, args.dry_run, args.include_adapted, mix=mix)
 
     inv = {r["lwId"]: r for r in L.load_json(L.BATCH / "inventory.json")}
     tag = L.ensure_tag_tree(L.default_tag_root())

@@ -17,9 +17,9 @@
     "editableKeys": [
       "src"
     ],
-    "sourceSha256": "50dfd71e5befe648ac0a3ef51a6a23c9c1bf88a48272016364ab9730e90808b0",
+    "sourceSha256": "0979ab7ca7147c0a6c46d0a85df99df24f8643ceb0aaedcce1d1ca4670b8ce92",
     "adapterSha256": "7eb54eb870048e2487ae4269b8d0f55b56e7f5eec6bbadd889d126633d50fe13",
-    "adapterVersion": "fred-batch/1.1",
+    "adapterVersion": "fred-batch/1.2",
     "importPath": "../../external/fredtalk/adapted/FT-OP03-467/src/adapter",
     "sourceFrames": 240
   },
@@ -55,9 +55,9 @@
       "roi",
       "clock"
     ],
-    "sourceSha256": "50dfd71e5befe648ac0a3ef51a6a23c9c1bf88a48272016364ab9730e90808b0",
+    "sourceSha256": "0979ab7ca7147c0a6c46d0a85df99df24f8643ceb0aaedcce1d1ca4670b8ce92",
     "adapterSha256": "54057ada47f14c42c30fa4698a7dfcba52fad286dd536ee84e2c6517a9c5420d",
-    "adapterVersion": "fred-batch/1.1",
+    "adapterVersion": "fred-batch/1.2",
     "importPath": "../../external/fredtalk/adapted/FT-RC02-471/src/adapter",
     "sourceFrames": 480
   },
@@ -73,7 +73,12 @@
     "height": 720,
     "accent": "#8554E8",
     "background": "#f5f3eb",
-    "sampleProps": {},
+    "sampleProps": {
+      "term": "API",
+      "alias": "应用程序编程接口",
+      "definition": "按约定的规则，调用别人做好的能力",
+      "highlight": "别人做好的能力"
+    },
     "editableKeys": [
       "term",
       "alias",
@@ -98,7 +103,18 @@
     "height": 720,
     "accent": "#8554E8",
     "background": "#f5f3eb",
-    "sampleProps": {},
+    "sampleProps": {
+      "lines": [
+        "API 是调用能力的接口",
+        "Key 是你的通行证",
+        ".env 是存配置的文件"
+      ],
+      "highlights": [
+        "调用能力",
+        "通行证",
+        "存配置"
+      ]
+    },
     "editableKeys": [
       "lines",
       "highlights"
@@ -128,7 +144,7 @@
       "verdict",
       "highlight"
     ],
-    "sourceSha256": "113591141f756d088b05dbc5dd1b396661a8ac4a376fafee0b6d2877a5342b82",
+    "sourceSha256": "1d0fd86f6b4ee7b0fde28378100cdc21c6e613ad20734f748f4dd552267735b3",
     "adapterSha256": "68a7cabcfe091c99b73acd00e81f459999007ccdd76e6c34338512edd1e16dea",
     "adapterVersion": "fred-batch/1.2",
     "importPath": "../../external/fredtalk/adapted/FT-T01d-451/src/adapter",
@@ -146,7 +162,10 @@
     "height": 720,
     "accent": "#8554E8",
     "background": "#f5f3eb",
-    "sampleProps": {},
+    "sampleProps": {
+      "condition": "8G显存笔记本",
+      "extra": "+量化模型"
+    },
     "editableKeys": [
       "condition",
       "extra"
@@ -169,7 +188,10 @@
     "height": 720,
     "accent": "#8554E8",
     "background": "#f5f3eb",
-    "sampleProps": {},
+    "sampleProps": {
+      "text": "把声音留成记忆",
+      "highlight": "记忆"
+    },
     "editableKeys": [
       "text",
       "highlight"
@@ -192,7 +214,16 @@
     "height": 720,
     "accent": "#8554E8",
     "background": "#f5f3eb",
-    "sampleProps": {},
+    "sampleProps": {
+      "title": "制作规则",
+      "lines": [
+        "每次创作可以替换文字图片和视频",
+        "完成一条后保存项目文件",
+        "检查之后再完成最终输出"
+      ],
+      "highlight": "保存项目文件",
+      "background": "fredtalk/media/lw-work-06.jpg"
+    },
     "editableKeys": [
       "title",
       "lines",
@@ -217,7 +248,12 @@
     "height": 720,
     "accent": "#8554E8",
     "background": "#f5f3eb",
-    "sampleProps": {},
+    "sampleProps": {
+      "subject": "JEV-27B",
+      "clarify": "不是 JEV 官方出的",
+      "highlight": "不是",
+      "stamp": "注意"
+    },
     "editableKeys": [
       "subject",
       "clarify",
@@ -248,7 +284,7 @@
       "current",
       "mode"
     ],
-    "sourceSha256": "3f71d5a48fcf5aea7689fee028fc5afcdde68807bd10fb482dd67b813864f476",
+    "sourceSha256": "5eb8e9a0816424634eb00e324e33a09e02d5fdd412b333d818108a967fcdf550",
     "adapterSha256": "69f1fbbbac7a4bbb236b8fb5382b0fe9d575fb003db13e058f2cf4a06041189c",
     "adapterVersion": "fred-batch/1.2",
     "importPath": "../../external/fredtalk/adapted/FT-T02a-449/src/adapter",
@@ -266,7 +302,25 @@
     "height": 720,
     "accent": "#8554E8",
     "background": "#f5f3eb",
-    "sampleProps": {},
+    "sampleProps": {
+      "items": [
+        {
+          "label": "云端 Agent",
+          "media": "fredtalk/media/lw-work-02.jpg"
+        },
+        {
+          "label": "团队协作",
+          "media": "fredtalk/media/lw-work-04.jpg"
+        },
+        {
+          "label": "极速决策",
+          "media": "fredtalk/media/lw-work-05.jpg"
+        }
+      ],
+      "result": "ChatGPT",
+      "highlight": "ChatGPT",
+      "sub": "一口气整合进来"
+    },
     "editableKeys": [
       "items",
       "result",
@@ -291,7 +345,14 @@
     "height": 720,
     "accent": "#8554E8",
     "background": "#f5f3eb",
-    "sampleProps": {},
+    "sampleProps": {
+      "background": "fredtalk/media/lw-work-05.jpg",
+      "items": [
+        "文生视频",
+        "图生视频",
+        "参考图生视频"
+      ]
+    },
     "editableKeys": [
       "background",
       "items"
@@ -314,7 +375,28 @@
     "height": 720,
     "accent": "#8554E8",
     "background": "#f5f3eb",
-    "sampleProps": {},
+    "sampleProps": {
+      "lanes": [
+        {
+          "role": "使用者",
+          "steps": [
+            "找项目",
+            "下载哪个",
+            "授权 CLI",
+            "跑起来"
+          ]
+        },
+        {
+          "role": "上传者",
+          "steps": [
+            "传上去",
+            "三个文件"
+          ]
+        }
+      ],
+      "mode": "overview",
+      "current": null
+    },
     "editableKeys": [
       "lanes",
       "mode",
@@ -338,7 +420,40 @@
     "height": 720,
     "accent": "#8554E8",
     "background": "#f5f3eb",
-    "sampleProps": {},
+    "sampleProps": {
+      "files": [
+        {
+          "name": "README.md",
+          "preview": [
+            "# FredTalk",
+            "用 Codex，把口播稿",
+            "变成动态视频。"
+          ],
+          "purpose": "这是什么、怎么用",
+          "highlight": "怎么用"
+        },
+        {
+          "name": "LICENSE",
+          "preview": [
+            "MIT License",
+            "Copyright (c) 2026",
+            "Permission is hereby"
+          ],
+          "purpose": "别人能不能用、能不能改",
+          "highlight": "能不能改"
+        },
+        {
+          "name": ".gitignore",
+          "preview": [
+            "node_modules/",
+            ".env",
+            "media/"
+          ],
+          "purpose": "密码、密钥不要传上去",
+          "highlight": "不要传上去"
+        }
+      ]
+    },
     "editableKeys": [
       "files"
     ],
@@ -360,7 +475,15 @@
     "height": 720,
     "accent": "#8554E8",
     "background": "#f5f3eb",
-    "sampleProps": {},
+    "sampleProps": {
+      "nodes": [
+        "记录",
+        "检索",
+        "整理"
+      ],
+      "result": "重要内容随时找回",
+      "highlight": "随时找回"
+    },
     "editableKeys": [
       "nodes",
       "result",
@@ -384,7 +507,15 @@
     "height": 720,
     "accent": "#8554E8",
     "background": "#f5f3eb",
-    "sampleProps": {},
+    "sampleProps": {
+      "steps": [
+        "对话越聊越长",
+        "前面定的规则被挤出上下文",
+        "AI 又按自己的习惯写",
+        "改一处，坏一处"
+      ],
+      "highlight": "坏一处"
+    },
     "editableKeys": [
       "steps",
       "highlight"
@@ -415,7 +546,7 @@
       "summary",
       "fred"
     ],
-    "sourceSha256": "0d2453ecb2196136bbd9c2b614f9e3e68cdf508907070cd8763d8617ef2b435e",
+    "sourceSha256": "aa01ca72960f5fa6210443471b60dfc746a4f443dd30c1fa48a60f2af8633c1e",
     "adapterSha256": "f574365a1cecbf1357e7723a232b09a28ed4a17224db7abf863e94731a33072a",
     "adapterVersion": "fred-batch/1.2",
     "importPath": "../../external/fredtalk/adapted/FT-T04a-452/src/adapter",
@@ -433,7 +564,27 @@
     "height": 720,
     "accent": "#8554E8",
     "background": "#f5f3eb",
-    "sampleProps": {},
+    "sampleProps": {
+      "task": "做一期 AI 工具测评视频",
+      "roles": [
+        {
+          "step": "写口播稿",
+          "tool": "ChatGPT",
+          "logo": "fredtalk/media/lw-work-04.jpg"
+        },
+        {
+          "step": "生成配图",
+          "tool": "豆包",
+          "logo": "fredtalk/media/lw-work-05.jpg"
+        },
+        {
+          "step": "做动画出片",
+          "tool": "Codex",
+          "logo": "fredtalk/media/lw-work-05.jpg"
+        }
+      ],
+      "highlight": "测评视频"
+    },
     "editableKeys": [
       "task",
       "roles",
@@ -457,7 +608,15 @@
     "height": 720,
     "accent": "#8554E8",
     "background": "#f5f3eb",
-    "sampleProps": {},
+    "sampleProps": {
+      "topic": "记录",
+      "categories": [
+        "会议纪要",
+        "日常想法",
+        "工作待办"
+      ],
+      "focus": 0
+    },
     "editableKeys": [
       "topic",
       "categories",
@@ -489,7 +648,7 @@
       "result",
       "highlight"
     ],
-    "sourceSha256": "4f01d26c142489c54fcda38a1f700f187bf551c59ec72dc49d755ee3317f4ccb",
+    "sourceSha256": "f723d2830045ced0cbb4c049281ae3df8fe035eff6764eaa9ff08e4fbeebf7ab",
     "adapterSha256": "7dcf28f7fe2807dde0eeecd4831af36433692799b7427af547246e6179310070",
     "adapterVersion": "fred-batch/1.2",
     "importPath": "../../external/fredtalk/adapted/FT-T04e-365/src/adapter",
@@ -507,7 +666,23 @@
     "height": 720,
     "accent": "#8554E8",
     "background": "#f5f3eb",
-    "sampleProps": {},
+    "sampleProps": {
+      "keyName": "GitHub CLI",
+      "abilities": [
+        {
+          "label": "下载",
+          "sub": "把别人的项目拉下来"
+        },
+        {
+          "label": "上传",
+          "sub": "把改动推上去"
+        },
+        {
+          "label": "建仓库",
+          "sub": "新建一个项目文件夹"
+        }
+      ]
+    },
     "editableKeys": [
       "keyName",
       "abilities"
@@ -536,7 +711,7 @@
       "branches",
       "recommend"
     ],
-    "sourceSha256": "6f3396ffd9a8974fdfbb45c7dd31ff3f0bccfd5b3b4123652496d365d9c567a4",
+    "sourceSha256": "a7b60a0e52e0075148199846e1c428e273b1fd1a2f65f853f72f2f13ea13cacb",
     "adapterSha256": "b550431f9f8ff52e04fbb8f975a2b0c5e406ac6927bcb99c5fc0d720b0cf5af3",
     "adapterVersion": "fred-batch/1.2",
     "importPath": "../../external/fredtalk/adapted/FT-T04g-393/src/adapter",
@@ -574,6 +749,313 @@
     "adapterSha256": "6fda549b1e9316806a7e5745c0c78fbf09e03c44cfad1adc98a11a8ffcec77f3",
     "adapterVersion": "fred-batch/1.1",
     "importPath": "../../external/fredtalk/adapted/FT-T05a-436/src/adapter",
+    "sourceFrames": 300
+  },
+  {
+    "id": "FT-T05b-671",
+    "ftId": "T05b",
+    "name": "以前 vs 现在：旧步骤收成一叠，新做法接管",
+    "category": "讲解段落",
+    "strategy": "kit-overlay",
+    "nativeFrames": 300,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#8554E8",
+    "background": "#f5f3eb",
+    "sampleProps": {},
+    "editableKeys": [
+      "beforeLabel",
+      "beforeSteps",
+      "nowLabel",
+      "nowText",
+      "highlight"
+    ],
+    "sourceSha256": "fad1b86dd1a16cca823b4437805ef89e05a36ca937b14289b52fbf2ec3e9f975",
+    "adapterSha256": "197ec0743ea3f537e5878326aae7fdc4b4fcd38b5e72f1c7bef1d00668f917b1",
+    "adapterVersion": "fred-batch/1.2",
+    "importPath": "../../external/fredtalk/adapted/FT-T05b-671/src/adapter",
+    "sourceFrames": 300
+  },
+  {
+    "id": "FT-T05b2-398",
+    "ftId": "T05b2",
+    "name": "以前 vs 现在（返修）：旧步骤收成一叠时仍可读",
+    "category": "讲解段落",
+    "strategy": "kit-overlay",
+    "nativeFrames": 300,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#8554E8",
+    "background": "#f5f3eb",
+    "sampleProps": {},
+    "editableKeys": [
+      "beforeLabel",
+      "beforeSteps",
+      "nowLabel",
+      "nowText",
+      "highlight"
+    ],
+    "sourceSha256": "6d3955b1f07c9b8a98c2345d47aec1befb1e849b58d0911f10b3f5bcc353e7be",
+    "adapterSha256": "0e1fdf137295e64c795aca0731edec274dc98f4961fa50ec010256f860fbb64b",
+    "adapterVersion": "fred-batch/1.2",
+    "importPath": "../../external/fredtalk/adapted/FT-T05b2-398/src/adapter",
+    "sourceFrames": 300
+  },
+  {
+    "id": "FT-T05c-446",
+    "ftId": "T05c",
+    "name": "原句改写：旧写法划掉、新写法替换",
+    "category": "讲解段落",
+    "strategy": "kit-overlay",
+    "nativeFrames": 300,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#8554E8",
+    "background": "#f5f3eb",
+    "sampleProps": {},
+    "editableKeys": [
+      "fileName",
+      "lines",
+      "target",
+      "oldText",
+      "newText",
+      "badge"
+    ],
+    "sourceSha256": "bf4a5a1cd81bd96743a26d10b820164824a4a1213fced2f418d3291b2b50cb55",
+    "adapterSha256": "e2d7b7b22f97b9422c85c29d19c6d9232498198afcdeb286074d2936b1114214",
+    "adapterVersion": "fred-batch/1.2",
+    "importPath": "../../external/fredtalk/adapted/FT-T05c-446/src/adapter",
+    "sourceFrames": 300
+  },
+  {
+    "id": "FT-T05d-447",
+    "ftId": "T05d",
+    "name": "工具并排：逐项比较，胜出格翻黑",
+    "category": "讲解段落",
+    "strategy": "kit-overlay",
+    "nativeFrames": 300,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#8554E8",
+    "background": "#f5f3eb",
+    "sampleProps": {},
+    "editableKeys": [
+      "left",
+      "right",
+      "rows"
+    ],
+    "sourceSha256": "c60ca2725984e9ae4f8a29ceb35090a43b27052095481cbc2ba78cd3959a8223",
+    "adapterSha256": "b7c7e1799371a78175f23d602274d1d0afeedaf9bc796828dd908d386253c76e",
+    "adapterVersion": "fred-batch/1.2",
+    "importPath": "../../external/fredtalk/adapted/FT-T05d-447/src/adapter",
+    "sourceFrames": 300
+  },
+  {
+    "id": "FT-T05e-437",
+    "ftId": "T05e",
+    "name": "适用 / 不适用",
+    "category": "讲解段落",
+    "strategy": "kit-overlay",
+    "nativeFrames": 300,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#8554E8",
+    "background": "#f5f3eb",
+    "sampleProps": {},
+    "editableKeys": [
+      "fitLabel",
+      "unfitLabel",
+      "items",
+      "highlight"
+    ],
+    "sourceSha256": "c64d1270eb3363158545e341d9f00c426de1dd494b3e70b7656d1b5baa4dbd3b",
+    "adapterSha256": "001639b059de77c192be3747e8dd7b0498707fd8ce3d04ab917dc93a87727fa3",
+    "adapterVersion": "fred-batch/1.2",
+    "importPath": "../../external/fredtalk/adapted/FT-T05e-437/src/adapter",
+    "sourceFrames": 300
+  },
+  {
+    "id": "FT-T05f-419",
+    "ftId": "T05f",
+    "name": "一部手机展开成三屏对照",
+    "category": "图片与作品",
+    "strategy": "kit-overlay",
+    "nativeFrames": 360,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#8554E8",
+    "background": "#f5f3eb",
+    "sampleProps": {},
+    "editableKeys": [
+      "screens",
+      "focus"
+    ],
+    "sourceSha256": "5be2ddb8bc6d412967af749cd88b8ad7da312050ee0218b1818eaf38804d6172",
+    "adapterSha256": "1f16776c6c1d1c2ed6946b5cd2f8af7fa3113a1c253f048f95833948a7694df2",
+    "adapterVersion": "fred-batch/1.2",
+    "importPath": "../../external/fredtalk/adapted/FT-T05f-419/src/adapter",
+    "sourceFrames": 360
+  },
+  {
+    "id": "FT-T08b-443",
+    "ftId": "T08b",
+    "name": "长网页滚动阅读，到标题停住",
+    "category": "录屏聚焦",
+    "strategy": "kit-overlay",
+    "nativeFrames": 360,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#8554E8",
+    "background": "#f5f3eb",
+    "sampleProps": {},
+    "editableKeys": [
+      "page",
+      "pageWidth",
+      "pageHeight",
+      "startY",
+      "focus",
+      "bodyTop"
+    ],
+    "sourceSha256": "7e00d02a9ba605192ddf4b63014e890d90e595509ed3de6128e04f0da7da3dd5",
+    "adapterSha256": "d3db8a81fbc09c8d1b78fb0969927260906da98b27c0b9cc3e90fc8d414e7ef4",
+    "adapterVersion": "fred-batch/1.2",
+    "importPath": "../../external/fredtalk/adapted/FT-T08b-443/src/adapter",
+    "sourceFrames": 360
+  },
+  {
+    "id": "FT-T08d-444",
+    "ftId": "T08d",
+    "name": "界面多区域依次标注",
+    "category": "录屏聚焦",
+    "strategy": "kit-overlay",
+    "nativeFrames": 300,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#8554E8",
+    "background": "#f5f3eb",
+    "sampleProps": {},
+    "editableKeys": [
+      "image",
+      "imageWidth",
+      "imageHeight",
+      "regions"
+    ],
+    "sourceSha256": "eaebd10206977adc86a31d504a003bb290b39fe7696f2b90a2718cac97365361",
+    "adapterSha256": "3d61f7b850561110661bd996d0175f2649e75577e2b899f74200c3ffc362a580",
+    "adapterVersion": "fred-batch/1.2",
+    "importPath": "../../external/fredtalk/adapted/FT-T08d-444/src/adapter",
+    "sourceFrames": 300
+  },
+  {
+    "id": "FT-T08i-356",
+    "ftId": "T08i",
+    "name": "毛玻璃要点卡",
+    "category": "录屏聚焦",
+    "strategy": "kit-overlay",
+    "nativeFrames": 300,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#8554E8",
+    "background": "#f5f3eb",
+    "sampleProps": {},
+    "editableKeys": [
+      "media",
+      "start",
+      "fact",
+      "highlight",
+      "note",
+      "brand"
+    ],
+    "sourceSha256": "85d3e8f81e632b1b66fc5c7da6f926f659f4f1d63e4f658b74a2eb0ddade1290",
+    "adapterSha256": "39293cbf2a94472b34e97d639847ec4c20b31782a0750ef0b2b8c7b926d99fc6",
+    "adapterVersion": "fred-batch/1.2",
+    "importPath": "../../external/fredtalk/adapted/FT-T08i-356/src/adapter",
+    "sourceFrames": 300
+  },
+  {
+    "id": "FT-T09a-445",
+    "ftId": "T09a",
+    "name": "点击路径聚焦：镜头跟光标找到入口并点下",
+    "category": "录屏聚焦",
+    "strategy": "kit-overlay",
+    "nativeFrames": 300,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#8554E8",
+    "background": "#f5f3eb",
+    "sampleProps": {},
+    "editableKeys": [
+      "image",
+      "imageSize",
+      "clicks",
+      "timing",
+      "maxZoom"
+    ],
+    "sourceSha256": "3d39689c70e68f58c2348d1227d4811aac20033a76cbacc183a2645369802d73",
+    "adapterSha256": "7991695e429c1266d022e9d80015fcd469b2d4afb9c6db25f10558b6a3000e6a",
+    "adapterVersion": "fred-batch/1.2",
+    "importPath": "../../external/fredtalk/adapted/FT-T09a-445/src/adapter",
+    "sourceFrames": 300
+  },
+  {
+    "id": "FT-T09b-423",
+    "ftId": "T09b",
+    "name": "开通授权：按钮到授权弹窗到已开通",
+    "category": "录屏聚焦",
+    "strategy": "kit-overlay",
+    "nativeFrames": 300,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#8554E8",
+    "background": "#f5f3eb",
+    "sampleProps": {},
+    "editableKeys": [
+      "image",
+      "imageSize",
+      "entry",
+      "dialog",
+      "confirm",
+      "offLabel",
+      "onLabel"
+    ],
+    "sourceSha256": "b75b1ec5e7e7eeecc2e42ad74a2fb7a13c1050498716c5efe00c2cf6d2c9a37c",
+    "adapterSha256": "002f03dd52113f7296bdc70e301d210b6b1840cbcf5fdaf6d25c1a8f0323a82e",
+    "adapterVersion": "fred-batch/1.2",
+    "importPath": "../../external/fredtalk/adapted/FT-T09b-423/src/adapter",
+    "sourceFrames": 300
+  },
+  {
+    "id": "FT-T09e-399",
+    "ftId": "T09e",
+    "name": "产物浏览：生成结果逐个打开",
+    "category": "图片与作品",
+    "strategy": "kit-overlay",
+    "nativeFrames": 300,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#8554E8",
+    "background": "#f5f3eb",
+    "sampleProps": {},
+    "editableKeys": [
+      "items",
+      "open"
+    ],
+    "sourceSha256": "4098c43f97d607a6be3a3ff867e33f9beed01405eca5f37deb6c9187049cfabd",
+    "adapterSha256": "cd630e0461f9f8ee4970de8637d7bae1702edb04806aa49478f8f4ef18cea1a3",
+    "adapterVersion": "fred-batch/1.2",
+    "importPath": "../../external/fredtalk/adapted/FT-T09e-399/src/adapter",
     "sourceFrames": 300
   },
   {
@@ -688,6 +1170,80 @@
     "sourceFrames": 180
   },
   {
+    "id": "FT-T12a-448",
+    "ftId": "T12a",
+    "name": "第 X 部分：点长成黑胶囊，章节名落定（快过渡）",
+    "category": "内容交接",
+    "strategy": "kit-overlay",
+    "nativeFrames": 120,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#8554E8",
+    "background": "#f5f3eb",
+    "sampleProps": {},
+    "editableKeys": [
+      "index",
+      "label",
+      "title",
+      "dark"
+    ],
+    "sourceSha256": "219cb4b8abd631162549447e5b2b997bcd98358ce4f580395a98234323c6a591",
+    "adapterSha256": "80e22daa9d972d183dc2f238a6f7d3e35fa7a966fec5a78ecb04c76173779c5d",
+    "adapterVersion": "fred-batch/1.2",
+    "importPath": "../../external/fredtalk/adapted/FT-T12a-448/src/adapter",
+    "sourceFrames": 120
+  },
+  {
+    "id": "FT-T12b-428",
+    "ftId": "T12b",
+    "name": "第 N 点步骤号（快过渡）",
+    "category": "内容交接",
+    "strategy": "kit-overlay",
+    "nativeFrames": 150,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#8554E8",
+    "background": "#f5f3eb",
+    "sampleProps": {},
+    "editableKeys": [
+      "index",
+      "name",
+      "highlight"
+    ],
+    "sourceSha256": "12d24fcb74025de4004f7ca68108609cab9452a9f1390d6eb9f6f34c4830da12",
+    "adapterSha256": "dc534c4dc6e1601c4e199a1f9ab3bd328fc2df24500bd38dac81d16d07b8ee4c",
+    "adapterVersion": "fred-batch/1.2",
+    "importPath": "../../external/fredtalk/adapted/FT-T12b-428/src/adapter",
+    "sourceFrames": 150
+  },
+  {
+    "id": "FT-T12c-429",
+    "ftId": "T12c",
+    "name": "案例转折：章节让位，案例卡翻入",
+    "category": "内容交接",
+    "strategy": "kit-overlay",
+    "nativeFrames": 180,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#8554E8",
+    "background": "#f5f3eb",
+    "sampleProps": {},
+    "editableKeys": [
+      "point",
+      "highlight",
+      "media",
+      "caseTitle"
+    ],
+    "sourceSha256": "ee9f1b49897a4b9215648e4849b0a2551b296c16ab2b9d98cf5d98e7636991f6",
+    "adapterSha256": "6c8b209c9e25ee86c091c6326c93eae74b442f09c283fc9e2022f0dd7c31f914",
+    "adapterVersion": "fred-batch/1.2",
+    "importPath": "../../external/fredtalk/adapted/FT-T12c-429/src/adapter",
+    "sourceFrames": 180
+  },
+  {
     "id": "FT-T12d-407",
     "ftId": "T12d",
     "name": "阶段胶囊：三枚胶囊建立，聚焦当前阶段",
@@ -727,6 +1283,53 @@
     "adapterVersion": "fred-batch/1.1",
     "importPath": "../../external/fredtalk/adapted/FT-T12d-407/src/adapter",
     "sourceFrames": 360
+  },
+  {
+    "id": "FT-T12e-408",
+    "ftId": "T12e",
+    "name": "章节白条擦出（快过渡）",
+    "category": "内容交接",
+    "strategy": "kit-overlay",
+    "nativeFrames": 120,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#8554E8",
+    "background": "#f5f3eb",
+    "sampleProps": {},
+    "editableKeys": [
+      "label",
+      "title"
+    ],
+    "sourceSha256": "6f494ba95a5f4daa169f7025973529090c09debc3b6b1c1a8814a0c28ee4594f",
+    "adapterSha256": "bc639707c185446a08fc5f084a4fc31592b714d1cb1cd083947d4891a422fd3f",
+    "adapterVersion": "fred-batch/1.2",
+    "importPath": "../../external/fredtalk/adapted/FT-T12e-408/src/adapter",
+    "sourceFrames": 120
+  },
+  {
+    "id": "FT-T12g-430",
+    "ftId": "T12g",
+    "name": "章节进度回顾",
+    "category": "内容交接",
+    "strategy": "kit-overlay",
+    "nativeFrames": 180,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#8554E8",
+    "background": "#f5f3eb",
+    "sampleProps": {},
+    "editableKeys": [
+      "chapters",
+      "current",
+      "highlight"
+    ],
+    "sourceSha256": "9f30bd8e84ec8217ec8c8125e30536946625f27cfcc17261d85aeed97ed0bacf",
+    "adapterSha256": "a16dd2ec8e2c1ba117e867dc1ebfea9a2490d122de90e226612f825f8e93e0bb",
+    "adapterVersion": "fred-batch/1.2",
+    "importPath": "../../external/fredtalk/adapted/FT-T12g-430/src/adapter",
+    "sourceFrames": 180
   },
   {
     "id": "FT-T12l-337",
@@ -921,5 +1524,33 @@
     "adapterVersion": "fred-batch/1.1",
     "importPath": "../../external/fredtalk/adapted/FT-T20f-395/src/adapter",
     "sourceFrames": 300
+  },
+  {
+    "id": "FT-T20i-347",
+    "ftId": "T20i",
+    "name": "细节拉远：从一个吸睛局部拉到全貌",
+    "category": "录屏与视频入场",
+    "strategy": "kit-overlay",
+    "nativeFrames": 240,
+    "fps": 60,
+    "width": 1280,
+    "height": 720,
+    "accent": "#8554E8",
+    "background": "#f5f3eb",
+    "sampleProps": {},
+    "editableKeys": [
+      "src",
+      "srcW",
+      "srcH",
+      "focus",
+      "zoomFrom",
+      "title",
+      "highlight"
+    ],
+    "sourceSha256": "a3ba4606aedbe9f5d8f428b0406ea86acc271cb98a59917d89adb75d072e3889",
+    "adapterSha256": "735edcfc06a433b1435561baacc26163a78785e02cb611e47161363599d5d6f8",
+    "adapterVersion": "fred-batch/1.2",
+    "importPath": "../../external/fredtalk/adapted/FT-T20i-347/src/adapter",
+    "sourceFrames": 240
   }
 ]

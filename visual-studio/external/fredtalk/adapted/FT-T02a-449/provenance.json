@@ -5,7 +5,7 @@
   "category": "内容交接",
   "strategy": "kit-overlay",
   "adapterVersion": "fred-batch/1.2",
-  "sourceSha256": "3f71d5a48fcf5aea7689fee028fc5afcdde68807bd10fb482dd67b813864f476",
+  "sourceSha256": "5eb8e9a0816424634eb00e324e33a09e02d5fdd412b333d818108a967fcdf550",
   "adapterSha256": "69f1fbbbac7a4bbb236b8fb5382b0fe9d575fb003db13e058f2cf4a06041189c",
   "nativeFrames": 300,
   "fps": 60,
@@ -57,8 +57,25 @@
     "Fonts -> OFL SmileySans",
     "Brand removed",
     "Sfx muted",
-    "Frame background -> host"
+    "Frame background -> host",
+    "source patch components/T02a-AgendaThree.tsx: keep inactive card text fully opaque",
+    "source patch components/T02a-AgendaThree.tsx: reduce only scale, not contrast"
   ],
-  "sourcePatches": [],
+  "sourcePatches": [
+    {
+      "file": "components/T02a-AgendaThree.tsx",
+      "from": "        opacity: e * mix(1, 0.35, dim), zIndex: isCur ? 2 : 1,",
+      "to": "        opacity: e, zIndex: isCur ? 2 : 1,",
+      "occurrences": 1,
+      "reason": "keep inactive card text fully opaque"
+    },
+    {
+      "file": "components/T02a-AgendaThree.tsx",
+      "from": "          style={{ transform: `scale(${mix(1, stacked ? 1.05 : 1.08, lift) * mix(1, 0.97, dim)})`, overflow: 'visible' }}>",
+      "to": "          style={{ transform: `scale(${mix(1, stacked ? 1.05 : 1.08, lift) * mix(1, 0.98, dim)})`, overflow: 'visible' }}>",
+      "occurrences": 1,
+      "reason": "reduce only scale, not contrast"
+    }
+  ],
   "notes": "Auto-generated kit-overlay profile. Entry/symbol/defaults are selected from inventory + source exports."
 }

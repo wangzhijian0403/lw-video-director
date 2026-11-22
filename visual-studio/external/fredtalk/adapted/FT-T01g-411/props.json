@@ -1,5 +1,14 @@
 {
-  "defaultProps": {},
+  "defaultProps": {
+    "title": "制作规则",
+    "lines": [
+      "每次创作可以替换文字图片和视频",
+      "完成一条后保存项目文件",
+      "检查之后再完成最终输出"
+    ],
+    "highlight": "保存项目文件",
+    "background": "fredtalk/media/lw-work-06.jpg"
+  },
   "editableKeys": [
     "title",
     "lines",
