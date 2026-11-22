@@ -5,6 +5,7 @@ on:
     paths:
       - 'visual-studio/tools/fredtalk/run_all.py'
       - '.github/workflows/fredtalk-whole-library-plan.yml'
+      - 'visual-studio/tools/fredtalk/tests/test_run_all.py'
   workflow_dispatch:
 
 permissions:
@@ -19,6 +20,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Check isolated registry and source strategy counts
+        working-directory: visual-studio
+        run: python -m unittest tools/fredtalk/tests/test_run_all.py -v
       - name: Whole-catalog plan without downloads or rendering
         working-directory: visual-studio
         run: |
