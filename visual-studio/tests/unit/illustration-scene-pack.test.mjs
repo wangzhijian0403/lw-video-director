@@ -31,6 +31,8 @@ test('Workbench lists actually installed scene, FredTalk, SVG and character regi
  const app=fs.readFileSync(path.join(ROOT,'src/app/main.tsx'),'utf8');
  const gallery=fs.readFileSync(path.join(ROOT,'src/app/ResourceGallery.tsx'),'utf8');
  assert.match(app,/ResourceGallery/);
- assert.match(app,/素材图鉴/);
+ assert.match(app,/统一资源库/);
+ assert.match(app,/installedResourceCounts/);
+ assert.doesNotMatch(app,/>素材图鉴<\/button>/);
  for(const phrase of ['fredtalk-approved.json','tabler-outline.json','scene-packs/manifest.json','characterRegistry.mjs','<Player']) assert.ok(gallery.includes(phrase),phrase);
 });
