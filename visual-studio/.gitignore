@@ -1,4 +1,5 @@
 node_modules/
+
 dist/
 .cache/
 exports/
@@ -13,3 +14,7 @@ test-results/
 !public/**/*.png
 !public/**/*.jpg
 !public/**/*.jpeg
+
+# These user-created media are private; last rule overrides public image exceptions
+public/characters/
+public/characters/**
