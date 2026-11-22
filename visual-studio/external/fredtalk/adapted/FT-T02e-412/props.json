@@ -1,0 +1,30 @@
+{
+  "defaultProps": {
+    "items": [
+      {
+        "label": "云端 Agent",
+        "media": "fredtalk/media/lw-work-02.jpg"
+      },
+      {
+        "label": "团队协作",
+        "media": "fredtalk/media/lw-work-04.jpg"
+      },
+      {
+        "label": "极速决策",
+        "media": "fredtalk/media/lw-work-05.jpg"
+      }
+    ],
+    "result": "ChatGPT",
+    "highlight": "ChatGPT",
+    "sub": "一口气整合进来"
+  },
+  "editableKeys": [
+    "items",
+    "result",
+    "highlight",
+    "sub"
+  ],
+  "accent": "#8554E8",
+  "background": "#f5f3eb",
+  "notes": "自动生成：使用上游 defaults；参数键来自 inventory 静态分析。"
+}

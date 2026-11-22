@@ -1,0 +1,18 @@
+{
+  "defaultProps": {
+    "steps": [
+      "对话越聊越长",
+      "前面定的规则被挤出上下文",
+      "AI 又按自己的习惯写",
+      "改一处，坏一处"
+    ],
+    "highlight": "坏一处"
+  },
+  "editableKeys": [
+    "steps",
+    "highlight"
+  ],
+  "accent": "#8554E8",
+  "background": "#f5f3eb",
+  "notes": "自动生成：使用上游 defaults；参数键来自 inventory 静态分析。"
+}

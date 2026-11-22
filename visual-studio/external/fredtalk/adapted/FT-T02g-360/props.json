@@ -1,0 +1,32 @@
+{
+  "defaultProps": {
+    "lanes": [
+      {
+        "role": "使用者",
+        "steps": [
+          "找项目",
+          "下载哪个",
+          "授权 CLI",
+          "跑起来"
+        ]
+      },
+      {
+        "role": "上传者",
+        "steps": [
+          "传上去",
+          "三个文件"
+        ]
+      }
+    ],
+    "mode": "overview",
+    "current": null
+  },
+  "editableKeys": [
+    "lanes",
+    "mode",
+    "current"
+  ],
+  "accent": "#8554E8",
+  "background": "#f5f3eb",
+  "notes": "自动生成：使用上游 defaults；参数键来自 inventory 静态分析。"
+}
