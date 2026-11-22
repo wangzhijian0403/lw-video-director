@@ -1,0 +1,486 @@
+{
+  "round": 1,
+  "description": "12 条跨类别代表组件：2 讲解 / 2 内容交接 / 2 录屏与视频入场 / 2 录屏聚焦 / 2 数值与图表 / 2 图片与作品",
+  "profiles": [
+    {
+      "lwId": "FT-T09s-289",
+      "ftId": "T09s",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T09s-ClickTrail.tsx",
+      "entryExport": "ClickTrail",
+      "defaultsExport": "clickTrailDefaults",
+      "accent": "#2f7d6d",
+      "background": "#f7f5ef",
+      "editableKeys": [
+        "image",
+        "imageSize",
+        "clicks",
+        "zoom",
+        "summary",
+        "highlight",
+        "maskBoxes"
+      ],
+      "sampleProps": {
+        "image": "fredtalk/media/lw-ui-screenshot.png",
+        "imageSize": {
+          "w": 3024,
+          "h": 1712
+        },
+        "clicks": [
+          {
+            "x": 150,
+            "y": 400,
+            "label": "素材",
+            "labelGap": 180
+          },
+          {
+            "x": 610,
+            "y": 260,
+            "label": "搜索",
+            "labelGap": 150
+          },
+          {
+            "x": 700,
+            "y": 740,
+            "label": "打开镜头",
+            "labelGap": 170
+          },
+          {
+            "x": 2100,
+            "y": 1090,
+            "label": "生成",
+            "labelGap": 150
+          },
+          {
+            "x": 1500,
+            "y": 1390,
+            "label": "看进度"
+          }
+        ],
+        "zoom": 1.35,
+        "summary": "改三处参数，就换成自己的素材",
+        "highlight": "自己的素材",
+        "maskBoxes": [],
+        "brand": false
+      },
+      "paramNotes": "图片换成用户自己的界面截图；clicks 为源图坐标（像素），summary/highlight 为中文结论。",
+      "meta": {
+        "id": "FT-T09s-289",
+        "ftId": "T09s",
+        "category": "讲解段落",
+        "nativeFrames": 180,
+        "fps": 30,
+        "upstreamRevision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915"
+      },
+      "notes": "点击足迹；上游为 Codex 真实截图，本轮换成 LW 自有占位截图，不声称像素一致。"
+    },
+    {
+      "lwId": "FT-T12d-407",
+      "ftId": "T12d",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T12d-PhaseCapsules.tsx",
+      "entryExport": "PhaseCapsules",
+      "defaultsExport": "phaseCapsulesDefaults",
+      "accent": "#8554e8",
+      "background": "#f5f3eb",
+      "editableKeys": [
+        "items",
+        "focus",
+        "background"
+      ],
+      "sampleProps": {
+        "items": [
+          {
+            "text": "拍摄前",
+            "highlight": "前"
+          },
+          {
+            "text": "拍摄中",
+            "highlight": "中"
+          },
+          {
+            "text": "拍摄后",
+            "highlight": "后"
+          }
+        ],
+        "focus": 1,
+        "background": "fredtalk/media/lw-workspace-bg.jpg"
+      },
+      "paramNotes": "items 为 2–4 枚阶段胶囊（text 中文、highlight 染紫词）；background 可换成用户自己的底图。",
+      "meta": {
+        "id": "FT-T12d-407",
+        "ftId": "T12d",
+        "category": "内容交接",
+        "nativeFrames": 360,
+        "fps": 60,
+        "upstreamRevision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915"
+      },
+      "notes": "阶段胶囊；底色图默认路径不存在，本轮用 LW 自有纹理底图替换。"
+    },
+    {
+      "lwId": "FT-T12l-337",
+      "ftId": "T12l",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T12l-IrisBadge.tsx",
+      "entryExport": "IrisBadge",
+      "defaultsExport": "irisBadgeDefaults",
+      "accent": "#19191c",
+      "background": "#f5f3eb",
+      "editableKeys": [
+        "index",
+        "label",
+        "title",
+        "origin"
+      ],
+      "sampleProps": {
+        "index": 3,
+        "label": "第 3 部分",
+        "title": "内容交接：换成新的章节名",
+        "origin": {
+          "x": 960,
+          "y": 540
+        }
+      },
+      "paramNotes": "index 为章节序号；label/title 可替换中文；origin 是黑圆起点（1920×1080 坐标）。",
+      "meta": {
+        "id": "FT-T12l-337",
+        "ftId": "T12l",
+        "category": "内容交接",
+        "nativeFrames": 180,
+        "fps": 60,
+        "upstreamRevision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915"
+      },
+      "notes": "黑圆扩散交接；纯文字与几何，无外部素材。"
+    },
+    {
+      "lwId": "FT-T20f-395",
+      "ftId": "T20f",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T20f-ResultFirst.tsx",
+      "entryExport": "ResultFirst",
+      "defaultsExport": "resultFirstDefaults",
+      "accent": "#f0bd84",
+      "background": "#f5f3eb",
+      "editableKeys": [
+        "media",
+        "start",
+        "title",
+        "highlight",
+        "badge"
+      ],
+      "sampleProps": {
+        "media": "fredtalk/media/lw-recording.mp4",
+        "start": 0.5,
+        "title": "这是\n怎么做的？",
+        "highlight": "怎么做",
+        "badge": "成品"
+      },
+      "paramNotes": "media 换成用户自己的成片/录屏；start 控制视频起点秒数；title/highlight/badge 为中文文案。",
+      "meta": {
+        "id": "FT-T20f-395",
+        "ftId": "T20f",
+        "category": "录屏与视频入场",
+        "nativeFrames": 300,
+        "fps": 60,
+        "upstreamRevision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915"
+      },
+      "notes": "先看结果再倒回来；上游用 Fred 成片，本轮换成 LW 自有占位录屏。"
+    },
+    {
+      "lwId": "FT-OP03-467",
+      "ftId": "OP03",
+      "strategy": "project-expand",
+      "tagProject": "components/projects/expansion-selected-20261007",
+      "entryFile": "OpeningScenes.tsx",
+      "entryExport": "OP03",
+      "defaultsExport": null,
+      "accent": "#8554e8",
+      "background": "#f5f3eb",
+      "editableKeys": [
+        "src"
+      ],
+      "sampleProps": {
+        "src": "fredtalk/media/lw-recording.mp4"
+      },
+      "paramNotes": "src 是圆形入口展开后播放的视频；换成用户自己的录屏/成片。",
+      "meta": {
+        "id": "FT-OP03-467",
+        "ftId": "OP03",
+        "category": "录屏与视频入场",
+        "nativeFrames": 240,
+        "fps": 60,
+        "upstreamRevision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915"
+      },
+      "notes": "公开目录只登记 3 个文件，其余共享模块从公开 tag 的同一项目展开；共享宿主已替换字体/角标/音效，assets.json 指向 LW 占位素材。"
+    },
+    {
+      "lwId": "FT-RC02-471",
+      "ftId": "RC02",
+      "strategy": "project-expand",
+      "tagProject": "components/projects/expansion-selected-20261007",
+      "entryFile": "RecordingScenes.tsx",
+      "entryExport": "RC02",
+      "defaultsExport": null,
+      "accent": "#e0a34b",
+      "background": "#f5f3eb",
+      "editableKeys": [
+        "src",
+        "start",
+        "roi",
+        "clock"
+      ],
+      "sampleProps": {
+        "src": "fredtalk/media/lw-recording.mp4",
+        "start": 1.0,
+        "roi": {
+          "x": 1292,
+          "y": 132,
+          "w": 557,
+          "h": 530
+        },
+        "clock": {
+          "freezeFrom": 2.2,
+          "freezeTo": 5.4
+        }
+      },
+      "paramNotes": "src 为用户自己的录屏；roi 是 1920×1080 源画面里的聚焦框；clock 控制冻结阅读区间。",
+      "meta": {
+        "id": "FT-RC02-471",
+        "ftId": "RC02",
+        "category": "录屏聚焦",
+        "nativeFrames": 480,
+        "fps": 60,
+        "upstreamRevision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915"
+      },
+      "notes": "整页推近与回全貌；ROI 参数仍未通用化（每段录屏需按画面重设），已在验收报告中记录。"
+    },
+    {
+      "lwId": "FT-T09n-374",
+      "ftId": "T09n",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T09n-WaitSkip.tsx",
+      "entryExport": "WaitSkip",
+      "defaultsExport": "waitSkipDefaults",
+      "accent": "#8554e8",
+      "background": "#f5f3eb",
+      "editableKeys": [
+        "image",
+        "imageSize",
+        "maskBoxes",
+        "maskColor",
+        "label",
+        "minutes",
+        "prefix",
+        "suffix"
+      ],
+      "sampleProps": {
+        "image": "fredtalk/media/lw-ui-screenshot.png",
+        "imageSize": {
+          "w": 3024,
+          "h": 1712
+        },
+        "maskBoxes": [],
+        "maskColor": "#ffffff",
+        "label": "安装依赖",
+        "minutes": 8,
+        "prefix": "约",
+        "suffix": "分钟后"
+      },
+      "paramNotes": "image 换成用户自己的录屏截图；label/minutes/prefix/suffix 为中文；maskBoxes 用于盖掉敏感区域。",
+      "meta": {
+        "id": "FT-T09n-374",
+        "ftId": "T09n",
+        "category": "录屏聚焦",
+        "nativeFrames": 180,
+        "fps": 60,
+        "upstreamRevision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915"
+      },
+      "notes": "等待快进；上游真实界面截图换成 LW 自有截图。",
+      "sourcePatches": [
+        {
+          "file": "components/T09n-WaitSkip.tsx",
+          "from": "size * 0.62",
+          "to": "size * 1.0",
+          "reason": "SmileySans 数字字面 1em，上游 MiSans 按 0.62em 建格；按宿主字体改格宽避免裁字"
+        },
+        {
+          "file": "components/T09n-WaitSkip.tsx",
+          "from": "digits * BIG * 0.62",
+          "to": "digits * BIG * 1.0",
+          "reason": "同步数字行宽"
+        }
+      ]
+    },
+    {
+      "lwId": "FT-T14e-378",
+      "ftId": "T14e",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T14e-StatTriplet.tsx",
+      "entryExport": "StatTriplet",
+      "defaultsExport": "statTripletDefaults",
+      "accent": "#2f7d6d",
+      "background": "#f5f3eb",
+      "editableKeys": [
+        "stats",
+        "hero"
+      ],
+      "sampleProps": {
+        "stats": [
+          {
+            "label": "渲染耗时",
+            "value": 42,
+            "suffix": " 秒",
+            "unit": "1080p / 30fps"
+          },
+          {
+            "label": "素材占用",
+            "value": 128,
+            "suffix": " MB",
+            "unit": "单条组件"
+          },
+          {
+            "label": "复用组件",
+            "value": 12,
+            "suffix": " 条",
+            "unit": "本轮验收"
+          }
+        ],
+        "hero": 2
+      },
+      "paramNotes": "stats 为 2–4 张数字卡；hero 指定主角卡序号（最后放大、变深色）。",
+      "meta": {
+        "id": "FT-T14e-378",
+        "ftId": "T14e",
+        "category": "数值与图表",
+        "nativeFrames": 300,
+        "fps": 60,
+        "upstreamRevision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915"
+      },
+      "notes": "三个关键数字；上游默认是 API 定价，本轮换成 LW 测试口径，不冒充真实业务数据。"
+    },
+    {
+      "lwId": "FT-T15a-426",
+      "ftId": "T15a",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T15a-ScoreBars.tsx",
+      "entryExport": "ScoreBars",
+      "defaultsExport": "scoreBarsDefaults",
+      "accent": "#c4553f",
+      "background": "#f5f3eb",
+      "editableKeys": [
+        "items",
+        "highlight",
+        "decimals",
+        "prefix",
+        "suffix",
+        "caption"
+      ],
+      "sampleProps": {
+        "items": [
+          {
+            "label": "自动接入",
+            "value": 135
+          },
+          {
+            "label": "需特殊适配",
+            "value": 43
+          },
+          {
+            "label": "源码阻塞",
+            "value": 0
+          }
+        ],
+        "highlight": 0,
+        "decimals": 0,
+        "prefix": "",
+        "suffix": " 条",
+        "caption": "LW 测试口径 · 非上游数据"
+      },
+      "paramNotes": "items 为 2–8 条；highlight 指定要点亮的主角；caption 标注数据出处。",
+      "meta": {
+        "id": "FT-T15a-426",
+        "ftId": "T15a",
+        "category": "数值与图表",
+        "nativeFrames": 300,
+        "fps": 60,
+        "upstreamRevision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915"
+      },
+      "notes": "跑分条形图；上游为模型跑分，本轮改为 LW 流水线统计并明确标注测试口径。"
+    },
+    {
+      "lwId": "FT-T05a-436",
+      "ftId": "T05a",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T05a-SliderCompare.tsx",
+      "entryExport": "SliderCompare",
+      "defaultsExport": "sliderCompareDefaults",
+      "accent": "#8554e8",
+      "background": "#f5f3eb",
+      "editableKeys": [
+        "before",
+        "after",
+        "beforeLabel",
+        "afterLabel",
+        "caption",
+        "rest"
+      ],
+      "sampleProps": {
+        "before": "fredtalk/media/lw-work-01.jpg",
+        "after": "fredtalk/media/lw-work-02.jpg",
+        "beforeLabel": "上一版",
+        "afterLabel": "这一版",
+        "caption": "同一句提示词",
+        "rest": 0.6
+      },
+      "paramNotes": "before/after 换成用户自己的两张图；标签与顶部胶囊支持中文；rest 为滑杆停留位置。",
+      "meta": {
+        "id": "FT-T05a-436",
+        "ftId": "T05a",
+        "category": "图片与作品",
+        "nativeFrames": 300,
+        "fps": 60,
+        "upstreamRevision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915"
+      },
+      "notes": "滑杆前后对比；上游两张图未随包分发，本轮用 LW 自有作品占位图。"
+    },
+    {
+      "lwId": "FT-T20a2-405",
+      "ftId": "T20a2",
+      "strategy": "kit-overlay",
+      "entryFile": "components/T20a2-ResultFirstHook.tsx",
+      "entryExport": "ResultFirstHook",
+      "defaultsExport": "resultFirstHookDefaults",
+      "accent": "#2f7d6d",
+      "background": "#f5f3eb",
+      "editableKeys": [
+        "media",
+        "heroIndex",
+        "hook",
+        "highlight"
+      ],
+      "sampleProps": {
+        "media": [
+          "fredtalk/media/lw-work-01.jpg",
+          "fredtalk/media/lw-work-02.jpg",
+          "fredtalk/media/lw-work-03.jpg",
+          "fredtalk/media/lw-work-04.jpg",
+          "fredtalk/media/lw-work-05.jpg",
+          "fredtalk/media/lw-work-06.jpg"
+        ],
+        "heroIndex": 0,
+        "hook": "这些图，一句话就能做出来？",
+        "highlight": "一句话"
+      },
+      "paramNotes": "media 为作品墙图片数组（循环填满 12 格）；heroIndex 指定主角；hook/highlight 为中文钩子文案。",
+      "meta": {
+        "id": "FT-T20a2-405",
+        "ftId": "T20a2",
+        "category": "图片与作品",
+        "nativeFrames": 300,
+        "fps": 60,
+        "upstreamRevision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915"
+      },
+      "notes": "成果先行开场；上游作品图未随包分发，本轮用 6 张 LW 自有占位图循环。"
+    }
+  ]
+}

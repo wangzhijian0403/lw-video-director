@@ -1,0 +1,8 @@
+{
+  "id": "FT-T03e-414",
+  "note": "Baseline component from PR #6 (REF-FT-T03E). Re-rendered on this host with LW_BROWSER=/usr/local/bin/chromium before the batch adapter existed; copied here as formal round-1 evidence instead of overwriting upstream.",
+  "source": "/tmp/fredtest/papermaking.mp4 (T03e papermaking variant, 420 frames @60fps)",
+  "strategy": "existing-component",
+  "nativeFrames": 420,
+  "fps": 60
+}

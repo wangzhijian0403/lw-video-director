@@ -1,0 +1,19 @@
+{
+  "defaultProps": {
+    "topic": "记录",
+    "categories": [
+      "会议纪要",
+      "日常想法",
+      "工作待办"
+    ],
+    "focus": 0
+  },
+  "editableKeys": [
+    "topic",
+    "categories",
+    "focus"
+  ],
+  "accent": "#8554E8",
+  "background": "#f5f3eb",
+  "notes": "自动生成：使用上游 defaults；参数键来自 inventory 静态分析。"
+}

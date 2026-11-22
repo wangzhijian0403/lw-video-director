@@ -1,0 +1,24 @@
+{
+  "defaultProps": {
+    "media": [
+      "fredtalk/media/lw-work-01.jpg",
+      "fredtalk/media/lw-work-02.jpg",
+      "fredtalk/media/lw-work-03.jpg",
+      "fredtalk/media/lw-work-04.jpg",
+      "fredtalk/media/lw-work-05.jpg",
+      "fredtalk/media/lw-work-06.jpg"
+    ],
+    "heroIndex": 0,
+    "hook": "这些图，一句话就能做出来？",
+    "highlight": "一句话"
+  },
+  "editableKeys": [
+    "media",
+    "heroIndex",
+    "hook",
+    "highlight"
+  ],
+  "accent": "#2f7d6d",
+  "background": "#f5f3eb",
+  "notes": "media 为作品墙图片数组（循环填满 12 格）；heroIndex 指定主角；hook/highlight 为中文钩子文案。"
+}

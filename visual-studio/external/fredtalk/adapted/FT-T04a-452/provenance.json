@@ -1,0 +1,82 @@
+{
+  "lwId": "FT-T04a-452",
+  "ftId": "T04a",
+  "name": "比喻映射：概念与生活比喻逐行配对再合一",
+  "category": "讲解段落",
+  "strategy": "kit-overlay",
+  "adapterVersion": "fred-batch/1.2",
+  "sourceSha256": "aa01ca72960f5fa6210443471b60dfc746a4f443dd30c1fa48a60f2af8633c1e",
+  "adapterSha256": "f574365a1cecbf1357e7723a232b09a28ed4a17224db7abf863e94731a33072a",
+  "nativeFrames": 300,
+  "fps": 60,
+  "upstream": {
+    "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
+    "publicTag": "v2.5.0",
+    "project": null,
+    "officialUrl": "https://www.fred-fu.com/visual-library"
+  },
+  "license": {
+    "firstPartyCode": "MIT (FredTalk owner grant 2026-10-13)",
+    "thirdPartyMedia": "not covered; upstream media intentionally not redistributed",
+    "font": "SmileySans-Oblique OFL-1.1, unmodified, bundled by LW host",
+    "audio": "upstream SFX omitted; adapter is silent",
+    "attribution": "FredTalk component library; adapted by LW, not claimed as LW original"
+  },
+  "entry": "src/components/T04a-MetaphorMap.tsx",
+  "files": [
+    {
+      "upstreamPath": "src/components/T04a-MetaphorMap.tsx",
+      "copy": "components/T04a-MetaphorMap.tsx",
+      "sha256": "ff664c2c092c59949827bfe8536a725635ed7f59603b0df824f42797133287a9",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/theme.ts",
+      "copy": "kit/theme.ts",
+      "sha256": "c77ff0a6c94d35e5b41068730ebcbdc50736749c7c64b0327d4709ed88c0d15e",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/ui.tsx",
+      "copy": "kit/ui.tsx",
+      "sha256": "e7351657058edc090877cc702ee43259fd7d0d616315e208818bc519c67a0390",
+      "channel": "api",
+      "status": "verified"
+    }
+  ],
+  "hostEdits": [
+    "theme body -> LW font",
+    "theme display -> LW font",
+    "theme mono -> LW font",
+    "theme kai -> LW font",
+    "configureTheme added",
+    "host context import",
+    "useT respects host speed",
+    "Fonts -> OFL SmileySans",
+    "Brand removed",
+    "Sfx muted",
+    "Frame background -> host",
+    "media literals -> LW placeholders (1 refs; upstream media not redistributed)",
+    "source patch components/T04a-MetaphorMap.tsx: disable non-transparent placeholder by default",
+    "source patch components/T04a-MetaphorMap.tsx: only accept transparent PNG and clamp to frame"
+  ],
+  "sourcePatches": [
+    {
+      "file": "components/T04a-MetaphorMap.tsx",
+      "from": "  fred: 'fredtalk/media/lw-work-06.jpg',",
+      "to": "  fred: '',",
+      "occurrences": 1,
+      "reason": "disable non-transparent placeholder by default"
+    },
+    {
+      "file": "components/T04a-MetaphorMap.tsx",
+      "from": "    {c.fred ? <Img src={staticFile(c.fred)} style={{\n      position: 'absolute', right: -6 - (1 - fredIn) * 330, bottom: -40, height: 560, opacity: fredIn,\n    }} /> : null}",
+      "to": "    {c.fred && /\\\\.png$/i.test(c.fred) ? <Img src={staticFile(c.fred)} style={{\n      position: 'absolute', right: 24, bottom: 16, maxWidth: 360, maxHeight: 460, objectFit: 'contain', opacity: fredIn,\n    }} /> : null}",
+      "occurrences": 1,
+      "reason": "only accept transparent PNG and clamp to frame"
+    }
+  ],
+  "notes": "Auto-generated kit-overlay profile. Entry/symbol/defaults are selected from inventory + source exports."
+}

@@ -1,0 +1,57 @@
+{
+  "defaultProps": {
+    "image": "fredtalk/media/lw-ui-screenshot.png",
+    "imageSize": {
+      "w": 3024,
+      "h": 1712
+    },
+    "clicks": [
+      {
+        "x": 150,
+        "y": 400,
+        "label": "素材",
+        "labelGap": 180
+      },
+      {
+        "x": 610,
+        "y": 260,
+        "label": "搜索",
+        "labelGap": 150
+      },
+      {
+        "x": 700,
+        "y": 740,
+        "label": "打开镜头",
+        "labelGap": 170
+      },
+      {
+        "x": 2100,
+        "y": 1090,
+        "label": "生成",
+        "labelGap": 150
+      },
+      {
+        "x": 1500,
+        "y": 1390,
+        "label": "看进度"
+      }
+    ],
+    "zoom": 1.35,
+    "summary": "改三处参数，就换成自己的素材",
+    "highlight": "自己的素材",
+    "maskBoxes": [],
+    "brand": false
+  },
+  "editableKeys": [
+    "image",
+    "imageSize",
+    "clicks",
+    "zoom",
+    "summary",
+    "highlight",
+    "maskBoxes"
+  ],
+  "accent": "#2f7d6d",
+  "background": "#f7f5ef",
+  "notes": "图片换成用户自己的界面截图；clicks 为源图坐标（像素），summary/highlight 为中文结论。"
+}

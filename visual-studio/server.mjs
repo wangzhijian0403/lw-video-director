@@ -3,7 +3,7 @@ import {createServer} from 'vite';
 import fs from 'node:fs';
 import path from 'node:path';
 import {randomUUID} from 'node:crypto';
-import {renderVideo,renderReference,renderFredReference} from './render.mjs';
+import {renderVideo,renderReference,renderFredReference,renderFredComponent} from './render.mjs';
 import {validateFredProps} from './src/references/fred-props.mjs';
 import {validateProps} from './src/catalog/validation.mjs';
 import {searchAssets,productionCandidates} from './src/catalog/search.mjs';
@@ -18,7 +18,7 @@ if(req.method==='GET'&&url.pathname==='/api/catalog'){json(res,200,searchAssets(
 if(req.method==='GET'&&url.pathname==='/api/production-candidates'){json(res,200,productionCandidates());return}
 if(req.method==='GET'&&url.pathname.startsWith('/api/jobs/')){const j=jobs.get(url.pathname.split('/').pop());json(res,j?200:404,j||{error:'Job not found'});return}
 if(req.method==='POST'&&url.pathname==='/api/render'){const props=validateProps(await body(req));startJob(res,(file,progress)=>renderVideo(props,file,progress));return}
-if(req.method==='POST'&&url.pathname==='/api/render-reference'){const data=await body(req);const candidate=searchAssets('','references').find(c=>c.id===data.id);if(candidate?.executable&&candidate.adapter==='fred-step-chain'){const props=validateFredProps(data.props);startJob(res,(file,progress)=>renderFredReference(props,file,progress));return}const asset=searchAssets('','references').find(c=>c.id===data.id);if(!asset?.executable||asset.adapter!=='motion-pop-in')throw new Error('外部条目尚不具备已验证可执行状态');if(!Number.isFinite(data.speed)||data.speed<.5||data.speed>2||!Number.isFinite(data.scale)||data.scale<.8||data.scale>1.2)throw new Error('外部参数超出适配范围');startJob(res,(file,progress)=>renderReference({speed:data.speed,scale:data.scale},file,progress));return}
+if(req.method==='POST'&&url.pathname==='/api/render-reference'){const data=await body(req);const candidate=searchAssets('','references').find(c=>c.id===data.id);if(candidate?.executable&&candidate.adapter==='fred-step-chain'){const props=validateFredProps(data.props);startJob(res,(file,progress)=>renderFredReference(props,file,progress));return}if(candidate?.executable&&candidate.adapter==='fred-batch'){startJob(res,(file,progress)=>renderFredComponent(data,file,progress));return}const asset=searchAssets('','references').find(c=>c.id===data.id);if(!asset?.executable||asset.adapter!=='motion-pop-in')throw new Error('外部条目尚不具备已验证可执行状态');if(!Number.isFinite(data.speed)||data.speed<.5||data.speed>2||!Number.isFinite(data.scale)||data.scale<.8||data.scale>1.2)throw new Error('外部参数超出适配范围');startJob(res,(file,progress)=>renderReference({speed:data.speed,scale:data.scale},file,progress));return}
 json(res,404,{error:'Not found'});}catch(e){json(res,400,{error:e.message})}return}
 if(url.pathname.startsWith('/exports/')){const name=url.pathname.slice(9);if(!/^[a-f0-9-]+\.mp4$/.test(name)||!fs.existsSync(path.resolve('exports',name))){res.writeHead(404);res.end();return}res.writeHead(200,{'Content-Type':'video/mp4','Content-Disposition':`attachment; filename="LW-${name}"`});fs.createReadStream(path.resolve('exports',name)).pipe(res);return}vite.middlewares(req,res)
 }).listen(port,'127.0.0.1',()=>{const url=`http://127.0.0.1:${server.address().port}`;console.log(`LW Visual Studio 0.2 ${url}`);process.send?.({type:'ready',url})});

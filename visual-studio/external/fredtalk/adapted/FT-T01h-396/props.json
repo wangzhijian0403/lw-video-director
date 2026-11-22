@@ -1,0 +1,17 @@
+{
+  "defaultProps": {
+    "subject": "JEV-27B",
+    "clarify": "不是 JEV 官方出的",
+    "highlight": "不是",
+    "stamp": "注意"
+  },
+  "editableKeys": [
+    "subject",
+    "clarify",
+    "highlight",
+    "stamp"
+  ],
+  "accent": "#8554E8",
+  "background": "#f5f3eb",
+  "notes": "自动生成：使用上游 defaults；参数键来自 inventory 静态分析。"
+}

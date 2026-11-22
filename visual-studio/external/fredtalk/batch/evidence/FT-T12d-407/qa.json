@@ -1,0 +1,28 @@
+{
+  "id": "FT-T12d-407",
+  "checks": {
+    "decodes": true,
+    "frameCountMatches": true,
+    "fpsMatches": true,
+    "resolution1280x720": true,
+    "blackFrameRatio": 0.0,
+    "notMostlyBlack": true,
+    "meanLuma": 217.72,
+    "motionMean": 1.219,
+    "hasMotion": true,
+    "notFlatWhite": true,
+    "stills": 5,
+    "hasHeadMidTail": true
+  },
+  "notes": [],
+  "video": {
+    "width": 1280,
+    "height": 720,
+    "fps": 60.0,
+    "frames": 360,
+    "declaredFrames": 360,
+    "durationSec": 6.0,
+    "expectedFrames": 360,
+    "bytes": 411085
+  }
+}

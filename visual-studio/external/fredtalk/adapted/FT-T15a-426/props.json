@@ -1,0 +1,34 @@
+{
+  "defaultProps": {
+    "items": [
+      {
+        "label": "自动接入",
+        "value": 135
+      },
+      {
+        "label": "需特殊适配",
+        "value": 43
+      },
+      {
+        "label": "源码阻塞",
+        "value": 0
+      }
+    ],
+    "highlight": 0,
+    "decimals": 0,
+    "prefix": "",
+    "suffix": " 条",
+    "caption": "LW 测试口径 · 非上游数据"
+  },
+  "editableKeys": [
+    "items",
+    "highlight",
+    "decimals",
+    "prefix",
+    "suffix",
+    "caption"
+  ],
+  "accent": "#c4553f",
+  "background": "#f5f3eb",
+  "notes": "items 为 2–8 条；highlight 指定要点亮的主角；caption 标注数据出处。"
+}

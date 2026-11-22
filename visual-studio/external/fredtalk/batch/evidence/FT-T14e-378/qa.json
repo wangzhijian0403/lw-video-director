@@ -1,0 +1,28 @@
+{
+  "id": "FT-T14e-378",
+  "checks": {
+    "decodes": true,
+    "frameCountMatches": true,
+    "fpsMatches": true,
+    "resolution1280x720": true,
+    "blackFrameRatio": 0.0,
+    "notMostlyBlack": true,
+    "meanLuma": 230.72,
+    "motionMean": 0.329,
+    "hasMotion": true,
+    "notFlatWhite": true,
+    "stills": 5,
+    "hasHeadMidTail": true
+  },
+  "notes": [],
+  "video": {
+    "width": 1280,
+    "height": 720,
+    "fps": 60.0,
+    "frames": 300,
+    "declaredFrames": 300,
+    "durationSec": 5.0,
+    "expectedFrames": 300,
+    "bytes": 311733
+  }
+}

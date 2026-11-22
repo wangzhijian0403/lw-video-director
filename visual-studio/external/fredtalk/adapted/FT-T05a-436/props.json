@@ -1,0 +1,21 @@
+{
+  "defaultProps": {
+    "before": "fredtalk/media/lw-work-01.jpg",
+    "after": "fredtalk/media/lw-work-02.jpg",
+    "beforeLabel": "上一版",
+    "afterLabel": "这一版",
+    "caption": "同一句提示词",
+    "rest": 0.6
+  },
+  "editableKeys": [
+    "before",
+    "after",
+    "beforeLabel",
+    "afterLabel",
+    "caption",
+    "rest"
+  ],
+  "accent": "#8554e8",
+  "background": "#f5f3eb",
+  "notes": "before/after 换成用户自己的两张图；标签与顶部胶囊支持中文；rest 为滑杆停留位置。"
+}

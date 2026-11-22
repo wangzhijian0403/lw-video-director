@@ -1,0 +1,66 @@
+import assert from 'node:assert/strict';
+import test from 'node:test';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import {computeInputFingerprint, hydrateEntryFromProps, shouldRender} from '../../tools/fredtalk/fingerprint.mjs';
+
+const entry = {
+  id: 'FT-TEST-1',
+  adapterVersion: 'fred-batch/1.1',
+  adapterSha256: 'aaa',
+  sourceSha256: 'bbb',
+  sampleProps: {title: 'hello'},
+  accent: '#8554E8',
+  background: '#f5f3eb',
+  fps: 60,
+  nativeFrames: 300,
+  sourceFrames: 300,
+};
+
+test('fingerprint is stable for identical inputs', () => {
+  assert.equal(computeInputFingerprint(entry), computeInputFingerprint(structuredClone(entry)));
+});
+
+test('props.json hydration changes the fingerprint', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'lw-props-'));
+  const propsPath = path.join(dir, 'props.json');
+  const clone = structuredClone(entry);
+  const before = computeInputFingerprint(clone);
+  fs.writeFileSync(propsPath, JSON.stringify({defaultProps: {title: 'edited'}}));
+  hydrateEntryFromProps(clone, propsPath);
+  assert.notEqual(computeInputFingerprint(clone), before);
+  fs.rmSync(dir, {recursive: true, force: true});
+});
+
+test('source, props, theme and adapter version all invalidate the fingerprint', () => {
+  const base = computeInputFingerprint(entry);
+  for (const patch of [
+    {sourceSha256: 'ccc'},
+    {sampleProps: {title: 'changed'}},
+    {accent: '#c4553f'},
+    {background: '#ffffff'},
+    {adapterVersion: 'fred-batch/1.2'},
+    {nativeFrames: 420},
+  ]) {
+    assert.notEqual(computeInputFingerprint({...entry, ...patch}), base, JSON.stringify(patch));
+  }
+});
+
+test('resume only reuses a pass with matching fingerprint and present mp4', () => {
+  const fp = computeInputFingerprint(entry);
+  assert.equal(shouldRender({status: {render: 'pass', inputFingerprint: fp}, mp4Exists: true, fingerprint: fp}).render, false);
+  assert.equal(shouldRender({status: {render: 'pass', inputFingerprint: 'old'}, mp4Exists: true, fingerprint: fp}).reason, 'input-changed');
+  assert.equal(shouldRender({status: {render: 'pass', inputFingerprint: fp}, mp4Exists: false, fingerprint: fp}).reason, 'missing-mp4');
+  assert.equal(shouldRender({status: {render: 'fail', inputFingerprint: fp}, mp4Exists: true, fingerprint: fp}).reason, 'not-passed');
+  assert.equal(shouldRender({status: {render: 'pass', inputFingerprint: fp}, mp4Exists: true, fingerprint: fp, force: true}).reason, 'forced');
+});
+
+test('fail then retry is allowed without force', () => {
+  const fp = computeInputFingerprint(entry);
+  const first = shouldRender({status: undefined, mp4Exists: false, fingerprint: fp});
+  assert.equal(first.render, true);
+  const retry = shouldRender({status: {render: 'fail', inputFingerprint: fp}, mp4Exists: true, fingerprint: fp});
+  assert.equal(retry.render, true);
+  assert.equal(retry.reason, 'not-passed');
+});

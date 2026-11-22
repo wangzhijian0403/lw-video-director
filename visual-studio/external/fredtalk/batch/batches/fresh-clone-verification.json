@@ -1,0 +1,82 @@
+{
+  "commit": "9dbce24",
+  "clone": "/home/user/ft_verify_9dbce24",
+  "npmCi": true,
+  "build": true,
+  "tests": {
+    "unit": 18,
+    "api": 9,
+    "python": 15,
+    "fredtalkNode": 5,
+    "fail": 0
+  },
+  "fontSetup": "npm run setup:fred",
+  "inventory": {
+    "rows": 432,
+    "kitOverlay": 135,
+    "fetched": true
+  },
+  "adaptedRegistry": 49,
+  "sampleRenders": [
+    {
+      "id": "FT-T01b-431",
+      "frames": 300,
+      "status": "pass"
+    },
+    {
+      "id": "FT-T09s-289",
+      "frames": 180,
+      "status": "pass"
+    },
+    {
+      "id": "FT-T20f-395",
+      "frames": 300,
+      "status": "pass"
+    }
+  ],
+  "fingerprintChange": {
+    "id": "FT-T01b-431",
+    "param": "term",
+    "unchangedRun": "rendered=0 skipped=1",
+    "changedRun": "rendered=1 skipped=0",
+    "oldSha256": "742f4183f55c4de1eb30b8e7dc842b0ce5b51d3ffdfabe0b3eb34efbb662562d",
+    "newSha256": "57617d1c9dcc8583b5737d79499fd7c043dd9a19a8816226785f818c4c779ace",
+    "restoredSha256": "742f4183f55c4de1eb30b8e7dc842b0ce5b51d3ffdfabe0b3eb34efbb662562d"
+  },
+  "autoSelection": {
+    "count": 20,
+    "categories": {
+      "录屏与视频入场": 1,
+      "录屏聚焦": 6,
+      "内容交接": 5,
+      "图片与作品": 2,
+      "讲解段落": 6
+    },
+    "ids": [
+      "FT-OP03-467",
+      "FT-RC02-471",
+      "FT-T09c-421",
+      "FT-T09d-654",
+      "FT-T09d2-404",
+      "FT-T09f-424",
+      "FT-T09g-422",
+      "FT-T12h-361",
+      "FT-T12i-362",
+      "FT-T12k-336",
+      "FT-T12m-338",
+      "FT-T12n-339",
+      "FT-T11c-417",
+      "FT-T11d-418",
+      "FT-T05g-406",
+      "FT-T05h-366",
+      "FT-T05i-367",
+      "FT-T06b-433",
+      "FT-T08e-358",
+      "FT-T08l-294"
+    ]
+  },
+  "notes": [
+    "必须先运行 inventory.py 拉取 pinned 上游源码；只 npm ci 会导致 auto selection 只剩 2 条 project-expand。",
+    "workbench-export 与 render 的 props.json 现在是渲染输入事实来源；registry 过期不再造成错误跳过。"
+  ]
+}

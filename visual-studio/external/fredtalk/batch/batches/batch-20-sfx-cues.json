@@ -1,0 +1,460 @@
+{
+  "runId": "batch-20",
+  "source": "static scan of <Sfx .../> in adapted sources",
+  "components": {
+    "FT-T01b-431": {
+      "entry": "components/T01b-TermDefine.tsx",
+      "cues": [
+        {
+          "name": "pop",
+          "at": "0",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "slide",
+          "at": "openAt",
+          "volume": "0.5",
+          "duration": "60"
+        }
+      ]
+    },
+    "FT-T01c-432": {
+      "entry": "components/T01c-PrincipleLines.tsx",
+      "cues": [
+        {
+          "name": "pop",
+          "at": "at[i]",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "ding",
+          "at": "lockAt",
+          "volume": "0.5",
+          "duration": "60"
+        }
+      ]
+    },
+    "FT-T01d-451": {
+      "entry": "components/T01d-VerdictCard.tsx",
+      "cues": [
+        {
+          "name": "woosh",
+          "at": "1.6",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "scroll",
+          "at": "barAt(0)",
+          "volume": "0.5",
+          "duration": "Math.round((barAt(dims.length - 1) + 0.8 - barAt(0)) * 60)"
+        },
+        {
+          "name": "ding",
+          "at": "3.8",
+          "volume": "0.5",
+          "duration": "60"
+        }
+      ]
+    },
+    "FT-T01e-410": {
+      "entry": "components/T01e-ConditionCapsule.tsx",
+      "cues": [
+        {
+          "name": "pop",
+          "at": "a0",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "typing",
+          "at": "type1",
+          "volume": "0.4",
+          "duration": "Math.round((type1End - type1) * 60) + 6"
+        },
+        {
+          "name": "slide",
+          "at": "a1",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "typing",
+          "at": "type2",
+          "volume": "0.4",
+          "duration": "Math.round((type2End - type2) * 60) + 6"
+        }
+      ]
+    },
+    "FT-T01f-409": {
+      "entry": "components/T01f-DotToLine.tsx",
+      "cues": [
+        {
+          "name": "pop",
+          "at": "a0",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "slide",
+          "at": "a1",
+          "volume": "0.5",
+          "duration": "60"
+        }
+      ]
+    },
+    "FT-T01g-411": {
+      "entry": "components/T01g-DarkWindowType.tsx",
+      "cues": [
+        {
+          "name": "whoosh-short",
+          "at": "a0",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "typing",
+          "at": "titleAt",
+          "volume": "0.4",
+          "duration": "Math.round((titleEnd - titleAt) * 60) + 4"
+        },
+        {
+          "name": "typing",
+          "at": "starts[i]",
+          "volume": "0.4",
+          "duration": "Math.round((ends[i] - starts[i]) * 60) + 4"
+        }
+      ]
+    },
+    "FT-T01h-396": {
+      "entry": "components/T01h-CautionTag.tsx",
+      "cues": [
+        {
+          "name": "pop",
+          "at": "0",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "whoosh-short",
+          "at": "stampAt - 0.05",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "ding",
+          "at": "extAt + 0.5",
+          "volume": "0.5",
+          "duration": "60"
+        }
+      ]
+    },
+    "FT-T02a-449": {
+      "entry": "components/T02a-AgendaThree.tsx",
+      "cues": [
+        {
+          "name": "pop",
+          "at": "startAt(i)",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "whoosh-short",
+          "at": "0.02",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "slide",
+          "at": "focusAt",
+          "volume": "0.5",
+          "duration": "60"
+        }
+      ]
+    },
+    "FT-T02e-412": {
+      "entry": "components/T02e-ThreeMerge.tsx",
+      "cues": [
+        {
+          "name": "pop",
+          "at": "s",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "gather",
+          "at": "mergeAt",
+          "volume": "0.5",
+          "duration": "60"
+        }
+      ]
+    },
+    "FT-T02f-413": {
+      "entry": "components/T02f-BlurList.tsx",
+      "cues": [
+        {
+          "name": "whoosh-short",
+          "at": "0.25",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "pop",
+          "at": "a",
+          "volume": "0.5",
+          "duration": "60"
+        }
+      ]
+    },
+    "FT-T02g-360": {
+      "entry": "components/T02g-RoleRoadmap.tsx",
+      "cues": [
+        {
+          "name": "pop",
+          "at": "laneAt(i)",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "woosh",
+          "at": "focusAt",
+          "volume": "0.5",
+          "duration": "60"
+        }
+      ]
+    },
+    "FT-T02h-371": {
+      "entry": "components/T02h-FileTrio.tsx",
+      "cues": [
+        {
+          "name": "whoosh-short",
+          "at": "0",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "pop",
+          "at": "flipAt(i) + FLIP * 0.5",
+          "volume": "0.5",
+          "duration": "60"
+        }
+      ]
+    },
+    "FT-T03c-416": {
+      "entry": "components/T03c-Cycle.tsx",
+      "cues": [
+        {
+          "name": "pop",
+          "at": "appear[0]",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "woosh",
+          "at": "loopAt",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "ding",
+          "at": "resultAt + 0.1",
+          "volume": "0.5",
+          "duration": "60"
+        }
+      ]
+    },
+    "FT-T03d-435": {
+      "entry": "components/T03d-CauseChain.tsx",
+      "cues": [
+        {
+          "name": "pop",
+          "at": "at(0)",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "slide",
+          "at": "at(1)",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "ding",
+          "at": "at(last) + dur * 0.6",
+          "volume": "0.5",
+          "duration": "60"
+        }
+      ]
+    },
+    "FT-T04a-452": {
+      "entry": "components/T04a-MetaphorMap.tsx",
+      "cues": [
+        {
+          "name": "pop",
+          "at": "0.05",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "slide",
+          "at": "pairAt(i)",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "gather",
+          "at": "mergeAt",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "ding",
+          "at": "mergeAt + 0.75",
+          "volume": "0.5",
+          "duration": "60"
+        }
+      ]
+    },
+    "FT-T04b-434": {
+      "entry": "components/T04b-RoleSplit.tsx",
+      "cues": [
+        {
+          "name": "pop",
+          "at": "0.02",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "slide",
+          "at": "splitAt",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "pop",
+          "at": "toolAt(0)",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "ding",
+          "at": "toolAt(n - 1) + 0.35",
+          "volume": "0.5",
+          "duration": "60"
+        }
+      ]
+    },
+    "FT-T04d-415": {
+      "entry": "components/T04d-CategoryFocus.tsx",
+      "cues": [
+        {
+          "name": "pop",
+          "at": "0.04",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "slide",
+          "at": "appear[0] - 0.3",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "woosh",
+          "at": "focusAt",
+          "volume": "0.5",
+          "duration": "60"
+        }
+      ]
+    },
+    "FT-T04e-365": {
+      "entry": "components/T04e-PackOpen.tsx",
+      "cues": [
+        {
+          "name": "whoosh-short",
+          "at": "0",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "pop",
+          "at": "a + 0.1",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "slide",
+          "at": "at[0]",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "ding",
+          "at": "resAt",
+          "volume": "0.5",
+          "duration": "60"
+        }
+      ]
+    },
+    "FT-T04f-369": {
+      "entry": "components/T04f-KeyUnlock.tsx",
+      "cues": [
+        {
+          "name": "pop",
+          "at": "0.2",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "woosh",
+          "at": "0.3",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "click",
+          "at": "turnAt",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": null,
+          "at": "a",
+          "volume": "0.5",
+          "duration": "60"
+        }
+      ]
+    },
+    "FT-T04g-393": {
+      "entry": "components/T04g-DecisionTree.tsx",
+      "cues": [
+        {
+          "name": "pop",
+          "at": "0.02",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "slide",
+          "at": "appear[0] - 0.3",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "woosh",
+          "at": "T",
+          "volume": "0.5",
+          "duration": "60"
+        },
+        {
+          "name": "ding",
+          "at": "T + 0.6",
+          "volume": "0.5",
+          "duration": "60"
+        }
+      ]
+    }
+  }
+}

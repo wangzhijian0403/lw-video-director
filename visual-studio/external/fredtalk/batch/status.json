@@ -1,0 +1,321 @@
+{
+  "FT-T03e-414": {
+    "strategy": "existing-component",
+    "adapted": true,
+    "files": 4,
+    "shaVerified": true,
+    "render": "pass",
+    "frames": 420,
+    "fps": 60,
+    "machineQa": {
+      "status": "pass",
+      "luma": 131.92,
+      "motion": 0.335
+    },
+    "humanVisualReview": {
+      "status": "pass",
+      "note": "讲解段落基线；六步链路完整，中文与强调色均生效。",
+      "reviewer": "LW human review (round-1 record)"
+    },
+    "limit": "",
+    "evidence": "external/fredtalk/batch/evidence/FT-T03e-414/",
+    "license": "MIT (FredTalk)"
+  },
+  "FT-T09s-289": {
+    "strategy": "kit-overlay",
+    "adapted": true,
+    "files": 3,
+    "shaVerified": true,
+    "render": "pass",
+    "frames": 180,
+    "fps": 30,
+    "machineQa": {
+      "status": "pass",
+      "luma": 226.32,
+      "motion": 2.958
+    },
+    "humanVisualReview": {
+      "status": "pass",
+      "note": "点击轨迹与白色标签卡可见；截图与点击坐标为 LW 占位素材，非上游原图。",
+      "reviewer": "LW human review (round-1 record)"
+    },
+    "limit": "",
+    "evidence": "external/fredtalk/batch/evidence/FT-T09s-289/",
+    "license": "MIT (FredTalk owner grant 2026-10-13)"
+  },
+  "FT-T12d-407": {
+    "strategy": "kit-overlay",
+    "adapted": true,
+    "files": 3,
+    "shaVerified": true,
+    "render": "pass",
+    "frames": 360,
+    "fps": 60,
+    "machineQa": {
+      "status": "pass",
+      "luma": 217.72,
+      "motion": 1.219
+    },
+    "humanVisualReview": {
+      "status": "pass-with-note",
+      "note": "阶段胶囊按前/中/后建立并聚焦第 2 段；OFL 斜体字面紧排，字距略紧，可读。",
+      "reviewer": "LW human review (round-1 record)"
+    },
+    "limit": "宿主字体为 OFL 斜体，字距比上游 MiSans 紧；如需大字可加 0.02–0.05em 字距。",
+    "evidence": "external/fredtalk/batch/evidence/FT-T12d-407/",
+    "license": "MIT (FredTalk owner grant 2026-10-13)"
+  },
+  "FT-T12l-337": {
+    "strategy": "kit-overlay",
+    "adapted": true,
+    "files": 4,
+    "shaVerified": true,
+    "render": "pass",
+    "frames": 180,
+    "fps": 60,
+    "machineQa": {
+      "status": "pass",
+      "luma": 51.4,
+      "motion": 2.181
+    },
+    "humanVisualReview": {
+      "status": "pass",
+      "note": "黑圆扩散 + 章节号 03 + 两行中文标题，层级干净。",
+      "reviewer": "LW human review (round-1 record)"
+    },
+    "limit": "",
+    "evidence": "external/fredtalk/batch/evidence/FT-T12l-337/",
+    "license": "MIT (FredTalk owner grant 2026-10-13)"
+  },
+  "FT-T20f-395": {
+    "strategy": "kit-overlay",
+    "adapted": true,
+    "files": 3,
+    "shaVerified": true,
+    "render": "pass",
+    "frames": 300,
+    "fps": 60,
+    "machineQa": {
+      "status": "pass",
+      "luma": 240.19,
+      "motion": 0.549
+    },
+    "humanVisualReview": {
+      "status": "pass",
+      "note": "先成品后问题；录屏窗口、标题、高亮词、成品角标均正确。",
+      "reviewer": "LW human review (round-1 record)"
+    },
+    "limit": "",
+    "evidence": "external/fredtalk/batch/evidence/FT-T20f-395/",
+    "license": "MIT (FredTalk owner grant 2026-10-13)"
+  },
+  "FT-OP03-467": {
+    "strategy": "project-expand",
+    "adapted": true,
+    "files": 10,
+    "shaVerified": true,
+    "render": "pass",
+    "frames": 240,
+    "fps": 60,
+    "machineQa": {
+      "status": "pass",
+      "luma": 242.47,
+      "motion": 0.548
+    },
+    "humanVisualReview": {
+      "status": "pass",
+      "note": "圆形入口展开后播放用户录屏；共享宿主角标/音效已移除。",
+      "reviewer": "LW human review (round-1 record)"
+    },
+    "limit": "上游目录只登记 3 个文件，必须整项目展开才能编译；共享层已宿主化。",
+    "evidence": "external/fredtalk/batch/evidence/FT-OP03-467/",
+    "license": "MIT (FredTalk owner grant 2026-10-13)"
+  },
+  "FT-T05a-436": {
+    "strategy": "kit-overlay",
+    "adapted": true,
+    "files": 3,
+    "shaVerified": true,
+    "render": "pass",
+    "frames": 300,
+    "fps": 60,
+    "machineQa": {
+      "status": "pass",
+      "luma": 188.56,
+      "motion": 0.5
+    },
+    "humanVisualReview": {
+      "status": "pass",
+      "note": "滑杆前后对比；before/after 已换成 LW 自有占位作品图。",
+      "reviewer": "LW human review (round-1 record)"
+    },
+    "limit": "上游 before/after 图不随 MIT 分发；只能使用用户自有素材或 LW 占位图。",
+    "evidence": "external/fredtalk/batch/evidence/FT-T05a-436/",
+    "license": "MIT (FredTalk owner grant 2026-10-13)"
+  },
+  "FT-T20a2-405": {
+    "strategy": "kit-overlay",
+    "adapted": true,
+    "files": 3,
+    "shaVerified": true,
+    "render": "pass",
+    "frames": 300,
+    "fps": 60,
+    "machineQa": {
+      "status": "pass",
+      "luma": 176.15,
+      "motion": 1.845
+    },
+    "humanVisualReview": {
+      "status": "pass",
+      "note": "十二格作品墙 + 主角图 + 钩子文案；素材为 LW 占位图循环。",
+      "reviewer": "LW human review (round-1 record)"
+    },
+    "limit": "上游 12 张作品图不随 MIT 分发；参数只接受用户自有图片数组。",
+    "evidence": "external/fredtalk/batch/evidence/FT-T20a2-405/",
+    "license": "MIT (FredTalk owner grant 2026-10-13)"
+  },
+  "FT-T14e-378": {
+    "strategy": "kit-overlay",
+    "adapted": true,
+    "files": 3,
+    "shaVerified": true,
+    "render": "pass",
+    "frames": 300,
+    "fps": 60,
+    "machineQa": {
+      "status": "pass",
+      "luma": 230.72,
+      "motion": 0.329
+    },
+    "humanVisualReview": {
+      "status": "pass",
+      "note": "三张数字卡 + 主角卡深底；数字/单位/说明均可替换。",
+      "reviewer": "LW human review (round-1 record)"
+    },
+    "limit": "",
+    "evidence": "external/fredtalk/batch/evidence/FT-T14e-378/",
+    "license": "MIT (FredTalk owner grant 2026-10-13)",
+    "phase": "render",
+    "inputFingerprint": "6700497401a1af815f2ec45cc4fd404d08b621cb2bdd6ebb6f807e6e05b5b4d4",
+    "fingerprintParts": {
+      "schema": 2,
+      "id": "FT-T14e-378",
+      "adapterVersion": "fred-batch/1.1",
+      "adapterSha256": "01637a23dba263fab58c7d174cc886940b3e632eaaade48c157858106fbcfece",
+      "sourceSha256": "ed04d8b5fb980e9faae8c3f488d20e1058a7494adbeb84d87e8f6557ac35235b",
+      "sampleProps": {
+        "stats": [
+          {
+            "label": "渲染耗时",
+            "value": 42,
+            "suffix": " 秒",
+            "unit": "1080p / 30fps"
+          },
+          {
+            "label": "素材占用",
+            "value": 128,
+            "suffix": " MB",
+            "unit": "单条组件"
+          },
+          {
+            "label": "复用组件",
+            "value": 12,
+            "suffix": " 条",
+            "unit": "本轮验收"
+          }
+        ],
+        "hero": 2
+      },
+      "accent": "#2f7d6d",
+      "background": "#f5f3eb",
+      "speed": 1,
+      "fps": 60,
+      "nativeFrames": 300,
+      "sourceFrames": 300
+    },
+    "rerenderReason": "missing-mp4",
+    "previousMp4": "external/fredtalk/batch/evidence/FT-T14e-378/render.previous.mp4",
+    "updatedAt": "2026-11-22T00:27:36.086Z",
+    "durationInFrames": 300,
+    "width": 1280,
+    "height": 720,
+    "error": null,
+    "ms": 22541,
+    "staleReason": null,
+    "mp4": "external/fredtalk/batch/evidence/FT-T14e-378/render.mp4",
+    "stills": [
+      "external/fredtalk/batch/evidence/FT-T14e-378/frame-0-f0.png",
+      "external/fredtalk/batch/evidence/FT-T14e-378/frame-1-f150.png",
+      "external/fredtalk/batch/evidence/FT-T14e-378/frame-2-f299.png",
+      "external/fredtalk/batch/evidence/FT-T14e-378/frame-3-f60.png",
+      "external/fredtalk/batch/evidence/FT-T14e-378/frame-4-f240.png"
+    ]
+  },
+  "FT-T15a-426": {
+    "strategy": "kit-overlay",
+    "adapted": true,
+    "files": 3,
+    "shaVerified": true,
+    "render": "pass",
+    "frames": 300,
+    "fps": 60,
+    "machineQa": {
+      "status": "pass",
+      "luma": 232.05,
+      "motion": 0.215
+    },
+    "humanVisualReview": {
+      "status": "pass",
+      "note": "条形跑分 + 主角条 + 脚注；明确标注 LW 测试口径。",
+      "reviewer": "LW human review (round-1 record)"
+    },
+    "limit": "",
+    "evidence": "external/fredtalk/batch/evidence/FT-T15a-426/",
+    "license": "MIT (FredTalk owner grant 2026-10-13)"
+  },
+  "FT-T09n-374": {
+    "strategy": "kit-overlay",
+    "adapted": true,
+    "files": 3,
+    "shaVerified": true,
+    "render": "pass",
+    "frames": 180,
+    "fps": 60,
+    "machineQa": {
+      "status": "pass",
+      "luma": 142.86,
+      "motion": 2.086
+    },
+    "humanVisualReview": {
+      "status": "pass",
+      "note": "等待快进卡；数字滚轮中间帧是滚动切片，不是丢字。",
+      "reviewer": "LW human review (round-1 record)"
+    },
+    "limit": "数字滚轮按宿主字宽做了 0.62em→1.0em 的源内补丁，已记入 provenance。",
+    "evidence": "external/fredtalk/batch/evidence/FT-T09n-374/",
+    "license": "MIT (FredTalk owner grant 2026-10-13)"
+  },
+  "FT-RC02-471": {
+    "strategy": "project-expand",
+    "adapted": true,
+    "files": 10,
+    "shaVerified": true,
+    "render": "pass",
+    "frames": 480,
+    "fps": 60,
+    "machineQa": {
+      "status": "pass",
+      "luma": 242.91,
+      "motion": 0.812
+    },
+    "humanVisualReview": {
+      "status": "pass",
+      "note": "中段推近 ROI、末段回全貌；ROI 需按每段录屏重设，属该类限制。",
+      "reviewer": "LW human review (round-1 record)"
+    },
+    "limit": "ROI（x/y/w/h）与录屏画面强相关，无法跨素材通用；每换一段录屏必须重设。",
+    "evidence": "external/fredtalk/batch/evidence/FT-RC02-471/",
+    "license": "MIT (FredTalk owner grant 2026-10-13)"
+  }
+}

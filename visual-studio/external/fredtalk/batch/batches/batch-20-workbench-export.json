@@ -1,0 +1,291 @@
+{
+  "runId": "batch-20",
+  "method": "POST /api/render-reference + GET /api/jobs/{id} + GET /exports/{id}.mp4",
+  "results": {
+    "FT-T02g-360": {
+      "status": "pass",
+      "editedKey": "lanes[0].role",
+      "old": "使用者",
+      "new": "使用者 · 工作台导出验证",
+      "jobId": "19c58aa4-ca45-4ee5-9aa6-e09ac9100012",
+      "url": "/exports/19c58aa4-ca45-4ee5-9aa6-e09ac9100012.mp4",
+      "file": "external/fredtalk/batch/runs/batch-20/workbench-export/FT-T02g-360.mp4",
+      "sha256": "1bd8f6706fa4a286a61518db5e5648c2acad3512005568086d780516200af68c",
+      "bytes": 172514,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 172514
+      }
+    },
+    "FT-T02h-371": {
+      "status": "pass",
+      "editedKey": "files[0].name",
+      "old": "README.md",
+      "new": "README.md · 工作台导出验证",
+      "jobId": "299e5b7b-c6f1-46cd-bf10-300fc0e7355e",
+      "url": "/exports/299e5b7b-c6f1-46cd-bf10-300fc0e7355e.mp4",
+      "file": "external/fredtalk/batch/runs/batch-20/workbench-export/FT-T02h-371.mp4",
+      "sha256": "080e38aa66bd7b77574e20f0090b109c70cb0fb1a2fb488fecf51eef870a46d3",
+      "bytes": 450562,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 360,
+        "fps": "60/1",
+        "duration": 6.0,
+        "bytes": 450562
+      }
+    },
+    "FT-T03c-416": {
+      "status": "pass",
+      "editedKey": "nodes[0]",
+      "old": "记录",
+      "new": "记录 · 工作台导出验证",
+      "jobId": "dc6c6311-590b-4e31-9345-417f0933e25d",
+      "url": "/exports/dc6c6311-590b-4e31-9345-417f0933e25d.mp4",
+      "file": "external/fredtalk/batch/runs/batch-20/workbench-export/FT-T03c-416.mp4",
+      "sha256": "1b4daa99d4b2f8ac52844598fe5fd568e2ebfccd147f8494eecf06b60a53982c",
+      "bytes": 252734,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 360,
+        "fps": "60/1",
+        "duration": 6.0,
+        "bytes": 252734
+      }
+    },
+    "FT-T03d-435": {
+      "status": "pass",
+      "editedKey": "steps[0]",
+      "old": "对话越聊越长",
+      "new": "对话越聊越长 · 工作台导出验证",
+      "jobId": "71fcb9cf-9581-4b74-85a8-776df2347932",
+      "url": "/exports/71fcb9cf-9581-4b74-85a8-776df2347932.mp4",
+      "file": "external/fredtalk/batch/runs/batch-20/workbench-export/FT-T03d-435.mp4",
+      "sha256": "01ebe832088598b9b0ced2f3f5e9f5d9de4a430eb41c16172d352958be6f9e0e",
+      "bytes": 649671,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 649671
+      }
+    },
+    "FT-T04b-434": {
+      "status": "pass",
+      "editedKey": "task",
+      "old": "做一期 AI 工具测评视频",
+      "new": "做一期 AI 工具测评视频 · 工作台导出验证",
+      "jobId": "db3f2a66-27f5-424b-b18b-fd079de1879f",
+      "url": "/exports/db3f2a66-27f5-424b-b18b-fd079de1879f.mp4",
+      "file": "external/fredtalk/batch/runs/batch-20/workbench-export/FT-T04b-434.mp4",
+      "sha256": "a7b39bb98d741c18e6938821002b984e03dc3ea7816b7054c0da47edd826a55d",
+      "bytes": 350298,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 350298
+      }
+    },
+    "FT-T04d-415": {
+      "status": "pass",
+      "editedKey": "topic",
+      "old": "记录",
+      "new": "记录 · 工作台导出验证",
+      "jobId": "2b9b2202-452b-45bd-8b98-ca5ce366290b",
+      "url": "/exports/2b9b2202-452b-45bd-8b98-ca5ce366290b.mp4",
+      "file": "external/fredtalk/batch/runs/batch-20/workbench-export/FT-T04d-415.mp4",
+      "sha256": "2a122fee1a3538a7c5168f86325752614ae01b48fd58cc79a5a4b1ed4f231f05",
+      "bytes": 435324,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 270,
+        "fps": "60/1",
+        "duration": 4.5,
+        "bytes": 435324
+      }
+    },
+    "FT-T04f-369": {
+      "status": "pass",
+      "editedKey": "keyName",
+      "old": "GitHub CLI",
+      "new": "GitHub CLI · 工作台导出验证",
+      "jobId": "18cd3a47-73e7-40bb-8aca-25853925140b",
+      "url": "/exports/18cd3a47-73e7-40bb-8aca-25853925140b.mp4",
+      "file": "external/fredtalk/batch/runs/batch-20/workbench-export/FT-T04f-369.mp4",
+      "sha256": "af04909e4d10da97654b09389469747b4e7031b70a226f418d70682375b8599b",
+      "bytes": 333439,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 333439
+      }
+    },
+    "FT-T01b-431": {
+      "status": "pass",
+      "editedKey": "term",
+      "old": "API",
+      "new": "API · 工作台导出验证",
+      "jobId": "88e91a92-107b-4067-882a-8b3814e65b66",
+      "url": "/exports/88e91a92-107b-4067-882a-8b3814e65b66.mp4",
+      "file": "external/fredtalk/batch/runs/batch-20/workbench-export/FT-T01b-431.mp4",
+      "sha256": "20b0ec9c7c1ba870a5607dd66669c6f2f60c503ce36f0a0f254ad52c635d05e2",
+      "bytes": 385678,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 385678
+      }
+    },
+    "FT-T01c-432": {
+      "status": "pass",
+      "editedKey": "lines[0]",
+      "old": "API 是调用能力的接口",
+      "new": "API 是调用能力的接口 · 工作台导出验证",
+      "jobId": "28981ee6-2c5f-4346-bd05-561564c0f240",
+      "url": "/exports/28981ee6-2c5f-4346-bd05-561564c0f240.mp4",
+      "file": "external/fredtalk/batch/runs/batch-20/workbench-export/FT-T01c-432.mp4",
+      "sha256": "d710be3a0d7dc2318415b8a77434346445d871937434127ed2ada5ebc7beb283",
+      "bytes": 330879,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 330879
+      }
+    },
+    "FT-T01e-410": {
+      "status": "pass",
+      "editedKey": "condition",
+      "old": "8G显存笔记本",
+      "new": "8G显存笔记本 · 工作台导出验证",
+      "jobId": "7c1ca4a0-47cc-4bc9-af93-48b2bf65b494",
+      "url": "/exports/7c1ca4a0-47cc-4bc9-af93-48b2bf65b494.mp4",
+      "file": "external/fredtalk/batch/runs/batch-20/workbench-export/FT-T01e-410.mp4",
+      "sha256": "f86b81df69615c200d53cf557912f7ad4a2815027f4ba6482539f0515df8da01",
+      "bytes": 191299,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 360,
+        "fps": "60/1",
+        "duration": 6.0,
+        "bytes": 191299
+      }
+    },
+    "FT-T01f-409": {
+      "status": "pass",
+      "editedKey": "text",
+      "old": "把声音留成记忆",
+      "new": "把声音留成记忆 · 工作台导出验证",
+      "jobId": "312361de-426c-4518-8e26-ef79a06d3b0e",
+      "url": "/exports/312361de-426c-4518-8e26-ef79a06d3b0e.mp4",
+      "file": "external/fredtalk/batch/runs/batch-20/workbench-export/FT-T01f-409.mp4",
+      "sha256": "d3636faeb1e6639ad41f14f09849c808f3e04005739c2dc9bfce1dfaafe09845",
+      "bytes": 117146,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 150,
+        "fps": "60/1",
+        "duration": 2.5,
+        "bytes": 117146
+      }
+    },
+    "FT-T01g-411": {
+      "status": "pass",
+      "editedKey": "title",
+      "old": "制作规则",
+      "new": "制作规则 · 工作台导出验证",
+      "jobId": "42a148ac-bd95-4c5f-9b56-51fcc9c35b93",
+      "url": "/exports/42a148ac-bd95-4c5f-9b56-51fcc9c35b93.mp4",
+      "file": "external/fredtalk/batch/runs/batch-20/workbench-export/FT-T01g-411.mp4",
+      "sha256": "930ced398b911b6e9f989f6b544ed770e326a9e65a3d800868892173129f7ec2",
+      "bytes": 254904,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 360,
+        "fps": "60/1",
+        "duration": 6.0,
+        "bytes": 254904
+      }
+    },
+    "FT-T01h-396": {
+      "status": "pass",
+      "editedKey": "subject",
+      "old": "JEV-27B",
+      "new": "JEV-27B · 工作台导出验证",
+      "jobId": "45e25734-939d-4b56-8418-7a7ee6862276",
+      "url": "/exports/45e25734-939d-4b56-8418-7a7ee6862276.mp4",
+      "file": "external/fredtalk/batch/runs/batch-20/workbench-export/FT-T01h-396.mp4",
+      "sha256": "5f39a9766cefedca5b84396dd3cc29d603fb2f83d60e5c97e215be6eee11c244",
+      "bytes": 147772,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 180,
+        "fps": "60/1",
+        "duration": 3.0,
+        "bytes": 147772
+      }
+    },
+    "FT-T02e-412": {
+      "status": "pass",
+      "editedKey": "items[0].label",
+      "old": "云端 Agent",
+      "new": "云端 Agent · 工作台导出验证",
+      "jobId": "74d41ef0-59e7-4d50-86b0-dfc39c9ded55",
+      "url": "/exports/74d41ef0-59e7-4d50-86b0-dfc39c9ded55.mp4",
+      "file": "external/fredtalk/batch/runs/batch-20/workbench-export/FT-T02e-412.mp4",
+      "sha256": "61a13d2e4f07d962db7583406c092d8656514313e0ffe2c76a0aa717d8a2ec31",
+      "bytes": 488193,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 360,
+        "fps": "60/1",
+        "duration": 6.0,
+        "bytes": 488193
+      }
+    },
+    "FT-T02f-413": {
+      "status": "pass",
+      "editedKey": "items[0]",
+      "old": "文生视频",
+      "new": "文生视频 · 工作台导出验证",
+      "jobId": "875106bf-e14f-4f65-8028-4c1073a35cc8",
+      "url": "/exports/875106bf-e14f-4f65-8028-4c1073a35cc8.mp4",
+      "file": "external/fredtalk/batch/runs/batch-20/workbench-export/FT-T02f-413.mp4",
+      "sha256": "097273d79478dde9e98bd2854a76f48ebfa93c3942e7ddb78ad3b06cb4402d79",
+      "bytes": 262940,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 262940
+      }
+    }
+  }
+}

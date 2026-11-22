@@ -1,0 +1,310 @@
+[
+  {
+    "id": "FT-OP03-467",
+    "checks": {
+      "decodes": true,
+      "frameCountMatches": true,
+      "fpsMatches": true,
+      "resolution1280x720": true,
+      "blackFrameRatio": 0.0,
+      "notMostlyBlack": true,
+      "meanLuma": 242.47,
+      "motionMean": 0.548,
+      "hasMotion": true,
+      "notFlatWhite": true,
+      "stills": 5,
+      "hasHeadMidTail": true
+    },
+    "notes": [],
+    "video": {
+      "width": 1280,
+      "height": 720,
+      "fps": 60.0,
+      "frames": 240,
+      "declaredFrames": 240,
+      "durationSec": 4.0,
+      "expectedFrames": 240,
+      "bytes": 455186
+    }
+  },
+  {
+    "id": "FT-RC02-471",
+    "checks": {
+      "decodes": true,
+      "frameCountMatches": true,
+      "fpsMatches": true,
+      "resolution1280x720": true,
+      "blackFrameRatio": 0.0,
+      "notMostlyBlack": true,
+      "meanLuma": 242.91,
+      "motionMean": 0.812,
+      "hasMotion": true,
+      "notFlatWhite": true,
+      "stills": 5,
+      "hasHeadMidTail": true
+    },
+    "notes": [],
+    "video": {
+      "width": 1280,
+      "height": 720,
+      "fps": 60.0,
+      "frames": 480,
+      "declaredFrames": 480,
+      "durationSec": 8.0,
+      "expectedFrames": 480,
+      "bytes": 712967
+    }
+  },
+  {
+    "id": "FT-T05a-436",
+    "checks": {
+      "decodes": true,
+      "frameCountMatches": true,
+      "fpsMatches": true,
+      "resolution1280x720": true,
+      "blackFrameRatio": 0.0,
+      "notMostlyBlack": true,
+      "meanLuma": 188.56,
+      "motionMean": 0.5,
+      "hasMotion": true,
+      "notFlatWhite": true,
+      "stills": 5,
+      "hasHeadMidTail": true
+    },
+    "notes": [],
+    "video": {
+      "width": 1280,
+      "height": 720,
+      "fps": 60.0,
+      "frames": 300,
+      "declaredFrames": 300,
+      "durationSec": 5.0,
+      "expectedFrames": 300,
+      "bytes": 304199
+    }
+  },
+  {
+    "id": "FT-T09n-374",
+    "checks": {
+      "decodes": true,
+      "frameCountMatches": true,
+      "fpsMatches": true,
+      "resolution1280x720": true,
+      "blackFrameRatio": 0.0,
+      "notMostlyBlack": true,
+      "meanLuma": 142.86,
+      "motionMean": 2.086,
+      "hasMotion": true,
+      "notFlatWhite": true,
+      "stills": 5,
+      "hasHeadMidTail": true
+    },
+    "notes": [],
+    "video": {
+      "width": 1280,
+      "height": 720,
+      "fps": 60.0,
+      "frames": 180,
+      "declaredFrames": 180,
+      "durationSec": 3.0,
+      "expectedFrames": 180,
+      "bytes": 350585
+    }
+  },
+  {
+    "id": "FT-T09s-289",
+    "checks": {
+      "decodes": true,
+      "frameCountMatches": true,
+      "fpsMatches": true,
+      "resolution1280x720": true,
+      "blackFrameRatio": 0.0,
+      "notMostlyBlack": true,
+      "meanLuma": 226.32,
+      "motionMean": 2.958,
+      "hasMotion": true,
+      "notFlatWhite": true,
+      "stills": 5,
+      "hasHeadMidTail": true
+    },
+    "notes": [],
+    "video": {
+      "width": 1280,
+      "height": 720,
+      "fps": 30.0,
+      "frames": 180,
+      "declaredFrames": 180,
+      "durationSec": 6.0,
+      "expectedFrames": 180,
+      "bytes": 1322908
+    }
+  },
+  {
+    "id": "FT-T12d-407",
+    "checks": {
+      "decodes": true,
+      "frameCountMatches": true,
+      "fpsMatches": true,
+      "resolution1280x720": true,
+      "blackFrameRatio": 0.0,
+      "notMostlyBlack": true,
+      "meanLuma": 217.72,
+      "motionMean": 1.219,
+      "hasMotion": true,
+      "notFlatWhite": true,
+      "stills": 5,
+      "hasHeadMidTail": true
+    },
+    "notes": [],
+    "video": {
+      "width": 1280,
+      "height": 720,
+      "fps": 60.0,
+      "frames": 360,
+      "declaredFrames": 360,
+      "durationSec": 6.0,
+      "expectedFrames": 360,
+      "bytes": 411085
+    }
+  },
+  {
+    "id": "FT-T12l-337",
+    "checks": {
+      "decodes": true,
+      "frameCountMatches": true,
+      "fpsMatches": true,
+      "resolution1280x720": true,
+      "blackFrameRatio": 0.0,
+      "notMostlyBlack": true,
+      "meanLuma": 51.4,
+      "motionMean": 2.181,
+      "hasMotion": true,
+      "notFlatWhite": true,
+      "stills": 5,
+      "hasHeadMidTail": true
+    },
+    "notes": [],
+    "video": {
+      "width": 1280,
+      "height": 720,
+      "fps": 60.0,
+      "frames": 180,
+      "declaredFrames": 180,
+      "durationSec": 3.0,
+      "expectedFrames": 180,
+      "bytes": 163858
+    }
+  },
+  {
+    "id": "FT-T14e-378",
+    "checks": {
+      "decodes": true,
+      "frameCountMatches": true,
+      "fpsMatches": true,
+      "resolution1280x720": true,
+      "blackFrameRatio": 0.0,
+      "notMostlyBlack": true,
+      "meanLuma": 230.72,
+      "motionMean": 0.329,
+      "hasMotion": true,
+      "notFlatWhite": true,
+      "stills": 5,
+      "hasHeadMidTail": true
+    },
+    "notes": [],
+    "video": {
+      "width": 1280,
+      "height": 720,
+      "fps": 60.0,
+      "frames": 300,
+      "declaredFrames": 300,
+      "durationSec": 5.0,
+      "expectedFrames": 300,
+      "bytes": 311733
+    }
+  },
+  {
+    "id": "FT-T15a-426",
+    "checks": {
+      "decodes": true,
+      "frameCountMatches": true,
+      "fpsMatches": true,
+      "resolution1280x720": true,
+      "blackFrameRatio": 0.0,
+      "notMostlyBlack": true,
+      "meanLuma": 232.05,
+      "motionMean": 0.215,
+      "hasMotion": true,
+      "notFlatWhite": true,
+      "stills": 5,
+      "hasHeadMidTail": true
+    },
+    "notes": [],
+    "video": {
+      "width": 1280,
+      "height": 720,
+      "fps": 60.0,
+      "frames": 300,
+      "declaredFrames": 300,
+      "durationSec": 5.0,
+      "expectedFrames": 300,
+      "bytes": 236566
+    }
+  },
+  {
+    "id": "FT-T20a2-405",
+    "checks": {
+      "decodes": true,
+      "frameCountMatches": true,
+      "fpsMatches": true,
+      "resolution1280x720": true,
+      "blackFrameRatio": 0.0,
+      "notMostlyBlack": true,
+      "meanLuma": 176.15,
+      "motionMean": 1.845,
+      "hasMotion": true,
+      "notFlatWhite": true,
+      "stills": 5,
+      "hasHeadMidTail": true
+    },
+    "notes": [],
+    "video": {
+      "width": 1280,
+      "height": 720,
+      "fps": 60.0,
+      "frames": 300,
+      "declaredFrames": 300,
+      "durationSec": 5.0,
+      "expectedFrames": 300,
+      "bytes": 709519
+    }
+  },
+  {
+    "id": "FT-T20f-395",
+    "checks": {
+      "decodes": true,
+      "frameCountMatches": true,
+      "fpsMatches": true,
+      "resolution1280x720": true,
+      "blackFrameRatio": 0.0,
+      "notMostlyBlack": true,
+      "meanLuma": 240.19,
+      "motionMean": 0.549,
+      "hasMotion": true,
+      "notFlatWhite": true,
+      "stills": 5,
+      "hasHeadMidTail": true
+    },
+    "notes": [],
+    "video": {
+      "width": 1280,
+      "height": 720,
+      "fps": 60.0,
+      "frames": 300,
+      "declaredFrames": 300,
+      "durationSec": 5.0,
+      "expectedFrames": 300,
+      "bytes": 455364
+    }
+  }
+]

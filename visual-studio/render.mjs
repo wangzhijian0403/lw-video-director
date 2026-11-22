@@ -9,3 +9,17 @@ if(process.argv[1]===fileURLToPath(import.meta.url)){const id=process.argv[2]||'
 export async function renderReference(props,output,onProgress){const serveUrl=await getBundle();const options=browserOptions();const composition=await selectComposition({serveUrl,id:'REF-MP001',inputProps:props,...options});await renderMedia({serveUrl,composition,inputProps:props,outputLocation:output,codec:'h264',pixelFormat:'yuv420p',concurrency:1,crf:20,...options,onProgress});}
 
 export async function renderFredReference(props,output,onProgress){const {validateFredProps}=await import('./src/references/fred-props.mjs');props=validateFredProps(props);const serveUrl=await getBundle(),options=browserOptions();const composition=await selectComposition({serveUrl,id:'REF-FT-T03E',inputProps:props,...options});await renderMedia({serveUrl,composition,inputProps:props,outputLocation:output,codec:'h264',pixelFormat:'yuv420p',concurrency:2,crf:18,...options,onProgress});return composition;}
+
+export async function renderFredComponent(data,output,onProgress){
+  const entries=JSON.parse(fs.readFileSync(path.join(root,'src/references/fredtalk-registry.data.json'),'utf8'));
+  const entry=entries.find(e=>e.id===data?.id); if(!entry) throw new Error('not an adapted FredTalk component');
+  const speed=Number(data.speed??1); if(!(speed>=.5&&speed<=2)) throw new Error('speed out of range .5-2');
+  const hex=(v,f)=>typeof v==='string'&&/^#[0-9a-fA-F]{6}$/.test(v)?v:f;
+  const props=data.props??entry.sampleProps;
+  if(typeof props!=='object'||Array.isArray(props)) throw new Error('props must be an object');
+  const inputProps={props,accent:hex(data.accent,entry.accent),background:hex(data.background,entry.background),speed};
+  const serveUrl=await getBundle(),options=browserOptions();
+  const composition=await selectComposition({serveUrl,id:`REF-${entry.id}`,inputProps,...options});
+  await renderMedia({serveUrl,composition,inputProps,outputLocation:output,codec:'h264',pixelFormat:'yuv420p',concurrency:2,crf:18,...options,onProgress});
+  return composition;
+}

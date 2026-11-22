@@ -1,0 +1,28 @@
+{
+  "id": "FT-T03e-414",
+  "checks": {
+    "decodes": true,
+    "frameCountMatches": true,
+    "fpsMatches": true,
+    "resolution1280x720": true,
+    "blackFrameRatio": 0.0,
+    "notMostlyBlack": true,
+    "meanLuma": 131.92,
+    "motionMean": 0.335,
+    "hasMotion": true,
+    "notFlatWhite": true,
+    "stills": 3,
+    "hasHeadMidTail": true
+  },
+  "notes": [],
+  "video": {
+    "width": 1280,
+    "height": 720,
+    "fps": 60.0,
+    "frames": 420,
+    "declaredFrames": 420,
+    "durationSec": 7.0,
+    "expectedFrames": 420,
+    "bytes": 245410
+  }
+}

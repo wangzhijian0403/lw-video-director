@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "kind": "human-visual-review",
+  "note": "第一轮已由 LW 人工审片；本文件只记录人工结论，机器 QA 另行记录。",
+  "reviews": {
+    "FT-T03e-414": {
+      "status": "pass",
+      "reviewer": "LW human review (round-1 record)",
+      "reviewedAt": "2026-11-21",
+      "note": "讲解段落基线；六步链路完整，中文与强调色均生效。"
+    },
+    "FT-T09s-289": {
+      "status": "pass",
+      "reviewer": "LW human review (round-1 record)",
+      "reviewedAt": "2026-11-21",
+      "note": "点击轨迹与白色标签卡可见；截图与点击坐标为 LW 占位素材，非上游原图。"
+    },
+    "FT-T12d-407": {
+      "status": "pass-with-note",
+      "reviewer": "LW human review (round-1 record)",
+      "reviewedAt": "2026-11-21",
+      "note": "阶段胶囊按前/中/后建立并聚焦第 2 段；OFL 斜体字面紧排，字距略紧，可读。"
+    },
+    "FT-T12l-337": {
+      "status": "pass",
+      "reviewer": "LW human review (round-1 record)",
+      "reviewedAt": "2026-11-21",
+      "note": "黑圆扩散 + 章节号 03 + 两行中文标题，层级干净。"
+    },
+    "FT-T20f-395": {
+      "status": "pass",
+      "reviewer": "LW human review (round-1 record)",
+      "reviewedAt": "2026-11-21",
+      "note": "先成品后问题；录屏窗口、标题、高亮词、成品角标均正确。"
+    },
+    "FT-OP03-467": {
+      "status": "pass",
+      "reviewer": "LW human review (round-1 record)",
+      "reviewedAt": "2026-11-21",
+      "note": "圆形入口展开后播放用户录屏；共享宿主角标/音效已移除。"
+    },
+    "FT-T05a-436": {
+      "status": "pass",
+      "reviewer": "LW human review (round-1 record)",
+      "reviewedAt": "2026-11-21",
+      "note": "滑杆前后对比；before/after 已换成 LW 自有占位作品图。"
+    },
+    "FT-T20a2-405": {
+      "status": "pass",
+      "reviewer": "LW human review (round-1 record)",
+      "reviewedAt": "2026-11-21",
+      "note": "十二格作品墙 + 主角图 + 钩子文案；素材为 LW 占位图循环。"
+    },
+    "FT-T14e-378": {
+      "status": "pass",
+      "reviewer": "LW human review (round-1 record)",
+      "reviewedAt": "2026-11-21",
+      "note": "三张数字卡 + 主角卡深底；数字/单位/说明均可替换。"
+    },
+    "FT-T15a-426": {
+      "status": "pass",
+      "reviewer": "LW human review (round-1 record)",
+      "reviewedAt": "2026-11-21",
+      "note": "条形跑分 + 主角条 + 脚注；明确标注 LW 测试口径。"
+    },
+    "FT-T09n-374": {
+      "status": "pass",
+      "reviewer": "LW human review (round-1 record)",
+      "reviewedAt": "2026-11-21",
+      "note": "等待快进卡；数字滚轮中间帧是滚动切片，不是丢字。"
+    },
+    "FT-RC02-471": {
+      "status": "pass",
+      "reviewer": "LW human review (round-1 record)",
+      "reviewedAt": "2026-11-21",
+      "note": "中段推近 ROI、末段回全貌；ROI 需按每段录屏重设，属该类限制。"
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "lwId": "FT-T01d-451",
+  "ftId": "T01d",
+  "name": "测评结论：实测作品退后，评分卡与结论落定",
+  "category": "讲解段落",
+  "strategy": "kit-overlay",
+  "adapterVersion": "fred-batch/1.2",
+  "sourceSha256": "1d0fd86f6b4ee7b0fde28378100cdc21c6e613ad20734f748f4dd552267735b3",
+  "adapterSha256": "68a7cabcfe091c99b73acd00e81f459999007ccdd76e6c34338512edd1e16dea",
+  "nativeFrames": 300,
+  "fps": 60,
+  "upstream": {
+    "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
+    "publicTag": "v2.5.0",
+    "project": null,
+    "officialUrl": "https://www.fred-fu.com/visual-library"
+  },
+  "license": {
+    "firstPartyCode": "MIT (FredTalk owner grant 2026-10-13)",
+    "thirdPartyMedia": "not covered; upstream media intentionally not redistributed",
+    "font": "SmileySans-Oblique OFL-1.1, unmodified, bundled by LW host",
+    "audio": "upstream SFX omitted; adapter is silent",
+    "attribution": "FredTalk component library; adapted by LW, not claimed as LW original"
+  },
+  "entry": "src/components/T01d-VerdictCard.tsx",
+  "files": [
+    {
+      "upstreamPath": "src/components/T01d-VerdictCard.tsx",
+      "copy": "components/T01d-VerdictCard.tsx",
+      "sha256": "a9a7107274534cf1b8ea1359727ecc93297026a1a87cd950e97a4c57c6d46600",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/theme.ts",
+      "copy": "kit/theme.ts",
+      "sha256": "c77ff0a6c94d35e5b41068730ebcbdc50736749c7c64b0327d4709ed88c0d15e",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/ui.tsx",
+      "copy": "kit/ui.tsx",
+      "sha256": "e7351657058edc090877cc702ee43259fd7d0d616315e208818bc519c67a0390",
+      "channel": "api",
+      "status": "verified"
+    }
+  ],
+  "hostEdits": [
+    "theme body -> LW font",
+    "theme display -> LW font",
+    "theme mono -> LW font",
+    "theme kai -> LW font",
+    "configureTheme added",
+    "host context import",
+    "useT respects host speed",
+    "Fonts -> OFL SmileySans",
+    "Brand removed",
+    "Sfx muted",
+    "Frame background -> host",
+    "media literals -> LW placeholders (3 refs; upstream media not redistributed)",
+    "source patch components/T01d-VerdictCard.tsx: expose data provenance badge",
+    "source patch components/T01d-VerdictCard.tsx: mark default scores as demo data",
+    "source patch components/T01d-VerdictCard.tsx: reserve space for provenance badge",
+    "source patch components/T01d-VerdictCard.tsx: shift rows below badge",
+    "source patch components/T01d-VerdictCard.tsx: render visible demo-data badge"
+  ],
+  "sourcePatches": [
+    {
+      "file": "components/T01d-VerdictCard.tsx",
+      "from": "  highlight: string;        // 结论里染紫的关键词（浅底 #8554E8）\n",
+      "to": "  highlight: string;        // 结论里染紫的关键词（浅底 #8554E8）\n  dataNote?: string;        // 显式数据来源/演示标识；空字符串隐藏\n",
+      "occurrences": 1,
+      "reason": "expose data provenance badge"
+    },
+    {
+      "file": "components/T01d-VerdictCard.tsx",
+      "from": "  highlight: '画质能打',\n",
+      "to": "  highlight: '画质能打',\n  dataNote: '演示数据 · 非真实测评，仅用于版式演示',\n",
+      "occurrences": 1,
+      "reason": "mark default scores as demo data"
+    },
+    {
+      "file": "components/T01d-VerdictCard.tsx",
+      "from": "  const cardH = PAD + dims.length * rowH + (dims.length - 1) * rowGap + 64 + verdictH + PAD;",
+      "to": "  const CARD_HEAD = 52;\n  const cardH = PAD + CARD_HEAD + dims.length * rowH + (dims.length - 1) * rowGap + 64 + verdictH + PAD;",
+      "occurrences": 1,
+      "reason": "reserve space for provenance badge"
+    },
+    {
+      "file": "components/T01d-VerdictCard.tsx",
+      "from": "        const y = PAD + i * (rowH + rowGap);",
+      "to": "        const y = PAD + CARD_HEAD + i * (rowH + rowGap);",
+      "occurrences": 1,
+      "reason": "shift rows below badge"
+    },
+    {
+      "file": "components/T01d-VerdictCard.tsx",
+      "from": "      {dims.map((d, i) => {",
+      "to": "      {c.dataNote ? <div style={{\n        position: 'absolute', left: PAD, top: 18, padding: '8px 18px', borderRadius: 999,\n        background: '#f1ede2', color: S.ink, opacity: 0.9, ...textBase(36, 700), whiteSpace: 'nowrap',\n      }}>{c.dataNote}</div> : null}\n      {dims.map((d, i) => {",
+      "occurrences": 1,
+      "reason": "render visible demo-data badge"
+    }
+  ],
+  "notes": "Auto-generated kit-overlay profile. Entry/symbol/defaults are selected from inventory + source exports."
+}

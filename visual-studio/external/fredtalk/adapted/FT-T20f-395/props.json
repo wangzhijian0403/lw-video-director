@@ -1,0 +1,19 @@
+{
+  "defaultProps": {
+    "media": "fredtalk/media/lw-recording.mp4",
+    "start": 0.5,
+    "title": "这是\n怎么做的？",
+    "highlight": "怎么做",
+    "badge": "成品"
+  },
+  "editableKeys": [
+    "media",
+    "start",
+    "title",
+    "highlight",
+    "badge"
+  ],
+  "accent": "#f0bd84",
+  "background": "#f5f3eb",
+  "notes": "media 换成用户自己的成片/录屏；start 控制视频起点秒数；title/highlight/badge 为中文文案。"
+}
