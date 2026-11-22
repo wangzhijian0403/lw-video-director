@@ -29,8 +29,8 @@ jobs:
           p=Path('external/fredtalk/batch/runs/ci-fredtalk-whole-library/all-summary.json')
           d=json.loads(p.read_text(encoding='utf-8'))
           assert d['catalogCount'] == 432, d['catalogCount']
-          assert d['kitSelected'] > 0, d
-          assert d['stages']['adapt'] == 'plan-only', d
+          assert d['kitSelected'] == 135, d['kitSelected']
+          assert d['stages']['adapt'] == 'eligibility-plan-only', d['stages']['adapt']
           print(f"Source-eligible kit candidates: {d['kitSelected']} / {d['catalogCount']}")
           print(f"Blocked/non-kit reasons: {d['sourceStrategies']}")
           with open(__import__('os').environ['GITHUB_STEP_SUMMARY'], 'a') as f:
