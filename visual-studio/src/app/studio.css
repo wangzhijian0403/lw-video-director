@@ -59,3 +59,15 @@ body{background:#111111;color:#ededed}.studio>header{background:#181818;border-c
 .resource-options>span{font-size:11px;color:#abc4c0}
 .resource-caveat{font-size:11px;color:#8faca7;line-height:1.6;border-top:1px solid #394645;margin:12px 0 2px;padding-top:12px}
 @media(max-width:1160px){.resource-gallery{grid-column:1/-1;grid-row:2/4}.resource-body{grid-template-columns:230px minmax(0,1fr)}.resource-top h2{font-size:22px}}
+
+
+/* Unified Originals library: one navigational sidebar, one installed-resource viewer. */
+.library{min-height:0;overflow-y:auto;scrollbar-width:thin}
+.library nav{margin-bottom:0}
+.library .resource-nav-heading{padding:19px 12px 8px;font-size:11px;letter-spacing:.8px;color:#e6b082;border-top:1px solid #3a3e3d;margin-top:10px;font-weight:700}
+.library nav button{min-height:40px;align-items:center}
+.library .library-footer{margin-top:18px;flex-shrink:0}
+.resource-gallery{min-height:0}
+.resource-gallery .resource-top{padding-bottom:6px}
+.resource-alpha-test{border:1px solid #94b0ae!important;background:#354d51!important;color:#e8f8f5}
+.resource-alpha-note{margin:10px 0 0;font-size:11px;line-height:1.6;color:#a5c6bc}
