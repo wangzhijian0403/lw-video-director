@@ -1,0 +1,26 @@
+{
+  "defaultProps": {
+    "keyName": "GitHub CLI",
+    "abilities": [
+      {
+        "label": "下载",
+        "sub": "把别人的项目拉下来"
+      },
+      {
+        "label": "上传",
+        "sub": "把改动推上去"
+      },
+      {
+        "label": "建仓库",
+        "sub": "新建一个项目文件夹"
+      }
+    ]
+  },
+  "editableKeys": [
+    "keyName",
+    "abilities"
+  ],
+  "accent": "#8554E8",
+  "background": "#f5f3eb",
+  "notes": "自动生成：使用上游 defaults；参数键来自 inventory 静态分析。"
+}

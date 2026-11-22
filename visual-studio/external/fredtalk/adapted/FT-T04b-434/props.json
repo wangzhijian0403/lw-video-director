@@ -1,0 +1,31 @@
+{
+  "defaultProps": {
+    "task": "做一期 AI 工具测评视频",
+    "roles": [
+      {
+        "step": "写口播稿",
+        "tool": "ChatGPT",
+        "logo": "fredtalk/media/lw-work-04.jpg"
+      },
+      {
+        "step": "生成配图",
+        "tool": "豆包",
+        "logo": "fredtalk/media/lw-work-05.jpg"
+      },
+      {
+        "step": "做动画出片",
+        "tool": "Codex",
+        "logo": "fredtalk/media/lw-work-05.jpg"
+      }
+    ],
+    "highlight": "测评视频"
+  },
+  "editableKeys": [
+    "task",
+    "roles",
+    "highlight"
+  ],
+  "accent": "#8554E8",
+  "background": "#f5f3eb",
+  "notes": "自动生成：使用上游 defaults；参数键来自 inventory 静态分析。"
+}

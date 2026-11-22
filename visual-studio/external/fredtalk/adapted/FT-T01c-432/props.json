@@ -1,0 +1,21 @@
+{
+  "defaultProps": {
+    "lines": [
+      "API 是调用能力的接口",
+      "Key 是你的通行证",
+      ".env 是存配置的文件"
+    ],
+    "highlights": [
+      "调用能力",
+      "通行证",
+      "存配置"
+    ]
+  },
+  "editableKeys": [
+    "lines",
+    "highlights"
+  ],
+  "accent": "#8554E8",
+  "background": "#f5f3eb",
+  "notes": "自动生成：使用上游 defaults；参数键来自 inventory 静态分析。"
+}

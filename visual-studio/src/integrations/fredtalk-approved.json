@@ -1,0 +1,120 @@
+{
+  "schemaVersion": "lw-fredtalk-production/1",
+  "review": "15 visual-initial-approved + 1 previously end-to-end verified",
+  "sourcePr": 8,
+  "codeLicense": "First-party MIT only; verify media/fonts independently",
+  "entries": [
+    {
+      "id": "FT-T01b-431",
+      "label": "术语解释",
+      "stage": "visual-initial-approved",
+      "editable": true,
+      "source": "visual-studio/external/fredtalk/adapted/FT-T01b-431/src/adapter.tsx"
+    },
+    {
+      "id": "FT-T01c-432",
+      "label": "三条原则",
+      "stage": "visual-initial-approved",
+      "editable": true,
+      "source": "visual-studio/external/fredtalk/adapted/FT-T01c-432/src/adapter.tsx"
+    },
+    {
+      "id": "FT-T01e-410",
+      "label": "条件组合",
+      "stage": "visual-initial-approved",
+      "editable": true,
+      "source": "visual-studio/external/fredtalk/adapted/FT-T01e-410/src/adapter.tsx"
+    },
+    {
+      "id": "FT-T01f-409",
+      "label": "圆点变文字",
+      "stage": "visual-initial-approved",
+      "editable": true,
+      "source": "visual-studio/external/fredtalk/adapted/FT-T01f-409/src/adapter.tsx"
+    },
+    {
+      "id": "FT-T01g-411",
+      "label": "终端式文字",
+      "stage": "visual-initial-approved",
+      "editable": true,
+      "source": "visual-studio/external/fredtalk/adapted/FT-T01g-411/src/adapter.tsx"
+    },
+    {
+      "id": "FT-T01h-396",
+      "label": "注意事项",
+      "stage": "visual-initial-approved",
+      "editable": true,
+      "source": "visual-studio/external/fredtalk/adapted/FT-T01h-396/src/adapter.tsx"
+    },
+    {
+      "id": "FT-T02e-412",
+      "label": "三项汇聚",
+      "stage": "visual-initial-approved",
+      "editable": true,
+      "source": "visual-studio/external/fredtalk/adapted/FT-T02e-412/src/adapter.tsx"
+    },
+    {
+      "id": "FT-T02f-413",
+      "label": "模糊列表",
+      "stage": "visual-initial-approved",
+      "editable": true,
+      "source": "visual-studio/external/fredtalk/adapted/FT-T02f-413/src/adapter.tsx"
+    },
+    {
+      "id": "FT-T02g-360",
+      "label": "双角色流程",
+      "stage": "visual-initial-approved",
+      "editable": true,
+      "source": "visual-studio/external/fredtalk/adapted/FT-T02g-360/src/adapter.tsx"
+    },
+    {
+      "id": "FT-T02h-371",
+      "label": "文件翻面",
+      "stage": "visual-initial-approved",
+      "editable": true,
+      "source": "visual-studio/external/fredtalk/adapted/FT-T02h-371/src/adapter.tsx"
+    },
+    {
+      "id": "FT-T03c-416",
+      "label": "循环关系",
+      "stage": "visual-initial-approved",
+      "editable": true,
+      "source": "visual-studio/external/fredtalk/adapted/FT-T03c-416/src/adapter.tsx"
+    },
+    {
+      "id": "FT-T03d-435",
+      "label": "因果串联",
+      "stage": "visual-initial-approved",
+      "editable": true,
+      "source": "visual-studio/external/fredtalk/adapted/FT-T03d-435/src/adapter.tsx"
+    },
+    {
+      "id": "FT-T04b-434",
+      "label": "角色分工",
+      "stage": "visual-initial-approved",
+      "editable": true,
+      "source": "visual-studio/external/fredtalk/adapted/FT-T04b-434/src/adapter.tsx"
+    },
+    {
+      "id": "FT-T04d-415",
+      "label": "信息分类",
+      "stage": "visual-initial-approved",
+      "editable": true,
+      "source": "visual-studio/external/fredtalk/adapted/FT-T04d-415/src/adapter.tsx"
+    },
+    {
+      "id": "FT-T04f-369",
+      "label": "能力解锁",
+      "stage": "visual-initial-approved",
+      "editable": true,
+      "source": "visual-studio/external/fredtalk/adapted/FT-T04f-369/src/adapter.tsx"
+    },
+    {
+      "id": "FT-T03e-414",
+      "label": "折行步骤流程",
+      "stage": "prior-e2e-verified",
+      "editable": true,
+      "source": "visual-studio/external/fredtalk/t03e/src/components/T03e-StepChain.tsx"
+    }
+  ]
+}

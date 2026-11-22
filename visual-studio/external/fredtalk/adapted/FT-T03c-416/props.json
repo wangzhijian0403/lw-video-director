@@ -1,0 +1,19 @@
+{
+  "defaultProps": {
+    "nodes": [
+      "记录",
+      "检索",
+      "整理"
+    ],
+    "result": "重要内容随时找回",
+    "highlight": "随时找回"
+  },
+  "editableKeys": [
+    "nodes",
+    "result",
+    "highlight"
+  ],
+  "accent": "#8554E8",
+  "background": "#f5f3eb",
+  "notes": "自动生成：使用上游 defaults；参数键来自 inventory 静态分析。"
+}

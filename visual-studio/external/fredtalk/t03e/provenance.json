@@ -1,0 +1,45 @@
+{
+  "project": "FredTalk",
+  "component": "T03e StepChain",
+  "upstreamRevision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
+  "date": "2026-11-21",
+  "codeLicense": "MIT",
+  "sourceFiles": [
+    {
+      "path": "upstream/T03e-StepChain.tsx",
+      "sha256": "cbe67fa526d5cfbf4c4b927d1e166086281d8da5e7b956c9c5bf13711fcb3546",
+      "source": "https://www.fred-fu.com/api/visual-library/assets/cbe67fa526d5cfbf4c4b927d1e166086281d8da5e7b956c9c5bf13711fcb3546.txt",
+      "download": "anonymous HTTP200; official declared SHA matched"
+    },
+    {
+      "path": "upstream/theme.ts",
+      "sha256": "a235e95c652137b43c31a9c680dabfd8fce3bbb45fac8559cd0af70ce2e9b1a3",
+      "source": "https://www.fred-fu.com/api/visual-library/assets/a235e95c652137b43c31a9c680dabfd8fce3bbb45fac8559cd0af70ce2e9b1a3.txt",
+      "download": "anonymous HTTP200; official declared SHA matched"
+    },
+    {
+      "path": "upstream/ui.tsx",
+      "sha256": "05ce402324f5e11521b15dacc30de3ee1f89adb0a1b5c20b220a29890d8e3ba9",
+      "source": "https://www.fred-fu.com/api/visual-library/assets/05ce402324f5e11521b15dacc30de3ee1f89adb0a1b5c20b220a29890d8e3ba9.txt",
+      "download": "anonymous HTTP200; official declared SHA matched"
+    }
+  ],
+  "adaptations": [
+    "Preserved upstream layout and animation; imported exact original files for audit",
+    "Small LW host replaces font loader and brand wrapper; no upstream sound assets",
+    "OFL SmileySans replaces MiSans; logical 1920x1080 stage scales to1280x720",
+    "Props validate 3..9 steps/title/highlight/colors/speed; speed controls source time and duration",
+    "Only T03e promoted to rendered executable; public availability separated from local installation"
+  ],
+  "font": {
+    "name": "SmileySans-Oblique",
+    "author": "atelierAnchor",
+    "license": "OFL-1.1",
+    "sha256": "b447d7e781f08bc95c4c9f23ba71ed2b8ebb639aa7184485c71c4ca5afcd25c4",
+    "source": "https://github.com/njrhts2kvv-star/FredTalk/blob/59b9e9957957dc9f3fd94ab78f95cec33c29e915/library/fonts/SmileySans-Oblique.ttf",
+    "redistribution": "with OFL notice; unmodified binary; not relicensed as MIT"
+  },
+  "audio": "silent; omitted upstream SFX",
+  "userBrandAssetsImported": false,
+  "all286Rendered": false
+}

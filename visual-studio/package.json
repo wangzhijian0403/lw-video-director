@@ -14,7 +14,9 @@
     "test:unit": "node --test tests/unit/*.test.mjs",
     "test:api": "node scripts/test-api.mjs",
     "test:api:cases": "node --test tests/api/*.test.mjs",
-    "test:media": "node scripts/test-media.mjs"
+    "test:media": "node scripts/test-media.mjs",
+    "setup:fred": "python scripts/install-fred-font.py",
+    "test:accepted": "node --test tests/unit/fredtalk-accepted.test.mjs"
   },
   "dependencies": {
     "@react-three/fiber": "9.4.0",

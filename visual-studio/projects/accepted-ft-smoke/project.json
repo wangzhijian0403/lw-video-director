@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "title": "LW Approved FredTalk Scene Smoke",
+    "slug": "accepted-ft-smoke",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "theme": "mist-blue-paper",
+    "backdrop": "none"
+  },
+  "timing": "fixed",
+  "scenes": [
+    {
+      "id": "intro",
+      "component": "FT-T01b-431",
+      "duration": 4.7,
+      "text": "什么是动效？",
+      "params": {
+        "term": "动效",
+        "alias": "Motion Graphics",
+        "definition": "用画面变化让知识更好懂",
+        "highlight": "更好懂"
+      }
+    },
+    {
+      "id": "flow",
+      "component": "FT-T03e-414",
+      "duration": 4.7,
+      "text": "从文案到视频，分成四步。",
+      "params": {
+        "steps": [
+          "理解文案",
+          "设计分镜",
+          "搭配动效",
+          "渲染成片"
+        ],
+        "title": "短视频制作流程",
+        "highlight": 2
+      }
+    },
+    {
+      "id": "ending",
+      "component": "TYPE-001",
+      "duration": 3,
+      "text": "让内容更清楚",
+      "params": {
+        "title": "让内容更清楚",
+        "subtitle": "原生 MG × 成熟动效",
+        "entrance": 0.8,
+        "hold": 1.4,
+        "exit": 0.8
+      }
+    }
+  ],
+  "subtitles": {
+    "enabled": false
+  },
+  "audio": {},
+  "sfx": []
+}
