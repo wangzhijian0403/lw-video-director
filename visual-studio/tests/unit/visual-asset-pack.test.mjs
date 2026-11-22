@@ -29,9 +29,9 @@ test('all icon IDs are unique and resolve to locally installed SVG files', () =>
 test('offline Chinese and English lookups return distinct intent-relevant assets', () => {
   assert.equal(searchIcons('配音')[0]?.id, 'tabler:microphone');
   assert.equal(searchIcons('layers')[0]?.id, 'tabler:layers-intersect');
-  assert.ok(searchIcons('音效')[0]?.id !== 'tabler:robot');
+  assert.equal(searchIcons('声音')[0]?.id, 'tabler:waveform');
   assert.equal(searchIcons('nonexistentjunk-8899').length, 0);
-  assert.ok(searchIcons('').length >= 24);
+  assert.equal(searchIcons('', 100).length, 24);
 });
 
 test('ProjectVideo composes icon overlays without modifying FredTalk or original scenes', () => {
