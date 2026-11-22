@@ -20,7 +20,8 @@ export function lintProject(project, {publicDir = path.join(ROOT, 'public'), bas
   if (!project || typeof project !== 'object') return {errors: ['project 不是对象'], warnings};
   const manifest = JSON.parse(fsp.readFileSync(manifestPath, 'utf8'));
   const vetted = JSON.parse(fsp.readFileSync(path.join(ROOT, 'src', 'integrations', 'fredtalk-approved.json'), 'utf8'));
-  const ids = new Set([...manifest.components.map((c) => c.id), ...vetted.entries.map((x) => x.id)]);
+  const illustrated = JSON.parse(fsp.readFileSync(path.join(ROOT, 'src', 'scene-packs', 'manifest.json'), 'utf8'));
+  const ids = new Set([...manifest.components.map((c) => c.id), ...vetted.entries.map((x) => x.id), ...illustrated.entries.map((x) => x.id)]);
 
   // 1. 画幅与帧率
   const fps = project.meta?.fps ?? 30;
@@ -38,6 +39,14 @@ export function lintProject(project, {publicDir = path.join(ROOT, 'public'), bas
   if (!scenes.length) errors.push('scenes 为空');
   scenes.forEach((s, i) => {
     if (!ids.has(s.component)) errors.push(`场景 ${i + 1}（${s.id ?? '-'}）组件 ${s.component} 不在 catalog`);
+    if (s.component?.startsWith('ILLUS-')) {
+      for (const name of ['title', 'subtitle']) {
+        const value = s.params?.[name];
+        if (value !== undefined && (typeof value !== 'string' || [...value].length > (name === 'title' ? 22 : 42))) {
+          errors.push('场景 ' + (i+1) + ' 插画文字 ' + name + ' 过长或不是文本');
+        }
+      }
+    }
     const t = s.transition;
     if (t && !TRANSITIONS.includes(t.type)) errors.push(`场景 ${i + 1} 转场类型 ${t.type} 无效`);
     if (t && t.type !== 'cut' && (typeof t.duration !== 'number' || t.duration <= 0)) {
