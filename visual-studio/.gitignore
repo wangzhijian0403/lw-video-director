@@ -1,4 +1,7 @@
 node_modules/
+
+# User-created characters (and derived alpha renders) are private media, NEVER commit
+public/characters/
 dist/
 .cache/
 exports/
