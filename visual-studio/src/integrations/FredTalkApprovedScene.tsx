@@ -1,10 +1,12 @@
 /**
  * Approved FredTalk candidates in LW Project Composition.
- * Only the 15 entries independently visually initial-reviewed in batch-20.
+ * 15 independently visual-initial-reviewed entries from batch-20 plus the separately previously verified FT-T03e-414.
  * Source and provenance are copied unmodified from PR #8 (MIT first-party code).
  * NO bundled third-party images/audio/fonts. Actual integrated E2E video QA pending.
  */
 import React from 'react';
+import {FredTalkAdapter} from '../references/FredTalkAdapter';
+import {fredDefaults} from '../references/fred-props.mjs';
 import {Adapter as Adapter0, defaultProps as Defaults0} from '../../external/fredtalk/adapted/FT-T01b-431/src/adapter';
 import {Adapter as Adapter1, defaultProps as Defaults1} from '../../external/fredtalk/adapted/FT-T01c-432/src/adapter';
 import {Adapter as Adapter2, defaultProps as Defaults2} from '../../external/fredtalk/adapted/FT-T01e-410/src/adapter';
@@ -51,6 +53,10 @@ export function FredTalkApprovedScene({id, sceneProps = {}, accent = '#537B87',
     ink?: string;
     speed?: number;
   }) {
+  if (id === 'FT-T03e-414') {
+    const native = {...fredDefaults, ...sceneProps, accent, background, speed} as typeof fredDefaults;
+    return <FredTalkAdapter {...native} />;
+  }
   const entry = entries[id];
   if (!entry) throw new Error('FredTalk component is not approved for production preview: ' + id);
   const ComponentView = entry.component;
