@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "external-adapters/1",
+  "contract": "visual-studio/src/components/external/contract.ts",
+  "statesLegend": {
+    "declared": "已立项，代码未接，片子不渲染",
+    "wired": "代码已接，参数可传，成片未出帧",
+    "verified": "真实工程渲过帧/出过片，有帧号或 sha256",
+    "licensed": "verified + 素材授权与商用许可已结清"
+  },
+  "safeBox": {"x": 102, "y": 60, "w": 1076, "h": 520},
+  "adapters": [
+    {
+      "kind": "svg-motion",
+      "adapter": "inline-svg-react",
+      "state": "declared",
+      "module": null,
+      "note": "本仓现有镜头本身就是内联 SVG（FiberFormation/SoakVat/PoundMortar/SheetScoop），可直接复用 contract 的 slot；外部 SVG 库（如 gsap 驱动的动画）尚未引入。",
+      "limits": ["外部库的动画节拍必须换成 useCurrentFrame 驱动，否则与 Remotion 逐帧渲染不同步"]
+    },
+    {
+      "kind": "lottie",
+      "adapter": "lottie-web",
+      "state": "declared",
+      "module": null,
+      "note": "选定方案：lottie-web 的 canvas 渲染器 + 手动 seek 到 frame/fps*1000，不走自带播放器时钟。",
+      "limits": ["Lottie 的 matte/blend 与浏览器渲染有差；需要渲 3 帧对比后升级为 wired", "json 体积需 <800KB，超过要先删图层"]
+    },
+    {
+      "kind": "image-layers",
+      "adapter": "layered-png-parallax",
+      "state": "wired",
+      "module": "visual-studio/src/components/backdrop/MistMountains.tsx",
+      "note": "山体目前是程序生成的分层矢量，不是位图分层；如果换成实拍/LoRA 生成的山体 PNG 分层，槽位与视差参数不变。",
+      "evidence": null,
+      "limits": ["位图分层的视差位移必须小于画布过扫量，否则边缘露白"]
+    },
+    {
+      "kind": "dynamic-card",
+      "adapter": "mg-card-inline",
+      "state": "wired",
+      "module": "visual-studio/src/components/infographics/",
+      "note": "数据卡/标注卡走既有 infographics 组件；外部卡片库（如现成 H5 卡）还没接，只能拿到 slot 契约。",
+      "limits": ["外部卡片常带自己的阴影/圆角/字体，进来必须剥掉，统一走主题 pal"]
+    },
+    {
+      "kind": "character-rig",
+      "adapter": "none",
+      "state": "declared",
+      "module": null,
+      "note": "蔡伦人物段落要用骨骼动画的话，优先做 2D 剪影 + 局部摆动（本仓可自产），避免引入重资产运行时。",
+      "limits": ["角色素材版权与形象权需单独确认，未确认不得进公共仓", "口型同步未接 ASR，暂不做说话特写"]
+    },
+    {
+      "kind": "sfx-event-map",
+      "adapter": "sfx-timeline",
+      "state": "verified",
+      "module": "visual-studio/src/project/timeline.mjs",
+      "note": "project.json 的 sfx 数组即事件映射：{name, at, gain} → 轨道；音色库由 make-sfx.mjs 代码合成，manifest 有 peak 与时长。",
+      "evidence": {
+        "project": "projects/papermaking-full/project.json",
+        "atSeconds": [13.7, 17.0, 22.2, 26.0],
+        "sha256": null,
+        "checkedAt": "2026-11-21"
+      },
+      "limits": ["事件只能落在已合成的音效名上，missing 名字 lint 会拦", "gain 是线性振幅，不是 dB"]
+    }
+  ],
+  "notImplemented": [
+    "外部 Lottie / 角色骨骼 / 第三方卡片库的真实接入",
+    "四态状态的自动校验脚本（目前靠人读 json）",
+    "外部组件的 9:16 安全区换算（当前只按 16:9 验过）"
+  ]
+}

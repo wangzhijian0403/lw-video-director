@@ -1,0 +1,100 @@
+import type {Params, ThemeId} from '../catalog/types';
+
+export type TransitionType = 'cut' | 'fade' | 'slide' | 'zoom' | 'wipe';
+
+export type Transition = {type: TransitionType; duration: number};
+
+export type SceneSpec = {
+  id?: string;
+  /** catalog 组件编号，如 TYPE-001 */
+  component: string;
+  params?: Partial<Params>;
+  theme?: ThemeId;
+  /** 口播文本：用于字幕与按字数分配时长 */
+  text?: string;
+  /** 屏幕字幕文本，缺省用 text */
+  caption?: string;
+  /** 秒；不填则由 vo 时长按字数比例分配，再退到组件参数时长 */
+  duration?: number;
+  transition?: Transition;
+};
+
+export type AudioInput = {
+  src: string;
+  start?: number;
+  duration?: number;
+  volume?: number;
+  fadeIn?: number;
+  fadeOut?: number;
+};
+
+export type SubtitleCueInput = {start: number; end: number; text: string};
+
+export type ProjectFile = {
+  meta: {
+    title?: string;
+    width?: number;
+    height?: number;
+    fps?: number;
+    theme?: ThemeId;
+    style?: string;
+    /** 背景层：目前支持 mist-mountains（分层视差青山 + 雾） */
+    backdrop?: 'mist-mountains' | 'none';
+    backdropHaze?: number;
+    backdropParallax?: number;
+    voDuration?: number;
+  };
+  /** vo：口播音频（相对 project.json 的路径或 URL） */
+  audio?: {vo?: string | AudioInput; bgm?: AudioInput | AudioInput[]};
+  /** 音效点位，name 对应 public/sfx/<name>.wav */
+  sfx?: {name: string; at: number; volume?: number}[];
+  subtitles?: {
+    enabled?: boolean;
+    cues?: SubtitleCueInput[];
+    /** CLI 解析 SRT 后回填的 cues */
+    srt?: string;
+    maxCharsPerLine?: number;
+    safeBottom?: number;
+  };
+  timing?: 'vo' | 'fixed';
+  voDuration?: number;
+  scenes: SceneSpec[];
+};
+
+// ---- 以下为 buildTimeline() 的输出结构（渲染侧只读） ----
+export type TimelineScene = {
+  id: string;
+  component: string;
+  params: Partial<Params>;
+  theme: ThemeId;
+  text: string;
+  caption: string;
+  transition: Transition;
+  from: number;
+  duration: number;
+  prevOverlap: number;
+  nextOverlap: number;
+  startSec: number;
+  endSec: number;
+};
+
+export type TimelineCue = {from: number; duration: number; start: number; end: number; text: string; lines: string[]};
+
+export type Timeline = {
+  fps: number;
+  width: number;
+  height: number;
+  theme: ThemeId;
+  meta: ProjectFile['meta'];
+  totalFrames: number;
+  totalSeconds: number;
+  scenes: TimelineScene[];
+  audio: {
+    vo: {src: string; from: number; start: number; duration: number; volume: number; fadeIn: number; fadeOut: number} | null;
+    /** 分镜配音：每条独立落轨 */
+    voSegments: {src: string; sceneId: string; from: number; duration: number; volume: number}[];
+    bgm: {src: string; start: number; volume: number; fadeIn: number; fadeOut: number; duration?: number}[];
+    sfx: {name: string; src: string; from: number; at: number; volume: number; anchor: string | null}[];
+  };
+  subtitles: {enabled: boolean; cues: TimelineCue[]; safeBottom: number};
+};

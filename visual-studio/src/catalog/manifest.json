@@ -1,10 +1,11 @@
 {
   "version": "0.2.0",
   "fps": 30,
-  "styles": ["swiss", "future", "archive"],
+  "styles": ["swiss", "future", "archive", "mist-blue-paper"],
   "parameters": {
     "title": {"label":"标题文字","type":"text","default":"让想法，开始流动。","maxLength":160},
     "subtitle": {"label":"副标题","type":"text","default":"原创视觉系统 / ORIGINAL BY LW","maxLength":180},
+    "mode": {"label":"时间轴模式","type":"select","default":"origin","options":["origin","spread"]},
     "color": {"label":"强调颜色","type":"color","default":""},
     "entrance": {"label":"入场 · 秒","type":"number","default":1,"min":0.2,"max":4,"step":0.1},
     "hold": {"label":"停留 · 秒","type":"number","default":2,"min":0,"max":8,"step":0.1},
@@ -32,6 +33,16 @@
     {"id":"TRANS-001","name":"遮罩无缝转场","category":"转场效果","description":"载入两个真实画面，用主题化遮罩连续交接；保持后画面至结束。","source":"src/components/transitions/MaskTransition.tsx","defaults":{"title":"画面之间，自然衔接。"},"editableParams":["imageBefore","imageAfter","imageFit","entrance","hold","exit","easing","color"]},
     {"id":"CAM-001","name":"空间环绕运镜","category":"3D运镜","description":"真实几何、主题材质、环境光和深度缓冲景深；相机缓入缓出。","source":"src/components/camera/OrbitCamera.tsx","defaults":{"rotation":150,"title":"视角，决定看见。"},"editableParams":["title","subtitle","entrance","hold","exit","easing","radius","rotation","scale","color","intensity","ambient","metalness","roughness","focus","aperture"]},
     {"id":"INFO-001","name":"动态数据图表","category":"信息图表","description":"输入真实数据、单位和来源；正负值共享标尺，支持 1–6 项。","source":"src/components/infographics/DataChart.tsx","defaults":{"title":"让数据，说明问题。"},"editableParams":["title","chartData","unit","dataSource","entrance","hold","exit","easing","color"]},
-    {"id":"LIGHT-001","name":"科技扫描光","category":"科技光影","description":"Canvas 扫描、轨道、刻度与主题材质，入场扫描后稳定停留再退场。","source":"src/components/lighting/ScanLight.tsx","defaults":{"title":"发现新的信号"},"editableParams":["title","subtitle","entrance","hold","exit","easing","color","intensity"]}
+    {"id":"LIGHT-001","name":"科技扫描光","category":"科技光影","description":"Canvas 扫描、轨道、刻度与主题材质，入场扫描后稳定停留再退场。","source":"src/components/lighting/ScanLight.tsx","defaults":{"title":"发现新的信号"},"editableParams":["title","subtitle","entrance","hold","exit","easing","color","intensity"]},
+    {"id":"PAPER-001","name":"纤维成纸","category":"纸艺动画","description":"植物纤维从画外飞入、在纸面交织成帘纹，纸面随密度显影；镜头由肌理大特写拉开，标题分层揭示；结尾纤维重新松散外散，交接下一镜。","source":"src/components/papermaking/FiberFormation.tsx","defaults":{"title":"一张纸，四道工序","subtitle":"公元 105 年 · 蔡伦"},"editableParams":["title","subtitle","entrance","hold","exit","color"]},
+    {"id":"MATERIAL-001","name":"原料标本","category":"信息编排","description":"四件原料插画错位入场、依次聚焦、收拢成束纤维下落；插画以 multiply 直接印在纸面上，不用四格等分看板。","source":"src/components/papermaking/Materials.tsx","defaults":{"title":"原料就四样","subtitle":"树皮 · 麻头 · 破布 · 渔网"},"editableParams":["title","subtitle","entrance","hold","exit","color"]},
+    {"id":"SOAK-001","name":"纸浆浸泡","category":"工艺演示","description":"陶缸 2.5D 剖面：干纤维团落水、散开、吸水变深，气泡上升与水流横移全部帧驱动；主体动作只解释「浸泡」。","source":"src/components/papermaking/SoakVat.tsx","defaults":{"title":"第一道：泡","subtitle":"泡到一撕就碎"},"editableParams":["title","subtitle","entrance","hold","exit","color"]},
+    {"id":"POUND-001","name":"石臼舂捣","category":"工艺演示","description":"石臼剖面 + 木杵七次舂捣：起落高度、臼体压缩、浆点飞溅与涟漪同步；臼内纤维随捣次逐轮变短，解释「捣得越细，纸越平」。","source":"src/components/papermaking/PoundMortar.tsx","defaults":{"title":"第二道：捣","subtitle":"捣得越细，纸越平"},"editableParams":["title","subtitle","holdText","entrance","hold","exit","color"]},
+    {"id":"SCOOP-001","name":"竹帘抄纸","category":"工艺演示","description":"水槽侧剖 + 竹帘入水、荡帘、起帘、成膜：水面被压出凹、帘面排水、膜上纤维沿帘向排布，解释「厚了写不动，薄了会破」。","source":"src/components/papermaking/SheetScoop.tsx","defaults":{"title":"第三道：抄","subtitle":"一抄，就是一层纸膜"},"editableParams":["title","subtitle","holdText","entrance","hold","exit","color"]},
+    {"id":"PROCESS-001","name":"四道工序总览","category":"信息编排","description":"泡、捣、抄、晒四张卡片依次亮起，每张卡片内是一步动作的剖面小图；用于开场交代全片结构。","source":"src/components/papermaking/ProcessStrip.tsx","defaults":{"title":"一张纸，四道工序","subtitle":"两千年前的手上功夫，一步都不能省"},"editableParams":["title","subtitle","entrance","hold","exit","color"]},
+    {"id":"DRY-001","name":"贴墙阴干","category":"工艺演示","description":"石灰墙上的湿纸膜由边缘向中间退水、纸面由暗转白，最后揭下一张；解释「阴干不是晒干」。","source":"src/components/papermaking/SheetDry.tsx","defaults":{"title":"第四道，晒","subtitle":"贴墙阴干，水走掉就是纸"},"editableParams":["title","subtitle","entrance","hold","exit","color"]},
+    {"id":"TIMELINE-001","name":"年份时间轴","category":"信息图表","description":"按真实年份等比例映射的时间轴，节点逐个亮起；mode=spread 时叠加一条西传路线（中原→撒马尔罕→巴格达→欧洲）。","source":"src/components/papermaking/Timeline.tsx","defaults":{"title":"蔡伦，把纸做便宜","subtitle":"公元 105 年，东汉","mode":"origin"},"editableParams":["title","subtitle","mode","entrance","hold","exit","color"]},
+    {"id":"BAMBOO-001","name":"竹简与纸对照","category":"信息编排","description":"竹简一捆被抬走退场，纸册落到空位；重量/价格两根对比条同步填充，解释「书才便宜下来」。","source":"src/components/papermaking/BambooVsPaper.tsx","defaults":{"title":"竹简退场","subtitle":"同样的字，换个载体就便宜了"},"editableParams":["title","subtitle","entrance","hold","exit","color"]},
+    {"id":"ENDING-001","name":"工序回收收尾","category":"信息编排","description":"泡/捣/抄/晒四格各做一段微动（水位上升、杵落、帘入水、纸变干），四格向中心收拢合成为一张完整纸面，落标题与评论提示；结尾不再停留静态标题页。","source":"src/components/papermaking/RecapEnding.tsx","defaults":{"title":"两千年，没变过。","subtitle":"有需要的，评论区留言。"},"editableParams":["title","subtitle","entrance","hold","exit","color"]}
   ]
 }

@@ -1,5 +1,5 @@
 import type {ComponentType} from 'react';
-export type ThemeId='swiss'|'future'|'archive';
+export type ThemeId='swiss'|'future'|'archive'|'mist-blue-paper';
 export type Datum={label:string;value:number};
 export type Params={title:string;subtitle:string;color:string;entrance:number;hold:number;exit:number;easing:string;distance:number;rotation:number;scale:number;intensity:number;radius:number;ambient:number;metalness:number;roughness:number;focus:number;aperture:number;chartData:Datum[];unit:string;dataSource:string;imageBefore:string;imageAfter:string;imageFit:'contain'|'cover'};
 export type SceneProps={params:Params;theme:ThemeId};
