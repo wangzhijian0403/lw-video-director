@@ -4,6 +4,11 @@
   "name": "圆形入口展开为视频窗",
   "category": "录屏与视频入场",
   "strategy": "project-expand",
+  "adapterVersion": "fred-batch/1.1",
+  "sourceSha256": "50dfd71e5befe648ac0a3ef51a6a23c9c1bf88a48272016364ab9730e90808b0",
+  "adapterSha256": "7eb54eb870048e2487ae4269b8d0f55b56e7f5eec6bbadd889d126633d50fe13",
+  "nativeFrames": 240,
+  "fps": 60,
   "upstream": {
     "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
     "publicTag": "v2.5.0",

@@ -4,6 +4,11 @@
   "name": "三个关键数字",
   "category": "数值与图表",
   "strategy": "kit-overlay",
+  "adapterVersion": "fred-batch/1.1",
+  "sourceSha256": "ed04d8b5fb980e9faae8c3f488d20e1058a7494adbeb84d87e8f6557ac35235b",
+  "adapterSha256": "01637a23dba263fab58c7d174cc886940b3e632eaaade48c157858106fbcfece",
+  "nativeFrames": 300,
+  "fps": 60,
   "upstream": {
     "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
     "publicTag": "v2.5.0",

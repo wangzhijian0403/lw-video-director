@@ -17,6 +17,9 @@
     "editableKeys": [
       "src"
     ],
+    "sourceSha256": "50dfd71e5befe648ac0a3ef51a6a23c9c1bf88a48272016364ab9730e90808b0",
+    "adapterSha256": "7eb54eb870048e2487ae4269b8d0f55b56e7f5eec6bbadd889d126633d50fe13",
+    "adapterVersion": "fred-batch/1.1",
     "importPath": "../../external/fredtalk/adapted/FT-OP03-467/src/adapter",
     "sourceFrames": 240
   },
@@ -52,6 +55,9 @@
       "roi",
       "clock"
     ],
+    "sourceSha256": "50dfd71e5befe648ac0a3ef51a6a23c9c1bf88a48272016364ab9730e90808b0",
+    "adapterSha256": "54057ada47f14c42c30fa4698a7dfcba52fad286dd536ee84e2c6517a9c5420d",
+    "adapterVersion": "fred-batch/1.1",
     "importPath": "../../external/fredtalk/adapted/FT-RC02-471/src/adapter",
     "sourceFrames": 480
   },
@@ -83,6 +89,9 @@
       "caption",
       "rest"
     ],
+    "sourceSha256": "6fe5c115ca959e5b5395c8e6d72704f4c9eb965304faa82a28dc502d3124db41",
+    "adapterSha256": "6fda549b1e9316806a7e5745c0c78fbf09e03c44cfad1adc98a11a8ffcec77f3",
+    "adapterVersion": "fred-batch/1.1",
     "importPath": "../../external/fredtalk/adapted/FT-T05a-436/src/adapter",
     "sourceFrames": 300
   },
@@ -121,6 +130,9 @@
       "prefix",
       "suffix"
     ],
+    "sourceSha256": "1f867b824c4283dc8d2f62d196bd0485509bbc1f4b79bba900b2d9789b23d395",
+    "adapterSha256": "72c365283f2993a1a89886b991e196342f8eb4ca234f9ae81ad25597c77f96cf",
+    "adapterVersion": "fred-batch/1.1",
     "importPath": "../../external/fredtalk/adapted/FT-T09n-374/src/adapter",
     "sourceFrames": 180
   },
@@ -188,6 +200,9 @@
       "highlight",
       "maskBoxes"
     ],
+    "sourceSha256": "d3866286dea10292d3b488882a953057adf74bc56ff7796d461c4775a2a71260",
+    "adapterSha256": "fb3fe38e447e319220ea90453d59d7d3aa4dbc23245960f496d47940859a7eb1",
+    "adapterVersion": "fred-batch/1.1",
     "importPath": "../../external/fredtalk/adapted/FT-T09s-289/src/adapter",
     "sourceFrames": 180
   },
@@ -226,6 +241,9 @@
       "focus",
       "background"
     ],
+    "sourceSha256": "3a8bb37f21e8c2f9578f3781a9232baf07f0018b21afd4e9f946b2bf744717e3",
+    "adapterSha256": "943d33a11d062747ae1e68517181b5d1f17d99fc13a2b4e94f722a9b4179d9bf",
+    "adapterVersion": "fred-batch/1.1",
     "importPath": "../../external/fredtalk/adapted/FT-T12d-407/src/adapter",
     "sourceFrames": 360
   },
@@ -256,6 +274,9 @@
       "title",
       "origin"
     ],
+    "sourceSha256": "908985acd194454bedde2f38958cf70fbfd9d492985deee0e1732037394785d6",
+    "adapterSha256": "a4718eddf8381f86e4601c7a16d040d2a1f2399426d14a5859b5e7409617cd1f",
+    "adapterVersion": "fred-batch/1.1",
     "importPath": "../../external/fredtalk/adapted/FT-T12l-337/src/adapter",
     "sourceFrames": 180
   },
@@ -298,6 +319,9 @@
       "stats",
       "hero"
     ],
+    "sourceSha256": "ed04d8b5fb980e9faae8c3f488d20e1058a7494adbeb84d87e8f6557ac35235b",
+    "adapterSha256": "01637a23dba263fab58c7d174cc886940b3e632eaaade48c157858106fbcfece",
+    "adapterVersion": "fred-batch/1.1",
     "importPath": "../../external/fredtalk/adapted/FT-T14e-378/src/adapter",
     "sourceFrames": 300
   },
@@ -342,6 +366,9 @@
       "suffix",
       "caption"
     ],
+    "sourceSha256": "9e94de47706515a813a5955fee730eb5d5abb5f3ef8f734f766e85506fb6a473",
+    "adapterSha256": "c3892cf91e9c38a3ec664104dc21844ecc4a070be793c87529c59edd8af98278",
+    "adapterVersion": "fred-batch/1.1",
     "importPath": "../../external/fredtalk/adapted/FT-T15a-426/src/adapter",
     "sourceFrames": 300
   },
@@ -376,6 +403,9 @@
       "hook",
       "highlight"
     ],
+    "sourceSha256": "780b604df787a4691762ba0e5f27c7d19ef736aec2fed53c0ebe7101aa241fdc",
+    "adapterSha256": "fda505996681db613de763f9e0219b6fbe9512a3751d9e780162c7af179e8f24",
+    "adapterVersion": "fred-batch/1.1",
     "importPath": "../../external/fredtalk/adapted/FT-T20a2-405/src/adapter",
     "sourceFrames": 300
   },
@@ -405,6 +435,9 @@
       "highlight",
       "badge"
     ],
+    "sourceSha256": "4e6cec02c52404d21b4f16919b0c0afe0d1c531b36213fa86712433bc54cae8f",
+    "adapterSha256": "7ea618a90f49a91c2f9fb6a76ab7421a1c3ff074866a0e0d8af7ff5446c0e73e",
+    "adapterVersion": "fred-batch/1.1",
     "importPath": "../../external/fredtalk/adapted/FT-T20f-395/src/adapter",
     "sourceFrames": 300
   }

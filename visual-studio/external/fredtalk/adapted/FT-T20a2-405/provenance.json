@@ -4,6 +4,11 @@
   "name": "成果先行开场（返修）：默认主图换单张作品",
   "category": "图片与作品",
   "strategy": "kit-overlay",
+  "adapterVersion": "fred-batch/1.1",
+  "sourceSha256": "780b604df787a4691762ba0e5f27c7d19ef736aec2fed53c0ebe7101aa241fdc",
+  "adapterSha256": "fda505996681db613de763f9e0219b6fbe9512a3751d9e780162c7af179e8f24",
+  "nativeFrames": 300,
+  "fps": 60,
   "upstream": {
     "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
     "publicTag": "v2.5.0",

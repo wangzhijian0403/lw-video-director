@@ -4,6 +4,11 @@
   "name": "跑分条形图：条依次长出，主角高亮",
   "category": "数值与图表",
   "strategy": "kit-overlay",
+  "adapterVersion": "fred-batch/1.1",
+  "sourceSha256": "9e94de47706515a813a5955fee730eb5d5abb5f3ef8f734f766e85506fb6a473",
+  "adapterSha256": "c3892cf91e9c38a3ec664104dc21844ecc4a070be793c87529c59edd8af98278",
+  "nativeFrames": 300,
+  "fps": 60,
   "upstream": {
     "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
     "publicTag": "v2.5.0",

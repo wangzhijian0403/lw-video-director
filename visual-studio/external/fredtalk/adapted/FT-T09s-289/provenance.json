@@ -4,6 +4,11 @@
   "name": "点击足迹：每次点击留下序号，最后连成一条路径回看",
   "category": "讲解段落",
   "strategy": "kit-overlay",
+  "adapterVersion": "fred-batch/1.1",
+  "sourceSha256": "d3866286dea10292d3b488882a953057adf74bc56ff7796d461c4775a2a71260",
+  "adapterSha256": "fb3fe38e447e319220ea90453d59d7d3aa4dbc23245960f496d47940859a7eb1",
+  "nativeFrames": 180,
+  "fps": 30,
   "upstream": {
     "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
     "publicTag": "v2.5.0",

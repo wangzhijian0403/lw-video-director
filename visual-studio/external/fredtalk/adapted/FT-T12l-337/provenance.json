@@ -4,6 +4,11 @@
   "name": "黑圆扩散：黑圆接管画面，序号落定后领出章节名",
   "category": "内容交接",
   "strategy": "kit-overlay",
+  "adapterVersion": "fred-batch/1.1",
+  "sourceSha256": "908985acd194454bedde2f38958cf70fbfd9d492985deee0e1732037394785d6",
+  "adapterSha256": "a4718eddf8381f86e4601c7a16d040d2a1f2399426d14a5859b5e7409617cd1f",
+  "nativeFrames": 180,
+  "fps": 60,
   "upstream": {
     "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
     "publicTag": "v2.5.0",

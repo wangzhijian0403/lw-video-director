@@ -1,12 +1,17 @@
-"""Deterministic MP4 QA using OpenCV (no ffmpeg on this host).
+"""Deterministic *machine* MP4 QA using OpenCV (no ffmpeg on this host).
+
+This module only answers "did the decoder see a structurally valid, moving,
+non-black clip with the expected frame count/fps/resolution?"  It never claims
+that a human reviewed the visual quality. Human review is a separate record in
+``batch/reviews/`` and is reported separately.
 
 Checks: decodes, frame count/duration vs composition, fps, near-black frames,
 frame-to-frame motion, full-frame white/flat frames, and still evidence presence.
 """
 from __future__ import annotations
 
+import argparse
 import json
-import sys
 from pathlib import Path
 
 import cv2
@@ -17,18 +22,23 @@ BATCH = VS / "external" / "fredtalk" / "batch"
 REG = json.loads((VS / "src" / "references" / "fredtalk-registry.data.json").read_text())
 
 
-def qa_one(entry: dict) -> dict:
-    d = BATCH / "evidence" / entry["id"]
-    mp4 = d / "render.mp4"
-    out = {"id": entry["id"], "checks": {}, "notes": []}
+def load_json(path: Path, default=None):
+    return json.loads(path.read_text()) if path.exists() else default
+
+
+def qa_one(entry: dict, evidence_dir: Path) -> dict:
+    mp4 = evidence_dir / "render.mp4"
+    out = {"id": entry["id"], "kind": "machine-qa", "checks": {}, "notes": []}
     if not mp4.exists():
         out["checks"]["decodes"] = False
         out["notes"].append("render.mp4 missing")
+        out["machineStatus"] = "fail"
         return out
     cap = cv2.VideoCapture(str(mp4))
     if not cap.isOpened():
         out["checks"]["decodes"] = False
         out["notes"].append("cv2 cannot open mp4")
+        out["machineStatus"] = "fail"
         return out
     fps = cap.get(cv2.CAP_PROP_FPS)
     declared = cap.get(cv2.CAP_PROP_FRAME_COUNT)
@@ -68,29 +78,37 @@ def qa_one(entry: dict) -> dict:
     out["checks"]["motionMean"] = round(float(np.mean(diffs)) if diffs else 0.0, 3)
     out["checks"]["hasMotion"] = (float(np.mean(diffs)) if diffs else 0) > 0.05
     out["checks"]["notFlatWhite"] = float(np.mean(means)) < 250
-    stills = sorted(d.glob("frame-*.png"))
+    stills = sorted(evidence_dir.glob("frame-*.png"))
     out["checks"]["stills"] = len(stills)
     out["checks"]["hasHeadMidTail"] = len(stills) >= 3
     for c, ok in out["checks"].items():
         if isinstance(ok, bool) and not ok:
             out["notes"].append(f"failed: {c}")
+    out["machineStatus"] = "pass" if all(v for k, v in out["checks"].items() if isinstance(v, bool)) else "fail"
     return out
 
 
 def main() -> int:
-    ids = sys.argv[1:]
-    entries = [e for e in REG if not ids or e["id"] in ids]
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--run-id", default=None)
+    ap.add_argument("--only", nargs="*", default=None)
+    args = ap.parse_args()
+    evidence = BATCH / "runs" / args.run_id / "evidence" if args.run_id else BATCH / "evidence"
+    entries = [e for e in REG if not args.only or e["id"] in args.only]
     results = []
     for e in entries:
-        r = qa_one(e)
-        p = BATCH / "evidence" / e["id"] / "qa.json"
-        p.parent.mkdir(parents=True, exist_ok=True)
-        p.write_text(json.dumps(r, ensure_ascii=False, indent=2) + "\n")
-        ok = all(v for k, v in r["checks"].items() if isinstance(v, bool))
-        print(f"{'PASS' if ok else 'CHECK'} {e['id']} frames={r.get('video',{}).get('frames')} luma={r['checks'].get('meanLuma')} motion={r['checks'].get('motionMean')} {r['notes']}")
+        r = qa_one(e, evidence / e["id"])
+        qa_path = evidence / e["id"] / "qa.json"
+        qa_path.parent.mkdir(parents=True, exist_ok=True)
+        qa_path.write_text(json.dumps(r, ensure_ascii=False, indent=2) + "\n")
+        print(f"{'MACHINE-PASS' if r['machineStatus'] == 'pass' else 'MACHINE-FAIL'} {e['id']} "
+              f"frames={r.get('video',{}).get('frames')} luma={r['checks'].get('meanLuma')} "
+              f"motion={r['checks'].get('motionMean')} {r['notes']}")
         results.append(r)
-    (BATCH / "qa-summary.json").write_text(json.dumps(results, ensure_ascii=False, indent=2) + "\n")
-    return 0
+    summary_path = (BATCH / "runs" / args.run_id / "qa-summary.json") if args.run_id else (BATCH / "qa-summary.json")
+    summary_path.parent.mkdir(parents=True, exist_ok=True)
+    summary_path.write_text(json.dumps(results, ensure_ascii=False, indent=2) + "\n")
+    return 0 if all(r["machineStatus"] == "pass" for r in results) else 1
 
 
 if __name__ == "__main__":

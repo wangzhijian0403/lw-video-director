@@ -18,3 +18,12 @@ public/fredtalk/*.ttf
 # Round-1 render evidence and LW-owned placeholder clips must ship with the repo.
 !external/fredtalk/batch/evidence/**/*.mp4
 !public/fredtalk/media/*.mp4
+
+# Reproducible adapter profiles are source, not build output.
+!tools/fredtalk/profiles/*.json
+!external/fredtalk/batch/round1.json
+!external/fredtalk/batch/reviews-round1.json
+!external/fredtalk/batch/batches/*.json
+
+# Later batch videos are separate acceptance artifacts, not permanent repo content.
+external/fredtalk/batch/runs/

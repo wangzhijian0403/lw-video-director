@@ -4,6 +4,11 @@
   "name": "等待快进",
   "category": "录屏聚焦",
   "strategy": "kit-overlay",
+  "adapterVersion": "fred-batch/1.1",
+  "sourceSha256": "1f867b824c4283dc8d2f62d196bd0485509bbc1f4b79bba900b2d9789b23d395",
+  "adapterSha256": "72c365283f2993a1a89886b991e196342f8eb4ca234f9ae81ad25597c77f96cf",
+  "nativeFrames": 180,
+  "fps": 60,
   "upstream": {
     "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
     "publicTag": "v2.5.0",

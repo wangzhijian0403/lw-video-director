@@ -1,6 +1,11 @@
-"""Build the audited per-component status table and round-1 acceptance report."""
+"""Build per-component status + acceptance report.
+
+Machine QA and human visual review are separate fields and separate counts.
+A structurally valid MP4 never implies that the visuals were approved.
+"""
 from __future__ import annotations
 
+import argparse
 import json
 from collections import Counter
 from pathlib import Path
@@ -10,21 +15,8 @@ EXT = VS / "external" / "fredtalk"
 BATCH = EXT / "batch"
 INV = json.loads((BATCH / "inventory.json").read_text())
 REG = json.loads((VS / "src/references/fredtalk-registry.data.json").read_text())
-
-VISUAL = {
-    "FT-T03e-414": ("pass", "讲解段落基线；六步链路完整，中文与强调色均生效。"),
-    "FT-T09s-289": ("pass", "点击轨迹与白色标签卡可见；截图与点击坐标为 LW 占位素材，非上游原图。"),
-    "FT-T12d-407": ("pass-with-note", "阶段胶囊按‘前/中/后’建立并聚焦第 2 段；OFL 斜体字面紧排，字距略紧，可读。"),
-    "FT-T12l-337": ("pass", "黑圆扩散 + 章节号 03 + 两行中文标题，层级干净。"),
-    "FT-T20f-395": ("pass", "先成品后问题；录屏窗口、标题、高亮词、‘成品’角标均正确。"),
-    "FT-OP03-467": ("pass", "圆形入口展开后播放用户录屏；共享宿主角标/音效已移除。"),
-    "FT-RC02-471": ("pass", "中段推近 ROI、末段回全貌；ROI 需按每段录屏重设，属该类限制。"),
-    "FT-T09n-374": ("pass", "等待快进卡；数字滚轮中间帧是滚动切片，不是丢字。"),
-    "FT-T14e-378": ("pass", "三张数字卡 + 主角卡深底；数字/单位/说明均可替换。"),
-    "FT-T15a-426": ("pass", "条形跑分 + 主角条 + 脚注；明确标注 LW 测试口径。"),
-    "FT-T05a-436": ("pass", "滑杆前后对比；before/after 已换成 LW 自有占位作品图。"),
-    "FT-T20a2-405": ("pass", "十二格作品墙 + 主角图 + 钩子文案；素材为 LW 占位图循环。"),
-}
+ROUND1 = json.loads((BATCH / "round1.json").read_text()) if (BATCH / "round1.json").exists() else {"items": []}
+REVIEWS1 = json.loads((BATCH / "reviews-round1.json").read_text()) if (BATCH / "reviews-round1.json").exists() else {"reviews": {}}
 
 LIMITS = {
     "FT-RC02-471": "ROI（x/y/w/h）与录屏画面强相关，无法跨素材通用；每换一段录屏必须重设。",
@@ -51,6 +43,10 @@ PARAM_PROOF = {
 }
 
 
+def load(p: Path, default=None):
+    return json.loads(p.read_text()) if p.exists() else default
+
+
 def channel_of(row) -> str:
     chans = {f["channel"] for f in row["source"]["files"] if f.get("channel")}
     if "tag-tree" in chans:
@@ -60,23 +56,30 @@ def channel_of(row) -> str:
     return "none"
 
 
-def load(p: Path, default=None):
-    return json.loads(p.read_text()) if p.exists() else default
+def review_for(cid: str, run_id: str | None) -> dict:
+    if run_id:
+        run_reviews = load(BATCH / "runs" / run_id / "reviews.json", {}) or {}
+        rec = (run_reviews.get("reviews") or {}).get(cid) or load(BATCH / "reviews" / f"{cid}.json", {})
+    else:
+        rec = REVIEWS1.get("reviews", {}).get(cid, {})
+    if not rec:
+        return {"status": "pending", "note": "尚未人工审片", "reviewer": None}
+    return rec
 
 
-def component_rows() -> list[dict]:
+def component_rows(ids: list[str], evidence: Path, status: dict, run_id: str | None = None) -> list[dict]:
     inv = {r["lwId"]: r for r in INV}
     rows = []
-    ids = ["FT-T03e-414"] + [e["id"] for e in REG]
     for cid in ids:
         inv_row = inv[cid]
-        ev = BATCH / "evidence" / cid
-        qa = load(ev / "qa.json", {})
-        meta = load(ev / "meta.json", {})
-        prov = load(EXT / "adapted" / cid / "provenance.json", {})
-        visual, vnote = VISUAL.get(cid, ("pending", ""))
+        ev = evidence / cid
+        qa = load(ev / "qa.json", {}) or {}
+        prov = load(EXT / "adapted" / cid / "provenance.json", {}) or {}
+        review = review_for(cid, run_id)
+        st = status.get(cid, {})
         files = prov.get("files", [])
         sha_ok = all(f.get("sha256") for f in files) if files else all(f["status"] == "verified" for f in inv_row["source"]["files"])
+        machine_status = qa.get("machineStatus") or ("pass" if qa.get("checks") and all(v for k, v in qa["checks"].items() if isinstance(v, bool)) else "missing")
         rows.append({
             "id": cid,
             "ftId": inv_row["ftId"],
@@ -86,137 +89,178 @@ def component_rows() -> list[dict]:
             "channel": channel_of(inv_row),
             "files": len(files) or inv_row["source"]["declaredFiles"],
             "sha": sha_ok,
-            "params": PARAM_PROOF.get(cid, ""),
-            "adapted": True,
-            "render": qa.get("checks", {}).get("decodes", False),
+            "params": PARAM_PROOF.get(cid) or ", ".join(inv_row["params"].get("keys", [])),
+            "adapted": bool(prov) or cid == "FT-T03e-414",
+            "render": st.get("render"),
+            "machineQa": machine_status,
             "frames": qa.get("video", {}).get("frames"),
             "fps": qa.get("video", {}).get("fps"),
             "luma": qa.get("checks", {}).get("meanLuma"),
             "motion": qa.get("checks", {}).get("motionMean"),
-            "visual": visual,
-            "vnote": vnote,
-            "limit": LIMITS.get(cid, ""),
-            "evidence": f"external/fredtalk/batch/evidence/{cid}/",
+            "visual": review.get("status", "pending"),
+            "vnote": review.get("note", ""),
+            "reviewer": review.get("reviewer"),
+            "limit": LIMITS.get(cid, inv_row["adaptation"].get("blockedReason") or ""),
+            "evidence": f"external/fredtalk/batch/runs/{run_id}/evidence/{cid}/" if run_id else f"external/fredtalk/batch/evidence/{cid}/",
+            "error": st.get("error"),
+            "inputFingerprint": st.get("inputFingerprint"),
             "license": prov.get("license", {}).get("firstPartyCode", "MIT (FredTalk)") if prov else "MIT (FredTalk)",
         })
     return rows
 
 
-def main() -> int:
-    rows = component_rows()
-    status = {}
-    for r in rows:
-        status[r["id"]] = {
-            "strategy": r["strategy"], "adapted": True, "files": r["files"], "shaVerified": r["sha"],
-            "render": "pass" if r["render"] else "fail", "frames": r["frames"], "fps": r["fps"],
-            "qa": {"luma": r["luma"], "motion": r["motion"]},
-            "visualReview": r["visual"], "visualNote": r["vnote"], "limit": r["limit"],
-            "evidence": r["evidence"], "license": r["license"],
-        }
-    (BATCH / "status.json").write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n")
-
-    strategies = Counter(x["adaptation"]["strategy"] for x in INV)
-    src_channels = Counter(channel_of(x) for x in INV)
-    cats = Counter(x["category"] for x in INV)
-    summary = {
-        "total": len(INV),
-        "sourceAllSha": src_channels.get("sha-assets", 0),
-        "sourceTagTree": src_channels.get("tag-tree", 0),
-        "tagTreeComplete": sum(1 for x in INV if channel_of(x) == "tag-tree" and x["source"]["complete"]),
-        "tagTreePartial": sum(1 for x in INV if channel_of(x) == "tag-tree" and not x["source"]["complete"]),
-        "noSource": src_channels.get("none", 0),
-        "strategies": dict(strategies),
-        "categories": dict(cats),
+def counts(rows: list[dict]) -> dict:
+    return {
+        "total": len(rows),
+        "adapted": sum(1 for r in rows if r["adapted"]),
+        "machineQaPass": sum(1 for r in rows if r["machineQa"] == "pass"),
+        "machineQaFail": sum(1 for r in rows if r["machineQa"] == "fail"),
+        "machineQaMissing": sum(1 for r in rows if r["machineQa"] == "missing"),
+        "humanVisualPass": sum(1 for r in rows if r["visual"] in ("pass", "pass-with-note")),
+        "humanVisualPending": sum(1 for r in rows if r["visual"] == "pending"),
+        "humanVisualFail": sum(1 for r in rows if r["visual"] == "fail"),
     }
 
-    md = []
-    md.append("# FredTalk 全库接入 · 第一轮验收报告\n")
-    md.append("分支 `feature/fredtalk-batch-adapter`（基线 PR #6 `feature/resource-adapters-poc`，未改 `main`，未触碰 PR #7《造纸术》）。\n")
-    md.append("## 1. 第一轮结论\n")
-    md.append("| 指标 | 数值 |\n|---|---|")
-    md.append("| 纳入验收组件 | 12 |")
-    md.append("| 实际取得源码（含 SHA/路径证据） | 12 |")
-    md.append("| 自动接入成功（含 T03e 既有） | 12 |")
-    md.append("| 新增批量适配 | 11（9 kit-overlay + 2 project-expand） |")
-    md.append("| 需要特殊适配 | 3（2 个整项目展开 + 1 个数字字宽源内补丁） |")
-    md.append("| 来源/权限阻塞 | 0 |")
-    md.append("| 真实 Remotion MP4 渲染通过 | 12 |")
-    md.append("| 自动 QA 通过（帧数/fps/分辨率/黑帧/运动） | 12 |")
-    md.append("| 人工视觉审核通过 | 12（1 条带字距备注） |")
-    md.append("")
-    md.append("样片验证点：中文文字可替换；主题色/背景色可配置；图片与录屏可替换为用户自有素材；速度/时长参数可调；均导出真实 MP4（1280×720，h264）；均已注册进 LW Visual Studio References（`fred-batch` 适配器，可预览 + 可导出）。\n")
-    md.append("LW Visual Studio 调用已端到端验证：`POST /api/render-reference` → `fred-batch` 分支 → `renderFredComponent` → MP4。测试改写了 FT-T14e-378 的参数（主题色 `#c4553f`、主角卡 `hero:0`），成片与帧图证明用户输入确实进入组件：`external/fredtalk/batch/evidence/FT-T14e-378/studio-api.mp4` 与 `studio-api-final.png`。\n")
 
-    md.append("## 2. 逐组件验收\n")
-    md.append("| LW ID | 类别 | 策略 | 源码通道 | 文件 | SHA 校验 | 可编辑参数 | 渲染 | 帧/fps | 亮度 | 运动 | 视觉 | 证据 |")
-    md.append("|---|---|---|---|---|---|---|---|---|---|---|---|---|")
+def table(rows: list[dict]) -> list[str]:
+    out = ["| LW ID | 类别 | 策略 | 通道 | 文件 | SHA | 可编辑参数 | 渲染 | 机器QA | 人工视觉 | 帧/fps | 证据 |",
+           "|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for r in rows:
-        md.append(f"| {r['id']} | {r['category']} | {r['strategy']} | {r['channel']} | {r['files']} | {'✓' if r['sha'] else '—'} | {r['params']} | {'✓' if r['render'] else '✗'} | {r['frames']}/{r['fps']} | {r['luma']} | {r['motion']} | {r['visual']} | `{r['evidence']}` |")
-    md.append("")
-    md.append("### 视觉审核备注\n")
+        out.append(f"| {r['id']} | {r['category']} | {r['strategy']} | {r['channel']} | {r['files']} | {'✓' if r['sha'] else '—'} | {r['params']} | {r['render'] or '—'} | {r['machineQa']} | {r['visual']} | {r['frames']}/{r['fps']} | `{r['evidence']}` |")
+    return out
+
+
+def write_main() -> None:
+    ids = [x["lwId"] for x in ROUND1.get("items", [])] or ["FT-T03e-414"] + [e["id"] for e in REG]
+    status = load(BATCH / "status.json", {}) or {}
+    rows = component_rows(ids, BATCH / "evidence", status, None)
+    new_status = {}
     for r in rows:
-        md.append(f"- **{r['id']}**（{r['name']}）：{r['vnote']}")
-    md.append("")
-    md.append("### 已记录的类别限制（不宣称所有组件具备同等参数能力）\n")
+        new_status[r["id"]] = {
+            "strategy": r["strategy"], "adapted": r["adapted"], "files": r["files"], "shaVerified": r["sha"],
+            "render": r["render"], "frames": r["frames"], "fps": r["fps"],
+            "machineQa": {"status": r["machineQa"], "luma": r["luma"], "motion": r["motion"]},
+            "humanVisualReview": {"status": r["visual"], "note": r["vnote"], "reviewer": r["reviewer"]},
+            "limit": r["limit"], "evidence": r["evidence"], "license": r["license"],
+        }
+    (BATCH / "status.json").write_text(json.dumps(new_status, ensure_ascii=False, indent=2) + "\n")
+    c = counts(rows)
+    strategies = Counter(x["adaptation"]["strategy"] for x in INV)
+    channels = Counter(channel_of(x) for x in INV)
+    cats = Counter(x["category"] for x in INV)
+    md = ["# FredTalk 全库接入 · 第一轮验收报告\n",
+          "分支 `feature/fredtalk-batch-adapter`（基线 PR #6 `feature/resource-adapters-poc`，未改 `main`，未触碰 PR #7《造纸术》）。\n",
+          "## 1. 结论（机器与人工分开计数）\n",
+          "| 指标 | 数值 | 说明 |\n|---|---|---|",
+          f"| 纳入验收组件 | {c['total']} | 六类代表组件 |",
+          f"| 机器 QA 通过 | {c['machineQaPass']} | 仅代表解码/帧数/fps/分辨率/黑帧/运动等结构检查 |",
+          f"| 人工视觉通过 | {c['humanVisualPass']} | 人工审片记录，见 `reviews-round1.json` |",
+          f"| 人工视觉待审 | {c['humanVisualPending']} | 机器通过不等于视觉通过 |",
+          f"| 人工视觉不通过 | {c['humanVisualFail']} | — |",
+          f"| 真实 Remotion MP4 | {c['machineQaPass']} | 1280×720，h264 |",
+          "",
+          "> 机器 QA 只证明视频可解码、帧数/fps/分辨率匹配、不是纯黑/纯白且有帧间运动；它**不证明排版、可读性、审美或内容正确**。人工视觉结论单独记录。\n",
+          "## 2. 逐组件验收\n"] + table(rows) + [
+          "",
+          "### 视觉审核备注\n",
+          ]
+    for r in rows:
+        md.append(f"- **{r['id']}**（{r['name']}）：{r['visual']} — {r['vnote']}")
+    md += ["", "### 已记录的类别限制\n"]
     for r in rows:
         if r["limit"]:
             md.append(f"- **{r['id']}**：{r['limit']}")
-    md.append("")
-
-    md.append("## 3. 全库 432 条源码与版权状态\n")
-    md.append("| 维度 | 数量 | 说明 |\n|---|---|---|")
-    md.append(f"| 目录条目 | {summary['total']} | 上游 `library/catalog.json` v2.5.0 |")
-    md.append(f"| 全部文件可匿名取得并 SHA-256 校验 | {summary['sourceAllSha']} | `/api/visual-library/assets/<sha>.txt` 或 `/visual-library-app/objects/<sha>.txt` |")
-    md.append(f"| 需公开 tag 项目树补全 | {summary['sourceTagTree']} | tag `v2.5.0` 的 `components/projects/**` |")
-    md.append(f"| 其中完整命中 | {summary['tagTreeComplete']} | `implementation.projects[0]` + label 全命中 |")
-    md.append(f"| 其中部分命中 | {summary['tagTreePartial']} | 缺 1–2 个同项目兄弟模块，可整项目展开补齐 |")
-    md.append(f"| 完全无源码 | {summary['noSource']} | 无 |")
-    md.append("")
-    md.append("适配策略分布：" + "；".join(f"`{k}` {v}" for k, v in summary["strategies"].items()) + "。")
-    md.append("类别分布：" + "；".join(f"{k} {v}" for k, v in summary["categories"].items()) + "。")
-    md.append("")
-    md.append("版权口径：FredTalk 第一方代码/工具/模板按 MIT（作者公开授权，2026-10-13）；字体 SmileySans 为 OFL-1.1、按原样打包；音效、图片、截图、录屏、Logo 等媒体不随 MIT 授权，本轮一律不入库，改用 LW 自有占位素材。所有适配组件保留 FredTalk 来源与许可，不标为 LW 原创。\n")
-
-    md.append("## 4. 批量适配器第一版\n")
-    md.append("- `tools/fredtalk/ftlib.py`：双通道取源、SHA-256 校验、tag 树索引、依赖/入口/参数静态分析。")
-    md.append("- `tools/fredtalk/inventory.py`：432 条盘点，产出 `inventory.json/md/csv`、`source-manifest.json`。")
-    md.append("- `tools/fredtalk/adapt.py`：策略化适配器。`kit-overlay` 仅替换宿主层（字体/角标/音效/主题/时钟）；`project-expand` 整项目展开后再覆盖 shared；支持声明式 `sourcePatches` 处理字体度量差异。逐条写 `provenance.json` 与 `props.json`，自动生成 Remotion registry。")
-    md.append("- `tools/fredtalk/render_batch.mjs`：bundle → selectComposition → 真实 renderMedia → 首/中/尾/关键动作帧 still；读取/写回 `status.json`，已通过的默认跳过，`--force` 重跑。")
-    md.append("- `tools/fredtalk/qa_media.py`：cv2 解码检查帧数、fps、分辨率、黑帧率、平均亮度、帧间运动。")
-    md.append("- `tools/fredtalk/report.py`：生成本报告与 `status.json`。")
-    md.append("- 断点恢复：`status.json` + 证据目录；失败重试；已通过跳过；上游源码副本与 `.cache` 分离，`.cache` 不入库。")
-    md.append("")
-
-    md.append("## 5. 下一批可自动扩展范围\n")
-    md.append(f"- **kit-overlay 剩余 {summary['strategies'].get('kit-overlay', 0) - 10} 条**：同一 kit 指纹（`kit/theme.ts` + `kit/ui.tsx`）可直接按批 20 条跑 `adapt.py` + `render_batch.mjs`，无需人工写适配。")
-    md.append(f"- **blocked-dependency {summary['strategies'].get('blocked-dependency', 0)} 条**：不是权限阻塞，而是目录只登记部分文件；按 tag 项目分组做 `project-expand`，首批 20 条验证共享层差异后可批量推进。")
-    md.append(f"- **standalone/standalone-module {summary['strategies'].get('standalone', 0) + summary['strategies'].get('standalone-module', 0)} 条**：无 kit 依赖，需逐条确认根组件 props 与媒体，走独立模板。")
-    md.append("")
-    md.append("## 6. 必须特殊处理的范围\n")
-    md.append("- 依赖非 kit 共享模块（如 `shared.tsx`、`FullscreenVideoWindow.tsx`、项目私有 `lib`）的条目：必须整项目展开并逐项目核对宿主替换点。")
-    md.append("- 数字/里程表类组件：上游按 MiSans 数字宽度硬编码单元格，换字体后需按宿主字体度量做源内补丁（已示范 T09n）。")
-    md.append("- 依赖上游品牌角标、音效、截图、录屏、作品图的条目：媒体不随 MIT，必须替换为用户自有素材或 LW 占位，不能沿用上游媒体。")
-    md.append("- 参数与画面强绑定的组件（如录屏 ROI、点击坐标）：只能提供参数入口，不能承诺跨素材通用。")
-    md.append("- 16 条 tag 树部分命中：先整项目展开补齐，再判断是否仍缺模块。")
-    md.append("")
-    md.append("## 7. 证据与复现\n")
-    md.append("```bash")
-    md.append("cd visual-studio")
-    md.append("npm ci")
-    md.append("python3 scripts/install-fred-font.py")
-    md.append("python3 tools/fredtalk/inventory.py")
-    md.append("python3 tools/fredtalk/adapt.py")
-    md.append("LW_BROWSER=/usr/local/bin/chromium node tools/fredtalk/render_batch.mjs")
-    md.append("python3 tools/fredtalk/qa_media.py")
-    md.append("python3 tools/fredtalk/report.py")
-    md.append("```")
-    md.append("")
-    md.append("每个组件的 MP4、5 张审片帧与 `qa.json` 位于 `external/fredtalk/batch/evidence/<LW-ID>/`；`provenance.json` 记录逐文件上游 URL/SHA、宿主改动与源内补丁。\n")
-
+    md += ["", "## 3. 全库 432 条源码与版权状态\n",
+           "| 维度 | 数量 | 说明 |\n|---|---|---|",
+           f"| 目录条目 | {len(INV)} | 上游 `library/catalog.json` v2.5.0 |",
+           f"| 全 SHA 通道 | {channels.get('sha-assets', 0)} | `/api/visual-library/assets/<sha>.txt` 或 `/visual-library-app/objects/<sha>.txt` |",
+           f"| 公开 tag 树补全 | {channels.get('tag-tree', 0)} | tag `v2.5.0` 的 `components/projects/**` |",
+           f"| 无源码 | {channels.get('none', 0)} | — |",
+           "", "适配策略分布：" + "；".join(f"`{k}` {v}" for k, v in strategies.items()) + "。",
+           "类别分布：" + "；".join(f"{k} {v}" for k, v in cats.items()) + "。\n",
+           "版权口径：FredTalk 第一方代码/工具/模板按 MIT；字体 SmileySans 为 OFL-1.1、按原样打包；音效、图片、截图、录屏、Logo 等媒体不随 MIT，本轮一律不入库，改用 LW 自有占位素材。所有适配组件保留 FredTalk 来源与许可。\n",
+           "## 4. 批量适配器\n",
+           "- `adapt.py`：`kit-overlay` / `project-expand` / 声明式 `sourcePatches`；`--all-kit --limit N` 从 inventory 自动选件并生成 profile，不依赖手工逐条配置。",
+           "- `render_batch.mjs`：真实 Remotion 渲染；`status.json` 存 `inputFingerprint`（适配器版本、生成适配器 SHA、源码 SHA、props、主题、背景、速度、fps、时长）；输入变化自动重渲，`--force` 强制。",
+           "- `qa_media.py`：只做机器结构 QA，输出 `machineStatus`，不写人工视觉结论。",
+           "- `report.py`：机器 QA 与人工视觉分开计数；人工结论来自 `reviews-round1.json` / `reviews/<id>.json`。",
+           "- 新批次视频写入 `batch/runs/<runId>/`，该目录不入库；仓库只保留报告、状态与第一轮 12 条证据。",
+           "", "## 5. 下一批自动扩展范围\n",
+           f"- `kit-overlay` 中符合“kit 文件齐全 + 入口导出可解析 + 入口 import 可解析”的组件：自动选件，首批 20 条通过 `tools/fredtalk/batch.py --next 20`。",
+           "- 三个只登记 `S12/shared`、`Open6/ep` 的成片项目仍属 `blocked-dependency`：需要整项目展开，不进入自动 kit 批次。",
+           "- `blocked-dependency` 284 条按 tag 项目分组后做 `project-expand`；`standalone` 13 条独立模板。",
+           "", "## 6. 必须特殊处理的范围\n",
+           "- 非 kit 共享模块（`shared.tsx`、`FullscreenVideoWindow.tsx`、项目私有 lib）：整项目展开并逐项目核对宿主替换点。",
+           "- 数字/里程表类：按宿主字体度量做源内补丁（已示范 T09n）。",
+           "- 上游品牌/音效/截图/录屏/作品图：媒体不随 MIT，必须替换。",
+           "- ROI、点击坐标等画面强绑定参数：只提供入口，不承诺跨素材通用。",
+           "- 16 条 tag 树部分命中：先整项目展开补齐。",
+           "", "## 7. 复现\n",
+           "```bash", "cd visual-studio", "npm ci", "python3 scripts/install-fred-font.py",
+           "python3 tools/fredtalk/inventory.py", "python3 tools/fredtalk/adapt.py",
+           "LW_BROWSER=/usr/local/bin/chromium node tools/fredtalk/render_batch.mjs --only FT-T14e-378",
+           "python3 tools/fredtalk/qa_media.py --only FT-T14e-378", "python3 tools/fredtalk/report.py", "```",
+           "", "新批次：`python3 tools/fredtalk/batch.py --next 20`（自动选件 → 适配 → 渲染 → 机器 QA → 报告）。\n"]
     (BATCH / "round-1-acceptance.md").write_text("\n".join(md) + "\n")
-    (BATCH / "round-1-summary.json").write_text(json.dumps({"summary": summary, "round1": rows}, ensure_ascii=False, indent=2) + "\n")
-    print(json.dumps(summary, ensure_ascii=False, indent=2))
-    print(f"wrote {BATCH/'round-1-acceptance.md'}")
+    (BATCH / "round-1-summary.json").write_text(json.dumps({"counts": c, "rows": rows}, ensure_ascii=False, indent=2) + "\n")
+    print(json.dumps(c, ensure_ascii=False, indent=2))
+
+
+def write_run(run_id: str) -> None:
+    run = BATCH / "runs" / run_id
+    plan = load(run / "plan.json", {}) or {}
+    ids = [c["lwId"] for c in plan.get("components", [])]
+    status = load(run / "status.json", {}) or {}
+    rows = component_rows(ids, run / "evidence", status, run_id)
+    c = counts(rows)
+    skipped = plan.get("skipped", [])
+    adapt = load(run / "adapt-status.json", {}) or {}
+    failures = [r for r in rows if r["render"] == "fail" or r["machineQa"] == "fail" or not r["adapted"]]
+    out_dir = BATCH / "batches"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    payload = {"runId": run_id, "plan": plan, "counts": c, "rows": rows, "skipped": skipped, "adapt": adapt}
+    (out_dir / f"{run_id}-status.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n")
+    md = [f"# FredTalk 自动批次 {run_id} · 验收报告\n",
+          f"自动选件：`kit-overlay` 且 kit 文件齐全、入口导出与 import 可解析；共选 {plan.get('count', len(ids))} 条。\n",
+          "## 1. 结论（机器 QA 与人工视觉分开）\n",
+          "| 指标 | 数值 |\n|---|---|",
+          f"| 选中 | {plan.get('count', len(ids))} |",
+          f"| 适配成功 | {c['adapted']} |",
+          f"| 真实 MP4 机器 QA 通过 | {c['machineQaPass']} |",
+          f"| 机器 QA 失败 | {c['machineQaFail']} |",
+          f"| 人工视觉通过 | {c['humanVisualPass']} |",
+          f"| 人工视觉待审 | {c['humanVisualPending']} |",
+          f"| 自动选件跳过 | {len(skipped)} |",
+          "",
+          "> 本批次未做人工视觉审核的部分一律记为 `pending`，不得用机器指标替代。\n",
+          "## 2. 逐组件状态\n"] + table(rows) + [
+          "", "## 3. 失败与跳过\n"]
+    if failures:
+        for r in failures:
+            md.append(f"- **{r['id']}**：render={r['render']}，machineQA={r['machineQa']}，reason={r.get('error') or '未记录'}")
+    else:
+        md.append("- 无适配或渲染失败。")
+    for s in skipped:
+        md.append(f"- 跳过 **{s['lwId']}**：{s['reason']}")
+    md += ["", "## 4. 产物位置\n",
+           f"- 视频与帧：`external/fredtalk/batch/runs/{run_id}/evidence/<LW-ID>/`（本地运行产物，默认不入库）",
+           f"- 逐组件状态：`external/fredtalk/batch/batches/{run_id}-status.json`",
+           "", "## 5. 边界\n",
+           "- 本批次只证明自动选件、适配、渲染和机器结构 QA 可跑通；视觉质量仍需人工审片。",
+           "- 上游媒体不随 MIT，自动适配只使用 LW 占位素材。",
+           "- `batch/runs/` 不永久提交，避免 432 条视频撑大仓库。\n"]
+    (out_dir / f"{run_id}-acceptance.md").write_text("\n".join(md) + "\n")
+    print(json.dumps(c, ensure_ascii=False, indent=2))
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--run-id", default=None)
+    args = ap.parse_args()
+    if args.run_id:
+        write_run(args.run_id)
+    else:
+        write_main()
     return 0
 
 

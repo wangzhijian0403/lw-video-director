@@ -4,6 +4,11 @@
   "name": "先看结果再倒回来",
   "category": "录屏与视频入场",
   "strategy": "kit-overlay",
+  "adapterVersion": "fred-batch/1.1",
+  "sourceSha256": "4e6cec02c52404d21b4f16919b0c0afe0d1c531b36213fa86712433bc54cae8f",
+  "adapterSha256": "7ea618a90f49a91c2f9fb6a76ab7421a1c3ff074866a0e0d8af7ff5446c0e73e",
+  "nativeFrames": 300,
+  "fps": 60,
   "upstream": {
     "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
     "publicTag": "v2.5.0",

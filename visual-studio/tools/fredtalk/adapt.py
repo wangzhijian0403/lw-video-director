@@ -22,10 +22,12 @@ modified in place.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import shutil
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -34,9 +36,13 @@ import ftlib as L
 
 ADAPTED = L.EXT / "adapted"
 PROFILES = Path(__file__).resolve().parent / "profiles" / "round1.json"
+RUNS = L.BATCH / "runs"
 LW_FONT = "LW Fred SmileySans"
 DEFAULT_ACCENT = "#8554E8"
 DEFAULT_BACKGROUND = "#ffffff"
+ADAPTER_VERSION = "fred-batch/1.1"
+AUTO_PROFILES = Path(__file__).resolve().parent / "profiles" / "auto-kit.generated.json"
+EXISTING_IDS = {"FT-T03e-414"}
 
 LW_HOST = """// LW host context for adapted FredTalk components. Not upstream code.
 import {createContext, useContext} from 'react';
@@ -250,7 +256,7 @@ def build_kit_overlay(profile: dict, row: dict, tag: L.TagTree | None) -> dict:
     src_dir.mkdir(parents=True, exist_ok=True)
 
     files = row["source"]["files"]
-    entry_path = row["adaptation"]["entryPath"] or profile["entryFile"]
+    entry_path = profile.get("entryPath") or row["adaptation"]["entryPath"] or profile["entryFile"]
     entry_root = entry_path.split("/src/")[0] if "/src/" in entry_path else ""
     copied = []
     for f in files:
@@ -398,12 +404,26 @@ def apply_source_patches(dest: Path, patches: list[dict], ops: list[str]) -> lis
 def finish(profile, row, dest, copied, ops, entry_rel, entry_path, project=None) -> dict:
     lw = profile["lwId"]
     patched = apply_source_patches(dest, profile.get("sourcePatches", []), ops)
+    adapter_path = dest / "src" / "adapter.tsx"
+    source_material = json.dumps(
+        sorted(
+            [{"path": f.get("upstreamPath"), "sha256": f.get("sha256")} for f in copied],
+            key=lambda x: (x["path"] or "", x["sha256"] or ""),
+        ),
+        ensure_ascii=False,
+        sort_keys=True,
+    ).encode("utf-8")
     provenance = {
         "lwId": lw,
         "ftId": profile["ftId"],
         "name": row["name"],
         "category": row["category"],
         "strategy": profile["strategy"],
+        "adapterVersion": ADAPTER_VERSION,
+        "sourceSha256": hashlib.sha256(source_material).hexdigest(),
+        "adapterSha256": L.sha256_file(adapter_path),
+        "nativeFrames": row["upstream"].get("nativeFrames") or 300,
+        "fps": int(row["upstream"].get("fps") or 60),
         "upstream": {
             "revision": L.REVISION,
             "publicTag": L.PUBLIC_TAG,
@@ -438,17 +458,275 @@ def load_profiles() -> list[dict]:
     return L.load_json(PROFILES)["profiles"]
 
 
+# ---------------------------------------------------------------------------------
+# Automatic kit-overlay profile generation (no hand-written per-component profile)
+
+
+EXPORT_DECL_RE = re.compile(
+    r"export\s+(?:default\s+)?(?:async\s+)?(?:function|const|class)\s+([A-Za-z0-9_$]+)"
+)
+REACT_FC_RE = re.compile(r"export\s+const\s+([A-Za-z0-9_$]+)\s*:\s*React\.FC")
+DEFAULT_EXPORT_RE = re.compile(r"export\s+default\s+(?:function|class|const|\()")
+
+
+def _source_text(row: dict, file_row: dict) -> str:
+    cache = file_row.get("cachePath")
+    if not cache:
+        return ""
+    return L.read_text(L.CACHE / cache)
+
+
+def _component_exports(text: str) -> list[dict]:
+    found: list[dict] = []
+    for m in REACT_FC_RE.finditer(text):
+        found.append({"name": m.group(1), "kind": "react-fc"})
+    for m in EXPORT_DECL_RE.finditer(text):
+        name = m.group(1)
+        if any(x["name"] == name for x in found):
+            continue
+        head = text[max(0, m.start() - 20):m.end()]
+        if "default" in head:
+            continue
+        found.append({"name": name, "kind": "decl"})
+    if not found and DEFAULT_EXPORT_RE.search(text):
+        found.append({"name": "default", "kind": "default"})
+    return found
+
+
+def _pick_component_symbol(text: str, label: str, ft_id: str) -> str | None:
+    """Pick the scene/component export, not helper constants or defaults."""
+    stem = Path(label).stem
+    suffix = stem[len(ft_id) + 1:] if stem.startswith(ft_id + "-") else ""
+    ranked: list[tuple[int, str]] = []
+    for exp in _component_exports(text):
+        name = exp["name"]
+        if name == "default":
+            ranked.append((10, name))
+            continue
+        if name.endswith("Defaults") or name.startswith("use"):
+            continue
+        score = 0
+        if exp["kind"] == "react-fc":
+            score += 60
+        if name == ft_id:
+            score += 40
+        if suffix and name.lower() == suffix.lower():
+            score += 45
+        if name.lower().startswith(stem.lower()) or stem.lower().startswith(name.lower()):
+            score += 25
+        if name[:1].isupper():
+            score += 10
+        if name.isupper():
+            score -= 25
+        if name.endswith(("_END", "_QP", "_START")):
+            score -= 30
+        if score >= 0:
+            ranked.append((score, name))
+    if not ranked:
+        return None
+    ranked.sort(key=lambda x: (-x[0], len(x[1]), x[1]))
+    return ranked[0][1]
+
+
+def _entry_candidate_score(row: dict, file_row: dict, text: str) -> int:
+    label = file_row.get("label") or Path(file_row.get("path", "")).name
+    path = file_row.get("path", "")
+    stem = Path(label).stem
+    if stem in ("index", "registry", "theme", "ui", "lw-host") or "/kit/" in path:
+        return -1000
+    score = 0
+    if stem.startswith(row["ftId"] + "-") or stem == row["ftId"]:
+        score += 100
+    if "/scenes/" in path or re.match(r"(S|Open|EP)\d", stem):
+        score += 35
+    if re.search(r"from\s+['\"]\.\./kit/(theme|ui)['\"]|from\s+['\"]\./kit/(theme|ui)['\"]", text):
+        score += 30
+    exports = _component_exports(text)
+    if exports:
+        score += 20
+    if any(x["kind"] == "react-fc" for x in exports):
+        score += 20
+    if stem == "shared":
+        score -= 60
+    if "/components/" in path and not stem.startswith(row["ftId"]):
+        score -= 5
+    return score + min(len(text) // 20000, 5)
+
+
+def _entry_missing_imports(row: dict, entry: dict) -> list[str]:
+    """Resolve imports of the *actual* entry, not the inventory's fallback entry."""
+    files = [f for f in row["source"]["files"] if f.get("cachePath")]
+    entry_path = entry.get("path") or entry.get("label")
+    entry_rel = src_relative(entry_path, entry.get("label", ""), "")
+    available = {src_relative(f.get("path") or f.get("label"), f.get("label", ""), "") for f in files}
+    missing = []
+    for spec in L.import_specs(L.CACHE / entry["cachePath"]):
+        if not spec.startswith("."):
+            continue
+        resolved = L.resolve_local_import(spec, entry_rel, available, "")
+        if not resolved:
+            missing.append(spec)
+    return sorted(set(missing))
+
+
+def auto_kit_profile(row: dict) -> dict:
+    """Derive a kit-overlay profile from inventory + the fetched source tree."""
+    if row["adaptation"]["strategy"] != "kit-overlay":
+        raise ValueError(f"{row['lwId']} is {row['adaptation']['strategy']}, not kit-overlay")
+    if row["dependencies"].get("missing"):
+        raise ValueError(f"{row['lwId']} has unresolved imports: {row['dependencies']['missing'][:3]}")
+    files = [f for f in row["source"]["files"] if f.get("cachePath")]
+    labels = [Path(f.get("label") or f["path"]).name for f in files]
+    if "theme.ts" not in labels or "ui.tsx" not in labels:
+        raise ValueError(f"{row['lwId']} kit/theme.ts or kit/ui.tsx missing from declared sources")
+    best = None
+    best_score = -1000
+    for f in files:
+        text = _source_text(row, f)
+        score = _entry_candidate_score(row, f, text)
+        if score > best_score:
+            best, best_score = f, score
+    if not best or best_score < 0:
+        raise ValueError(f"{row['lwId']} no component entry file found")
+    missing = _entry_missing_imports(row, best)
+    if missing:
+        raise ValueError(f"{row['lwId']} entry {best['path']} imports unresolved: {missing[:4]}")
+    entry_text = _source_text(row, best)
+    symbol = _pick_component_symbol(entry_text, best.get("label") or best["path"], row["ftId"])
+    if not symbol:
+        raise ValueError(f"{row['lwId']} no exported component symbol in {best['path']}")
+    defaults = row["params"].get("defaultsName")
+    if not defaults:
+        m = re.search(r"export\s+const\s+([A-Za-z0-9_]+Defaults)\s*", entry_text)
+        defaults = m.group(1) if m else None
+    entry_path = best.get("path") or best.get("label")
+    entry_file = src_relative(entry_path, best.get("label", ""), "")
+    return {
+        "lwId": row["lwId"],
+        "ftId": row["ftId"],
+        "strategy": "kit-overlay",
+        "entryFile": entry_file,
+        "entryPath": entry_path,
+        "entryExport": symbol,
+        "defaultsExport": defaults,
+        "accent": DEFAULT_ACCENT,
+        "background": "#f5f3eb",
+        "editableKeys": row["params"].get("keys", []),
+        "sampleProps": {},
+        "paramNotes": "自动生成：使用上游 defaults；参数键来自 inventory 静态分析。",
+        "meta": {
+            "id": row["lwId"],
+            "ftId": row["ftId"],
+            "category": row["category"],
+            "nativeFrames": row["upstream"].get("nativeFrames") or 300,
+            "fps": int(row["upstream"].get("fps") or 60),
+            "upstreamRevision": L.REVISION,
+        },
+        "notes": "Auto-generated kit-overlay profile. Entry/symbol/defaults are selected from inventory + source exports.",
+    }
+
+
+def select_auto_kit(rows: list[dict], limit: int | None = None, include_adapted: bool = False) -> tuple[list[dict], list[dict]]:
+    selected: list[dict] = []
+    skipped: list[dict] = []
+    for row in sorted(rows, key=lambda r: r["lwId"]):
+        if row["adaptation"]["strategy"] != "kit-overlay":
+            continue
+        if row["lwId"] in EXISTING_IDS:
+            continue
+        if not include_adapted and (ADAPTED / row["lwId"] / "provenance.json").exists():
+            continue
+        try:
+            profile = auto_kit_profile(row)
+        except Exception as exc:
+            skipped.append({"lwId": row["lwId"], "ftId": row["ftId"], "reason": str(exc)})
+            continue
+        selected.append(profile)
+        if limit is not None and len(selected) >= limit:
+            break
+    return selected, skipped
+
+
+def run_auto_kit(limit: int | None, run_id: str | None, dry_run: bool, include_adapted: bool) -> int:
+    rows = L.load_json(L.BATCH / "inventory.json")
+    profiles, skipped = select_auto_kit(rows, limit=limit, include_adapted=include_adapted)
+    run_id = run_id or datetime.now(timezone.utc).strftime("auto-%Y%m%d-%H%M%S")
+    run_dir = RUNS / run_id
+    plan = {
+        "runId": run_id,
+        "createdAt": datetime.now(timezone.utc).isoformat(),
+        "strategy": "kit-overlay",
+        "selection": "inventory.adaptation.strategy == kit-overlay; kit/theme.ts + kit/ui.tsx present; entry export resolved",
+        "count": len(profiles),
+        "components": [
+            {
+                "lwId": p["lwId"], "ftId": p["ftId"], "entryFile": p["entryFile"],
+                "entryExport": p["entryExport"], "defaultsExport": p["defaultsExport"],
+                "editableKeys": p["editableKeys"],
+            }
+            for p in profiles
+        ],
+        "skipped": skipped,
+    }
+    L.dump_json(run_dir / "plan.json", plan)
+    if profiles:
+        L.dump_json(AUTO_PROFILES, {"generatedAt": plan["createdAt"], "profiles": profiles})
+    print(f"run={run_id} selected={len(profiles)} skipped={len(skipped)}")
+    for p in profiles:
+        print(f"  {p['lwId']} {p['entryFile']} -> {p['entryExport']}")
+    for s in skipped[:10]:
+        print(f"  skip {s['lwId']}: {s['reason']}")
+    if len(skipped) > 10:
+        print(f"  ... {len(skipped) - 10} more skipped")
+    if dry_run:
+        print(f"dry-run plan -> {run_dir/'plan.json'}")
+        return 0
+
+    inv = {r["lwId"]: r for r in rows}
+    tag = L.ensure_tag_tree(L.default_tag_root())
+    results = []
+    for p in profiles:
+        row = inv[p["lwId"]]
+        try:
+            prov = build_kit_overlay(p, row, tag)
+            print(f"adapted {p['lwId']} -> {len(prov['files'])} files; edits: {len(prov['hostEdits'])}")
+            results.append({"lwId": p["lwId"], "status": "adapted", "files": len(prov["files"]), "error": None})
+        except Exception as exc:
+            message = f"{type(exc).__name__}: {exc}"
+            print(f"FAIL {p['lwId']}: {message}")
+            results.append({"lwId": p["lwId"], "status": "adapt-fail", "files": 0, "error": message})
+    regenerate_registry()
+    L.dump_json(run_dir / "adapt-status.json", {
+        "runId": run_id, "selected": len(profiles), "adapted": sum(1 for r in results if r["status"] == "adapted"),
+        "failed": sum(1 for r in results if r["status"] != "adapted"), "results": results, "skipped": skipped,
+    })
+    print(f"plan/status -> {run_dir}")
+    return 0 if all(r["status"] == "adapted" for r in results) else 1
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", nargs="*", help="LW ids or FredTalk labels")
-    ap.add_argument("--all-kit", action="store_true", help="adapt every kit-overlay component (batch mode)")
+    ap.add_argument("--all-kit", action="store_true", help="select kit-overlay components from inventory (batch mode)")
+    ap.add_argument("--limit", type=int, default=None, help="max components for --all-kit")
+    ap.add_argument("--dry-run", action="store_true", help="only write the auto plan, do not adapt")
+    ap.add_argument("--include-adapted", action="store_true", help="re-adapt components that already have provenance")
+    ap.add_argument("--run-id", default=None, help="run directory name for --all-kit")
     args = ap.parse_args()
+
+    if args.all_kit:
+        return run_auto_kit(args.limit, args.run_id, args.dry_run, args.include_adapted)
 
     inv = {r["lwId"]: r for r in L.load_json(L.BATCH / "inventory.json")}
     tag = L.ensure_tag_tree(L.default_tag_root())
     profiles = load_profiles()
     if args.only:
         profiles = [p for p in profiles if p["lwId"] in args.only or p["ftId"] in args.only]
+        missing = [x for x in args.only if not any(p["lwId"] == x or p["ftId"] == x for p in profiles)]
+        for mid in missing:
+            row = inv.get(mid) or next((r for r in inv.values() if r["ftId"] == mid), None)
+            if row and row["adaptation"]["strategy"] == "kit-overlay":
+                profiles.append(auto_kit_profile(row))
 
     done = []
     for p in profiles:
@@ -473,6 +751,18 @@ def regenerate_registry() -> None:
             continue
         p = L.load_json(prov)
         pj = L.load_json(props)
+        source_sha = p.get("sourceSha256")
+        if not source_sha:
+            source_sha = hashlib.sha256(
+                json.dumps(
+                    sorted(
+                        [{"path": f.get("upstreamPath"), "sha256": f.get("sha256")} for f in p.get("files", [])],
+                        key=lambda x: (x["path"] or "", x["sha256"] or ""),
+                    ),
+                    ensure_ascii=False,
+                    sort_keys=True,
+                ).encode("utf-8")
+            ).hexdigest()
         entries.append({
             "id": p["lwId"], "ftId": p["ftId"], "name": p["name"], "category": p["category"],
             "strategy": p["strategy"], "nativeFrames": p.get("nativeFrames", pj.get("nativeFrames")),
@@ -480,6 +770,9 @@ def regenerate_registry() -> None:
             "accent": pj.get("accent"), "background": pj.get("background"),
             "sampleProps": pj.get("defaultProps", {}),
             "editableKeys": pj.get("editableKeys", []),
+            "sourceSha256": source_sha,
+            "adapterSha256": p.get("adapterSha256") or L.sha256_file(adapter),
+            "adapterVersion": p.get("adapterVersion") or ADAPTER_VERSION,
             "importPath": f"../../external/fredtalk/adapted/{p['lwId']}/src/adapter",
         })
     # native metadata lives in inventory; merge it here
@@ -492,17 +785,18 @@ def regenerate_registry() -> None:
             e["sourceFrames"] = e["nativeFrames"]
     lines = ["// AUTO-GENERATED by tools/fredtalk/adapt.py. Do not edit by hand.",
              "import React from 'react';",
-             "export type FredBatchEntry = {adapter: React.ComponentType<any>; defaultProps: Record<string, unknown>; meta: {id: string; ftId: string; category: string; strategy: string; nativeFrames: number; fps: number; upstreamRevision: string}; id: string; nativeFrames: number; fps: number; accent: string; background: string; sampleProps: Record<string, unknown>; editableKeys: string[]; sourceFrames: number};"]
+             "export type FredBatchEntry = {adapter: React.ComponentType<any>; defaultProps: Record<string, unknown>; meta: {id: string; ftId: string; category: string; strategy: string; nativeFrames: number; fps: number; upstreamRevision: string}; id: string; nativeFrames: number; fps: number; accent: string; background: string; sampleProps: Record<string, unknown>; editableKeys: string[]; sourceFrames: number; sourceSha256: string; adapterSha256: string; adapterVersion: string};"]
     for i, e in enumerate(entries):
         lines.append(f"import {{Adapter as A{i}, defaultProps as D{i}, adapterMeta as M{i}}} from '{e['importPath']}';")
     lines.append("")
     lines.append("export const fredBatch: FredBatchEntry[] = [")
     for i, e in enumerate(entries):
-        lines.append("  {adapter:A%d, defaultProps:D%d, meta:M%d, id:%s, nativeFrames:%d, fps:%d, accent:%s, background:%s, sampleProps:%s, editableKeys:%s, sourceFrames:%d},"
+        lines.append("  {adapter:A%d, defaultProps:D%d, meta:M%d, id:%s, nativeFrames:%d, fps:%d, accent:%s, background:%s, sampleProps:%s, editableKeys:%s, sourceFrames:%d, sourceSha256:%s, adapterSha256:%s, adapterVersion:%s},"
                      % (i, i, i, json.dumps(e["id"]), e["nativeFrames"], e["fps"],
                         json.dumps(e["accent"]), json.dumps(e["background"]),
                         json.dumps(e["sampleProps"], ensure_ascii=False),
-                        json.dumps(e["editableKeys"], ensure_ascii=False), e["nativeFrames"]))
+                        json.dumps(e["editableKeys"], ensure_ascii=False), e["nativeFrames"],
+                        json.dumps(e["sourceSha256"]), json.dumps(e["adapterSha256"]), json.dumps(e["adapterVersion"])))
     lines.append("];")
     path = L.VS / "src" / "references" / "fredtalk-registry.generated.tsx"
     path.parent.mkdir(parents=True, exist_ok=True)

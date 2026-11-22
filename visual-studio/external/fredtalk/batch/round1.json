@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "branch": "feature/fredtalk-batch-adapter",
+  "baseline": "feature/resource-adapters-poc",
+  "items": [
+    {
+      "lwId": "FT-T03e-414",
+      "evidence": "external/fredtalk/batch/evidence/FT-T03e-414/"
+    },
+    {
+      "lwId": "FT-T09s-289",
+      "evidence": "external/fredtalk/batch/evidence/FT-T09s-289/"
+    },
+    {
+      "lwId": "FT-T12d-407",
+      "evidence": "external/fredtalk/batch/evidence/FT-T12d-407/"
+    },
+    {
+      "lwId": "FT-T12l-337",
+      "evidence": "external/fredtalk/batch/evidence/FT-T12l-337/"
+    },
+    {
+      "lwId": "FT-T20f-395",
+      "evidence": "external/fredtalk/batch/evidence/FT-T20f-395/"
+    },
+    {
+      "lwId": "FT-OP03-467",
+      "evidence": "external/fredtalk/batch/evidence/FT-OP03-467/"
+    },
+    {
+      "lwId": "FT-T05a-436",
+      "evidence": "external/fredtalk/batch/evidence/FT-T05a-436/"
+    },
+    {
+      "lwId": "FT-T20a2-405",
+      "evidence": "external/fredtalk/batch/evidence/FT-T20a2-405/"
+    },
+    {
+      "lwId": "FT-T14e-378",
+      "evidence": "external/fredtalk/batch/evidence/FT-T14e-378/"
+    },
+    {
+      "lwId": "FT-T15a-426",
+      "evidence": "external/fredtalk/batch/evidence/FT-T15a-426/"
+    },
+    {
+      "lwId": "FT-T09n-374",
+      "evidence": "external/fredtalk/batch/evidence/FT-T09n-374/"
+    },
+    {
+      "lwId": "FT-RC02-471",
+      "evidence": "external/fredtalk/batch/evidence/FT-RC02-471/"
+    }
+  ]
+}

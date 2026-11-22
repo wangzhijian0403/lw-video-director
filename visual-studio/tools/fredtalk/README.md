@@ -12,13 +12,31 @@
 
 ```bash
 python3 tools/fredtalk/inventory.py       # 432 条盘点 -> external/fredtalk/batch/inventory.{json,md,csv}
-python3 tools/fredtalk/adapt.py           # 12 条代表组件适配 -> external/fredtalk/adapted/
+python3 tools/fredtalk/adapt.py           # 第一轮 12 条 profile 适配
+python3 tools/fredtalk/adapt.py --all-kit --limit 20 --dry-run   # 只生成自动选件计划
+python3 tools/fredtalk/batch.py --next 20 # 自动选件 -> 适配 -> 渲染 -> 机器 QA -> 报告
+python3 tools/fredtalk/batch.py --next 20 --dry-run              # 只验证选件，不写文件
 LW_BROWSER=/usr/local/bin/chromium \
-  node tools/fredtalk/render_batch.mjs    # 真实 Remotion MP4 + 审片帧，支持断点/跳过/--force
-python3 tools/fredtalk/qa_media.py        # cv2 解码 QA -> evidence/<id>/qa.json
-python3 tools/fredtalk/report.py          # status.json + round-1-acceptance.md
+  node tools/fredtalk/render_batch.mjs --plan external/fredtalk/batch/runs/<run>/plan.json
+python3 tools/fredtalk/qa_media.py --run-id <run>                # 机器结构 QA
+python3 tools/fredtalk/report.py --run-id <run>                  # 独立批次验收报告
+python3 tools/fredtalk/report.py          # 第一轮 status.json + round-1-acceptance.md
 python3 tools/fredtalk/update_catalog.py  # 仅把渲染+QA 通过的条目写回 external/catalog.json
+npm run test:fredtalk                     # 取源/自动适配/断点/指纹回归测试
 ```
+
+`adapt.py --all-kit` 的选件条件由 inventory 决定：`strategy=kit-overlay`、声明文件中含 `kit/theme.ts` + `kit/ui.tsx`、实际入口导出可解析、入口的所有相对 import 可解析。任何一条不满足都记为 `skipped` 并写原因，不会退回手工 profile。
+
+## 渲染断点与输入指纹
+
+`render_batch.mjs` 在 `status.json` 中保存 `inputFingerprint`，覆盖：适配器版本、生成的 `adapter.tsx` SHA-256、上游源码 SHA-256、props、主题色、背景色、speed、fps、时长。只有状态为 pass 且指纹完全一致才跳过；源码、参数、主题或适配器任一变化都会自动重新渲染。`--force` 可强制重跑，失败条目下次会重试。
+
+## 证据与产物分层
+
+- 第一轮 12 条：`external/fredtalk/batch/evidence/<LW-ID>/`（MP4 + 5 帧 + qa.json，随仓库交付）。
+- 后续自动批次：`external/fredtalk/batch/runs/<runId>/`（默认被 `.gitignore` 忽略，作为独立验收产物打包交付，避免把 432 条视频永久提交）。
+- 机器 QA：`qa.json` 的 `machineStatus`，只代表结构检查。
+- 人工视觉：`reviews-round1.json` / 批次 `reviews.json`，单独计数；未审片一律 `pending`。
 
 ## 适配策略
 

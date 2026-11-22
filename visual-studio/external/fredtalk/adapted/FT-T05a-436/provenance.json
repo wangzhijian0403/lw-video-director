@@ -4,6 +4,11 @@
   "name": "滑杆前后对比",
   "category": "图片与作品",
   "strategy": "kit-overlay",
+  "adapterVersion": "fred-batch/1.1",
+  "sourceSha256": "6fe5c115ca959e5b5395c8e6d72704f4c9eb965304faa82a28dc502d3124db41",
+  "adapterSha256": "6fda549b1e9316806a7e5745c0c78fbf09e03c44cfad1adc98a11a8ffcec77f3",
+  "nativeFrames": 300,
+  "fps": 60,
   "upstream": {
     "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
     "publicTag": "v2.5.0",

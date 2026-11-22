@@ -4,6 +4,11 @@
   "name": "整页镜头推近与回全貌",
   "category": "录屏聚焦",
   "strategy": "project-expand",
+  "adapterVersion": "fred-batch/1.1",
+  "sourceSha256": "50dfd71e5befe648ac0a3ef51a6a23c9c1bf88a48272016364ab9730e90808b0",
+  "adapterSha256": "54057ada47f14c42c30fa4698a7dfcba52fad286dd536ee84e2c6517a9c5420d",
+  "nativeFrames": 480,
+  "fps": 60,
   "upstream": {
     "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
     "publicTag": "v2.5.0",
