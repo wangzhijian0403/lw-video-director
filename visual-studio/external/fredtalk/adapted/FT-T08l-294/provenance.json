@@ -1,0 +1,65 @@
+{
+  "lwId": "FT-T08l-294",
+  "ftId": "T08l",
+  "name": "长页小地图：侧边缩略条标位置，一跳到下一处",
+  "category": "讲解段落",
+  "strategy": "kit-overlay",
+  "adapterVersion": "fred-batch/1.2",
+  "sourceSha256": "eec24a24c35e938c8691189732c37f55a7fb4bf946f96c1c196a03407e14f98f",
+  "adapterSha256": "ae22b7e45763acd51af7dbff543aa4a630c7f9ba23a7176684704d6e37e73a4c",
+  "nativeFrames": 180,
+  "fps": 30,
+  "upstream": {
+    "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
+    "publicTag": "v2.5.0",
+    "project": null,
+    "officialUrl": "https://www.fred-fu.com/visual-library"
+  },
+  "license": {
+    "firstPartyCode": "MIT (FredTalk owner grant 2026-10-13)",
+    "thirdPartyMedia": "not covered; upstream media intentionally not redistributed",
+    "font": "SmileySans-Oblique OFL-1.1, unmodified, bundled by LW host",
+    "audio": "upstream SFX omitted; adapter is silent",
+    "attribution": "FredTalk component library; adapted by LW, not claimed as LW original"
+  },
+  "entry": "source/src/components/T08l-MinimapJump.tsx",
+  "files": [
+    {
+      "upstreamPath": "source/src/components/T08l-MinimapJump.tsx",
+      "copy": "components/T08l-MinimapJump.tsx",
+      "sha256": "fbdb9f07134b40a8d46acc77f4273329a4a8b8a3c53785595d9ec23d53d38bff",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "source/src/kit/theme.ts",
+      "copy": "kit/theme.ts",
+      "sha256": "30d534daaab3c4b62468d23f16166939adfc89f94a02b954f6b0e3c05fc9701d",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "source/src/kit/ui.tsx",
+      "copy": "kit/ui.tsx",
+      "sha256": "05bdc4d6b17c5779e753c9a0b9c86c1dd7ef7e432666d6c49d0541ba367b1775",
+      "channel": "api",
+      "status": "verified"
+    }
+  ],
+  "hostEdits": [
+    "theme body -> LW font",
+    "theme display -> LW font",
+    "theme mono -> LW font",
+    "theme kai -> LW font",
+    "configureTheme added",
+    "host context import",
+    "useT respects host speed",
+    "Fonts -> OFL SmileySans",
+    "Brand removed",
+    "Sfx muted",
+    "Frame background -> host",
+    "media literals -> LW placeholders (1 refs; upstream media not redistributed)"
+  ],
+  "sourcePatches": [],
+  "notes": "Auto-generated kit-overlay profile. Entry/symbol/defaults are selected from inventory + source exports."
+}

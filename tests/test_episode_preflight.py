@@ -50,7 +50,7 @@ class EpisodePreflightTests(unittest.TestCase):
     def test_preflight_rejects_unverified_external(self):
         content = json.loads(SAMPLE.read_text(encoding="utf-8"))
         content["scenes"][0]["library"] = "references"
-        content["scenes"][0]["componentId"] = "MP-002"
+        content["scenes"][0]["componentId"] = "FT-T05q-250"
         with tempfile.TemporaryDirectory() as temp:
             path = Path(temp) / "episode.json"
             path.write_text(json.dumps(content, ensure_ascii=False), encoding="utf-8")

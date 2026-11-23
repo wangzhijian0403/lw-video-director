@@ -1,6 +1,7 @@
 ---
 name: ai-video-director
 description: 帮用户完成原创短视频策划、口播、分镜、动效与画面选择、音画同步、整片渲染、质检与返修；也用于拆解参考视频、运镜及MG/3D动画、管理LW原创视觉库、合法外部引用库与素材索引/授权检索。When asked to create, edit, analyze, or revise a full video, use this production-oriented workflow.
+agent_created: true
 ---
 
 # AI 视频导演与专业剪辑师
@@ -32,11 +33,34 @@ description: 帮用户完成原创短视频策划、口播、分镜、动效与�
 
 本地工作台新增「素材图鉴」：可预览已安装的原创场景、FredTalk 实装动效及24个 SVG 图标，并查看用户角色登记；不是自动搜索磁盘全部素材，也不代表所有外部引用目录都已拿到源码。Windows 可在更新后的仓库根目录双击 `start-lw-studio.cmd` 等待服务就绪，再用浏览器访问 http://127.0.0.1:4173；`/api/health` 可检测服务。绘制场景的画面质量仍需真实审片，不以测试渲染通过替代视觉批准。
 
+## FredTalk 全库接入状态（LW-FT-FULL-001 · 运行时已装进本 Skill）
+
+以 [全库逐条状态清单](references/fredtalk-full-library-status.md) 为唯一事实来源，按 `lwId` 去重，432 条目录逐条记录源码/SHA/依赖/许可/可编辑参数/策略/渲染/机器 QA/人工视觉/工作台导出/失败原因。**机器 QA 通过绝不等于人工视觉通过**，未审片一律 `pending`。
+
+**先统一口径**：上游 `library-catalog-v2.5.0.json` 的 432 条 = **286 条活跃库 + 146 条归档老版本**（归档可用 `defaultReuse=False` 精确识别）。用户要接的是**活跃库 286 条**，不是把归档也算进去的 432 条；选型与对外汇报一律以 286 为分母。
+
+- **活跃库 286 条：已能在本 Skill 工作台真实调用 112 条，还差 174 条。** 全量 432 口径为 113 条可执行（多出的 1 条属归档老版本）。这 112 条已同步进本 Skill 自带的 `visual-studio/`（`external/catalog.json` 中 `executable=true`；adapter 为 `fred-batch` 111 条、`fred-step-chain` 1 条），并用 Skill 自己的 `server.mjs` 真实渲染出 180 帧 1280×720 MP4 验证过（证据 [skill-verification.json](references/fredtalk-full-library-data/skill-verification.json)），**不再只是独立工作树里的成果**。
+- 112 条中 **100 条为 `production-ready`**（适配+渲染+机器QA+人工视觉+工作台导出+可执行全通过），另有 **12 条为较早已执行、但未补工作台导出记录的 `visual-accepted`**。选组件仍以清单 `tier` 列为准：只有 `production-ready` 可作为正式制作候选；`machine-qa-only`、`rendered-qa-not-pass`、`candidate-not-adapted`、`blocked-dependency` 一律不得用于交付成片。
+- 还差 174 条 = **18 条**已真实渲染但机器 QA 未过（须逐条人工复核，口述批量结论不得顶替机器 QA）、**8 条**差适配（kit 依赖缺失 / standalone 入口元数据）、**148 条**缺项目内依赖文件。这三类需要开发通用 `project-expand` / `standalone` 适配器，**不是再跑一次批量任务能补齐的**，不得伪造完成。
+- 批量入口在 `visual-studio/tools/fredtalk/`，复用现有引擎，禁止另写第二套：**`inventory.py` 盘点 → `adapt.py`/`batch.py --next N` 自动选件适配 → `render_batch.mjs` 真实 MP4 → `qa_media.py` 机器 QA → `report.py` 报告 → `workbench_export.py` 工作台导出 → `promote_candidates.py` 晋级**。晋级必须同时有人工视觉 `pass` 与工作台导出 `pass`，且机器 QA 亦须 `pass`；不得用机器 QA 单独晋级。
+- 全新克隆必做：`.cache/sources` 不入库，先跑 `python tools/fredtalk/hydrate_cache.py` 按 SHA-256 校验补取源码缓存，否则自动选件会因无法解析入口导出而返回 0 条。Windows 无 ffmpeg 时 `qa_media.py` 用 OpenCV，`render_batch.mjs` 需设 `LW_BROWSER` 指向本机 Chrome；字体 `SmileySans-Oblique.ttf` 需 `npm run setup:fred`。两个 Chrome 渲染任务（批量渲染与工作台导出）**必须串行**，并行会触发 OOM / FFmpeg 中断。
+- 基线策略分布（inventory）：284 条 `blocked-dependency`、135 条 `kit-overlay`、8 条 `standalone`、5 条 `standalone-module`。其中 135 条 kit-overlay 自动候选已全部适配并真实渲染；剩余缺口如上，需通用适配器开发。**不得为凑数量用静态截图代替动画，或用同一个通用动画替代不同组件。**
+
+## Motion Prompt 全库接入状态（LW-MP-FULL-240 · 240/240 已入库并可执行）
+
+以 [Motion Prompt 全库清单](references/motion-prompt-library-status.md) 为事实来源。上游是 MIT 授权（© 2026 Shohei Ohtaki）的 240 条 canvas 动效，10 个套件 × 24 条；本轮从官方源码 API 全量取源、逐条真实渲染并晋级，**240 条全部可在当前 Skill 工作台本地渲染**。
+
+- 240 条源码（10 个 kit + 240 个 element + 27 张 artstyle 图片）已按 SHA-256 固定在 `visual-studio/external/motion-prompt/` 与 `public/img/`。每条都是上游独立的纯绘制函数，不是通用模板换皮。
+- 全量结果：**源码执行校验 240/240、真实 MP4 渲染 240/240、机器 QA 240/240、晋级可执行 240/240**。MP-001 保留原有 `motion-pop-in` 路径，另外 239 条使用 `motion-prompt-cell` adapter。
+- 已增量安装进本 Skill 的 `visual-studio/`：`generated-runtime.js`（静态运行时）、`MotionPromptStage.tsx`、`motion-prompt-registry.*`、root.tsx 中 239 个 Composition、render.mjs / server.mjs 的渲染分支；`npx tsc --noEmit`、前端 29 项、接口 8 项、Python 26 项测试全通过。
+- 入口 `visual-studio/tools/motion-prompt/`：`fetch_sources.py` → `verify_sources.mjs` → `build_runtime.py` → `render_all_mp.mjs` → `qa_all_mp.py` → `promote_mp.py` → `sync_mp_runtime.py`。大批量渲染必须复用同一个 Chrome 实例（`puppeteerInstance`），否则每条冷启动约 1 分钟。
+- 工作台渲染提示已修正（2026-11-23）：已装源码的条目不再误写“未安装源码”；渲染状态、进度和下载入口放在按钮下方，渲染中禁用按钮；Remotion 浏览器启动超时提高到 120 秒。重启 4173 后实测 MP-006 可生成真实 MP4。
+
 ## 制作模式的执行合同
 
 1. 从主题/素材形成受众、情绪与叙事主线，确定画幅、长度、口播语言、优先级。**禁止硬编码全局 30 秒、25–35 秒或 5–7 镜门槛**；没有用户指定时长时，以原稿和实测语音为依据，再按场景复杂度设镜头数量和输出计划。现阶段 1920×1080、16:9、30fps 是已有工程验证的默认横屏输出，非永远固定的画幅；9:16 需原生设计并实渲验收。
 2. 生成逐句脚本及可核查事实/来源，规划每句对应的镜头信息职责，形成项目级 `episode.json`，参照 [模板](templates/episode-manifest.example.json)。语音生成/真实录音和字幕时间码必须来自实际音轨，禁止臆造时长或语音识别结果。
-3. 仅选择**当前分支实际有源码、注册和渲染证据**的组件：LW Originals、MP-001、已经进入 main 的16条精选 FredTalk（其中15条视觉初审通过、1条更早独立验证），以及本分支通过测试的新增资源；其余 FredTalk 目录内容仍不能当成已安装或已通过审片。需要外部图标、插画、Lottie 或 FredTalk 时优先挑选来源/授权明确、已验证的组件，未集成则标记依赖并安全适配；视频素材/截图/音乐的权利另查。避免全片重复同一个模板或用无关几何物件充数。
+3. 仅选择**当前工作区实际有源码、注册和渲染证据**的组件：LW Originals、[Motion Prompt 全库 240 条](references/motion-prompt-library-status.md)（均已在 Skill 内真实渲染并晋级）、已经进入 main 的 16 条精选 FredTalk，以及本 Skill 自带 `visual-studio/external/catalog.json` 中 `executable=true` 的 112 条 FredTalk（其中 100 条在 [全库清单](references/fredtalk-full-library-status.md) 中标为 `production-ready`，优先选用）；`machine-qa-only`、`rendered-qa-not-pass`、`blocked-dependency`、`candidate-not-adapted` 一律不得用于交付成片。需要外部图标、插画、Lottie 或 FredTalk 时优先挑选来源/授权明确、已验证的组件，未集成则标记依赖并安全适配；视频素材/截图/音乐的权利另查。避免全片重复同一个模板或用无关几何物件充数。
 4. 使用 `python scripts/episode_preflight.py <episode.json> --phase plan` 校验镜头表；在尝试整片输出前使用 `--phase render` 检查语音、字幕、权利、视频比例与**已验证的整片引擎能力**。检查失败时先解决缺口，不伪造 PASS。
 5. 在真实实现存在的前提下，执行整片拼接、配音、字幕、BGM/SFX 混合、MP4 导出；使用 `scripts/validate_export.py` 和实际观看检查黑帧、节奏、中文字幕、局部遮挡、运镜连贯性、音画同步、削波和版权。未经本机真实运行验证不得宣称“自动出片完成”。
 6. 交付 **成片 + 可编辑制作配置/项目 + 字幕与脚本 + QA 报告 + 资产/许可台账**；若环境缺少 TTS、ASR、整片合成或素材，报告已完成的阶段、具体阻塞项及最短解决方案，不把没有音轨的组件测试片说成完整成片。
@@ -46,7 +70,7 @@ description: 帮用户完成原创短视频策划、口播、分镜、动效与�
 - [本分支已具备工程实证] `visual-studio/` 的 Remotion `Project` Composition、`timeline.mjs`、`direct.mjs`、字幕、配音母版、SFX/BGM 配轨可构成多镜头视频；《造纸术》有 11 镜、83.7 秒的本地成片证据，**但其视觉质量未通过正式发布验收**。五个 LW Originals、MP-001 和工作台单组件导出仍保留。详见 [成片管线](references/production-pipeline.md)。
 - [部分验证] 本地 7788 TTS 的“老王3.0_紧凑版”曾为该项目提供真实配音；服务、音色和个人凭据**不随 GitHub 提交**，需在新执行环境确认可用。字幕可依据实际音频/SRT 编排，**没有通用的逐词 ASR/强制对齐保证**。
 - [未验证或未完成] 任意文案自动分镜、任意题材自动择材、通用编排审美、跨题材自动生成、9:16 整片实渲、跨平台可复现、成熟的局部重渲/重混与声音主观听感门禁仍未完成或未充分验证。不要把技术工具能运行说成这些能力已完成。
-- [分支隔离] FredTalk 批量适配在 Draft PR #8（依赖 #6），**本短视频分支未合入**，不能将其当作可直接调用的生产组件；PR #7 的造纸题材组件不等于跨题材通用组件。需要引用时先经独立许可、渲染及接缝验证。
+- [已合入 main / 本地 Skill 已同步] FredTalk 批量适配主线与 Motion Prompt 全库 240 条已合入主仓库 `main`，并同步到本 Skill 自带的 `visual-studio/`。LW-FT-FULL-001 已完成：432 条去重清单、134 条适配注册、134 条真实 MP4 渲染、batch-22 的 20 条 + LWFT-FULL-84 的 66 条经双门槛晋级，累计 `production-ready` 101 条（活跃库 100 条）、工作台可执行 113 条（活跃库 112 条）。Motion Prompt 240/240 已入库、真渲、QA、晋级。`npx tsc --noEmit`、前端 29 项与接口 8 项测试通过，工作台真实 HTTP 抽样通过；MP-006 与 FT-T09w-292 均用本地 `server.mjs` 真实渲染出 1280×720 MP4。仍需诚实保留：FredTalk 活跃库还差 174 条（18 条机器 QA 未过、8 条差适配、148 条依赖缺失，需通用适配器）。详见 [全库清单](references/fredtalk-full-library-status.md) 与 [Motion Prompt 清单](references/motion-prompt-library-status.md)。PR #7 的造纸题材组件不等于跨题材通用组件。
 - 只有来源、许可证、依赖、实际渲染和视觉审核逐级通过的外部组件才可进入正式制作候选；第三方媒体权利与组件代码许可分别核验。
 - 所有结论标注 `[实测]`、`[观察]`、`[推测]`、`[验证通过]` 或 `[待确认]`；代码运行通过不等于视觉验收通过。用户未授权发布时不得自行上传平台。
 
@@ -59,5 +83,3 @@ description: 帮用户完成原创短视频策划、口播、分镜、动效与�
 `scripts/inspect_media.py` 清点、去重与流探测；`extract_frames.py` 抽帧；`detect_shot_candidates.py` 检测候选；`analyze_audio.py` 测量混合音轨；`validate_export.py` 检查输出；`render_components.py` 渲染原创 **2D 演示**。脚本支持 `--help`。实际用法和限制见 [工作流与验收](references/workflow-and-qa.md)、[音频与字幕](references/audio-and-subtitles.md)。
 
 修改代码和知识库时保留来源、版本、数据和测试记录，不覆盖用户原片或已有工程；在独立工作区/分支开发，不静默改写全局 Skill。
-
-**工作台导航规则（统一资源库）**：工作台的 `Originals` 是唯一已安装资源入口，左侧保留15条原创组件的分类，同时进入3个原创分层场景、16条FredTalk已集成动效、24个Tabler SVG图标和5个本地角色登记。`References` 仅供外部参考检索，不能当作已执行代码。新版不再另设顶层「素材图鉴」。资源类别的浏览预览**不等于可单键导出**：当前右上角单组件MP4导出只支持Originals原有组件；新增资源须通过 `ProjectVideo`/`project.json` 的已有整片命令渲染。验证通过的 `fish/wave` 与 `codex/typing` 若本机存在私有WebM，可以在浅/深背景预览安全片段；其他角色只登记未通过状态。不要上传私有媒体。

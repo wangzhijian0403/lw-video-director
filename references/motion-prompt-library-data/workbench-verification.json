@@ -1,0 +1,109 @@
+{
+  "runId": "LW-MP-FULL-240",
+  "stage": "workbench-end-to-end",
+  "sampled": 10,
+  "pass": 10,
+  "fail": 0,
+  "results": {
+    "MP-205": {
+      "status": "pass",
+      "probe": {
+        "frames": 141,
+        "width": 1280,
+        "height": 720,
+        "bytes": 1261166,
+        "meanDiff": 21.227
+      }
+    },
+    "MP-037": {
+      "status": "pass",
+      "probe": {
+        "frames": 282,
+        "width": 1280,
+        "height": 720,
+        "bytes": 314733,
+        "meanDiff": 0.101
+      }
+    },
+    "MP-181": {
+      "status": "pass",
+      "probe": {
+        "frames": 282,
+        "width": 1280,
+        "height": 720,
+        "bytes": 807739,
+        "meanDiff": 0.353
+      }
+    },
+    "MP-229": {
+      "status": "pass",
+      "probe": {
+        "frames": 141,
+        "width": 1280,
+        "height": 720,
+        "bytes": 87044,
+        "meanDiff": 2.523
+      }
+    },
+    "MP-085": {
+      "status": "pass",
+      "probe": {
+        "frames": 144,
+        "width": 1280,
+        "height": 720,
+        "bytes": 82989,
+        "meanDiff": 1.943
+      }
+    },
+    "MP-157": {
+      "status": "pass",
+      "probe": {
+        "frames": 282,
+        "width": 1280,
+        "height": 720,
+        "bytes": 622397,
+        "meanDiff": 0.201
+      }
+    },
+    "MP-013": {
+      "status": "pass",
+      "probe": {
+        "frames": 141,
+        "width": 1280,
+        "height": 720,
+        "bytes": 103763,
+        "meanDiff": 6.148
+      }
+    },
+    "MP-133": {
+      "status": "pass",
+      "probe": {
+        "frames": 141,
+        "width": 1280,
+        "height": 720,
+        "bytes": 704532,
+        "meanDiff": 3.055
+      }
+    },
+    "MP-109": {
+      "status": "pass",
+      "probe": {
+        "frames": 150,
+        "width": 1280,
+        "height": 720,
+        "bytes": 92448,
+        "meanDiff": 1.325
+      }
+    },
+    "MP-061": {
+      "status": "pass",
+      "probe": {
+        "frames": 135,
+        "width": 1280,
+        "height": 720,
+        "bytes": 121438,
+        "meanDiff": 2.551
+      }
+    }
+  }
+}

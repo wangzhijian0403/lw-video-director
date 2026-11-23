@@ -1,0 +1,1643 @@
+{
+  "runId": "LWFT-FULL-84",
+  "method": "POST /api/render-reference + GET /api/jobs/{id} + GET /exports/{id}.mp4",
+  "results": {
+    "FT-T09w-292": {
+      "status": "pass",
+      "editedKey": "lanes[0].label",
+      "old": "数码 5 件",
+      "new": "数码 5 件 · 工作台导出验证",
+      "jobId": "05b2f2fb-ff23-4705-a190-ee37569a7c1a",
+      "url": "/exports/05b2f2fb-ff23-4705-a190-ee37569a7c1a.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T09w-292.mp4",
+      "sha256": "f1935e659b9db8fd56ea89d895d51a55a2d9ba36b6f7fb96d01e5d59128bf79b",
+      "bytes": 418289,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 180,
+        "fps": "30/1",
+        "duration": 6.0,
+        "bytes": 418289,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T12k-336": {
+      "status": "pass",
+      "editedKey": "label",
+      "old": "",
+      "new": " · 工作台导出验证",
+      "jobId": "8aef4c25-3fc0-4cf0-9ab6-c87c25181cee",
+      "url": "/exports/8aef4c25-3fc0-4cf0-9ab6-c87c25181cee.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T12k-336.mp4",
+      "sha256": "296f8b7a809b4a270da20750375102f1a9015d0c46c31492e8c62e33cfb8d0d9",
+      "bytes": 137354,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 180,
+        "fps": "60/1",
+        "duration": 3.0,
+        "bytes": 137354,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T15e-376": {
+      "status": "pass",
+      "editedKey": "series[0].name",
+      "old": "GPT-6.1 Sol",
+      "new": "GPT-6.1 Sol · 工作台导出验证",
+      "jobId": "0cc31c06-0362-4d1f-9d0a-19fedb0028ab",
+      "url": "/exports/0cc31c06-0362-4d1f-9d0a-19fedb0028ab.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T15e-376.mp4",
+      "sha256": "df4d500c87785f863a28f9d03e4076763712421916eb026ff5fc34d5c2a4003e",
+      "bytes": 139243,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 360,
+        "fps": "60/1",
+        "duration": 6.0,
+        "bytes": 139243,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T09z-293": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T09z-293.mp4",
+      "sha256": "5a4bbd1bfa055f15de02dce2c669c5ab80409bb8ca6e9cfb1ca6e3da2e13ec4c",
+      "bytes": 535802,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 120,
+        "fps": "30/1",
+        "duration": 4.0,
+        "bytes": 535802,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T12m-338": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T12m-338.mp4",
+      "sha256": "4d7b96c4cab98386f659bd89c1fd134df4e534e311d20eedbe86f011089faac7",
+      "bytes": 315685,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 180,
+        "fps": "60/1",
+        "duration": 3.0,
+        "bytes": 315685,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T12n-339": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T12n-339.mp4",
+      "sha256": "7e6000aa16a29441147f9b1fb625057e9ea81e5432a2485d434302d7dec6b7be",
+      "bytes": 348098,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 180,
+        "fps": "60/1",
+        "duration": 3.0,
+        "bytes": 348098,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T12o-340": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T12o-340.mp4",
+      "sha256": "da1abe011a7c3a33e3c39aefe1048bacbd0166aaf7675a4acc93167f9a2b09b0",
+      "bytes": 232093,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 180,
+        "fps": "60/1",
+        "duration": 3.0,
+        "bytes": 232093,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T12p-341": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T12p-341.mp4",
+      "sha256": "e8c1370b2cf2663d508c210476c18e35e6500a13c3e2c9bacc500eeb8c4f5660",
+      "bytes": 111084,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 180,
+        "fps": "60/1",
+        "duration": 3.0,
+        "bytes": 111084,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T12q-342": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T12q-342.mp4",
+      "sha256": "dda4188c45176c57f22f953f13730aed08f5fabef95b3c7cebb9165a17cffa49",
+      "bytes": 130441,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 180,
+        "fps": "60/1",
+        "duration": 3.0,
+        "bytes": 130441,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T12r-343": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T12r-343.mp4",
+      "sha256": "ff66ecaa41c35eaace11c14503322bf9fb6190a41a04582ce391d66573c4df37",
+      "bytes": 270946,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 180,
+        "fps": "60/1",
+        "duration": 3.0,
+        "bytes": 270946,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T12s-344": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T12s-344.mp4",
+      "sha256": "9edadd5c56f6a282c7ed23ab2c1a17ecc6eacad5cffb0277c69c48a6de2d1c62",
+      "bytes": 91812,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 180,
+        "fps": "60/1",
+        "duration": 3.0,
+        "bytes": 91812,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T12t-345": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T12t-345.mp4",
+      "sha256": "de5e755a70d5c59f60b4bb75352d69b7087de96591ba716b1a9dd30f09df69fc",
+      "bytes": 108996,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 180,
+        "fps": "60/1",
+        "duration": 3.0,
+        "bytes": 108996,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T20h-346": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T20h-346.mp4",
+      "sha256": "79f3bac2f994dc6615fcdae46769aff2815deb19b5fb7e4530cba55b01c44515",
+      "bytes": 1041034,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 240,
+        "fps": "60/1",
+        "duration": 4.0,
+        "bytes": 1041034,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T20i-347": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T20i-347.mp4",
+      "sha256": "2b5c8ccad9103a35201ec6ef8b07a708f6b6057e0c45e37a3301fdbd270a43f5",
+      "bytes": 609693,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 240,
+        "fps": "60/1",
+        "duration": 4.0,
+        "bytes": 609693,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T20j-348": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T20j-348.mp4",
+      "sha256": "33f4eacc4cfb0a948ab746d7876a33c9acbd0b3bd28e09c67d87219a6d6e4f43",
+      "bytes": 172028,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 216,
+        "fps": "60/1",
+        "duration": 3.6,
+        "bytes": 172028,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T20k-349": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T20k-349.mp4",
+      "sha256": "e2c5437383511121abdf2046cb8dc934e6ce58b896cf99679c7f4cf0ef1b2279",
+      "bytes": 379969,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 240,
+        "fps": "60/1",
+        "duration": 4.0,
+        "bytes": 379969,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T20l-350": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T20l-350.mp4",
+      "sha256": "1f28fe9772ce1f6484e91336c5b12a5d41cc568277e91da04480b8d11f00fb4c",
+      "bytes": 639641,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 240,
+        "fps": "60/1",
+        "duration": 4.0,
+        "bytes": 639641,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T20m-351": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T20m-351.mp4",
+      "sha256": "b6aded292f678ac5ab5bde20d704be0c8d3fce6a57d9829295513f6f90c56640",
+      "bytes": 329416,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 240,
+        "fps": "60/1",
+        "duration": 4.0,
+        "bytes": 329416,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T20n-352": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T20n-352.mp4",
+      "sha256": "358ddbf91d13e42c2b759364fff1eec3b935970ee6fcfa9fd4134ba18d96de90",
+      "bytes": 178377,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 240,
+        "fps": "60/1",
+        "duration": 4.0,
+        "bytes": 178377,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T20o-353": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T20o-353.mp4",
+      "sha256": "8f14feb1ac54ce94009eea4c92464ba6f81d3238c51397dc6eb6eaf998d55ac6",
+      "bytes": 317728,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 216,
+        "fps": "60/1",
+        "duration": 3.6,
+        "bytes": 317728,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T20p-354": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T20p-354.mp4",
+      "sha256": "0fa00dbba7f65f6c015676e90af9ac810055ce1297ae7d8bc93b7830e2034769",
+      "bytes": 485189,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 240,
+        "fps": "60/1",
+        "duration": 4.0,
+        "bytes": 485189,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T20q-355": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T20q-355.mp4",
+      "sha256": "73dcb5fc3a2cf9713134cd933a21401130d1a67f018eeac0396da61fa800b76f",
+      "bytes": 501753,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 240,
+        "fps": "60/1",
+        "duration": 4.0,
+        "bytes": 501753,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T08i-356": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T08i-356.mp4",
+      "sha256": "18e4bca8eb11f2beda673ace21ca9cea6873c1aa299d1e98bc671310a871fbd2",
+      "bytes": 312618,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 312618,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T10a-357": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T10a-357.mp4",
+      "sha256": "c68a82529d03bc42fd9b61ed3c55f10df9b71ba7b6ba24820bf1a1bb54e0b0d1",
+      "bytes": 465560,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 360,
+        "fps": "60/1",
+        "duration": 6.0,
+        "bytes": 465560,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T21b-359": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T21b-359.mp4",
+      "sha256": "2424024014b00ad6a80a8ca709a0e46a1143b348c543568a10a129feba05b00d",
+      "bytes": 383256,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 360,
+        "fps": "60/1",
+        "duration": 6.0,
+        "bytes": 383256,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T12h-361": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T12h-361.mp4",
+      "sha256": "f09e09ef1bf4343c82c661ceecb4090e3147964d0c4890f75e5959458ca2073b",
+      "bytes": 146883,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 120,
+        "fps": "60/1",
+        "duration": 2.0,
+        "bytes": 146883,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T12i-362": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T12i-362.mp4",
+      "sha256": "c5cca085d59492e2340f03c88d1b15efb63a6c9ecd9b77b2231859b7bd37fdbb",
+      "bytes": 105126,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 120,
+        "fps": "60/1",
+        "duration": 2.0,
+        "bytes": 105126,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T18d-364": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T18d-364.mp4",
+      "sha256": "6f1bec450af5708460de0223ab92d89bf83d9028b97e233495555e68bad9fce7",
+      "bytes": 127162,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 127162,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T04e-365": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T04e-365.mp4",
+      "sha256": "6cd9c54b989edc8876f8cbe03d4870166b426b35fbd08eb8e761b9351dd9c0ca",
+      "bytes": 658729,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 360,
+        "fps": "60/1",
+        "duration": 6.0,
+        "bytes": 658729,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T17c-372": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T17c-372.mp4",
+      "sha256": "8b4260e3f90bd77d476642d46e976d78ae001e52065d5a25fe0f1f61840c4046",
+      "bytes": 405650,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 405650,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T15f-377": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T15f-377.mp4",
+      "sha256": "811b1971a526e8ea77ba471e5cb6e3d0aa9edfb752e7874ae27ff4664d6e42ae",
+      "bytes": 347291,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 347291,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T14f-379": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T14f-379.mp4",
+      "sha256": "7178fa760bc54485543af52214e605a53ee75d4fceafdeef9aa881e20d05bdd5",
+      "bytes": 225413,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 225413,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T15g-380": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T15g-380.mp4",
+      "sha256": "7760701f29690e9148904e21a8139e0ca12c03327f846edf6806c359c9fba8fc",
+      "bytes": 275139,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 360,
+        "fps": "60/1",
+        "duration": 6.0,
+        "bytes": 275139,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T15h-381": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T15h-381.mp4",
+      "sha256": "5b8b2e44c55e1c3080d99627ecbd64f9ec09cfc8f4511dd034c609d39ef9803d",
+      "bytes": 318050,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 420,
+        "fps": "60/1",
+        "duration": 7.0,
+        "bytes": 318050,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T15i-382": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T15i-382.mp4",
+      "sha256": "d280d4527cf7187e70e8efb816ba0b8170a7db0b08f8e6987b82677afceabbf7",
+      "bytes": 371787,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 360,
+        "fps": "60/1",
+        "duration": 6.0,
+        "bytes": 371787,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T16a-383": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T16a-383.mp4",
+      "sha256": "1df44f1ba4467b7fee219f549ccd96599841fedc73261472b49ffadc9fe2d766",
+      "bytes": 310665,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 360,
+        "fps": "60/1",
+        "duration": 6.0,
+        "bytes": 310665,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T16b-384": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T16b-384.mp4",
+      "sha256": "773585dd0179e5e3bae5a7385e0526aa88ed1a624d23e071b5bdd61492545327",
+      "bytes": 377971,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 377971,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T18f-385": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T18f-385.mp4",
+      "sha256": "28b1bc2bfd61a09a29daf8e8358afdb275964afc2daaf8cab4cf86e9e58938ce",
+      "bytes": 285667,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 285667,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T22a-386": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T22a-386.mp4",
+      "sha256": "3cfed0585bad4ad42cf397cf64a8a262cfdb75ca57093d5abe2b599b42f03a0b",
+      "bytes": 430136,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 430136,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T22b-387": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T22b-387.mp4",
+      "sha256": "74103267991c6a85f492e3a7fb6a3dc05416ffb43b7d3f6a5fb2d60553209dc9",
+      "bytes": 1030457,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 1030457,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T18e-388": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T18e-388.mp4",
+      "sha256": "eb64c5b71480b53cbf3d2355eb66737adaac4a7605a8cc61e337848076de6fe6",
+      "bytes": 106453,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 180,
+        "fps": "60/1",
+        "duration": 3.0,
+        "bytes": 106453,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T13a-389": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T13a-389.mp4",
+      "sha256": "36fdab71df3aae6fdcc5a12629d1e62742192cc2af78851b51661494fe6fb873",
+      "bytes": 263308,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 360,
+        "fps": "60/1",
+        "duration": 6.0,
+        "bytes": 263308,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T13b-390": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T13b-390.mp4",
+      "sha256": "e1bb886629f1bd126f78df27ee711896ec5794bd7bba1f687ae9c2afcd893ac0",
+      "bytes": 278171,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 360,
+        "fps": "60/1",
+        "duration": 6.0,
+        "bytes": 278171,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T13c-391": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T13c-391.mp4",
+      "sha256": "845c21733ff5477e98ff10e7077215ff5ef3c9396e4a288c7cfc47a41f4711ab",
+      "bytes": 304484,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 360,
+        "fps": "60/1",
+        "duration": 6.0,
+        "bytes": 304484,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T13d-392": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T13d-392.mp4",
+      "sha256": "6ca60c1a195390ca64d30250c4eaf7cd9bcfff963d50997cdcaf2a85ce90f2aa",
+      "bytes": 253635,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 360,
+        "fps": "60/1",
+        "duration": 6.0,
+        "bytes": 253635,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T04g-393": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T04g-393.mp4",
+      "sha256": "70b38de245773d3e08689edfbeba0be9f8fe480266e5f6b51f6477bc29b3a55d",
+      "bytes": 207410,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 360,
+        "fps": "60/1",
+        "duration": 6.0,
+        "bytes": 207410,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T21d-397": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T21d-397.mp4",
+      "sha256": "c1270721466e6ca6910d892656790dc8ec7132e55a9a4d9dd624eb3740b0b00d",
+      "bytes": 290917,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 360,
+        "fps": "60/1",
+        "duration": 6.0,
+        "bytes": 290917,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T05b2-398": {
+      "status": "pass",
+      "resumedFromMp4": true,
+      "jobId": "interrupted-run",
+      "url": null,
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T05b2-398.mp4",
+      "sha256": "d496cc88d39ab69c20e3c279377f0d7c019e0b2b5c18dd6eae11a869911136a9",
+      "bytes": 405287,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 405287,
+        "probe": "opencv-fallback"
+      },
+      "note": "上一轮真实工作台导出已下载 MP4，因批量临时文件删除保护中断导致汇总未落盘；本轮按文件 hash/大小/视频探测复核后补记，未重新渲染、未伪造结论。"
+    },
+    "FT-T09e-399": {
+      "status": "pass",
+      "editedKey": "items[0].name",
+      "old": "凤凰设定",
+      "new": "凤凰设定 · 工作台导出验证",
+      "jobId": "e917a72f-00e6-49ad-ba26-e960c70d1675",
+      "url": "/exports/e917a72f-00e6-49ad-ba26-e960c70d1675.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T09e-399.mp4",
+      "sha256": "7db637948b62915f4482c9522b317b9873f48eaea3a257f34108ba74b42ddb44",
+      "bytes": 1211170,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 1211170,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T14b-400": {
+      "status": "pass",
+      "editedKey": "label",
+      "old": "GPT-6.1 Sol 缓存输入价",
+      "new": "GPT-6.1 Sol 缓存输入价 · 工作台导出验证",
+      "jobId": "0a6a95f1-7476-4186-918c-f48d96f40561",
+      "url": "/exports/0a6a95f1-7476-4186-918c-f48d96f40561.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T14b-400.mp4",
+      "sha256": "2c9b4214bfe456745c1566b15bca586bda7d079d6a42d03f10e5b6f56bd16d95",
+      "bytes": 262766,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 240,
+        "fps": "60/1",
+        "duration": 4.0,
+        "bytes": 262766,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T15b-401": {
+      "status": "pass",
+      "editedKey": "columns[0]",
+      "old": "输出",
+      "new": "输出 · 工作台导出验证",
+      "jobId": "e1b2f497-988c-4a31-a844-7dc0f8f01994",
+      "url": "/exports/e1b2f497-988c-4a31-a844-7dc0f8f01994.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T15b-401.mp4",
+      "sha256": "bf69dabca1fabd579da2616e60c08dc330fb17dc4a7b9971653161068cdbb1a2",
+      "bytes": 536512,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 536512,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T18b-402": {
+      "status": "pass",
+      "editedKey": "tools[0].name",
+      "old": "ChatGPT",
+      "new": "ChatGPT · 工作台导出验证",
+      "jobId": "ee0caf6d-29b8-4a47-8303-e089d1f20c48",
+      "url": "/exports/ee0caf6d-29b8-4a47-8303-e089d1f20c48.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T18b-402.mp4",
+      "sha256": "2b560d7f2f9b44cbbb4ad7416429ea87b899b1890349bb8ad335ce33d6033887",
+      "bytes": 276073,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 276073,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T14a2-403": {
+      "status": "pass",
+      "editedKey": "a.name",
+      "old": "Codex 并行改",
+      "new": "Codex 并行改 · 工作台导出验证",
+      "jobId": "e321baef-47e1-4ac4-b0bc-814fbbd60096",
+      "url": "/exports/e321baef-47e1-4ac4-b0bc-814fbbd60096.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T14a2-403.mp4",
+      "sha256": "fdc77ef4df93757107c0d8d1ea13f0b76df9acd56a3ea4fd416410cfd71954fa",
+      "bytes": 345069,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 345069,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T12e-408": {
+      "status": "pass",
+      "editedKey": "label",
+      "old": "第三部分",
+      "new": "第三部分 · 工作台导出验证",
+      "jobId": "b698647e-fece-47f0-a897-3b6f0ee14a71",
+      "url": "/exports/b698647e-fece-47f0-a897-3b6f0ee14a71.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T12e-408.mp4",
+      "sha256": "eb156323cd54a0a860c19e13e73dff1a28c2fb8083ad583dcc4385daa782e4cc",
+      "bytes": 76356,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 120,
+        "fps": "60/1",
+        "duration": 2.0,
+        "bytes": 76356,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T11c-417": {
+      "status": "pass",
+      "editedKey": null,
+      "old": null,
+      "new": null,
+      "jobId": "bea4c5dc-4411-4b78-9eba-7a6986e319a2",
+      "url": "/exports/bea4c5dc-4411-4b78-9eba-7a6986e319a2.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T11c-417.mp4",
+      "sha256": "85c69efcfe1674ae559235decf331c84571f5810089ce2b030ae4a0f0906d259",
+      "bytes": 400701,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 360,
+        "fps": "60/1",
+        "duration": 6.0,
+        "bytes": 400701,
+        "probe": "opencv-fallback"
+      },
+      "noEditableParam": true,
+      "note": "该组件默认参数仅含媒体路径，无可编辑标量；以默认参数完成真实工作台导出验收，未声称执行了参数编辑。"
+    },
+    "FT-T11d-418": {
+      "status": "pass",
+      "editedKey": "lines[0]",
+      "old": "随身记录",
+      "new": "随身记录 · 工作台导出验证",
+      "jobId": "1fda6e66-74df-40ab-8a88-99e115eb005f",
+      "url": "/exports/1fda6e66-74df-40ab-8a88-99e115eb005f.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T11d-418.mp4",
+      "sha256": "2d452cc1772bf18253232c9dbf1623d6324121972852f876e6f5102eba9351d4",
+      "bytes": 862435,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 360,
+        "fps": "60/1",
+        "duration": 6.0,
+        "bytes": 862435,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T05f-419": {
+      "status": "pass",
+      "editedKey": "screens[0].label",
+      "old": "开会时",
+      "new": "开会时 · 工作台导出验证",
+      "jobId": "ff6c1ae7-c3a2-45f5-b565-ee62af3d7682",
+      "url": "/exports/ff6c1ae7-c3a2-45f5-b565-ee62af3d7682.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T05f-419.mp4",
+      "sha256": "f7e52fd768bd22e847722f596090f716a3ebf022312f633214f30185bc26691b",
+      "bytes": 579593,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 360,
+        "fps": "60/1",
+        "duration": 6.0,
+        "bytes": 579593,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T20d-420": {
+      "status": "pass",
+      "editedKey": "title",
+      "old": "免费工具也能出片",
+      "new": "免费工具也能出片 · 工作台导出验证",
+      "jobId": "685294bd-8720-4e22-a17f-0060e265c8b6",
+      "url": "/exports/685294bd-8720-4e22-a17f-0060e265c8b6.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T20d-420.mp4",
+      "sha256": "103c9843396c7ce3b66e73f24c888449cafb2f265c90f876fa28a67a26ec2c05",
+      "bytes": 1353620,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 1353620,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T09b-423": {
+      "status": "pass",
+      "editedKey": "offLabel",
+      "old": "未开通",
+      "new": "未开通 · 工作台导出验证",
+      "jobId": "08b9d38e-c95c-416e-b151-b723707223a5",
+      "url": "/exports/08b9d38e-c95c-416e-b151-b723707223a5.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T09b-423.mp4",
+      "sha256": "93299a54c27c398993909d1b960822c93da47d709b1b3851c368d7846c2f46a4",
+      "bytes": 673468,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 673468,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T14d-425": {
+      "status": "pass",
+      "editedKey": "label",
+      "old": "DeepSWE v1.1 得分",
+      "new": "DeepSWE v1.1 得分 · 工作台导出验证",
+      "jobId": "6196cf35-7c3b-4d3e-89fa-db5c3def1727",
+      "url": "/exports/6196cf35-7c3b-4d3e-89fa-db5c3def1727.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T14d-425.mp4",
+      "sha256": "eda8995e993d7f93977d9562217b1dadb7fc415aa33f82e1a8905c0029c0367c",
+      "bytes": 303360,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 303360,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T15d-427": {
+      "status": "pass",
+      "editedKey": "caption",
+      "old": "GPT-6.1 Sol 跑一次长任务",
+      "new": "GPT-6.1 Sol 跑一次长任务 · 工作台导出验证",
+      "jobId": "96abe0be-c1c7-4607-832c-d3bac990d9fc",
+      "url": "/exports/96abe0be-c1c7-4607-832c-d3bac990d9fc.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T15d-427.mp4",
+      "sha256": "cfd4aec15902b4bb617a86e4cff0b2eda386b03679e0b1e357ffb9e48bff11f7",
+      "bytes": 282532,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 282532,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T12b-428": {
+      "status": "pass",
+      "editedKey": "name",
+      "old": "把 Key 放进 .env 文件",
+      "new": "把 Key 放进 .env 文件 · 工作台导出验证",
+      "jobId": "f607f5e6-dec8-46f7-b29f-1eb906c9ce8f",
+      "url": "/exports/f607f5e6-dec8-46f7-b29f-1eb906c9ce8f.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T12b-428.mp4",
+      "sha256": "e9ac5bdeb760ccc5946a9a5f75ff771f04946612b177aabd08273e8a85393c0e",
+      "bytes": 163254,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 150,
+        "fps": "60/1",
+        "duration": 2.5,
+        "bytes": 163254,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T12c-429": {
+      "status": "pass",
+      "editedKey": "point",
+      "old": "同一段提示词，看谁细节更足",
+      "new": "同一段提示词，看谁细节更足 · 工作台导出验证",
+      "jobId": "03f64fae-b9f2-4576-8efd-e1a1a9cc3298",
+      "url": "/exports/03f64fae-b9f2-4576-8efd-e1a1a9cc3298.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T12c-429.mp4",
+      "sha256": "df0caa88dfabaa90705a5d21860f83e8e414af8fc72d5c4733933d7d595dfc7a",
+      "bytes": 383753,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 180,
+        "fps": "60/1",
+        "duration": 3.0,
+        "bytes": 383753,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T12g-430": {
+      "status": "pass",
+      "editedKey": "chapters[0]",
+      "old": "API 到底是什么",
+      "new": "API 到底是什么 · 工作台导出验证",
+      "jobId": "7060fa49-dc95-4c28-b748-77446665bf48",
+      "url": "/exports/7060fa49-dc95-4c28-b748-77446665bf48.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T12g-430.mp4",
+      "sha256": "ec9ab9a189d4f2083afb143faad241d1767c3c5d73305e6fec9afa8f579714e1",
+      "bytes": 201146,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 180,
+        "fps": "60/1",
+        "duration": 3.0,
+        "bytes": 201146,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T05e-437": {
+      "status": "pass",
+      "editedKey": "fitLabel",
+      "old": "适合交给 Codex",
+      "new": "适合交给 Codex · 工作台导出验证",
+      "jobId": "adaa2462-566c-4db7-ab68-72286fe0483b",
+      "url": "/exports/adaa2462-566c-4db7-ab68-72286fe0483b.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T05e-437.mp4",
+      "sha256": "8dd7b1e7193adbdc204fe01500ac39c5ef59ad4432152ff6033017f7330b3b72",
+      "bytes": 602577,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 602577,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T20c-438": {
+      "status": "pass",
+      "editedKey": "product",
+      "old": "ChatGPT 桌面端",
+      "new": "ChatGPT 桌面端 · 工作台导出验证",
+      "jobId": "fbb3a010-4619-4a15-8c2c-c7a5539c8f60",
+      "url": "/exports/fbb3a010-4619-4a15-8c2c-c7a5539c8f60.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T20c-438.mp4",
+      "sha256": "f2bd0f388eb63c8ff98c1d1e6feb407adba14cbc8b1aaac2ef81122efda96399",
+      "bytes": 316039,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 240,
+        "fps": "60/1",
+        "duration": 4.0,
+        "bytes": 316039,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T20b-439": {
+      "status": "pass",
+      "editedKey": "painTitle",
+      "old": "以前：手动做一张游戏界面",
+      "new": "以前：手动做一张游戏界面 · 工作台导出验证",
+      "jobId": "ccb8bd9f-c94e-491f-a49e-262ba81ff2b8",
+      "url": "/exports/ccb8bd9f-c94e-491f-a49e-262ba81ff2b8.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T20b-439.mp4",
+      "sha256": "d17452dcfbc3bc7f944395a6e5d54ecf671388f87a08bada3d6aaacd276e2c7a",
+      "bytes": 574422,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 574422,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T21a-440": {
+      "status": "pass",
+      "editedKey": "items[0].text",
+      "old": "项目规则写成文件，别每次口头交代",
+      "new": "项目规则写成文件，别每次口头交代 · 工作台导出验证",
+      "jobId": "8cd7d099-b06a-45a4-ba61-96f836f17597",
+      "url": "/exports/8cd7d099-b06a-45a4-ba61-96f836f17597.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T21a-440.mp4",
+      "sha256": "2268d1f4e48fdd5974bd84d5cd075518613ce1f0b22ff687580ad4329d92d97e",
+      "bytes": 439611,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 439611,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T18c-441": {
+      "status": "pass",
+      "editedKey": "points[0].label",
+      "old": "不用导出再搬运",
+      "new": "不用导出再搬运 · 工作台导出验证",
+      "jobId": "3ac6eef6-2923-4c3d-adf0-65769963d6df",
+      "url": "/exports/3ac6eef6-2923-4c3d-adf0-65769963d6df.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T18c-441.mp4",
+      "sha256": "fc229d9b8cee9d9dcd9a9c009375b2a99cbe22216ad3072e2ca6d522404bd605",
+      "bytes": 1099434,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 360,
+        "fps": "60/1",
+        "duration": 6.0,
+        "bytes": 1099434,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T19c-442": {
+      "status": "pass",
+      "editedKey": "comment",
+      "old": "这细节也太足了",
+      "new": "这细节也太足了 · 工作台导出验证",
+      "jobId": "19b78377-7671-4a51-a5d7-e5393e5b253e",
+      "url": "/exports/19b78377-7671-4a51-a5d7-e5393e5b253e.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T19c-442.mp4",
+      "sha256": "b650854b276a125864df6fb0f6296fdbe9c4f6e8d9373f63beab70655e471477",
+      "bytes": 450598,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 240,
+        "fps": "60/1",
+        "duration": 4.0,
+        "bytes": 450598,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T08b-443": {
+      "status": "pass",
+      "editedKey": "pageWidth",
+      "old": 2116,
+      "new": 2327.6,
+      "jobId": "7c6ea663-4d39-4b64-ac78-608c86e8b738",
+      "url": "/exports/7c6ea663-4d39-4b64-ac78-608c86e8b738.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T08b-443.mp4",
+      "sha256": "5402b6f363707f28f6a5344e5157101ee52d9af6dc7d316d86958ab0e1505302",
+      "bytes": 901367,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 360,
+        "fps": "60/1",
+        "duration": 6.0,
+        "bytes": 901367,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T08d-444": {
+      "status": "pass",
+      "editedKey": "regions[0].label",
+      "old": "先挑颜色",
+      "new": "先挑颜色 · 工作台导出验证",
+      "jobId": "000c746b-28b4-4396-a6ef-ee66f4c8fdb7",
+      "url": "/exports/000c746b-28b4-4396-a6ef-ee66f4c8fdb7.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T08d-444.mp4",
+      "sha256": "588729d1f4e750551eae8a76c6c247eb915a31bbb73f64bcf839a9f7035204f2",
+      "bytes": 786131,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 786131,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T09a-445": {
+      "status": "pass",
+      "editedKey": "clicks[0].label",
+      "old": "进入项目",
+      "new": "进入项目 · 工作台导出验证",
+      "jobId": "9b20243c-cd7b-404b-99a2-a6373baab72c",
+      "url": "/exports/9b20243c-cd7b-404b-99a2-a6373baab72c.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T09a-445.mp4",
+      "sha256": "bf1c6bce51763148af43f289944a664de63a9ac98e21421033b1607733c7ef38",
+      "bytes": 628433,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 628433,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T05c-446": {
+      "status": "pass",
+      "editedKey": "fileName",
+      "old": "AGENTS.md",
+      "new": "AGENTS.md · 工作台导出验证",
+      "jobId": "b3e07949-5c97-4e4e-a26c-006228e66007",
+      "url": "/exports/b3e07949-5c97-4e4e-a26c-006228e66007.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T05c-446.mp4",
+      "sha256": "4e3888a9bce18d85968b8e0b4e3fb66f1547719ae1b3c6001c6372dedafae12e",
+      "bytes": 795899,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 795899,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T05d-447": {
+      "status": "pass",
+      "editedKey": "left.name",
+      "old": "Codex",
+      "new": "Codex · 工作台导出验证",
+      "jobId": "8330edd9-b3b7-4ae4-8155-10c4001385b0",
+      "url": "/exports/8330edd9-b3b7-4ae4-8155-10c4001385b0.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T05d-447.mp4",
+      "sha256": "dc008aa554d41fc01aed8f129f9af539b3d359656b9928cae433e61250cc7ac9",
+      "bytes": 554385,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 554385,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T12a-448": {
+      "status": "pass",
+      "editedKey": "label",
+      "old": "",
+      "new": " · 工作台导出验证",
+      "jobId": "cf82f518-4985-49cf-932d-a78dae0cf470",
+      "url": "/exports/cf82f518-4985-49cf-932d-a78dae0cf470.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T12a-448.mp4",
+      "sha256": "90914264cceec668477c869f96b1e37b759c4e4949686a168b354363ab01022a",
+      "bytes": 76288,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 120,
+        "fps": "60/1",
+        "duration": 2.0,
+        "bytes": 76288,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T02a-449": {
+      "status": "pass",
+      "editedKey": "items[0]",
+      "old": "装好 Codex 并登录",
+      "new": "装好 Codex 并登录 · 工作台导出验证",
+      "jobId": "4c7ad7de-0de5-4135-8c52-846a686ce5db",
+      "url": "/exports/4c7ad7de-0de5-4135-8c52-846a686ce5db.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T02a-449.mp4",
+      "sha256": "98f9ead906bf7cdcf8aef4a2e9e5e6455f685f03e51a7e67dfaa4db7f901f8af",
+      "bytes": 258370,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 258370,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T14c-450": {
+      "status": "pass",
+      "editedKey": "label",
+      "old": "GPT-6.1 Sol 输出价",
+      "new": "GPT-6.1 Sol 输出价 · 工作台导出验证",
+      "jobId": "4843e3ab-654d-44e0-a8bc-b22797b27bb6",
+      "url": "/exports/4843e3ab-654d-44e0-a8bc-b22797b27bb6.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T14c-450.mp4",
+      "sha256": "ef644a1294e54438eb4b4056a5922e0f8ea14fa0515c5dc4efc2dc8eee4d5e18",
+      "bytes": 414848,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 414848,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T01d-451": {
+      "status": "pass",
+      "editedKey": "dimensions[0].label",
+      "old": "画面质感",
+      "new": "画面质感 · 工作台导出验证",
+      "jobId": "a5dce1c2-8cb2-4672-b48d-91fc335de105",
+      "url": "/exports/a5dce1c2-8cb2-4672-b48d-91fc335de105.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T01d-451.mp4",
+      "sha256": "cbb03c6f083df6c417d2bcd7fd62027303ab316b86134b0bc0339617bd56bdc4",
+      "bytes": 356339,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 356339,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T04a-452": {
+      "status": "pass",
+      "editedKey": "concept",
+      "old": "程序世界",
+      "new": "程序世界 · 工作台导出验证",
+      "jobId": "70000028-6d5e-43e8-a99f-e911d4fcd8fd",
+      "url": "/exports/70000028-6d5e-43e8-a99f-e911d4fcd8fd.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T04a-452.mp4",
+      "sha256": "32c717c110555a4b2ca82194af1420db013a84899bf0ddd6ef7dd1c8befbbe11",
+      "bytes": 341791,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 341791,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T17b-453": {
+      "status": "pass",
+      "editedKey": "title",
+      "old": "zsh — fredtalk-site",
+      "new": "zsh — fredtalk-site · 工作台导出验证",
+      "jobId": "4b06f9fa-0509-4912-8bcc-48681e08961b",
+      "url": "/exports/4b06f9fa-0509-4912-8bcc-48681e08961b.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T17b-453.mp4",
+      "sha256": "bbffc64df16adfecb0d131a8ad8e7c8a1b80985818abfb4049a9e149fa4fbc56",
+      "bytes": 420069,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 420069,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T17a-454": {
+      "status": "pass",
+      "editedKey": "fileName",
+      "old": ".env",
+      "new": ".env · 工作台导出验证",
+      "jobId": "580785b1-a63c-4697-9802-ae7aadd2bd23",
+      "url": "/exports/580785b1-a63c-4697-9802-ae7aadd2bd23.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T17a-454.mp4",
+      "sha256": "38db4c5918d151ba6c6c128f79b94f3d884c6c07490217f53a63717a5b4aecb5",
+      "bytes": 439252,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 439252,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T18a-455": {
+      "status": "pass",
+      "editedKey": "name",
+      "old": "豆包工作",
+      "new": "豆包工作 · 工作台导出验证",
+      "jobId": "bdc696ff-01b9-4695-92cf-8920448a13b4",
+      "url": "/exports/bdc696ff-01b9-4695-92cf-8920448a13b4.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T18a-455.mp4",
+      "sha256": "1ca17af1f7eaacade8403fa9c051208903d7761c7f9074b24c0c46654ed0f826",
+      "bytes": 302659,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 302659,
+        "probe": "opencv-fallback"
+      }
+    },
+    "FT-T19a-456": {
+      "status": "pass",
+      "editedKey": "pains[0]",
+      "old": "每次都要重新交代背景",
+      "new": "每次都要重新交代背景 · 工作台导出验证",
+      "jobId": "48fbcf45-ba30-4109-986a-333b866e3e94",
+      "url": "/exports/48fbcf45-ba30-4109-986a-333b866e3e94.mp4",
+      "file": "external\\fredtalk\\batch\\runs\\LWFT-FULL-84\\workbench-export\\FT-T19a-456.mp4",
+      "sha256": "a5ceb70e6d510f0b2b9db5a15f5de2a3b0eff70787e5e73a21b1fc95c74de796",
+      "bytes": 416721,
+      "probe": {
+        "width": 1280,
+        "height": 720,
+        "frames": 300,
+        "fps": "60/1",
+        "duration": 5.0,
+        "bytes": 416721,
+        "probe": "opencv-fallback"
+      }
+    }
+  }
+}

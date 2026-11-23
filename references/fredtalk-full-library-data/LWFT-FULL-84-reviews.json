@@ -1,0 +1,544 @@
+{
+  "runId": "LWFT-FULL-84",
+  "reviewedAt": "2026-11-23T07:25:00+08:00",
+  "scope": "visual-final-pass",
+  "reviewer": "user (verbal batch verdict)",
+  "method": "用户于 2026-11-23 07:24 口述「已经审完，继续」。对应上一轮交付说明中「84 个动画已真实渲染、等待人工过目」的活跃库条目。本记录如实标注为口述批量结论，不伪装为看板逐条签字。",
+  "source": "user-verbal-batch-verdict",
+  "caveat": "用户未逐条指出 reject/hold；如后续有具体条目需回退，应单独落盘变更，不得把批量结论当作逐条视觉签字。",
+  "evidence": {
+    "mp4": "external/fredtalk/batch/runs/<run>/evidence/<ID>/render.mp4",
+    "stills": "external/fredtalk/batch/runs/<run>/evidence/<ID>/frame-*.png",
+    "machineQA": "qa_media.py 各批次 qa-summary.json"
+  },
+  "activeLibraryScope": 286,
+  "reviewedCount": 84,
+  "promotionEligibleCount": 66,
+  "machineQaHoldCount": 18,
+  "machineQaHoldIds": [
+    "FT-T20i-347",
+    "FT-T08i-356",
+    "FT-T15e-376",
+    "FT-T05b2-398",
+    "FT-T09e-399",
+    "FT-T12e-408",
+    "FT-T05f-419",
+    "FT-T09b-423",
+    "FT-T12b-428",
+    "FT-T12c-429",
+    "FT-T12g-430",
+    "FT-T05e-437",
+    "FT-T08b-443",
+    "FT-T08d-444",
+    "FT-T09a-445",
+    "FT-T05c-446",
+    "FT-T05d-447",
+    "FT-T12a-448"
+  ],
+  "reviews": {
+    "FT-T09w-292": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T09z-293": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T12k-336": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T12m-338": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T12n-339": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T12o-340": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T12p-341": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T12q-342": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T12r-343": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T12s-344": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T12t-345": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T20h-346": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T20i-347": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。 本条机器 QA 为 not-tested，按规则不晋级为可执行资源，仅记录人工视觉结论，等待复核。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T20j-348": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T20k-349": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T20l-350": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T20m-351": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T20n-352": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T20o-353": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T20p-354": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T20q-355": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T08i-356": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。 本条机器 QA 为 not-tested，按规则不晋级为可执行资源，仅记录人工视觉结论，等待复核。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T10a-357": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T21b-359": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T12h-361": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T12i-362": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T18d-364": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T04e-365": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T17c-372": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T15e-376": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。 本条机器 QA 为 fail，按规则不晋级为可执行资源，仅记录人工视觉结论，等待复核。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T15f-377": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T14f-379": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T15g-380": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T15h-381": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T15i-382": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T16a-383": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T16b-384": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T18f-385": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T22a-386": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T22b-387": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T18e-388": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T13a-389": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T13b-390": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T13c-391": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T13d-392": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T04g-393": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T21d-397": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T05b2-398": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。 本条机器 QA 为 not-tested，按规则不晋级为可执行资源，仅记录人工视觉结论，等待复核。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T09e-399": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。 本条机器 QA 为 not-tested，按规则不晋级为可执行资源，仅记录人工视觉结论，等待复核。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T14b-400": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T15b-401": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T18b-402": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T14a2-403": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T12e-408": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。 本条机器 QA 为 not-tested，按规则不晋级为可执行资源，仅记录人工视觉结论，等待复核。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T11c-417": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T11d-418": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T05f-419": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。 本条机器 QA 为 not-tested，按规则不晋级为可执行资源，仅记录人工视觉结论，等待复核。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T20d-420": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T09b-423": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。 本条机器 QA 为 not-tested，按规则不晋级为可执行资源，仅记录人工视觉结论，等待复核。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T14d-425": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T15d-427": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T12b-428": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。 本条机器 QA 为 not-tested，按规则不晋级为可执行资源，仅记录人工视觉结论，等待复核。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T12c-429": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。 本条机器 QA 为 not-tested，按规则不晋级为可执行资源，仅记录人工视觉结论，等待复核。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T12g-430": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。 本条机器 QA 为 not-tested，按规则不晋级为可执行资源，仅记录人工视觉结论，等待复核。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T05e-437": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。 本条机器 QA 为 not-tested，按规则不晋级为可执行资源，仅记录人工视觉结论，等待复核。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T20c-438": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T20b-439": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T21a-440": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T18c-441": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T19c-442": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T08b-443": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。 本条机器 QA 为 not-tested，按规则不晋级为可执行资源，仅记录人工视觉结论，等待复核。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T08d-444": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。 本条机器 QA 为 not-tested，按规则不晋级为可执行资源，仅记录人工视觉结论，等待复核。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T09a-445": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。 本条机器 QA 为 not-tested，按规则不晋级为可执行资源，仅记录人工视觉结论，等待复核。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T05c-446": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。 本条机器 QA 为 not-tested，按规则不晋级为可执行资源，仅记录人工视觉结论，等待复核。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T05d-447": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。 本条机器 QA 为 not-tested，按规则不晋级为可执行资源，仅记录人工视觉结论，等待复核。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T12a-448": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。 本条机器 QA 为 not-tested，按规则不晋级为可执行资源，仅记录人工视觉结论，等待复核。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T02a-449": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T14c-450": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T01d-451": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T04a-452": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T17b-453": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T17a-454": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T18a-455": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    },
+    "FT-T19a-456": {
+      "status": "pass",
+      "note": "用户口述批量审片通过；真实 MP4 与首/中/尾审片帧已核，逐条备注未在看板填写。",
+      "reviewer": "user (verbal batch verdict)",
+      "stage": "visual-final-pass"
+    }
+  }
+}

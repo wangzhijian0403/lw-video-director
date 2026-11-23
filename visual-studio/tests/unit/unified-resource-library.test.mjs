@@ -17,31 +17,36 @@ test('all existing original component IDs are preserved without duplication',()=
  }
 });
 
-test('installed resources are integrated under Originals, no redundant top-level gallery',()=>{
+test('workbench exposes only motion library and resource gallery',()=>{
  const app=read('src/app/main.tsx');
+ const motion=read('src/app/MotionLibrary.tsx');
  const gallery=read('src/app/ResourceGallery.tsx');
- assert.match(app,/setResourceGroup/);
- assert.match(app,/installedResourceCounts/);
- assert.match(app,/resourceGroup!=='originals'/);
- assert.match(app,/kind=\{resourceGroup\}/);
- assert.doesNotMatch(app,/>素材图鉴<\/button>/);
- assert.match(gallery,/export function ResourceGallery\(\{search,kind\}/);
+ assert.match(app,/type Library = 'motion' \| 'assets'/);
+ assert.match(app,/>动效库<\/button>/);
+ assert.match(app,/>素材库<\/button>/);
+ assert.match(app,/<MotionLibrary search=\{search\}\/>/);
+ assert.match(app,/<ResourceGallery search=\{search\}\/>/);
+ assert.doesNotMatch(app,/>Originals<\/button>/);
+ assert.doesNotMatch(app,/>References<\/button>/);
+ assert.match(motion,/\/api\/render-reference/);
+ assert.match(gallery,/type Kind='scenes'|'icons'|'characters'/);
+ assert.doesNotMatch(gallery,/fredtalk-approved/);
+ assert.doesNotMatch(gallery,/UserCharacterActor/);
  assert.match(gallery,/CHARACTER_IDS/);
  assert.equal(json('src/scene-packs/manifest.json').entries.length,3);
- assert.equal(json('src/integrations/fredtalk-approved.json').entries.length,16);
  assert.equal(json('src/resource-packs/tabler-outline.json').entries.length,24);
 });
 
-test('resource gallery cannot export stale Originals selection',()=>{
+test('resource gallery does not expose stale original export button',()=>{
  const app=read('src/app/main.tsx');
- assert.match(app,/disabled=\{library!=='originals'\|\|resourceGroup!=='originals'/);
+ assert.doesNotMatch(app,/\/api\/render/);
+ const motion=read('src/app/MotionLibrary.tsx');
+ assert.match(motion,/本地渲染 MP4/);
 });
 
-test('character preview verifies local media and preserves verified safety gate',()=>{
+test('character resources remain local-only placeholders',()=>{
  const gallery=read('src/app/ResourceGallery.tsx');
- assert.match(gallery,/UserCharacterActor/);
- assert.match(gallery,/method:'HEAD'/);
- assert.match(gallery,/entry.status!=='verified-basic'/);
- assert.match(gallery,/loop=\{false\}/);
- assert.match(gallery,/public\/characters/);
+ assert.match(gallery,/角色文件由用户本地单独管理/);
+ assert.match(gallery,/visual-studio\/public\/characters/);
+ assert.match(gallery,/没有将角色原片上传到公开 GitHub/);
 });

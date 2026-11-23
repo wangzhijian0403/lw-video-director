@@ -1,0 +1,65 @@
+{
+  "lwId": "FT-T09r-288",
+  "ftId": "T09r",
+  "name": "录屏变速：原速 → 快进 → 回原速看结果",
+  "category": "讲解段落",
+  "strategy": "kit-overlay",
+  "adapterVersion": "fred-batch/1.2",
+  "sourceSha256": "fcc9dc72502d6370fd2e39dcb825678dcbe87e9f0889bd0ed9d9dd81af8ea54e",
+  "adapterSha256": "c1c33b8342540afe4ac7d8ae75d832d1651f592913cddf01c46fbf4e83932e00",
+  "nativeFrames": 180,
+  "fps": 30,
+  "upstream": {
+    "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
+    "publicTag": "v2.5.0",
+    "project": null,
+    "officialUrl": "https://www.fred-fu.com/visual-library"
+  },
+  "license": {
+    "firstPartyCode": "MIT (FredTalk owner grant 2026-10-13)",
+    "thirdPartyMedia": "not covered; upstream media intentionally not redistributed",
+    "font": "SmileySans-Oblique OFL-1.1, unmodified, bundled by LW host",
+    "audio": "upstream SFX omitted; adapter is silent",
+    "attribution": "FredTalk component library; adapted by LW, not claimed as LW original"
+  },
+  "entry": "source/src/components/T09r-SpeedRamp.tsx",
+  "files": [
+    {
+      "upstreamPath": "source/src/components/T09r-SpeedRamp.tsx",
+      "copy": "components/T09r-SpeedRamp.tsx",
+      "sha256": "cd35127dbb9c44ea8ff42ec4797931521e9f6fb1f7ff86410222ee459b10ce05",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "source/src/kit/theme.ts",
+      "copy": "kit/theme.ts",
+      "sha256": "30d534daaab3c4b62468d23f16166939adfc89f94a02b954f6b0e3c05fc9701d",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "source/src/kit/ui.tsx",
+      "copy": "kit/ui.tsx",
+      "sha256": "05bdc4d6b17c5779e753c9a0b9c86c1dd7ef7e432666d6c49d0541ba367b1775",
+      "channel": "api",
+      "status": "verified"
+    }
+  ],
+  "hostEdits": [
+    "theme body -> LW font",
+    "theme display -> LW font",
+    "theme mono -> LW font",
+    "theme kai -> LW font",
+    "configureTheme added",
+    "host context import",
+    "useT respects host speed",
+    "Fonts -> OFL SmileySans",
+    "Brand removed",
+    "Sfx muted",
+    "Frame background -> host",
+    "media literals -> LW placeholders (1 refs; upstream media not redistributed)"
+  ],
+  "sourcePatches": [],
+  "notes": "Auto-generated kit-overlay profile. Entry/symbol/defaults are selected from inventory + source exports."
+}

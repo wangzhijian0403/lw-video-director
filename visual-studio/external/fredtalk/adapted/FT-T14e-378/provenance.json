@@ -1,0 +1,64 @@
+{
+  "lwId": "FT-T14e-378",
+  "ftId": "T14e",
+  "name": "三个关键数字",
+  "category": "数值与图表",
+  "strategy": "kit-overlay",
+  "adapterVersion": "fred-batch/1.1",
+  "sourceSha256": "ed04d8b5fb980e9faae8c3f488d20e1058a7494adbeb84d87e8f6557ac35235b",
+  "adapterSha256": "01637a23dba263fab58c7d174cc886940b3e632eaaade48c157858106fbcfece",
+  "nativeFrames": 300,
+  "fps": 60,
+  "upstream": {
+    "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
+    "publicTag": "v2.5.0",
+    "project": null,
+    "officialUrl": "https://www.fred-fu.com/visual-library"
+  },
+  "license": {
+    "firstPartyCode": "MIT (FredTalk owner grant 2026-10-13)",
+    "thirdPartyMedia": "not covered; upstream media intentionally not redistributed",
+    "font": "SmileySans-Oblique OFL-1.1, unmodified, bundled by LW host",
+    "audio": "upstream SFX omitted; adapter is silent",
+    "attribution": "FredTalk component library; adapted by LW, not claimed as LW original"
+  },
+  "entry": "src/components/T14e-StatTriplet.tsx",
+  "files": [
+    {
+      "upstreamPath": "src/components/T14e-StatTriplet.tsx",
+      "copy": "components/T14e-StatTriplet.tsx",
+      "sha256": "a1a8f30bfd9effd7d6ceb7ea57a9031072b3a799ee27129b602bc8319464d071",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/theme.ts",
+      "copy": "kit/theme.ts",
+      "sha256": "a235e95c652137b43c31a9c680dabfd8fce3bbb45fac8559cd0af70ce2e9b1a3",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/ui.tsx",
+      "copy": "kit/ui.tsx",
+      "sha256": "05ce402324f5e11521b15dacc30de3ee1f89adb0a1b5c20b220a29890d8e3ba9",
+      "channel": "api",
+      "status": "verified"
+    }
+  ],
+  "hostEdits": [
+    "theme body -> LW font",
+    "theme display -> LW font",
+    "theme mono -> LW font",
+    "theme kai -> LW font",
+    "configureTheme added",
+    "host context import",
+    "useT respects host speed",
+    "Fonts -> OFL SmileySans",
+    "Brand removed",
+    "Sfx muted",
+    "Frame background -> host"
+  ],
+  "sourcePatches": [],
+  "notes": "三个关键数字；上游默认是 API 定价，本轮换成 LW 测试口径，不冒充真实业务数据。"
+}

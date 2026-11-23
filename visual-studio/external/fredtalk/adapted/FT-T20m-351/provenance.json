@@ -1,0 +1,72 @@
+{
+  "lwId": "FT-T20m-351",
+  "ftId": "T20m",
+  "name": "胶囊变窗：钩子胶囊撑开成播放窗口",
+  "category": "内容交接",
+  "strategy": "kit-overlay",
+  "adapterVersion": "fred-batch/1.2",
+  "sourceSha256": "64e03f3320e32fa8272f8778daa667dc82a8145b8e04273849b9dc1008695edd",
+  "adapterSha256": "0a302fbcaffee1bdbbea74812bbb0b042e61e3153ba6ca60fa82147ae48dd01d",
+  "nativeFrames": 240,
+  "fps": 60,
+  "upstream": {
+    "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
+    "publicTag": "v2.5.0",
+    "project": null,
+    "officialUrl": "https://www.fred-fu.com/visual-library"
+  },
+  "license": {
+    "firstPartyCode": "MIT (FredTalk owner grant 2026-10-13)",
+    "thirdPartyMedia": "not covered; upstream media intentionally not redistributed",
+    "font": "SmileySans-Oblique OFL-1.1, unmodified, bundled by LW host",
+    "audio": "upstream SFX omitted; adapter is silent",
+    "attribution": "FredTalk component library; adapted by LW, not claimed as LW original"
+  },
+  "entry": "src/components/T20m-PillToWindow.tsx",
+  "files": [
+    {
+      "upstreamPath": "src/components/T20m-PillToWindow.tsx",
+      "copy": "components/T20m-PillToWindow.tsx",
+      "sha256": "849a13b9b1ff7740ec00214727628503d6e6dddf50cd81bc7e246f6c3eee041c",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/theme.ts",
+      "copy": "kit/theme.ts",
+      "sha256": "a235e95c652137b43c31a9c680dabfd8fce3bbb45fac8559cd0af70ce2e9b1a3",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/ui.tsx",
+      "copy": "kit/ui.tsx",
+      "sha256": "ab02aeb7aa92b995e1affac3b1b327571270ac96df387250f9aec3b3eb0dacc2",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/components/_shared.ts",
+      "copy": "components/_shared.ts",
+      "sha256": "f5ebf5850bf3dd67d094ce7e9778bd52c44ff138b27abf70ce72b3378f79aaa8",
+      "channel": "api",
+      "status": "verified"
+    }
+  ],
+  "hostEdits": [
+    "theme body -> LW font",
+    "theme display -> LW font",
+    "theme mono -> LW font",
+    "theme kai -> LW font",
+    "configureTheme added",
+    "host context import",
+    "useT respects host speed",
+    "Fonts -> OFL SmileySans",
+    "Brand removed",
+    "Sfx muted",
+    "Frame background -> host",
+    "media literals -> LW placeholders (1 refs; upstream media not redistributed)"
+  ],
+  "sourcePatches": [],
+  "notes": "Auto-generated kit-overlay profile. Entry/symbol/defaults are selected from inventory + source exports."
+}

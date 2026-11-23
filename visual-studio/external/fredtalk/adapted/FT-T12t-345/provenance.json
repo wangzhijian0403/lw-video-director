@@ -1,0 +1,71 @@
+{
+  "lwId": "FT-T12t-345",
+  "ftId": "T12t",
+  "name": "黑白分屏：左黑序号右白标题",
+  "category": "内容交接",
+  "strategy": "kit-overlay",
+  "adapterVersion": "fred-batch/1.2",
+  "sourceSha256": "384368fcb28b11f3cfe59fe1fa5827ab5b69db421e68a1efeeb9566e18fd5607",
+  "adapterSha256": "d8a1c2667e49d53736ea19ac615dd11ffa394e330e787c707aafc29a26e0a4b1",
+  "nativeFrames": 180,
+  "fps": 60,
+  "upstream": {
+    "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
+    "publicTag": "v2.5.0",
+    "project": null,
+    "officialUrl": "https://www.fred-fu.com/visual-library"
+  },
+  "license": {
+    "firstPartyCode": "MIT (FredTalk owner grant 2026-10-13)",
+    "thirdPartyMedia": "not covered; upstream media intentionally not redistributed",
+    "font": "SmileySans-Oblique OFL-1.1, unmodified, bundled by LW host",
+    "audio": "upstream SFX omitted; adapter is silent",
+    "attribution": "FredTalk component library; adapted by LW, not claimed as LW original"
+  },
+  "entry": "src/components/T12t-SplitScreen.tsx",
+  "files": [
+    {
+      "upstreamPath": "src/components/T12t-SplitScreen.tsx",
+      "copy": "components/T12t-SplitScreen.tsx",
+      "sha256": "2dee1ee3e26864a11ce6d98a181d28933ffe30e33ed10e827992cdbd77dd536c",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/theme.ts",
+      "copy": "kit/theme.ts",
+      "sha256": "a235e95c652137b43c31a9c680dabfd8fce3bbb45fac8559cd0af70ce2e9b1a3",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/ui.tsx",
+      "copy": "kit/ui.tsx",
+      "sha256": "ab02aeb7aa92b995e1affac3b1b327571270ac96df387250f9aec3b3eb0dacc2",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/components/_shared.ts",
+      "copy": "components/_shared.ts",
+      "sha256": "f5ebf5850bf3dd67d094ce7e9778bd52c44ff138b27abf70ce72b3378f79aaa8",
+      "channel": "api",
+      "status": "verified"
+    }
+  ],
+  "hostEdits": [
+    "theme body -> LW font",
+    "theme display -> LW font",
+    "theme mono -> LW font",
+    "theme kai -> LW font",
+    "configureTheme added",
+    "host context import",
+    "useT respects host speed",
+    "Fonts -> OFL SmileySans",
+    "Brand removed",
+    "Sfx muted",
+    "Frame background -> host"
+  ],
+  "sourcePatches": [],
+  "notes": "Auto-generated kit-overlay profile. Entry/symbol/defaults are selected from inventory + source exports."
+}

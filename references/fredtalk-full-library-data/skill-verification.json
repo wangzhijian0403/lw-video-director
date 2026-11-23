@@ -1,0 +1,14 @@
+{
+  "componentId": "FT-T09w-292",
+  "catalogExecutable": true,
+  "adapter": "fred-batch",
+  "bytes": 410735,
+  "sha256": "492f60f47f1fc3a8b8daabce3b39b81ec3852a15a06b14f9385a2820f5d30d68",
+  "video": {
+    "frames": 180,
+    "width": 1280,
+    "height": 720,
+    "probe": "opencv"
+  },
+  "status": "pass"
+}

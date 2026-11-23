@@ -1,0 +1,71 @@
+{
+  "lwId": "FT-T20o-353",
+  "ftId": "T20o",
+  "name": "数字狂跳：一个大数字跳到目标再让位",
+  "category": "内容交接",
+  "strategy": "kit-overlay",
+  "adapterVersion": "fred-batch/1.2",
+  "sourceSha256": "32d31849c28eee3a52842f43fcb8362300ecef4929bb1de30bd3335b07675da8",
+  "adapterSha256": "2ad01601637718b0b8687077c1947085029b3f5752c66414ed2bac6dd91ede6e",
+  "nativeFrames": 216,
+  "fps": 60,
+  "upstream": {
+    "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
+    "publicTag": "v2.5.0",
+    "project": null,
+    "officialUrl": "https://www.fred-fu.com/visual-library"
+  },
+  "license": {
+    "firstPartyCode": "MIT (FredTalk owner grant 2026-10-13)",
+    "thirdPartyMedia": "not covered; upstream media intentionally not redistributed",
+    "font": "SmileySans-Oblique OFL-1.1, unmodified, bundled by LW host",
+    "audio": "upstream SFX omitted; adapter is silent",
+    "attribution": "FredTalk component library; adapted by LW, not claimed as LW original"
+  },
+  "entry": "src/components/T20o-StatSlam.tsx",
+  "files": [
+    {
+      "upstreamPath": "src/components/T20o-StatSlam.tsx",
+      "copy": "components/T20o-StatSlam.tsx",
+      "sha256": "1e395e125552592d046f9728530c671d1d8224e378dae0925ab238e3fc546df5",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/theme.ts",
+      "copy": "kit/theme.ts",
+      "sha256": "a235e95c652137b43c31a9c680dabfd8fce3bbb45fac8559cd0af70ce2e9b1a3",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/ui.tsx",
+      "copy": "kit/ui.tsx",
+      "sha256": "ab02aeb7aa92b995e1affac3b1b327571270ac96df387250f9aec3b3eb0dacc2",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/components/_shared.ts",
+      "copy": "components/_shared.ts",
+      "sha256": "f5ebf5850bf3dd67d094ce7e9778bd52c44ff138b27abf70ce72b3378f79aaa8",
+      "channel": "api",
+      "status": "verified"
+    }
+  ],
+  "hostEdits": [
+    "theme body -> LW font",
+    "theme display -> LW font",
+    "theme mono -> LW font",
+    "theme kai -> LW font",
+    "configureTheme added",
+    "host context import",
+    "useT respects host speed",
+    "Fonts -> OFL SmileySans",
+    "Brand removed",
+    "Sfx muted",
+    "Frame background -> host"
+  ],
+  "sourcePatches": [],
+  "notes": "Auto-generated kit-overlay profile. Entry/symbol/defaults are selected from inventory + source exports."
+}

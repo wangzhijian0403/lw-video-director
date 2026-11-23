@@ -1,0 +1,28 @@
+{
+  "defaultProps": {
+    "items": [
+      {
+        "text": "拍摄前",
+        "highlight": "前"
+      },
+      {
+        "text": "拍摄中",
+        "highlight": "中"
+      },
+      {
+        "text": "拍摄后",
+        "highlight": "后"
+      }
+    ],
+    "focus": 1,
+    "background": "fredtalk/media/lw-workspace-bg.jpg"
+  },
+  "editableKeys": [
+    "items",
+    "focus",
+    "background"
+  ],
+  "accent": "#8554e8",
+  "background": "#f5f3eb",
+  "notes": "items 为 2–4 枚阶段胶囊（text 中文、highlight 染紫词）；background 可换成用户自己的底图。"
+}

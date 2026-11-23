@@ -49,7 +49,7 @@ class AssetTests(unittest.TestCase):
         proof={**meta()['rights'],'source':'https://example.org/wrong','author':'author'}
         with self.assertRaises(ValueError):self.index.approve(a['assetId'],proof)
     def test_unverified_mg_is_indexed_but_not_executable(self):
-        d=self.root/'test.lwmg.json';d.write_text(json.dumps({'componentId':'MP-002','library':'lw-references'}))
+        d=self.root/'test.lwmg.json';d.write_text(json.dumps({'componentId':'FT-T05q-250','library':'lw-references'}))
         a=self.index.import_file(d,meta(library='lw-references'))
         self.assertFalse(a['media']['adapterVerified'])
         with self.assertRaises(ValueError):self.index.require(a['assetId'],'private-test')

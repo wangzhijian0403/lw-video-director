@@ -51,6 +51,8 @@ python scripts/episode_preflight.py templates/episode-manifest.example.json --ph
 
 Skill 的外部接入规范保持独立。`visual-studio/` 包含已核验许可的 Motion Prompt MIT 源码适配器，以及 FredTalk 目录元数据和许可声明；没有打包 FredTalk 视频、会员源码或商业字体。详见 [工作台第三方声明](visual-studio/external/THIRD_PARTY_NOTICES.md)。
 
+本次仓库更新已把已验收成果合入 `main`：**240 条 Motion Prompt + 113 条 FredTalk** 可在本仓库工作台本地渲染；工作台只保留「动效库 / 素材库」两栏，原创组件不再出现在动效库。FredTalk 活跃库 286 条中仍有 174 条未补齐（18 条机器 QA 未过、8 条未适配、148 条缺依赖），未伪装为可执行。
+
 ## LW Visual Studio v0.2.0-preview
 
 独立的原创视觉组件预览工作台，源码位于 [`visual-studio/`](visual-studio/)。当前为待审核预览版，不替代现有 Skill 和 Python 分析工具。提供五个原创组件、Swiss/Future/Archive 三主题，以及来源独立的 References 检索。
@@ -234,7 +236,3 @@ MIT 允许使用、复制、修改、合并、发布、分发、再许可及销�
 ## 案例资料说明
 
 `references/case-index.md` 收录的是交接记录中的观察与待核实事项，不代表本仓库重新完成了全部原片复核。原始视频和逐帧证据不包含在仓库中。
-
-### 已安装资源统一入口（最新）
-
-更新本地源码后，启动工作台，在 **Originals** 左侧选择「已安装资源与角色」，可直接找到全部15条原版原创组件、3条原创分层场景、16条FredTalk、24个SVG图标和5条本地角色登记。无独立「素材图鉴」顶级导航，References仅供外部参考。资源预览不代表所有资源均可直接从页头单独导出；实际整片以ProjectVideo工程为准。请保护本机私有角色文件。

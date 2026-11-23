@@ -1,0 +1,143 @@
+{
+  "runId": "LW-MP-FULL-240",
+  "pack": "artstyle",
+  "license": "MIT (c) 2026 Shohei Ohtaki",
+  "files": {
+    "base-08.webp": {
+      "bytes": 8016,
+      "sha256": "250238564afb6e15e9853bd25c29994496c96d3b530da682097cb25609e7b48d",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/base-08.webp"
+    },
+    "base-23.webp": {
+      "bytes": 7160,
+      "sha256": "ad9f530211c87f4aa486923dd016affed2492d40531725fa684998bf08b8d3e9",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/base-23.webp"
+    },
+    "base.webp": {
+      "bytes": 9386,
+      "sha256": "a1a12493fc2cecb7a9addfed59d3c51101b60a0fb130af467171e251be72b695",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/base.webp"
+    },
+    "style-01.webp": {
+      "bytes": 16246,
+      "sha256": "a0c52355aec615a34a7aa55212d28334ed42fa28f399c93bfb69c98ab27b773f",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/style-01.webp"
+    },
+    "style-05.webp": {
+      "bytes": 79570,
+      "sha256": "3f01bece5dfc47b993040405c1cf839a2555d0168b2411361f19ea3c93200e46",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/style-05.webp"
+    },
+    "style-03.webp": {
+      "bytes": 25480,
+      "sha256": "96465a529f8b62d50f85b62d04ead652e78fc8e6168f8b72dd7f9e4d72860564",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/style-03.webp"
+    },
+    "style-11.webp": {
+      "bytes": 44662,
+      "sha256": "530783ed114369e20fd05f9130db58ae0a78874e7d340aa1a6f290fe928bc7e9",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/style-11.webp"
+    },
+    "style-02.webp": {
+      "bytes": 110626,
+      "sha256": "17e8f56ee04a8f5cfa071873728308dedc510d89256e194970072bb4784da441",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/style-02.webp"
+    },
+    "style-10.webp": {
+      "bytes": 32484,
+      "sha256": "26559c558914a60aecc8c3715e621c368a0834728df1a6290d39070d87769ad6",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/style-10.webp"
+    },
+    "style-09.webp": {
+      "bytes": 17906,
+      "sha256": "597a3809c60a6f5464eb6636daec3a1defa9be3b56d1973f73d43ef757b99d8c",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/style-09.webp"
+    },
+    "style-06.webp": {
+      "bytes": 74768,
+      "sha256": "1c4db302c5487aedf1023125be38281dfbb06076b59556aa790c07952e18033e",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/style-06.webp"
+    },
+    "style-07.webp": {
+      "bytes": 18026,
+      "sha256": "b42f9cbab2f9ee22b75debb97f609043ac116466990c944c63b3a63c91c109c5",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/style-07.webp"
+    },
+    "style-04.webp": {
+      "bytes": 66822,
+      "sha256": "2f6d13a13af5add2ccdc0f354a521b2c465a5ca98585f4b73ec0bcd7195f4f56",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/style-04.webp"
+    },
+    "style-12.webp": {
+      "bytes": 48082,
+      "sha256": "9e8f881228cb7762bb14e332be3d2c9a3adac68d87848d78774f5e9555dfa954",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/style-12.webp"
+    },
+    "style-14.webp": {
+      "bytes": 45838,
+      "sha256": "d7112e6b19f9b69d25d60a37a8404a7410f15c43ff0ab9402bbc293516f004e4",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/style-14.webp"
+    },
+    "style-13.webp": {
+      "bytes": 51196,
+      "sha256": "0b4bbd29af52120e272596250c56d01f66f8f796a4670adf5358da22f03866cf",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/style-13.webp"
+    },
+    "style-17.webp": {
+      "bytes": 10134,
+      "sha256": "e16fd9f2441fe6a307f503a215e1cb2669070872d02e0e5aaa36d2d021c6d74c",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/style-17.webp"
+    },
+    "style-08.webp": {
+      "bytes": 59030,
+      "sha256": "0c5cec01c0996bba2d3932441224d006e446a7df875a571202479ef7552f9bf6",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/style-08.webp"
+    },
+    "style-16.webp": {
+      "bytes": 38782,
+      "sha256": "dbfe063c1b30d21e3841996828d0570eecefb6adff766c4bc3bd876be1b14ea7",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/style-16.webp"
+    },
+    "style-18.webp": {
+      "bytes": 21132,
+      "sha256": "c726fac2fe799b151b04c8bf77393bb8368d029b149677791014ac33ce5838ec",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/style-18.webp"
+    },
+    "style-19.webp": {
+      "bytes": 11528,
+      "sha256": "053dad11bd1c708f27224b7cdcb8831170407f833378623e047fec33194ddc91",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/style-19.webp"
+    },
+    "style-21.webp": {
+      "bytes": 17710,
+      "sha256": "22650c74086c03161c2381ad57fb21bbb54a30c8e511e01f2106135868b043f8",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/style-21.webp"
+    },
+    "style-20.webp": {
+      "bytes": 16754,
+      "sha256": "f2a5455c5d8553b1df184c46e8b4c30a3739ad5eda1bcd8d1923020f43a5a7e6",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/style-20.webp"
+    },
+    "style-24.webp": {
+      "bytes": 13016,
+      "sha256": "0f0ad799482b3a4f772c518d3eb1862c60f0d56930833e979bbd66f9a16cfa40",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/style-24.webp"
+    },
+    "style-22.webp": {
+      "bytes": 132662,
+      "sha256": "9021104eed7531e51e07021dd95f54f8cc80c1fd8572dc30f7e46254aefecdb8",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/style-22.webp"
+    },
+    "style-15.webp": {
+      "bytes": 7352,
+      "sha256": "d446182efafafeabaac1159eca2ce6cd7dcc49a7ede33896629e2528752c7be0",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/style-15.webp"
+    },
+    "style-23.webp": {
+      "bytes": 21906,
+      "sha256": "98cb7383ce634ad59566baf9140bded4ddf5a92d1d7ce7f702c2a2a80d51fcdb",
+      "url": "https://showheyohtaki.github.io/motion-prompt/packs/artstyle/img/style-23.webp"
+    }
+  },
+  "failures": []
+}

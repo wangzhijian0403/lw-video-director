@@ -1,0 +1,65 @@
+{
+  "lwId": "FT-T09v-291",
+  "ftId": "T09v",
+  "name": "下拉切换：选择器展开，选中一项，标签改写",
+  "category": "讲解段落",
+  "strategy": "kit-overlay",
+  "adapterVersion": "fred-batch/1.2",
+  "sourceSha256": "470f644bcd4c67d30b5cbd6c81e2d6d5727c02e8dacbafeb410a8823a9baa904",
+  "adapterSha256": "8f0d6dbf3138ed9317ee3082d1d5c29908fd26be99b54e9f1f7a67fbf28c38b5",
+  "nativeFrames": 120,
+  "fps": 30,
+  "upstream": {
+    "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
+    "publicTag": "v2.5.0",
+    "project": null,
+    "officialUrl": "https://www.fred-fu.com/visual-library"
+  },
+  "license": {
+    "firstPartyCode": "MIT (FredTalk owner grant 2026-10-13)",
+    "thirdPartyMedia": "not covered; upstream media intentionally not redistributed",
+    "font": "SmileySans-Oblique OFL-1.1, unmodified, bundled by LW host",
+    "audio": "upstream SFX omitted; adapter is silent",
+    "attribution": "FredTalk component library; adapted by LW, not claimed as LW original"
+  },
+  "entry": "source/src/components/T09v-PickerSwitch.tsx",
+  "files": [
+    {
+      "upstreamPath": "source/src/components/T09v-PickerSwitch.tsx",
+      "copy": "components/T09v-PickerSwitch.tsx",
+      "sha256": "0c4868c47afbaa1c527c010d9bcabd15acfa7d890986af52279390691458eab4",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "source/src/kit/theme.ts",
+      "copy": "kit/theme.ts",
+      "sha256": "30d534daaab3c4b62468d23f16166939adfc89f94a02b954f6b0e3c05fc9701d",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "source/src/kit/ui.tsx",
+      "copy": "kit/ui.tsx",
+      "sha256": "05bdc4d6b17c5779e753c9a0b9c86c1dd7ef7e432666d6c49d0541ba367b1775",
+      "channel": "api",
+      "status": "verified"
+    }
+  ],
+  "hostEdits": [
+    "theme body -> LW font",
+    "theme display -> LW font",
+    "theme mono -> LW font",
+    "theme kai -> LW font",
+    "configureTheme added",
+    "host context import",
+    "useT respects host speed",
+    "Fonts -> OFL SmileySans",
+    "Brand removed",
+    "Sfx muted",
+    "Frame background -> host",
+    "media literals -> LW placeholders (1 refs; upstream media not redistributed)"
+  ],
+  "sourcePatches": [],
+  "notes": "Auto-generated kit-overlay profile. Entry/symbol/defaults are selected from inventory + source exports."
+}

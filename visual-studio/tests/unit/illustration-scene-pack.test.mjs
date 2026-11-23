@@ -27,12 +27,17 @@ test('unregistered illustrated scene IDs cannot enter render projects',()=>{
  const result=lintProject(invalid,{publicDir:path.join(ROOT,'public')});
  assert.ok(result.errors.some(e=>e.includes('不在 catalog')));
 });
-test('Workbench lists actually installed scene, FredTalk, SVG and character registries',()=>{
+test('Workbench has two tabs and lists actually installed scene, SVG and character registries',()=>{
  const app=fs.readFileSync(path.join(ROOT,'src/app/main.tsx'),'utf8');
  const gallery=fs.readFileSync(path.join(ROOT,'src/app/ResourceGallery.tsx'),'utf8');
+ const motion=fs.readFileSync(path.join(ROOT,'src/app/MotionLibrary.tsx'),'utf8');
  assert.match(app,/ResourceGallery/);
- assert.match(app,/统一资源库/);
- assert.match(app,/installedResourceCounts/);
- assert.doesNotMatch(app,/>素材图鉴<\/button>/);
- for(const phrase of ['fredtalk-approved.json','tabler-outline.json','scene-packs/manifest.json','characterRegistry.mjs','<Player']) assert.ok(gallery.includes(phrase),phrase);
+ assert.match(app,/MotionLibrary/);
+ assert.match(app,/动效库/);
+ assert.match(app,/素材库/);
+ assert.doesNotMatch(app,/Originals/);
+ assert.doesNotMatch(app,/References/);
+ assert.doesNotMatch(gallery,/fredtalk-approved\.json/);
+ for(const phrase of ['tabler-outline.json','scene-packs/manifest.json','characterRegistry.mjs','<Player']) assert.ok(gallery.includes(phrase),phrase);
+ assert.match(motion,/searchAssets/);
 });

@@ -1,3 +1,14 @@
+// --- LW-FT-FULL-001 ROOT-IMPORTS BEGIN ---
+import {FredTalkAdapter} from '../references/FredTalkAdapter';
+import {fredDefaults} from '../references/fred-props.mjs';
+import {fredBatch} from '../references/fredtalk-registry.generated';
+import {Placeholders} from './placeholders';
+// --- LW-FT-FULL-001 ROOT-IMPORTS END ---
+// --- LW-MP-FULL-240 ROOT-IMPORTS BEGIN ---
+import {MotionPromptStage} from '../references/MotionPromptStage';
+import {motionPromptBatch} from '../references/motion-prompt-registry.generated';
+// --- LW-MP-FULL-240 ROOT-IMPORTS END ---
+
 import {Composition, registerRoot} from 'remotion';
 import {Scene} from './Scene';
 import {catalog} from '../catalog/registry';
@@ -24,6 +35,19 @@ const defaultProject: ProjectFile = {
 function Root() {
   return (
     <>
+      {/* // --- LW-FT-FULL-001 ROOT-COMPS BEGIN --- */}
+      <Placeholders/>
+      <Composition id="REF-FT-T03E" component={FredTalkAdapter} width={1280} height={720} fps={60} durationInFrames={420} defaultProps={fredDefaults} calculateMetadata={({props}) => ({durationInFrames: Math.ceil(420 / props.speed)})}/>
+      {fredBatch.map((e) => (
+        <Composition key={e.id} id={`REF-${e.id}`} component={e.adapter} width={1280} height={720} fps={e.fps} durationInFrames={e.nativeFrames} defaultProps={{props: e.sampleProps, accent: e.accent, background: e.background, speed: 1}} calculateMetadata={({props}) => ({durationInFrames: Math.ceil(e.nativeFrames / (((props as {speed?: number}).speed) ?? 1))})}/>
+      ))}
+      {/* // --- LW-FT-FULL-001 ROOT-COMPS END --- */}
+{/* // --- LW-MP-FULL-240 ROOT-COMPS BEGIN --- */}
+      {motionPromptBatch.map((e) => (
+        <Composition key={'MP'+e.id} id={`REF-MP-${e.id}`} component={MotionPromptStage} width={1280} height={720} fps={30} durationInFrames={e.frames} defaultProps={{id: e.id, speed: 1, scale: 1}}/>
+      ))}
+      {/* // --- LW-MP-FULL-240 ROOT-COMPS END --- */}
+
       <Composition
         id="REF-MP001"
         component={MotionPromptAdapter}

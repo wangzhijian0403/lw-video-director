@@ -1,0 +1,64 @@
+{
+  "lwId": "FT-T14a-653",
+  "ftId": "T14a",
+  "name": "A/B 耗时：两条轨道计时赛跑，倍数落定",
+  "category": "数值与图表",
+  "strategy": "kit-overlay",
+  "adapterVersion": "fred-batch/1.2",
+  "sourceSha256": "1127270fd55527ecfe7eb7e228624c09c776a0eae9523ca6e37f61f16b20ee43",
+  "adapterSha256": "69f6c16e0e44c5fc4639ad10679597482f70716290430bf95cce5379c0e3479b",
+  "nativeFrames": 300,
+  "fps": 60,
+  "upstream": {
+    "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
+    "publicTag": "v2.5.0",
+    "project": null,
+    "officialUrl": "https://www.fred-fu.com/visual-library"
+  },
+  "license": {
+    "firstPartyCode": "MIT (FredTalk owner grant 2026-10-13)",
+    "thirdPartyMedia": "not covered; upstream media intentionally not redistributed",
+    "font": "SmileySans-Oblique OFL-1.1, unmodified, bundled by LW host",
+    "audio": "upstream SFX omitted; adapter is silent",
+    "attribution": "FredTalk component library; adapted by LW, not claimed as LW original"
+  },
+  "entry": "src/components/T14a-ABTimeRace.tsx",
+  "files": [
+    {
+      "upstreamPath": "src/components/T14a-ABTimeRace.tsx",
+      "copy": "components/T14a-ABTimeRace.tsx",
+      "sha256": "c055ccafb9bba440ca62b15a9ab9fb5b0c41d0739f8ec0fa29a373c45a1f8920",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/theme.ts",
+      "copy": "kit/theme.ts",
+      "sha256": "c77ff0a6c94d35e5b41068730ebcbdc50736749c7c64b0327d4709ed88c0d15e",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/ui.tsx",
+      "copy": "kit/ui.tsx",
+      "sha256": "e7351657058edc090877cc702ee43259fd7d0d616315e208818bc519c67a0390",
+      "channel": "api",
+      "status": "verified"
+    }
+  ],
+  "hostEdits": [
+    "theme body -> LW font",
+    "theme display -> LW font",
+    "theme mono -> LW font",
+    "theme kai -> LW font",
+    "configureTheme added",
+    "host context import",
+    "useT respects host speed",
+    "Fonts -> OFL SmileySans",
+    "Brand removed",
+    "Sfx muted",
+    "Frame background -> host"
+  ],
+  "sourcePatches": [],
+  "notes": "Auto-generated kit-overlay profile. Entry/symbol/defaults are selected from inventory + source exports."
+}

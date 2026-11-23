@@ -1,0 +1,25 @@
+{
+  "defaultProps": {
+    "src": "fredtalk/media/lw-recording.mp4",
+    "start": 1.0,
+    "roi": {
+      "x": 1292,
+      "y": 132,
+      "w": 557,
+      "h": 530
+    },
+    "clock": {
+      "freezeFrom": 2.2,
+      "freezeTo": 5.4
+    }
+  },
+  "editableKeys": [
+    "src",
+    "start",
+    "roi",
+    "clock"
+  ],
+  "accent": "#e0a34b",
+  "background": "#f5f3eb",
+  "notes": "src 为用户自己的录屏；roi 是 1920×1080 源画面里的聚焦框；clock 控制冻结阅读区间。"
+}

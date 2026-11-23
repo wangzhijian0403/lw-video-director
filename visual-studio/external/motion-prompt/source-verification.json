@@ -1,0 +1,9 @@
+{
+  "runId": "LW-MP-FULL-240",
+  "stage": "source-execution-gate",
+  "total": 240,
+  "ok": 240,
+  "failures": [],
+  "indexMismatch": [],
+  "sampledFrames": 1200
+}

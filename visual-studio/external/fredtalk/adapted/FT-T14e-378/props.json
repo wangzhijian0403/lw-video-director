@@ -1,0 +1,32 @@
+{
+  "defaultProps": {
+    "stats": [
+      {
+        "label": "渲染耗时",
+        "value": 42,
+        "suffix": " 秒",
+        "unit": "1080p / 30fps"
+      },
+      {
+        "label": "素材占用",
+        "value": 128,
+        "suffix": " MB",
+        "unit": "单条组件"
+      },
+      {
+        "label": "复用组件",
+        "value": 12,
+        "suffix": " 条",
+        "unit": "本轮验收"
+      }
+    ],
+    "hero": 2
+  },
+  "editableKeys": [
+    "stats",
+    "hero"
+  ],
+  "accent": "#2f7d6d",
+  "background": "#f5f3eb",
+  "notes": "stats 为 2–4 张数字卡；hero 指定主角卡序号（最后放大、变深色）。"
+}

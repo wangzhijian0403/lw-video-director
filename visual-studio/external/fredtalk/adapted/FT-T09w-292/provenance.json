@@ -1,0 +1,65 @@
+{
+  "lwId": "FT-T09w-292",
+  "ftId": "T09w",
+  "name": "一个变多个：同一窗口复制成几份同时跑",
+  "category": "讲解段落",
+  "strategy": "kit-overlay",
+  "adapterVersion": "fred-batch/1.2",
+  "sourceSha256": "a20b34ef1ee52f4a4e452e3f765509602682ed2de3c8f057f4f5c0d626f6fc00",
+  "adapterSha256": "dc391495a6a282abf8f2ec6eeb2aacba45b96c453e599b669afd9f2129a82539",
+  "nativeFrames": 180,
+  "fps": 30,
+  "upstream": {
+    "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
+    "publicTag": "v2.5.0",
+    "project": null,
+    "officialUrl": "https://www.fred-fu.com/visual-library"
+  },
+  "license": {
+    "firstPartyCode": "MIT (FredTalk owner grant 2026-10-13)",
+    "thirdPartyMedia": "not covered; upstream media intentionally not redistributed",
+    "font": "SmileySans-Oblique OFL-1.1, unmodified, bundled by LW host",
+    "audio": "upstream SFX omitted; adapter is silent",
+    "attribution": "FredTalk component library; adapted by LW, not claimed as LW original"
+  },
+  "entry": "source/src/components/T09w-ParallelRuns.tsx",
+  "files": [
+    {
+      "upstreamPath": "source/src/components/T09w-ParallelRuns.tsx",
+      "copy": "components/T09w-ParallelRuns.tsx",
+      "sha256": "4eee9fb90aa429226cfadd928891619efaf92c90fbdfbd792bb3e061efc895cd",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "source/src/kit/theme.ts",
+      "copy": "kit/theme.ts",
+      "sha256": "30d534daaab3c4b62468d23f16166939adfc89f94a02b954f6b0e3c05fc9701d",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "source/src/kit/ui.tsx",
+      "copy": "kit/ui.tsx",
+      "sha256": "05bdc4d6b17c5779e753c9a0b9c86c1dd7ef7e432666d6c49d0541ba367b1775",
+      "channel": "api",
+      "status": "verified"
+    }
+  ],
+  "hostEdits": [
+    "theme body -> LW font",
+    "theme display -> LW font",
+    "theme mono -> LW font",
+    "theme kai -> LW font",
+    "configureTheme added",
+    "host context import",
+    "useT respects host speed",
+    "Fonts -> OFL SmileySans",
+    "Brand removed",
+    "Sfx muted",
+    "Frame background -> host",
+    "media literals -> LW placeholders (1 refs; upstream media not redistributed)"
+  ],
+  "sourcePatches": [],
+  "notes": "Auto-generated kit-overlay profile. Entry/symbol/defaults are selected from inventory + source exports."
+}

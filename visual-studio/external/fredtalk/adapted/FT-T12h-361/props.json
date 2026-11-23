@@ -1,0 +1,12 @@
+{
+  "defaultProps": {},
+  "editableKeys": [
+    "from",
+    "to",
+    "note",
+    "accentTo"
+  ],
+  "accent": "#8554E8",
+  "background": "#f5f3eb",
+  "notes": "自动生成：使用上游 defaults；参数键来自 inventory 静态分析。"
+}

@@ -1,0 +1,64 @@
+{
+  "lwId": "FT-T12d-407",
+  "ftId": "T12d",
+  "name": "阶段胶囊：三枚胶囊建立，聚焦当前阶段",
+  "category": "内容交接",
+  "strategy": "kit-overlay",
+  "adapterVersion": "fred-batch/1.1",
+  "sourceSha256": "3a8bb37f21e8c2f9578f3781a9232baf07f0018b21afd4e9f946b2bf744717e3",
+  "adapterSha256": "943d33a11d062747ae1e68517181b5d1f17d99fc13a2b4e94f722a9b4179d9bf",
+  "nativeFrames": 360,
+  "fps": 60,
+  "upstream": {
+    "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
+    "publicTag": "v2.5.0",
+    "project": null,
+    "officialUrl": "https://www.fred-fu.com/visual-library"
+  },
+  "license": {
+    "firstPartyCode": "MIT (FredTalk owner grant 2026-10-13)",
+    "thirdPartyMedia": "not covered; upstream media intentionally not redistributed",
+    "font": "SmileySans-Oblique OFL-1.1, unmodified, bundled by LW host",
+    "audio": "upstream SFX omitted; adapter is silent",
+    "attribution": "FredTalk component library; adapted by LW, not claimed as LW original"
+  },
+  "entry": "src/components/T12d-PhaseCapsules.tsx",
+  "files": [
+    {
+      "upstreamPath": "src/components/T12d-PhaseCapsules.tsx",
+      "copy": "components/T12d-PhaseCapsules.tsx",
+      "sha256": "1f3f727b97791739676892cf9ca385589f9d1e8952333ffebadea803decf7b8e",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/theme.ts",
+      "copy": "kit/theme.ts",
+      "sha256": "a235e95c652137b43c31a9c680dabfd8fce3bbb45fac8559cd0af70ce2e9b1a3",
+      "channel": "api",
+      "status": "verified"
+    },
+    {
+      "upstreamPath": "src/kit/ui.tsx",
+      "copy": "kit/ui.tsx",
+      "sha256": "05ce402324f5e11521b15dacc30de3ee1f89adb0a1b5c20b220a29890d8e3ba9",
+      "channel": "api",
+      "status": "verified"
+    }
+  ],
+  "hostEdits": [
+    "theme body -> LW font",
+    "theme display -> LW font",
+    "theme mono -> LW font",
+    "theme kai -> LW font",
+    "configureTheme added",
+    "host context import",
+    "useT respects host speed",
+    "Fonts -> OFL SmileySans",
+    "Brand removed",
+    "Sfx muted",
+    "Frame background -> host"
+  ],
+  "sourcePatches": [],
+  "notes": "阶段胶囊；底色图默认路径不存在，本轮用 LW 自有纹理底图替换。"
+}
