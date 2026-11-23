@@ -24,8 +24,10 @@ test('workbench exposes only motion library and resource gallery',()=>{
  assert.match(app,/type Library = 'motion' \| 'assets'/);
  assert.match(app,/>动效库<\/button>/);
  assert.match(app,/>素材库<\/button>/);
- assert.match(app,/<MotionLibrary search=\{search\}\/>/);
+ assert.match(app,/<MotionLibrary search=\{search\} providers=\{providers\}\/>/);
  assert.match(app,/<ResourceGallery search=\{search\}\/>/);
+ assert.match(app,/<ProductionWizard /);
+ assert.match(app,/<CopyAssetFinder /);
  assert.doesNotMatch(app,/>Originals<\/button>/);
  assert.doesNotMatch(app,/>References<\/button>/);
  assert.match(motion,/\/api\/render-reference/);
@@ -35,6 +37,17 @@ test('workbench exposes only motion library and resource gallery',()=>{
  assert.match(gallery,/CHARACTER_IDS/);
  assert.equal(json('src/scene-packs/manifest.json').entries.length,3);
  assert.equal(json('src/resource-packs/tabler-outline.json').entries.length,24);
+});
+
+test('copy-to-asset reuses the existing asset engine instead of a parallel matcher',()=>{
+ const server=read('server.mjs');
+ const engine=fs.readFileSync(path.join(root,'../scripts/lw_assets.py'),'utf8');
+ assert.match(server,/\/api\/assets\/from-copy/);
+ assert.match(server,/asset_engine\.py/);
+ assert.match(server,/\/api\/asset-engine\/status/);
+ assert.match(engine,/def select_for_copy\(/);
+ assert.match(engine,/select_for_shot\(index, effective, scope\)/);
+ assert.match(engine,/reviewRequired':True/);
 });
 
 test('resource gallery does not expose stale original export button',()=>{

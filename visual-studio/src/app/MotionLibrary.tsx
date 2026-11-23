@@ -108,7 +108,9 @@ function ReferenceStage({item}: {item: Motion}) {
   </article>;
 }
 
-export function MotionLibrary({search}: {search: string}) {
+export function MotionLibrary({search, providers}: {search: string; providers?: string[]}) {
+  const providerNames: Record<string, string> = {'motion-prompt': 'Motion Prompt', fredtalk: 'FredTalk'};
+  const allowed = providers?.length ? providers.map(p => providerNames[p] ?? p) : ['Motion Prompt', 'FredTalk'];
   const [source, setSource] = useState('all');
   const [category, setCategory] = useState('all');
   const [verifiedOnly, setVerifiedOnly] = useState(() => new URLSearchParams(location.search).get('verified') !== '0');
@@ -132,17 +134,19 @@ export function MotionLibrary({search}: {search: string}) {
   })), []);
 
   const filtered = useMemo(() => all.filter(m => {
+    if (!allowed.includes(m.provider)) return false;
     if (verifiedOnly && !m.executable) return false;
     if (source !== 'all' && m.provider !== source) return false;
     if (category !== 'all' && m.category !== category) return false;
     if (search.trim() && ![m.id, m.name, m.description, m.category, m.provider].join(' ').toLowerCase().includes(search.trim().toLowerCase())) return false;
     return true;
-  }), [all, verifiedOnly, source, category, search]);
+  }), [all, verifiedOnly, source, category, search, allowed]);
 
   const categories = useMemo(() => [...new Set(all.map(m => m.category))], [all]);
   const verifiedCount = all.filter(m => m.executable).length;
   const item = filtered.find(m => m.id === selected) ?? filtered[0];
   useEffect(() => setPage(0), [search, source, category, verifiedOnly]);
+  useEffect(() => { if (source !== 'all' && !allowed.includes(source)) setSource('all'); }, [allowed, source]);
 
   return <section className="references-workspace motion-workspace">
     <div className="reference-heading">
@@ -152,9 +156,8 @@ export function MotionLibrary({search}: {search: string}) {
     </div>
     <div className="reference-filters">
       <select aria-label="动效来源" value={source} onChange={e => { setSource(e.target.value); setPage(0); }}>
-        <option value="all">全部来源</option>
-        <option value="FredTalk">FredTalk</option>
-        <option value="Motion Prompt">Motion Prompt</option>
+        <option value="all">已选来源</option>
+        {allowed.map(p => <option key={p} value={p}>{p}</option>)}
       </select>
       <select aria-label="动效分类" value={category} onChange={e => { setCategory(e.target.value); setPage(0); }}>
         <option value="all">全部分类</option>

@@ -20,6 +20,10 @@
 
 口播 → 结构化 shotIntent（concepts、relations、purpose、emotion、style、requiredEntities）。素材以同一语义表示；按概念层级/关系、镜头职责、情绪、风格、实体、媒体质量与使用重复率排序，输出每项分数和原因。字面命中只能作为辅助，不可替代镜头职责。没有语义标注或信心不足不自动执行，交给导演做补充判断；不宣称内置 ASR/视觉识别/多模态嵌入已完成。语义解释由本 Skill/导演提供，脚本执行可审计的本体评分，不伪装为训练模型。
 
+## 文案自动找素材的边界
+
+`from-copy` 是**接进本引擎的一个入口**，不是另一套匹配系统：它把文案按句拆开，用可审计的规则线索生成 `concepts` / `purpose` / `analysisEvidence`，再调用同一个 `recommend()` / `select_for_shot()`。`--libraries` 只能缩小范围，不能绕过权利门禁；没有可用素材时返回明确错误，不生成占位条目。每条草案带 `reviewRequired: true` 与命中的线索说明，命中失败时标注 `position-default`（位置默认，非语义确认）。`seed` 只登记工作区里 `renderStatus=passed` 且有来源与许可记录的组件，注册后仍由 `probe()`/`require()` 验证可执行性。规则映射不是语义理解、ASR 或训练模型，不得据此宣称任意题材自动选材或全自动成片。
+
 ## 时间轴和版权门禁
 
 镜头只引用 assetId；编译时重新读取索引、核验本机文件哈希和逐项 render/adapt/scope/attribution 条件，再复制到项目使用区。图片 contain/cover、视频 trimStart/显式冻结、音量、MG 叠加、入退场、字幕时间码、字体统一写入 episode。静态图/短片不循环冒充长素材，循环和冻结必须显式记录。
@@ -40,6 +44,8 @@ python scripts/asset_engine.py --project <project> review-flickr <candidate-id>
 python scripts/asset_engine.py --project <project> download <candidate-id> --scope private-test
 python scripts/asset_engine.py --project <project> recommend --intent <shot-intent.json> --scope private-test
 python scripts/asset_engine.py --project <project> select --intent <shot-intent.json> --scope private-test
+python scripts/asset_engine.py --project <project> seed --scope private-test
+python scripts/asset_engine.py --project <project> from-copy --file <copy.txt> --scope private-test --libraries lw-originals,lw-references --seed
 python scripts/asset_timeline.py <episode.json> --project <project> --check
 python scripts/asset_timeline.py <episode.json> --project <project>
 python scripts/episode_preflight.py <episode.json> --phase render

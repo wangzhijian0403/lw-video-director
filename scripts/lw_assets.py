@@ -291,11 +291,176 @@ def review_flickr_cc(index, aid, scope='private-test'):
     return index.approve(aid,proof)
 
 def select_for_shot(index, intent, scope='project'):
-    candidates=recommend(index,intent,scope);preferred=intent.get('preferredKinds',['video','image','screen-recording','mg'])
+    candidates=recommend(index,intent,scope)
+    allowed=intent.get('libraries')
+    if allowed:candidates=[x for x in candidates if x.get('library') in allowed]
+    preferred=intent.get('preferredKinds',['video','image','screen-recording','mg'])
     eligible=[x for x in candidates if x['usable'] and index.get(x['assetId'])['kind'] in preferred]
     fallback=None
-    if not eligible:
+    if not eligible and (not allowed or 'lw-originals' in allowed):
         eligible=[x for x in candidates if x['usable'] and index.get(x['assetId'])['kind']=='mg' and x['library']=='lw-originals']
         fallback='No eligible preferred media; an explicitly disclosed, semantically matched LW Originals MG replaces it'
     if not eligible:raise ValueError('no semantically suitable authorized asset or original MG; do not insert placeholder')
     return {'selectedAssetId':eligible[0]['assetId'],'fallback':fallback,'intent':intent,'recommendations':candidates}
+
+
+# ---------------------------------------------------------------------------
+# Copy-to-asset bridge.
+# Raw copy is deliberately NOT a valid intent for recommend(): the engine must
+# not silently turn narration wording into a material claim. These helpers only
+# DRAFT a structured intent from copy using auditable rule cues, then hand it to
+# the SAME recommend()/select_for_shot() pipeline with all rights gates intact.
+# Rule mapping is not language understanding; every proposal carries
+# reviewRequired=True and the exact cue that produced it.
+# ---------------------------------------------------------------------------
+COPY_CUES = (
+    {'patterns':('为什么','如何','怎么','什么','吗？','why','how','what'),
+     'concepts':('communication',),'purpose':'hook',
+     'note':'疑问/开场线索 → 沟通职责 + 钩子'},
+    {'patterns':('分层','结构','顺序','步骤','首先','其次','层次','复杂','解释','解读','framework','structure'),
+     'concepts':('explanation','chart'),'purpose':'explain',
+     'note':'结构线索 → 解释 + 图示 / 说明'},
+    {'patterns':('连贯','接不上','线索','转场','衔接','串联','continuity','transition'),
+     'concepts':('continuity',),'purpose':'transition',
+     'note':'连贯线索 → 连续性 / 转场'},
+    {'patterns':('镜头','运镜','推','拉','摇','视线','视角','运动','camera','motion'),
+     'concepts':('camera','motion'),'purpose':'guide',
+     'note':'运镜线索 → 摄像机 + 运动 / 引导'},
+    {'patterns':('安静','停留','风景','情绪','氛围','停一下','landscape','calm'),
+     'concepts':('scene-setting',),'purpose':'pause',
+     'note':'停留线索 → 场景铺垫 / 停顿'},
+    {'patterns':('声音','字幕','同步','时间轴','配音','音频','caption','sync','audio'),
+     'concepts':('narration','subtitles'),'purpose':'synchronize',
+     'note':'同步线索 → 旁白 + 字幕 / 声画同步'},
+    {'patterns':('对比','相比','区别','versus','vs.','comparison'),
+     'concepts':('comparison',),'purpose':'explain',
+     'note':'对比线索 → 对照 / 说明'},
+    {'patterns':('证据','数据','证明','调查','统计','evidence','data'),
+     'concepts':('evidence',),'purpose':'explain',
+     'note':'证据线索 → 论证 / 说明'},
+    {'patterns':('流程','工作流','界面','面板','workflow','process','interface'),
+     'concepts':('workflow','interface'),'purpose':'explain',
+     'note':'流程/界面线索 → 工作流 / 界面'},
+    {'patterns':('总结','结论','最后','总之','一句话','conclusion','finally'),
+     'concepts':('communication',),'purpose':'conclusion',
+     'note':'收束线索 → 沟通职责 / 结论'},
+)
+
+MP_CATEGORY_SEMANTICS = {
+    'motion':  {'concepts':['motion'],'purposes':['transition','guide'],'emotions':['calm'],'styles':['swiss']},
+    'motion2': {'concepts':['motion'],'purposes':['transition','guide'],'emotions':['calm'],'styles':['swiss']},
+    'camera':  {'concepts':['camera','motion'],'purposes':['guide'],'emotions':['calm'],'styles':['swiss']},
+    'camera2': {'concepts':['camera','motion'],'purposes':['guide'],'emotions':['calm'],'styles':['swiss']},
+    'ui':      {'concepts':['interface','workflow'],'purposes':['explain'],'emotions':['calm'],'styles':['swiss']},
+    'lp':      {'concepts':['interface','workflow'],'purposes':['explain'],'emotions':['calm'],'styles':['swiss']},
+    'lp2':     {'concepts':['interface','workflow'],'purposes':['explain'],'emotions':['calm'],'styles':['swiss']},
+    'photo':   {'concepts':['scene-setting'],'purposes':['pause'],'emotions':['calm'],'styles':['swiss']},
+    'artstyle':{'concepts':['scene-setting','style'],'purposes':['pause'],'emotions':['calm'],'styles':['swiss']},
+    'diagram': {'concepts':['explanation','chart','evidence','comparison'],'purposes':['explain'],'emotions':['calm'],'styles':['swiss']},
+}
+ORIGINAL_CATEGORY_SEMANTICS = {
+    '文字动画':{'concepts':['communication','typography','subtitles'],'purposes':['hook','explain','conclusion','synchronize'],'emotions':['calm'],'styles':['swiss']},
+    '转场效果':{'concepts':['continuity','transition'],'purposes':['transition'],'emotions':['calm'],'styles':['swiss']},
+    '3D运镜':  {'concepts':['camera','motion'],'purposes':['guide'],'emotions':['calm'],'styles':['swiss']},
+    '信息图':  {'concepts':['explanation','chart','evidence'],'purposes':['explain'],'emotions':['calm'],'styles':['swiss']},
+    '信息图表':{'concepts':['explanation','chart','evidence'],'purposes':['explain'],'emotions':['calm'],'styles':['swiss']},
+    '灯光':    {'concepts':['continuity','scene-setting'],'purposes':['transition','pause'],'emotions':['calm'],'styles':['swiss']},
+    '科技光影':{'concepts':['continuity','scene-setting'],'purposes':['transition','pause'],'emotions':['calm'],'styles':['swiss']},
+}
+DEFAULT_SEMANTICS = {'concepts':['communication'],'purposes':['explain'],'emotions':['calm'],'styles':['swiss']}
+
+
+def seed_workbench_assets(index, scope='project', include_motion_prompt=True, include_originals=True):
+    """Register ALREADY-VERIFIED workbench components into this project's asset index.
+
+    Only components with a real renderStatus=passed record and traceable provenance
+    are registered. Descriptor-only MG assets go through the same probe()/require()
+    gate as any other asset; nothing is asserted executable by this helper.
+    """
+    seed = index.root / 'seed'; seed.mkdir(exist_ok=True)
+    registered = []
+    if include_originals:
+        manifest = read(ROOT / 'visual-studio/src/catalog/manifest.json')
+        quality = read(ROOT / 'visual-studio/src/catalog/quality.json')
+        for comp in manifest.get('components', []):
+            cid = comp['id']
+            if quality.get(cid, {}).get('renderStatus') != 'passed': continue
+            sem = ORIGINAL_CATEGORY_SEMANTICS.get(comp.get('category'), DEFAULT_SEMANTICS)
+            descriptor = seed / 'lw-originals' / (cid + '.lwmg.json')
+            write(descriptor, {'componentId': cid, 'library': 'lw-originals', 'theme': 'swiss', 'props': comp.get('defaults', {})})
+            meta = {'library':'lw-originals','provider':'LW','author':'LW','title':comp.get('name') or cid,
+                    'source':'workspace: ' + str(comp.get('source')),
+                    'rights':{'license':'LW original component',
+                              'evidence':'locally authored; renderStatus=passed in visual-studio/src/catalog/quality.json',
+                              'reviewer':'LW build verification','download':True,'adapt':True,'render':True,
+                              'scopes':['private-test','project']},
+                    'semantics':{**sem,'evidence':'verified component manifest: ' + str(comp.get('description'))}}
+            registered.append(index.import_file(descriptor, meta, scope))
+    if include_motion_prompt:
+        for item in read(ROOT / 'visual-studio/external/catalog.json'):
+            if item.get('provider') != 'Motion Prompt' or not item.get('executable') or item.get('renderStatus') != 'passed': continue
+            sem = MP_CATEGORY_SEMANTICS.get(item.get('category'), DEFAULT_SEMANTICS)
+            descriptor = seed / 'lw-references' / (item['id'] + '.lwmg.json')
+            write(descriptor, {'componentId': item['id'], 'library': 'lw-references', 'adapter': item.get('adapter')})
+            meta = {'library':'lw-references','provider':'Motion Prompt','author':'Shohei Ohtaki (upstream author)',
+                    'title':item.get('name') or item['id'],
+                    'source':item.get('officialUrl') or item.get('licenseUrl') or 'Motion Prompt fixed source revision',
+                    'rights':{'license':item.get('license'),
+                              'evidence':'source-adapted-verified; revision ' + str(item.get('sourceRevision')) + '; see references/motion-prompt-library-status.md',
+                              'reviewer':'LW Motion Prompt source verification','download':True,'adapt':True,'render':True,
+                              'scopes':['private-test','project']},
+                    'semantics':{**sem,'evidence':'verified catalog: ' + str(item.get('description')) + ' / ' + str(item.get('category'))}}
+            registered.append(index.import_file(descriptor, meta, scope))
+    return {'status':'seeded','count':len(registered),'libraries':sorted({a['library'] for a in registered}),'scope':scope}
+
+
+def intents_from_copy(text, max_shots=12):
+    """Draft reviewable shot intents from copy. Not semantic understanding."""
+    if not isinstance(text, str) or not text.strip(): raise ValueError('文案不能为空，无法自动选材')
+    if not isinstance(max_shots, int) or not 1 <= max_shots <= 40: raise ValueError('maxShots 必须在 1..40 之间')
+    sentences = [s.strip() for s in re.split(r'[\n。！？!?；;]+', text) if s.strip()]
+    if not sentences: raise ValueError('文案不能为空，无法自动选材')
+    intents = []
+    for position, sentence in enumerate(sentences[:max_shots]):
+        lowered = sentence.casefold(); concepts = []; purpose = None; notes = []
+        for rule in COPY_CUES:
+            if any(str(p).casefold() in lowered for p in rule['patterns']):
+                notes.append(rule['note'])
+                for concept in rule['concepts']:
+                    if concept not in concepts: concepts.append(concept)
+                if purpose is None: purpose = rule['purpose']
+        derivation = 'rule-cue'
+        if not concepts or not purpose:
+            if position == 0: concepts, purpose = ['communication'], 'hook'; notes.append('位置默认：开场（非语义确认）')
+            elif position == len(sentences) - 1: concepts, purpose = ['communication'], 'conclusion'; notes.append('位置默认：收束（非语义确认）')
+            else: concepts, purpose = ['explanation'], 'explain'; notes.append('位置默认：主体说明（非语义确认）')
+            derivation = 'position-default'
+        evidence = '文案自动选材（规则线索映射，非语义理解）：' + '；'.join(notes) + '。原句：' + sentence[:80]
+        intents.append({'concepts':concepts[:4],'purpose':purpose,'emotion':'calm','style':'swiss',
+                        'preferredKinds':['mg','image','video'],'analysisEvidence':evidence,
+                        'sourceText':sentence,'derivation':derivation,'reviewRequired':True})
+    return intents
+
+
+def select_for_copy(index, text, scope='project', libraries=None, max_shots=12):
+    """Copy -> drafted intents -> the existing recommend/select_for_shot pipeline."""
+    if libraries is not None and (not isinstance(libraries, (list, tuple)) or not set(libraries) <= LIBRARIES):
+        raise ValueError('invalid libraries filter')
+    shots = []
+    for i, intent in enumerate(intents_from_copy(text, max_shots), 1):
+        effective = dict(intent)
+        if libraries is not None: effective['libraries'] = list(libraries)
+        try: decision = select_for_shot(index, effective, scope)
+        except ValueError as exc:
+            decision = {'selectedAssetId':None,'fallback':None,'intent':effective,'recommendations':[],'error':str(exc)}
+        selected = index.get(decision['selectedAssetId']) if decision.get('selectedAssetId') else None
+        readable = ((selected.get('title') or selected.get('description') or
+                     str((selected.get('semantics') or {}).get('evidence') or '')[:60] or selected['assetId'])
+                    if selected else None)
+        shot = {'shot':i,'text':intent['sourceText'],'derivation':intent['derivation'],'decision':decision,
+                'asset': ({'assetId':selected['assetId'],'name':readable,
+                           'library':selected['library'],'kind':selected['kind'],'rights':selected.get('rights',{}),
+                           'semantics':selected.get('semantics',{})} if selected else None)}
+        shots.append(shot)
+    return {'engine':'lw_assets.select_for_copy','scope':scope,'libraries':list(libraries) if libraries is not None else sorted(LIBRARIES),
+            'derivation':'rule-based-cue-mapping','reviewRequired':True,'shotCount':len(shots),'shots':shots}
