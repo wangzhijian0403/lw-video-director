@@ -35,9 +35,11 @@ const kindLabels:Record<Kind,string>={scenes:'原创分层场景',icons:'正版 
 const names:Kind[]=['scenes','icons','characters'];
 const artId=(id:string)=>id as IllustrationId;
 
+const deepKind=():Kind=>{const q=new URLSearchParams(window.location.search).get('assetKind');return names.includes(q as Kind)?q as Kind:'scenes';};
+
 export function ResourceGallery({search}:{search:string}){
- const [kind,setKind]=useState<Kind>('scenes');
- const [selected,setSelected]=useState('ILLUS-STUDIO-01');
+ const [kind,setKind]=useState<Kind>(deepKind);
+ const [selected,setSelected]=useState(()=>deepKind()==='characters'?characterItems[0]?.id??'':'ILLUS-STUDIO-01');
  const [color,setColor]=useState('#3B91A1');
  const [playing,setPlaying]=useState(true);
  const subset=useMemo(()=>items.filter(x=>x.kind===kind&&(search.trim()?([x.title,x.id,x.desc,...x.tags].join(' ').toLowerCase().includes(search.trim().toLowerCase())):true)),[kind,search]);
