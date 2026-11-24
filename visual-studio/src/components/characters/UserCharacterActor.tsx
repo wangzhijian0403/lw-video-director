@@ -1,13 +1,14 @@
 /**
  * User-created character overlay.
  *
- * Media is private and MUST NOT be committed: user locally places
- * characters/<id>-<action>.webm (VP9 alpha) or <id>-transparent.png
- * under visual-studio/public/characters/.
+ * Media for the five mascots lives in visual-studio/public/characters/ and is
+ * part of this repository (user approved, 2026-11-24). Node verifies the files
+ * before render; a missing file shows an explicit placeholder instead of a
+ * silent black frame.
  *
- * 验收状态：仅 fish/wave、codex/typing 通过基础 E2E（verified-basic）；
- * 其余动作/静态图为 wired-pending，渲染时显示待验收占位，不静默黑屏。
- * 未验证无缝循环前，视频一律 loop={false}；已验收媒体在准备阶段裁到安全区间。
+ * 验收状态：5 角色 × (待机 / 专属动作 / 透明静图) 共 15 条均已通过真实 Remotion
+ * 渲染验收（verified-basic）；未登记的动作仍是 wired-pending，渲染显示占位。
+ * 未验证无缝循环前，视频一律 loop={false}；媒体在准备阶段裁到安全区间。
  */
 import React from 'react';
 import {AbsoluteFill, Img, Video, interpolate, staticFile, useCurrentFrame} from 'remotion';
@@ -83,7 +84,7 @@ export const UserCharacterActor: React.FC<UserCharacterActorProps> = ({
   if (errors.length > 0 || !resolved) {
     body = <Placeholder tone="error" title="角色槽位配置错误" lines={errors.length ? errors : [`未知角色/动作：${characterId}/${action}`]} />;
   } else if (mediaPresent === false) {
-    body = <Placeholder tone="missing" title="缺少私有本地媒体" lines={[`characters/${resolved.file}`, '媒体仅存本地，需先放置对应文件；未上传公共仓库']} />;
+    body = <Placeholder tone="missing" title="缺少角色媒体" lines={[`characters/${resolved.file}`, '文件未落盘，请检查 public/characters 目录']} />;
   } else if (resolved.status !== 'verified-basic') {
     body = <Placeholder tone="pending" title="动作待验收" lines={[`${characterId}/${action}`, resolved.note]} />;
   } else if (resolved.kind === 'image') {

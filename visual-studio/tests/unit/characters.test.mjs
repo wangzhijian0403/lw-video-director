@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {getCharacterEntry, safeRangeFrames, CHARACTER_IDS} from '../../src/components/characters/characterRegistry.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import {getCharacterEntry, safeRangeFrames, CHARACTER_IDS, CHARACTER_WHITELIST} from '../../src/components/characters/characterRegistry.mjs';
 import {buildTimeline} from '../../src/project/timeline.mjs';
 
 const baseProject = (characters = []) => ({
@@ -21,15 +23,23 @@ test('registry: 两个已验收动作登记安全区间且禁止循环', () => {
   assert.ok(range.startFrom > 0 && range.endAt < 240);
 });
 
-test('registry: 未知角色 / 未登记动作返回 null，其余待机动作为待验收', () => {
+test('registry: 未知角色 / 未登记动作返回 null；15 条角色媒体全部已验收且文件落盘', () => {
   assert.equal(getCharacterEntry('nobody', 'idle'), null);
   assert.equal(getCharacterEntry('fish', 'dance'), null);
-  const idle = getCharacterEntry('fish', 'idle');
-  assert.equal(idle.status, 'wired-pending');
-  assert.equal(idle.kind, 'video');
-  const still = getCharacterEntry('codex', 'still');
-  assert.equal(still.kind, 'image');
-  for (const id of CHARACTER_IDS) assert.ok(getCharacterEntry(id, 'idle'));
+  let count = 0;
+  for (const id of CHARACTER_IDS) {
+    for (const action of CHARACTER_WHITELIST[id]) {
+      const entry = getCharacterEntry(id, action);
+      assert.ok(entry, `${id}/${action} 应有登记`);
+      assert.equal(entry.status, 'verified-basic', `${id}/${action} 必须通过真渲验收`);
+      assert.equal(entry.loopAllowed, false);
+      const file = path.resolve('public/characters', entry.file);
+      assert.ok(fs.existsSync(file), `媒体缺失：${entry.file}`);
+      if (entry.kind === 'video') assert.deepEqual(entry.safeRange, {start: 0.2, end: 5.0});
+      count += 1;
+    }
+  }
+  assert.equal(count, 15);
 });
 
 test('timeline: 合法角色槽位解析条目并夹紧到整片范围', () => {

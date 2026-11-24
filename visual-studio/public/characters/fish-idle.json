@@ -1,0 +1,17 @@
+{
+  "characterId": "fish",
+  "action": "idle",
+  "sourceSha256": "d358f52ea0a4f323920f1f669db620d13eda24792824d5258aaf405fccfa15d1",
+  "outputSha256": "8fee67ee672f322679543252a17da12edc55aa235c6764e197ea97fe6923fb72",
+  "videoAlpha": "VP9 yuva420p",
+  "sourceAudioUsed": false,
+  "loopVerified": false,
+  "fullDurationVisualReview": false,
+  "safeRange": {
+    "start": 0.2,
+    "end": 5.0
+  },
+  "trimmedToSafeRange": true,
+  "keyFilter": "trim=start=0.2:end=5.0,setpts=PTS-STARTPTS,chromakey=0x00ff00:0.18:0.06,despill=type=green,format=yuva420p",
+  "note": "trimmed to verified safe range; acceptance by real Remotion render"
+}

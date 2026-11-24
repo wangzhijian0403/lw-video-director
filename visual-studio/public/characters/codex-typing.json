@@ -1,0 +1,14 @@
+{
+  "characterId": "codex",
+  "action": "typing",
+  "sourceSha256": "490b28a800eda710cb9509adb8bc549b7a37300bae37547b35241ebe91984740",
+  "outputSha256": "C37B7A198CF47F196AF21DDF78F4BD4E44438C01F0A99F52CDF3E86BB80BC8C0",
+  "videoAlpha": "VP9 alpha_mode=1",
+  "sourceAudioUsed": false,
+  "loopVerified": false,
+  "fullDurationVisualReview": false,
+  "safeRange": {"start": 0.2, "end": 5.0},
+  "trimmedToSafeRange": true,
+  "keyFilter": "chromakey=0x00ff00:0.18:0.06,despill=type=green,format=yuva420p",
+  "note": "结尾变为举臂庆祝姿态；媒体已裁到安全区间，未验证循环与全长边缘"
+}

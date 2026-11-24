@@ -1,0 +1,14 @@
+{
+  "characterId": "fish",
+  "action": "wave",
+  "sourceSha256": "bcefd7e13c81bd5fdb94a91564a4b761269352424f6aad9b05fa3fb873f4c92e",
+  "outputSha256": "0EF096ACF7F9F897F6E9EC4858EC8F96C69E05BD31724EB71A58F26B83C14E6D",
+  "videoAlpha": "VP9 alpha_mode=1",
+  "sourceAudioUsed": false,
+  "loopVerified": false,
+  "fullDurationVisualReview": false,
+  "safeRange": {"start": 0.2, "end": 5.0},
+  "trimmedToSafeRange": true,
+  "keyFilter": "chromakey=0x00ff00:0.18:0.06,despill=type=green,format=yuva420p",
+  "note": "5.0s 后鱼体漂移放大并探出画外；媒体已裁到安全区间，未验证循环与全长边缘"
+}

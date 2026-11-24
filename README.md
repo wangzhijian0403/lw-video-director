@@ -96,7 +96,7 @@ npm run render -- CAM-001      # 需要浏览器，输出真实 MP4
 
 ## 本地资源图鉴 / 3个原创分层插画场景
 
-已在工作台新增「素材图鉴」以查看并真实预览已安装的 FredTalk 动效、24个 SVG 图标和3个原创插画场景；本地角色的私有文件仍只存电脑，不上传GitHub。Windows 更新到相应版本后，可双击仓库根目录的 `start-lw-studio.cmd` 启动工作台，启动器待 `/api/health` 就绪后再打开浏览器，避免先打开网页导致连接拒绝。参考 [插画场景素材包及打开指南](references/illustration-scene-pack-02.md)。
+工作台「素材库」可预览 24 个 SVG 图标、3 个原创分层插画场景，以及 5 个卡通角色的 15 条媒体（待机 / 专属动作透明视频 + 透明静图，已纳入本仓库并完成真实渲染验收）；动效在「动效库」栏目查看与渲染。角色为用户自制形象，不是品牌官方素材，使用范围见 [角色库说明](references/user-character-library.md)。Windows 更新到相应版本后，可双击仓库根目录的 `start-lw-studio.cmd` 启动工作台，启动器待 `/api/health` 就绪后再打开浏览器，避免先打开网页导致连接拒绝。参考 [插画场景素材包及打开指南](references/illustration-scene-pack-02.md)。
 
 ## 安装 Skill
 

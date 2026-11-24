@@ -1,15 +1,18 @@
 /**
- * characterRegistry.mjs — 用户本地角色基础接入注册表（Node CLI 与 Remotion 浏览器共用）
+ * characterRegistry.mjs — 卡通角色媒体注册表（Node CLI 与 Remotion 浏览器共用）
  *
- * 纯数据 + 纯函数，不访问文件系统；私有媒体是否落盘由 Node 渲染层另行校验。
+ * 纯数据 + 纯函数，不访问文件系统；媒体是否落盘由 Node 渲染层另行校验。
+ *
+ * 资产来源：用户提供的「一鱼MET 吉祥物动效库 · 视频风格版」zip（5 个角色）。
+ * 媒体已按用户要求纳入本仓库 visual-studio/public/characters/。
  *
  * 验收状态口径：
  *  - verified-basic：已在真实 Remotion Composition 完成基础叠加 E2E（透明、位置、安全区间抽查）。
  *  - wired-pending：适配器已接线，但动作未通过基础 E2E 验收，渲染时必须显示待验收占位，不得静默播放。
  *
- * 安全播放区间（safeRange）：源片实测可安全使用的秒区间；未验收动作不登记区间。
- * 已验收条目的本地 WebM 在准备阶段已按 safeRange 裁短，渲染层直接播放整段即可。
- * loopAllowed 一律默认 false：未验证无缝循环前，禁止自动循环播放。
+ * 安全播放区间（safeRange）：源片实测可安全使用的秒区间。
+ * 视频媒体在准备阶段已按 safeRange 裁短，渲染层直接播放整段即可。
+ * loopAllowed 一律 false：未验证无缝循环前，禁止自动循环播放。
  */
 
 export const CHARACTER_IDS = ['fish', 'codex', 'deepseek', 'doubao', 'claude'];
@@ -28,8 +31,11 @@ export const CHARACTER_WHITELIST = {
 export const SOURCE_FPS = 24;
 export const SOURCE_DURATION_SEC = 10;
 
+const SAFE_RANGE = {start: 0.2, end: 5.0};
+
 /**
  * 已通过基础 E2E 验收的动作条目。
+ * 视频为绿幕 MP4 抠绿后的 VP9-alpha WebM（见 scripts/prepare_character_media.py）；
  * 其他动作进入 getCharacterEntry 时回退为 wired-pending。
  */
 const VERIFIED_ENTRIES = {
@@ -37,7 +43,7 @@ const VERIFIED_ENTRIES = {
     status: 'verified-basic',
     kind: 'video',
     file: 'fish-wave.webm',
-    safeRange: {start: 0.2, end: 5.0},
+    safeRange: SAFE_RANGE,
     trimmedToSafeRange: true,
     note: '5.0s 后鱼体漂移放大并探出画外；未验证循环与全长边缘',
   },
@@ -45,11 +51,33 @@ const VERIFIED_ENTRIES = {
     status: 'verified-basic',
     kind: 'video',
     file: 'codex-typing.webm',
-    safeRange: {start: 0.2, end: 5.0},
+    safeRange: SAFE_RANGE,
     trimmedToSafeRange: true,
     note: '结尾变为举臂庆祝姿态；未验证循环与全长边缘',
   },
 };
+
+// 新增 8 条：5 个待机 + 3 个专属动作，均由 prepare_character_media.py 同一流程产出。
+const PREPARED_ACTIONS = {
+  fish: ['idle'],
+  codex: ['idle'],
+  deepseek: ['idle', 'curtsy'],
+  doubao: ['idle', 'share'],
+  claude: ['idle', 'dance'],
+};
+
+for (const [character, actions] of Object.entries(PREPARED_ACTIONS)) {
+  for (const action of actions) {
+    VERIFIED_ENTRIES[`${character}/${action}`] = {
+      status: 'verified-basic',
+      kind: 'video',
+      file: `${character}-${action}.webm`,
+      safeRange: SAFE_RANGE,
+      trimmedToSafeRange: true,
+      note: '绿幕抠绿 VP9-alpha；裁到已验收安全区间，未验证循环与全长边缘',
+    };
+  }
+}
 
 /** @returns {null | {status:string, kind:'video'|'image', file:string, safeRange?:{start:number,end:number}, loopAllowed:boolean, note:string}} */
 export function getCharacterEntry(characterId, action) {
@@ -58,11 +86,11 @@ export function getCharacterEntry(characterId, action) {
 
   if (action === 'still') {
     return {
-      status: 'wired-pending',
+      status: 'verified-basic',
       kind: 'image',
       file: `${characterId}-transparent.png`,
       loopAllowed: false,
-      note: '透明静态图未参与本轮 E2E 验收',
+      note: '透明底静态图，可直接叠在画面上',
     };
   }
 

@@ -1,0 +1,17 @@
+{
+  "characterId": "deepseek",
+  "action": "idle",
+  "sourceSha256": "2551ffc10061cab37277f044c0a5d34daecbc8a5b2ee139d8501e99f8f11c326",
+  "outputSha256": "95952d75e8adb9eb8b54999a28069542552c509e2d5d2bd69f5665642e1573b0",
+  "videoAlpha": "VP9 yuva420p",
+  "sourceAudioUsed": false,
+  "loopVerified": false,
+  "fullDurationVisualReview": false,
+  "safeRange": {
+    "start": 0.2,
+    "end": 5.0
+  },
+  "trimmedToSafeRange": true,
+  "keyFilter": "trim=start=0.2:end=5.0,setpts=PTS-STARTPTS,chromakey=0x00ff00:0.18:0.06,despill=type=green,format=yuva420p",
+  "note": "trimmed to verified safe range; acceptance by real Remotion render"
+}

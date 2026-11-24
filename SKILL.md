@@ -39,7 +39,7 @@ agent_created: true
 
 除24个本地 SVG 图标外，新增原创分层插画场景 `ILLUS-STUDIO-01`（工作室）、`ILLUS-CITY-01`（城市夜景）、`ILLUS-NATURE-01`（青山河谷）。有场景/叙事职责时，可直接在 project.json 的 scenes 中与 FredTalk、LW Originals 混用，详情见 [场景素材包02](references/illustration-scene-pack-02.md)。
 
-本地工作台新增「素材图鉴」：可预览已安装的原创场景、FredTalk 实装动效及24个 SVG 图标，并查看用户角色登记；不是自动搜索磁盘全部素材，也不代表所有外部引用目录都已拿到源码。Windows 可在更新后的仓库根目录双击 `start-lw-studio.cmd` 等待服务就绪，再用浏览器访问 http://127.0.0.1:4173；`/api/health` 可检测服务。绘制场景的画面质量仍需真实审片，不以测试渲染通过替代视觉批准。
+本地工作台的「素材库」可预览原创分层场景、24 个 SVG 图标，以及 5 个卡通角色共 15 条媒体（待机 / 专属动作 VP9 透明视频、透明 PNG 静图，均已通过真实 Remotion 渲染验收，见 [角色库说明](references/user-character-library.md)）；「动效库」负责 FredTalk / Motion Prompt 动效的选型与本地 MP4 渲染。工作台不是自动搜索磁盘全部素材，也不代表所有外部引用目录都已拿到源码。Windows 可在更新后的仓库根目录双击 `start-lw-studio.cmd` 等待服务就绪，再用浏览器访问 http://127.0.0.1:4173；`/api/health` 可检测服务。绘制场景的画面质量仍需真实审片，不以测试渲染通过替代视觉批准。
 
 ## FredTalk 全库接入状态（LW-FT-FULL-001 · 运行时已装进本 Skill）
 

@@ -1,0 +1,194 @@
+{
+  "meta": {
+    "title": "5 角色 × 15 条媒体真渲验收",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "theme": "future"
+  },
+  "scenes": [
+    {
+      "component": "TYPE-001",
+      "duration": 6,
+      "text": "角色验收",
+      "params": {
+        "title": "卡通角色媒体验收",
+        "subtitle": "5 角色 · 待机 / 专属动作 / 透明静图",
+        "entrance": 0.4,
+        "hold": 5.2,
+        "exit": 0.4
+      }
+    }
+  ],
+  "subtitles": {
+    "enabled": false,
+    "cues": []
+  },
+  "characters": [
+    {
+      "characterId": "fish",
+      "action": "wave",
+      "x": 40,
+      "y": 380,
+      "width": 320,
+      "height": 213,
+      "start": 0.1,
+      "duration": 1.8,
+      "opacity": 1
+    },
+    {
+      "characterId": "codex",
+      "action": "typing",
+      "x": 420,
+      "y": 330,
+      "width": 320,
+      "height": 320,
+      "start": 0.1,
+      "duration": 1.8,
+      "opacity": 1
+    },
+    {
+      "characterId": "deepseek",
+      "action": "curtsy",
+      "x": 800,
+      "y": 330,
+      "width": 320,
+      "height": 320,
+      "start": 0.1,
+      "duration": 1.8,
+      "opacity": 1
+    },
+    {
+      "characterId": "doubao",
+      "action": "share",
+      "x": 1180,
+      "y": 330,
+      "width": 320,
+      "height": 320,
+      "start": 0.1,
+      "duration": 1.8,
+      "opacity": 1
+    },
+    {
+      "characterId": "claude",
+      "action": "dance",
+      "x": 1560,
+      "y": 330,
+      "width": 320,
+      "height": 320,
+      "start": 0.1,
+      "duration": 1.8,
+      "opacity": 1
+    },
+    {
+      "characterId": "fish",
+      "action": "idle",
+      "x": 40,
+      "y": 380,
+      "width": 320,
+      "height": 213,
+      "start": 2.1,
+      "duration": 1.8,
+      "opacity": 1
+    },
+    {
+      "characterId": "codex",
+      "action": "idle",
+      "x": 420,
+      "y": 330,
+      "width": 320,
+      "height": 320,
+      "start": 2.1,
+      "duration": 1.8,
+      "opacity": 1
+    },
+    {
+      "characterId": "deepseek",
+      "action": "idle",
+      "x": 800,
+      "y": 330,
+      "width": 320,
+      "height": 320,
+      "start": 2.1,
+      "duration": 1.8,
+      "opacity": 1
+    },
+    {
+      "characterId": "doubao",
+      "action": "idle",
+      "x": 1180,
+      "y": 330,
+      "width": 320,
+      "height": 320,
+      "start": 2.1,
+      "duration": 1.8,
+      "opacity": 1
+    },
+    {
+      "characterId": "claude",
+      "action": "idle",
+      "x": 1560,
+      "y": 330,
+      "width": 320,
+      "height": 320,
+      "start": 2.1,
+      "duration": 1.8,
+      "opacity": 1
+    },
+    {
+      "characterId": "fish",
+      "action": "still",
+      "x": 40,
+      "y": 380,
+      "width": 320,
+      "height": 213,
+      "start": 4.1,
+      "duration": 1.8,
+      "opacity": 1
+    },
+    {
+      "characterId": "codex",
+      "action": "still",
+      "x": 420,
+      "y": 330,
+      "width": 320,
+      "height": 320,
+      "start": 4.1,
+      "duration": 1.8,
+      "opacity": 1
+    },
+    {
+      "characterId": "deepseek",
+      "action": "still",
+      "x": 800,
+      "y": 330,
+      "width": 320,
+      "height": 320,
+      "start": 4.1,
+      "duration": 1.8,
+      "opacity": 1
+    },
+    {
+      "characterId": "doubao",
+      "action": "still",
+      "x": 1180,
+      "y": 330,
+      "width": 320,
+      "height": 320,
+      "start": 4.1,
+      "duration": 1.8,
+      "opacity": 1
+    },
+    {
+      "characterId": "claude",
+      "action": "still",
+      "x": 1560,
+      "y": 330,
+      "width": 320,
+      "height": 320,
+      "start": 4.1,
+      "duration": 1.8,
+      "opacity": 1
+    }
+  ]
+}

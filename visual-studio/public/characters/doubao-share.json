@@ -1,0 +1,17 @@
+{
+  "characterId": "doubao",
+  "action": "share",
+  "sourceSha256": "4e1fe05cc00e3e1f42e5c9050d6ba150fc52d81428da0b6745ca10a4b035c21d",
+  "outputSha256": "38d347d9fc18e96d1c100855beb5fd7c0623cc98d9701cc71e42942d1124486f",
+  "videoAlpha": "VP9 yuva420p",
+  "sourceAudioUsed": false,
+  "loopVerified": false,
+  "fullDurationVisualReview": false,
+  "safeRange": {
+    "start": 0.2,
+    "end": 5.0
+  },
+  "trimmedToSafeRange": true,
+  "keyFilter": "trim=start=0.2:end=5.0,setpts=PTS-STARTPTS,chromakey=0x00ff00:0.18:0.06,despill=type=green,format=yuva420p",
+  "note": "trimmed to verified safe range; acceptance by real Remotion render"
+}

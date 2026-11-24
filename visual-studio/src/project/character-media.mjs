@@ -1,9 +1,9 @@
 /**
- * character-media.mjs — Node 渲染层私有媒体存在性校验（浏览器包不引入此模块）。
+ * character-media.mjs — Node 渲染层角色媒体存在性校验（浏览器包不引入此模块）。
  *
- * 角色媒体是用户本地私有文件，不进 Git。这里只做文件存在性核对，
+ * 角色媒体已随仓库入库，但渲染前仍逐条核对文件是否落盘，
  * 结果以 `角色/动作 -> boolean` 表回灌 project._characterMedia，
- * 渲染层据此显示「缺少私有媒体」占位，不允许静默黑屏。
+ * 渲染层据此显示「缺少角色媒体」占位，不允许静默黑屏。
  */
 import fs from 'node:fs';
 import path from 'node:path';

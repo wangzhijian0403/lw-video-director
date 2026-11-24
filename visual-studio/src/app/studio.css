@@ -48,6 +48,10 @@ body{background:#111111;color:#ededed}.studio>header{background:#181818;border-c
 .resource-video{width:100%;aspect-ratio:16/9;display:grid;place-items:center;border-radius:7px;overflow:hidden;background:#263b45}
 .resource-icon-preview{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:28px;background:radial-gradient(circle,#ecf4f1,#b9cfd1)}
 .resource-icon-preview>div:last-child{font-size:23px;font-weight:700;color:#2b4e59}
+.character-preview{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px;background:#101826;color:#c3ccd8;text-align:center}
+.character-preview img,.character-preview video{max-height:78%;border-radius:6px}
+.character-preview p{margin:0;font-size:12px;line-height:1.5;color:#9bb3aa}
+.character-preview code{color:#e0c79b;font-size:11px}
 .resource-placeholder{text-align:center;padding:52px 40px;max-width:650px;color:#ccdbd8}
 .resource-placeholder strong{font-size:20px}
 .resource-placeholder p{line-height:1.7;font-size:13px}

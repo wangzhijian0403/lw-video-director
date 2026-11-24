@@ -1,0 +1,226 @@
+{
+  "schemaVersion": "lw-character-library/2",
+  "source": {
+    "archive": "G:/智能体卡通人物形象.zip",
+    "innerPrefix": "video-style/assets/",
+    "readme": "references/character-library-README.md"
+  },
+  "characterIds": [
+    "fish",
+    "codex",
+    "deepseek",
+    "doubao",
+    "claude"
+  ],
+  "conversion": {
+    "script": "visual-studio/scripts/prepare_character_media.py",
+    "filter": "trim=start=0.2:end=5.0,setpts=PTS-STARTPTS,chromakey=0x00ff00:0.18:0.06,despill=type=green,format=yuva420p",
+    "codec": "VP9 yuva420p",
+    "safeRange": {
+      "start": 0.2,
+      "end": 5.0
+    }
+  },
+  "files": [
+    {
+      "file": "claude-dance.json",
+      "bytes": 652,
+      "sha256": "65d2decbe910961c438e308c02ec94c535bc8144b7830bb71116a39381afb095"
+    },
+    {
+      "file": "claude-dance.mp4",
+      "bytes": 2958419,
+      "sha256": "d2dea12f9e45732280bae00b2389787c30e09e099aee033e5f8018748f851900"
+    },
+    {
+      "file": "claude-dance.webm",
+      "bytes": 1062096,
+      "sha256": "e219c0e1292a9e84edb6151f35d3b440ae18b3605dcc7e2fdfde6ef73b7b45d2"
+    },
+    {
+      "file": "claude-greenscreen.jpg",
+      "bytes": 190381,
+      "sha256": "42adff884f84a6c01ff8a5b0f2fed02e78a9bbc19d441761d6cccc8a4be340ae"
+    },
+    {
+      "file": "claude-idle.json",
+      "bytes": 651,
+      "sha256": "1422f8c148e202c7d948270eabfd495b4fb4cc428bab19952bca51fb4c7e71ca"
+    },
+    {
+      "file": "claude-idle.mp4",
+      "bytes": 2764072,
+      "sha256": "1cd27ae17486c0e61dd6ac9f4e91c7f33455a819d95da2ece1d200314bc4e859"
+    },
+    {
+      "file": "claude-idle.webm",
+      "bytes": 1092972,
+      "sha256": "4d50711d92bc42ef5556919af160a0f6f3de79c11875f195eff0baac23ee2ba3"
+    },
+    {
+      "file": "claude-transparent.png",
+      "bytes": 636734,
+      "sha256": "bde96d21fe63536adfc8fa1d7befbf809f2a97bb1fdb9a4e1ce9d917048501f6"
+    },
+    {
+      "file": "codex-greenscreen.jpg",
+      "bytes": 181197,
+      "sha256": "5268f13033f7e5016effdf659321193294cff2f459f9fbc48bf1a52b42bc0854"
+    },
+    {
+      "file": "codex-idle.json",
+      "bytes": 650,
+      "sha256": "e5468275ba67d9c327be24447156425f7d4f0d3426fec5608f51e0c5f27a7801"
+    },
+    {
+      "file": "codex-idle.mp4",
+      "bytes": 2801423,
+      "sha256": "ab4b30a463ea88b9682e7de0b98adbc7d1f34bc9ac80d8040d7282b8c12f5e88"
+    },
+    {
+      "file": "codex-idle.webm",
+      "bytes": 1326056,
+      "sha256": "7fc0e75687fad2666aa9baa019aef4c9e5cb8f2ac68380558efcbd46696dac99"
+    },
+    {
+      "file": "codex-transparent.png",
+      "bytes": 570143,
+      "sha256": "b1e8fc32342dad380f6890e1195349b58ea5a469f3e0adc24cafae71cab6aaad"
+    },
+    {
+      "file": "codex-typing.json",
+      "bytes": 611,
+      "sha256": "bd2a913ab2d7e080a90982e7cb71df829600dd21006661964059b9b7165d59f0"
+    },
+    {
+      "file": "codex-typing.mp4",
+      "bytes": 2876571,
+      "sha256": "490b28a800eda710cb9509adb8bc549b7a37300bae37547b35241ebe91984740"
+    },
+    {
+      "file": "codex-typing.webm",
+      "bytes": 946982,
+      "sha256": "c37b7a198cf47f196af21ddf78f4bd4e44438c01f0a99f52cdf3e86bb80bc8c0"
+    },
+    {
+      "file": "deepseek-curtsy.json",
+      "bytes": 655,
+      "sha256": "8fa85be3b6531fcfb11950dc544e0a8d51275c2dbd12fb835b156b397451957b"
+    },
+    {
+      "file": "deepseek-curtsy.mp4",
+      "bytes": 4905573,
+      "sha256": "41c38c25ed8af05c4348fdea11b045dd29480449b460caa01fa52f0c8175dc06"
+    },
+    {
+      "file": "deepseek-curtsy.webm",
+      "bytes": 1823163,
+      "sha256": "07056a3bced001141219125e5c0977d505d4a25ab54425a094f1ffd03d8008dd"
+    },
+    {
+      "file": "deepseek-greenscreen.jpg",
+      "bytes": 406435,
+      "sha256": "9103044d5cb14779dfed35e38c567af1686ab79c0900edeb9f968aaf48670f07"
+    },
+    {
+      "file": "deepseek-idle.json",
+      "bytes": 653,
+      "sha256": "2c4f5b008873211786c9b96fe09bc14f945007f4d987a45ac79ca5be8dba4c28"
+    },
+    {
+      "file": "deepseek-idle.mp4",
+      "bytes": 5168481,
+      "sha256": "2551ffc10061cab37277f044c0a5d34daecbc8a5b2ee139d8501e99f8f11c326"
+    },
+    {
+      "file": "deepseek-idle.webm",
+      "bytes": 3227932,
+      "sha256": "95952d75e8adb9eb8b54999a28069542552c509e2d5d2bd69f5665642e1573b0"
+    },
+    {
+      "file": "deepseek-transparent.png",
+      "bytes": 1665200,
+      "sha256": "343b41b0e564215d0c30966a29f113b6981e6f238a09180452b28dd6d21e5198"
+    },
+    {
+      "file": "doubao-greenscreen.jpg",
+      "bytes": 319192,
+      "sha256": "448e2db1999bcb6300141a4ca90b2dcba05181b2491f66a45e16ad6395550587"
+    },
+    {
+      "file": "doubao-idle.json",
+      "bytes": 651,
+      "sha256": "09d0dcade6b0e54fabf1ae89eb1350c6efd47b4652e36b5e5f42578c78ee6aee"
+    },
+    {
+      "file": "doubao-idle.mp4",
+      "bytes": 2395884,
+      "sha256": "7ee15367ff5c197b72aad545e9fc1e5a23943b6fcd40e0fe256bb51de7e0b25e"
+    },
+    {
+      "file": "doubao-idle.webm",
+      "bytes": 725411,
+      "sha256": "82f0a82170e7a8b10652413bb5a68c5f691382e1174e778d8208155ab36b4310"
+    },
+    {
+      "file": "doubao-share.json",
+      "bytes": 652,
+      "sha256": "1c30280d5c9fdb56e72930c6b898999a3fecd54af2a29face938925e650fecbe"
+    },
+    {
+      "file": "doubao-share.mp4",
+      "bytes": 3590483,
+      "sha256": "4e1fe05cc00e3e1f42e5c9050d6ba150fc52d81428da0b6745ca10a4b035c21d"
+    },
+    {
+      "file": "doubao-share.webm",
+      "bytes": 1443048,
+      "sha256": "38d347d9fc18e96d1c100855beb5fd7c0623cc98d9701cc71e42942d1124486f"
+    },
+    {
+      "file": "doubao-transparent.png",
+      "bytes": 1454770,
+      "sha256": "ff7f358cfb24175de10f602c03fa8fc1afaba5f7b0d285ae004dd7237d09e1f3"
+    },
+    {
+      "file": "fish-greenscreen.jpg",
+      "bytes": 265093,
+      "sha256": "e4986aa5ef4111689748c415a1efe502e0f0e93be72acc36bc437c2b2bb2e9df"
+    },
+    {
+      "file": "fish-idle.json",
+      "bytes": 649,
+      "sha256": "2140b37b478eac943da21cb29a6febcadcf43d2d27fede77ba391493f031f635"
+    },
+    {
+      "file": "fish-idle.mp4",
+      "bytes": 2448642,
+      "sha256": "d358f52ea0a4f323920f1f669db620d13eda24792824d5258aaf405fccfa15d1"
+    },
+    {
+      "file": "fish-idle.webm",
+      "bytes": 952296,
+      "sha256": "8fee67ee672f322679543252a17da12edc55aa235c6764e197ea97fe6923fb72"
+    },
+    {
+      "file": "fish-transparent.png",
+      "bytes": 1131175,
+      "sha256": "9b4d2da5d0682697c47c96b0634c8d38d7d4d80232960164e1a42cece34d445e"
+    },
+    {
+      "file": "fish-wave.json",
+      "bytes": 619,
+      "sha256": "4788ae1a5592950da19f0f6cdf4f24e8a3edb1793076cf883099d026af115893"
+    },
+    {
+      "file": "fish-wave.mp4",
+      "bytes": 2542739,
+      "sha256": "bcefd7e13c81bd5fdb94a91564a4b761269352424f6aad9b05fa3fb873f4c92e"
+    },
+    {
+      "file": "fish-wave.webm",
+      "bytes": 848109,
+      "sha256": "0ef096acf7f9f897f6e9ec4858ec8f96c69e05bd31724eb71a58f26b83c14e6d"
+    }
+  ]
+}

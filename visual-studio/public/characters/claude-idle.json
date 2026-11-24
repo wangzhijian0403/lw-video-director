@@ -1,0 +1,17 @@
+{
+  "characterId": "claude",
+  "action": "idle",
+  "sourceSha256": "1cd27ae17486c0e61dd6ac9f4e91c7f33455a819d95da2ece1d200314bc4e859",
+  "outputSha256": "4d50711d92bc42ef5556919af160a0f6f3de79c11875f195eff0baac23ee2ba3",
+  "videoAlpha": "VP9 yuva420p",
+  "sourceAudioUsed": false,
+  "loopVerified": false,
+  "fullDurationVisualReview": false,
+  "safeRange": {
+    "start": 0.2,
+    "end": 5.0
+  },
+  "trimmedToSafeRange": true,
+  "keyFilter": "trim=start=0.2:end=5.0,setpts=PTS-STARTPTS,chromakey=0x00ff00:0.18:0.06,despill=type=green,format=yuva420p",
+  "note": "trimmed to verified safe range; acceptance by real Remotion render"
+}

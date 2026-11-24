@@ -1,0 +1,17 @@
+{
+  "characterId": "codex",
+  "action": "idle",
+  "sourceSha256": "ab4b30a463ea88b9682e7de0b98adbc7d1f34bc9ac80d8040d7282b8c12f5e88",
+  "outputSha256": "7fc0e75687fad2666aa9baa019aef4c9e5cb8f2ac68380558efcbd46696dac99",
+  "videoAlpha": "VP9 yuva420p",
+  "sourceAudioUsed": false,
+  "loopVerified": false,
+  "fullDurationVisualReview": false,
+  "safeRange": {
+    "start": 0.2,
+    "end": 5.0
+  },
+  "trimmedToSafeRange": true,
+  "keyFilter": "trim=start=0.2:end=5.0,setpts=PTS-STARTPTS,chromakey=0x00ff00:0.18:0.06,despill=type=green,format=yuva420p",
+  "note": "trimmed to verified safe range; acceptance by real Remotion render"
+}

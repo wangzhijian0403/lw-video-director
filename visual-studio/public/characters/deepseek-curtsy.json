@@ -1,0 +1,17 @@
+{
+  "characterId": "deepseek",
+  "action": "curtsy",
+  "sourceSha256": "41c38c25ed8af05c4348fdea11b045dd29480449b460caa01fa52f0c8175dc06",
+  "outputSha256": "07056a3bced001141219125e5c0977d505d4a25ab54425a094f1ffd03d8008dd",
+  "videoAlpha": "VP9 yuva420p",
+  "sourceAudioUsed": false,
+  "loopVerified": false,
+  "fullDurationVisualReview": false,
+  "safeRange": {
+    "start": 0.2,
+    "end": 5.0
+  },
+  "trimmedToSafeRange": true,
+  "keyFilter": "trim=start=0.2:end=5.0,setpts=PTS-STARTPTS,chromakey=0x00ff00:0.18:0.06,despill=type=green,format=yuva420p",
+  "note": "trimmed to verified safe range; acceptance by real Remotion render"
+}

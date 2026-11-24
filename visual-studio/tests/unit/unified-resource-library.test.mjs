@@ -57,9 +57,13 @@ test('resource gallery does not expose stale original export button',()=>{
  assert.match(motion,/本地渲染 MP4/);
 });
 
-test('character resources remain local-only placeholders',()=>{
+test('character resources are real previewable media in the repository',()=>{
  const gallery=read('src/app/ResourceGallery.tsx');
- assert.match(gallery,/角色文件由用户本地单独管理/);
- assert.match(gallery,/visual-studio\/public\/characters/);
- assert.match(gallery,/没有将角色原片上传到公开 GitHub/);
+ assert.match(gallery,/CHARACTER_WHITELIST/);
+ assert.match(gallery,/\/characters\//);
+ assert.match(gallery,/<video/);
+ assert.match(gallery,/<img/);
+ assert.match(gallery,/媒体已入仓库/);
+ assert.doesNotMatch(gallery,/角色文件由用户本地单独管理/);
+ assert.doesNotMatch(gallery,/没有将角色原片上传到公开 GitHub/);
 });

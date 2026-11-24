@@ -1,0 +1,42 @@
+{
+  "render": {
+    "composition": "Project",
+    "frames": 180,
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "durationSec": 6,
+    "output": "visual-studio/exports/character-acceptance.mp4",
+    "script": "scripts/render-character-demo.mjs"
+  },
+  "slots": 15,
+  "batches": [
+    "5 专属动作",
+    "5 待机",
+    "5 透明静图"
+  ],
+  "opencv": {
+    "greenScreenPixelsPct": 0.0,
+    "roleAreaFrameDiff": {
+      "actions": 19.81,
+      "idle": 15.15,
+      "still": 0.0
+    }
+  },
+  "visualReview": {
+    "f045": "5 角色全部出画，无绿幕/占位框",
+    "f165": "5 张透明静图全部出画，无占位框"
+  },
+  "regression": {
+    "tsc": "pass",
+    "unit": "34/34",
+    "api": "10/10",
+    "python": "33/33"
+  },
+  "workbench": {
+    "port": 4173,
+    "characterMediaHttp": "200",
+    "renderReference": "FT-INT01-463 done"
+  },
+  "status": "verified-basic for all 15 entries"
+}

@@ -1,0 +1,17 @@
+{
+  "characterId": "claude",
+  "action": "dance",
+  "sourceSha256": "d2dea12f9e45732280bae00b2389787c30e09e099aee033e5f8018748f851900",
+  "outputSha256": "e219c0e1292a9e84edb6151f35d3b440ae18b3605dcc7e2fdfde6ef73b7b45d2",
+  "videoAlpha": "VP9 yuva420p",
+  "sourceAudioUsed": false,
+  "loopVerified": false,
+  "fullDurationVisualReview": false,
+  "safeRange": {
+    "start": 0.2,
+    "end": 5.0
+  },
+  "trimmedToSafeRange": true,
+  "keyFilter": "trim=start=0.2:end=5.0,setpts=PTS-STARTPTS,chromakey=0x00ff00:0.18:0.06,despill=type=green,format=yuva420p",
+  "note": "trimmed to verified safe range; acceptance by real Remotion render"
+}

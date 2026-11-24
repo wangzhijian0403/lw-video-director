@@ -14,6 +14,10 @@ test-results/
 !public/**/*.jpg
 !public/**/*.jpeg
 
-# 用户自制角色媒体为私有资产：以上 public 图片例外不适用于角色目录
-public/characters/
-public/characters/**
+# 用户提供的 5 个卡通吉祥物素材（2026-11-24 起按用户要求正式纳入仓库）
+# 父级 .gitignore 忽略所有媒体，这里逐类放行角色目录，保证 clone 后可直接渲染。
+!public/characters/**/*.webm
+!public/characters/**/*.mp4
+!public/characters/**/*.png
+!public/characters/**/*.jpg
+!public/characters/**/*.json
