@@ -1,0 +1,15 @@
+{
+  "defaultProps": {
+    "contactName": "项目沟通",
+    "withSound": false
+  },
+  "editableKeys": [
+    "contactName",
+    "messages",
+    "withSound",
+    "fontFamily"
+  ],
+  "accent": "#9FEF9C",
+  "background": "#fafafa",
+  "notes": "媒体路径由 props 传入；替换为你的图片/视频即可。"
+}

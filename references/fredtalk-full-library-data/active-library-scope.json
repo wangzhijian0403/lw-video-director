@@ -13,10 +13,10 @@
   "allRows": 432,
   "activeLibrary": 286,
   "archived": 146,
-  "activeExecutable": 112,
-  "activeRemaining": 174,
-  "allCatalogExecutable": 114,
-  "fredtalkExecutable": 113,
+  "activeExecutable": 116,
+  "activeRemaining": 170,
+  "allCatalogExecutable": 357,
+  "fredtalkExecutable": 117,
   "activeTier": {
     "blocked-dependency": 148,
     "candidate-not-adapted": 8,
@@ -26,7 +26,7 @@
   },
   "remainingBreakdown": {
     "rendered-qa-not-pass": 18,
-    "candidate-not-adapted": 8,
+    "candidate-not-adapted": 4,
     "blocked-dependency": 148,
     "other": 0
   },
@@ -142,7 +142,11 @@
     "FT-T21b-359",
     "FT-T21d-397",
     "FT-T22a-386",
-    "FT-T22b-387"
+    "FT-T22b-387",
+    "FT-NMC01-457",
+    "FT-INT01-463",
+    "FT-INT02-464",
+    "FT-INT04-466"
   ],
   "machineQaHoldIds": [
     "FT-T05b2-398",
@@ -165,10 +169,6 @@
     "FT-T20i-347"
   ],
   "candidateNotAdaptedIds": [
-    "FT-INT01-463",
-    "FT-INT02-464",
-    "FT-INT04-466",
-    "FT-NMC01-457",
     "FT-T05q-250",
     "FT-T17i-272",
     "FT-T20u-279",
@@ -323,5 +323,6 @@
     "FT-X037-v2-335",
     "FT-X040-503",
     "FT-X043-504"
-  ]
+  ],
+  "provenance": "recomputed 2026-11-24: +4 props-driven standalone (NMC01/INT01/INT02/INT04), real render + QA pass, LW placeholder media"
 }

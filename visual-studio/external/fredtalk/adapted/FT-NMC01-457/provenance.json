@@ -1,0 +1,22 @@
+{
+  "lwId": "FT-NMC01-457",
+  "ftId": "NMC01",
+  "name": "新闻关键词快闪",
+  "category": "衔接内容",
+  "strategy": "standalone-verified",
+  "adapterVersion": "fred-standalone/1.0",
+  "sourceSha256": "566fe8e8b0eaecf46b1dde9a23b0151714d845ef083264f573fa4cd22664ecef",
+  "upstream": {
+    "revision": "59b9e9957957dc9f3fd94ab78f95cec33c29e915",
+    "publicTag": "v2.5.0",
+    "officialUrl": "https://www.fred-fu.com/visual-library"
+  },
+  "license": {
+    "firstPartyCode": "MIT (FredTalk owner grant 2026-10-13)",
+    "thirdPartyMedia": "not covered; LW placeholders used for screenshot/video props",
+    "font": "system font stack (upstream font not redistributed)",
+    "audio": "omitted (withSound=false default)",
+    "attribution": "FredTalk component library; adapted by LW, not claimed as LW original"
+  },
+  "note": "props 驱动媒体组件，示例使用 LW 占位素材；渲染真实组件、非静态截图。"
+}

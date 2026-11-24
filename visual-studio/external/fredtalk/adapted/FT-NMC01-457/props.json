@@ -1,0 +1,26 @@
+{
+  "defaultProps": {
+    "pages": [
+      {
+        "src": "fredtalk/media/lw-work-01.jpg",
+        "durationInFrames": 60
+      },
+      {
+        "src": "fredtalk/media/lw-work-02.jpg",
+        "durationInFrames": 60
+      },
+      {
+        "src": "fredtalk/media/lw-work-03.jpg",
+        "durationInFrames": 60
+      }
+    ]
+  },
+  "editableKeys": [
+    "pages",
+    "audioSrc",
+    "audioVolume"
+  ],
+  "accent": "#8554E8",
+  "background": "#111111",
+  "notes": "媒体路径由 props 传入；替换为你的图片/视频即可。"
+}

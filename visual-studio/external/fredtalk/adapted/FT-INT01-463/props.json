@@ -1,0 +1,33 @@
+{
+  "defaultProps": {
+    "src": "fredtalk/media/lw-ui-screenshot.png",
+    "sourceWidth": 3024,
+    "sourceHeight": 1712,
+    "regions": [
+      {
+        "x": 0.12,
+        "y": 0.18,
+        "width": 0.3,
+        "height": 0.12
+      },
+      {
+        "x": 0.4,
+        "y": 0.5,
+        "width": 0.25,
+        "height": 0.1
+      }
+    ],
+    "color": "#FFE949"
+  },
+  "editableKeys": [
+    "src",
+    "sourceWidth",
+    "sourceHeight",
+    "regions",
+    "color",
+    "zoom"
+  ],
+  "accent": "#FFE949",
+  "background": "#ffffff",
+  "notes": "媒体路径由 props 传入；替换为你的图片/视频即可。"
+}

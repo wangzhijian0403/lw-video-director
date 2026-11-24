@@ -3752,5 +3752,158 @@
     "adapterVersion": "fred-batch/1.2",
     "importPath": "../../external/fredtalk/adapted/FT-T22b-387/src/adapter",
     "sourceFrames": 300
+  },
+  {
+    "id": "FT-NMC01-457",
+    "ftId": "NMC01",
+    "name": "新闻关键词快闪",
+    "category": "衔接内容",
+    "strategy": "standalone-verified",
+    "nativeFrames": 180,
+    "fps": 30,
+    "width": 1280,
+    "height": 720,
+    "accent": "#8554E8",
+    "background": "#111111",
+    "sampleProps": {
+      "pages": [
+        {
+          "src": "fredtalk/media/lw-work-01.jpg",
+          "durationInFrames": 60
+        },
+        {
+          "src": "fredtalk/media/lw-work-02.jpg",
+          "durationInFrames": 60
+        },
+        {
+          "src": "fredtalk/media/lw-work-03.jpg",
+          "durationInFrames": 60
+        }
+      ]
+    },
+    "editableKeys": [
+      "pages",
+      "audioSrc",
+      "audioVolume"
+    ],
+    "sourceSha256": "566fe8e8b0eaecf46b1dde9a23b0151714d845ef083264f573fa4cd22664ecef",
+    "adapterSha256": "566fe8e8b0eaecf46b1dde9a23b0151714d845ef083264f573fa4cd22664ecef",
+    "adapterVersion": "fred-standalone/1.0",
+    "importPath": "../../external/fredtalk/adapted/FT-NMC01-457/src/adapter",
+    "sourceFrames": 180
+  },
+  {
+    "id": "FT-INT01-463",
+    "ftId": "INT01",
+    "name": "新闻要点高亮扫过",
+    "category": "说明数据",
+    "strategy": "standalone-verified",
+    "nativeFrames": 210,
+    "fps": 30,
+    "width": 1280,
+    "height": 720,
+    "accent": "#FFE949",
+    "background": "#ffffff",
+    "sampleProps": {
+      "src": "fredtalk/media/lw-ui-screenshot.png",
+      "sourceWidth": 3024,
+      "sourceHeight": 1712,
+      "regions": [
+        {
+          "x": 0.12,
+          "y": 0.18,
+          "width": 0.3,
+          "height": 0.12
+        },
+        {
+          "x": 0.4,
+          "y": 0.5,
+          "width": 0.25,
+          "height": 0.1
+        }
+      ],
+      "color": "#FFE949"
+    },
+    "editableKeys": [
+      "src",
+      "sourceWidth",
+      "sourceHeight",
+      "regions",
+      "color",
+      "zoom"
+    ],
+    "sourceSha256": "a54560a8243ae16f2979607835a2553c62fcd0c89b33f304aa83c7d55587963b",
+    "adapterSha256": "a54560a8243ae16f2979607835a2553c62fcd0c89b33f304aa83c7d55587963b",
+    "adapterVersion": "fred-standalone/1.0",
+    "importPath": "../../external/fredtalk/adapted/FT-INT01-463/src/adapter",
+    "sourceFrames": 210
+  },
+  {
+    "id": "FT-INT02-464",
+    "ftId": "INT02",
+    "name": "新闻要点聚光聚焦",
+    "category": "说明数据",
+    "strategy": "standalone-verified",
+    "nativeFrames": 210,
+    "fps": 30,
+    "width": 1280,
+    "height": 720,
+    "accent": "#8554E8",
+    "background": "#ffffff",
+    "sampleProps": {
+      "src": "fredtalk/media/lw-ui-screenshot.png",
+      "sourceWidth": 3024,
+      "sourceHeight": 1712,
+      "regions": [
+        {
+          "x": 0.12,
+          "y": 0.18,
+          "width": 0.3,
+          "height": 0.12
+        }
+      ],
+      "dimOpacity": 0.76
+    },
+    "editableKeys": [
+      "src",
+      "sourceWidth",
+      "sourceHeight",
+      "regions",
+      "dimOpacity",
+      "zoom"
+    ],
+    "sourceSha256": "742abb8c66e46c21d04aeae24687ec5047a4243d9797790971d62755534dd32e",
+    "adapterSha256": "742abb8c66e46c21d04aeae24687ec5047a4243d9797790971d62755534dd32e",
+    "adapterVersion": "fred-standalone/1.0",
+    "importPath": "../../external/fredtalk/adapted/FT-INT02-464/src/adapter",
+    "sourceFrames": 210
+  },
+  {
+    "id": "FT-INT04-466",
+    "ftId": "INT04",
+    "name": "聊天消息流动画",
+    "category": "衔接内容",
+    "strategy": "standalone-verified",
+    "nativeFrames": 330,
+    "fps": 30,
+    "width": 1280,
+    "height": 720,
+    "accent": "#9FEF9C",
+    "background": "#fafafa",
+    "sampleProps": {
+      "contactName": "项目沟通",
+      "withSound": false
+    },
+    "editableKeys": [
+      "contactName",
+      "messages",
+      "withSound",
+      "fontFamily"
+    ],
+    "sourceSha256": "48eb1fa7dc5cc020e427937775d4dc6e100f75b2bd4c44d16fe6c9cfd360fd2a",
+    "adapterSha256": "48eb1fa7dc5cc020e427937775d4dc6e100f75b2bd4c44d16fe6c9cfd360fd2a",
+    "adapterVersion": "fred-standalone/1.0",
+    "importPath": "../../external/fredtalk/adapted/FT-INT04-466/src/adapter",
+    "sourceFrames": 330
   }
 ]

@@ -51,7 +51,7 @@ python scripts/episode_preflight.py templates/episode-manifest.example.json --ph
 
 Skill 的外部接入规范保持独立。`visual-studio/` 包含已核验许可的 Motion Prompt MIT 源码适配器，以及 FredTalk 目录元数据和许可声明；没有打包 FredTalk 视频、会员源码或商业字体。详见 [工作台第三方声明](visual-studio/external/THIRD_PARTY_NOTICES.md)。
 
-本次仓库更新已把已验收成果合入 `main`：**240 条 Motion Prompt + 113 条 FredTalk** 可在本仓库工作台本地渲染；工作台只保留「动效库 / 素材库」两栏，原创组件不再出现在动效库。FredTalk 活跃库 286 条中仍有 174 条未补齐（18 条机器 QA 未过、8 条未适配、148 条缺依赖），未伪装为可执行。
+本次仓库更新已把已验收成果合入 `main`：**240 条 Motion Prompt + 117 条 FredTalk** 可在本仓库工作台本地渲染；工作台只保留「动效库 / 素材库」两栏，原创组件不再出现在动效库。FredTalk 活跃库 286 条中仍有 170 条未补齐（18 条机器 QA 未过、4 条未适配、148 条缺依赖）；另 4 条 props 驱动 standalone 已补录并可真渲，未伪装为可执行。
 
 ## LW Visual Studio v0.2.0-preview
 

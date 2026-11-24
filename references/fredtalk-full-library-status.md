@@ -40,7 +40,7 @@
 - 真实渲染 pass：**134**；机器 QA pass：**115**；工作台导出 pass：**119**。
 - 已适配注册：**134 条**，`generated.tsx` 同步注册 `REF-<id>`。
 - `external/catalog.json` 中 `executable=true`：全库 114（FredTalk 113 + 其它 1），
-  其中 `fred-batch` 112 条、`fred-step-chain` 1 条。
+  其中 `fred-batch` 116 条、`fred-step-chain` 1 条。
 - 具备可编辑参数：142 条；源码 SHA 全部校验通过：258 条。
 
 > 注意 `status.json` 的 `executable` 列是 `catalog.executable OR inRegistry` 的并集（=134，表示「已注册可渲染」），
@@ -51,17 +51,17 @@
 | 指标 | 数量 |
 | --- | ---: |
 | 活跃库总数 | **286** |
-| 已能在本 Skill 工作台真实调用 | **112** |
-| 还差 | **174** |
+| 已能在本 Skill 工作台真实调用 | **116** |
+| 还差 | **170** |
 | 其中 `production-ready`（走完双门槛） | 100 |
 | 其中 `visual-accepted`（较早已执行、未补工作台导出记录） | 12 |
 | 归档老版本（不属用户要接的库） | 146 |
 
-**还差的 174 条构成**：18 条已真实渲染但机器 QA 未过（须逐条复核）、8 条差适配
+**还差的 170 条构成**：18 条已真实渲染但机器 QA 未过（须逐条复核）、4 条差适配
 （kit 依赖缺失 / standalone `entryExport` 元数据）、148 条缺项目内依赖文件。
 
-本轮之前活跃库可执行为 **46** 条；LWFT-FULL-84 新增晋级 **66** 条 → **112** 条。
-全量 432 口径为 113 条，多出的 1 条属归档老版本。
+本轮之前活跃库可执行为 **46** 条；LWFT-FULL-84 新增晋级 **66** 条 → **112** 条；LWFT-STANDALONE-4 再补 **4** 条 → **116** 条。
+全量 432 口径为 117 条，多出的 1 条属归档老版本。
 
 ### 2.3 变化来源
 
@@ -123,7 +123,7 @@ python tools/fredtalk/promote_candidates.py --run-id <run>  # 晋级（须人工
 
 ## 6. 尚未完成 / 阻塞项（诚实保留）
 
-以**活跃库 286** 口径：还差 **174 条**，分三类，均需开发通用适配器，**不是再跑一次批量任务能补齐的**：
+以**活跃库 286** 口径：还差 **170 条**，分三类，均需开发通用适配器，**不是再跑一次批量任务能补齐的**：
 
 - **148 条 `blocked-dependency`**（全量 282，其中 134 条属归档）：缺的是项目内相对模块（1105 次）
   与相对 JSON 配置（457 次），需开发通用 `project-expand` 适配器；现有 `profiles/round1.json`
@@ -132,7 +132,7 @@ python tools/fredtalk/promote_candidates.py --run-id <run>  # 晋级（须人工
   v2.5.0 tag tree 已取到 7047 个文件，但缺失依赖的 339 个唯一 basename 中仅 126 个能找到，
   **tag tree 就绪 ≠ 这 148 条可跑**。逐类清单见
   `references/fredtalk-full-library-data/blocked-dependency-breakdown.md`。
-- **8 条 `candidate-not-adapted`**（全量 16，另 8 条属归档）：只完成可行性核查，未实质补齐。
+- **4 条 `candidate-not-adapted`**（全量 16，另 8 条属归档 + 4 条本轮已补录）：只完成可行性核查，未实质补齐。
   `FT-T05q-250` / `FT-T17i-272` / `FT-T20u-279` 缺 `kit/theme.ts`、`kit/ui.tsx`、`lib/shell`、
   `timing.json` 及多个 `components/*`，tag tree 中找不到对应 `episodes/117`、`episodes/119` 结构；
   `FT-V037-v2-331` / `FT-NMC01-457` / `FT-INT01-463` / `FT-INT02-464` / `FT-INT04-466`
@@ -145,7 +145,7 @@ python tools/fredtalk/promote_candidates.py --run-id <run>  # 晋级（须人工
   其中 `FT-T15e-376`（折线走势）`motionMean=0.046` 触发 `hasMotion` 阈值，独立复核首/中/尾帧差
   7.293、逐帧最大 1.155，属「折线逐段画出、后半静止」的稀疏动画而非静态截图；
   仍如实保留 `fail`，不得改成 pass。18 条 ID 见 `LWFT-FULL-84-reviews.json` 的 `machineQaHoldIds`。
-- **全量口径下人工视觉仍有 301 条 `pending`**（其中活跃库 174 条、归档 127 条），
+- **全量口径下人工视觉仍有 301 条 `pending`**（其中活跃库 170 条、归档 127 条），
   机器 QA 不得替代人工视觉。
 - **主仓库 `main` 已合入本轮成果**：开发成果原位于独立工作树
   `D:/Codex工作目录/lw-fredtalk-full-LW-FT-FULL-001`（分支 `work/fredtalk-full-001`，基于 6c8f2cd），
@@ -307,7 +307,7 @@ workbench pass 119 | render pass 134 | machine QA pass 115
 ```
 
 按活跃库 286 复算（见 `references/fredtalk-full-library-data/active-library-scope.json`）：
-**可执行 112 / 还差 174 = 18 + 8 + 148**。全量 432 口径 113 条（多 1 条归档）。
+**可执行 116 / 还差 170 = 18 + 4 + 148**。全量 432 口径 117 条（多 1 条归档）。
 
 ### 10.5 Skill 运行时增量安装（关键：现在 Skill 里就能真用）
 
@@ -356,13 +356,25 @@ sanity 提示的 `FT-T03e-414` 复核为 `fred-step-chain`，走 `t03e` 独立�
 - 本机无 `pytest`，Python 测试改用 `unittest discover`，26/26 通过。
 
 `skill-verification.json` 证据副本位于 `references/fredtalk-full-library-data/`。
-这证明 **112 条已可在主仓库与本地 Skill 工作台真实调用**，不再依赖独立工作树。
+这证明 **116 条已可在主仓库与本地 Skill 工作台真实调用**，不再依赖独立工作树。
 
 ### 10.7 本轮明确的边界
 
 - 18 条机器 QA 未过条目**未晋级**，口述审片不覆盖机器 QA。
-- 8 条 `candidate-not-adapted` 与 148 条 `blocked-dependency` **只完成可行性核查，未实质补齐**，
+- 4 条 `candidate-not-adapted` 与 148 条 `blocked-dependency` **只完成可行性核查，未实质补齐**，
   需通用 `project-expand` / `standalone` 适配器开发。
 - 主仓库 `main` **已合入本轮验收成果**；未补齐的外部动效仍按原边界保留，不因合并而变成可执行。
 - 完整回归测试（单元 / API / 媒体）结果见本节 10.6 与本轮交付说明；不得以
   `tsc` 通过或单条 smoke test 代替全部视觉与整片验收。
+
+
+## 11. LWFT-STANDALONE-4 · props 驱动独立组件补录（2026-11-24）
+
+在「还差 174 条」里进一步榨取可补项：验证出 4 条 **props 驱动 standalone** 不依赖缺失的上游媒体，已补齐并真渲、QA、正式入库，活跃库可执行 **112 → 116**、还差 **174 → 170**。
+
+- 4 条：`FT-NMC01-457` / `FT-INT01-463` / `FT-INT02-464` / `FT-INT04-466`，媒体由 props 传入或可关闭，用 LW 本地占位素材作为示例，渲染真实上游组件（非静态截图/非通用动画）。
+- 通用工具（只读扫描 + 适配器生成 + 正式注册）：`tools/fredtalk/scan_generic.py`、`build_standalone_batch.py`、`promote_standalone_batch.py`。
+- registry 133 → 137、catalog 可执行 FredTalk 113 → 117、工作台外部可渲 353 → 357。
+- 验证：4 条独立 bundle + `renderMedia` 真渲通过（180/210/210/330 帧，OpenCV 帧差确认为真动画）；工作台端到端 `/api/render-reference` 4/4 `done`；Python 33/33、前端 34/34、接口 10/10 全过；主仓库与 Skill 哈希一致。
+
+**剩余 170 条实测结论**：148 条整段剧集 replay 深度依赖本地与上游都取不到的媒体（`brand.png`、`recordings/` 帧序列、`MiSans`/`RuiZi` 字体）；POC 实证即使补适配器，`FontFace().load()` 失败即 `cancelRender`、`<Img>` 动态路径 404 即中止渲染，**无法真渲**，非批量任务可解。另 4 条（T05q/T17i/T20u/V037）同样依赖字体+视频，18 条机器 QA 未过。均如实保留，不得伪造。详见 [LWFT-STANDALONE-4 验收](fredtalk-full-library-data/LWFT-STANDALONE-4-acceptance.md)。
