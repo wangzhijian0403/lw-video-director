@@ -8,8 +8,8 @@ import {CHARACTER_IDS,CHARACTER_WHITELIST,getCharacterEntry} from '../components
 type Kind='scenes'|'icons'|'characters';
 type Item={id:string;title:string;desc:string;kind:Kind;status:string;tags:string[];path?:string;file?:string;mediaKind?:'video'|'image'};
 
-const CHARACTER_NAMES:Record<string,string>={fish:'一鱼',codex:'Codex',deepseek:'DeepSeek',doubao:'豆包',claude:'Claude'};
-const ACTION_LABELS:Record<string,string>={idle:'待机',wave:'打招呼',typing:'敲键盘',curtsy:'屈膝礼',share:'举手机分享',dance:'机器人舞',still:'透明静态图'};
+const CHARACTER_NAMES:Record<string,string>={fish:'一鱼',codex:'Codex',deepseek:'DeepSeek',doubao:'豆包',claude:'Claude',gemini:'Gemini·星芒团子','gemini-bot':'Gemini·双子星机甲','gemini-chibi':'Gemini·双子星占星使'};
+const ACTION_LABELS:Record<string,string>={idle:'待机',wave:'打招呼',typing:'敲键盘',curtsy:'屈膝礼',share:'举手机分享',dance:'机器人舞',sparkle:'星芒共鸣',still:'透明静态图'};
 
 const characterItems:Item[]=CHARACTER_IDS.flatMap((id:string)=>((CHARACTER_WHITELIST as Record<string,string[]>)[id]??[]).map((action:string)=>{
  const e=getCharacterEntry(id,action);
@@ -49,7 +49,7 @@ export function ResourceGallery({search}:{search:string}){
  const iconURL=isIcon?'/'+current.path:'';
  const characterURL=isCharacter&&current.file?`/characters/${current.file}`:'';
  return <section className="resource-gallery" aria-label="已接入资源图鉴">
-   <div className="resource-top"><div><small>LW VIDEO DIRECTOR / INSTALLED LIBRARIES</small><h2>素材库</h2><p>插画场景、SVG 图标与 5 个卡通角色（含待机/专属动作/透明静图）。动效请到「动效库」栏目查看与渲染。</p></div><span>{items.length}条目录记录</span></div>
+   <div className="resource-top"><div><small>LW VIDEO DIRECTOR / INSTALLED LIBRARIES</small><h2>素材库</h2><p>插画场景、SVG 图标与 8 个卡通角色（含 Gemini 三款形象及待机/专属动作/透明静图）。动效请到「动效库」栏目查看与渲染。</p></div><span>{items.length}条目录记录</span></div>
    <div className="resource-kind-tabs">{names.map(k=><button type="button" key={k} className={kind===k?'active':''} onClick={()=>changeKind(k)}>{kindLabels[k]} <small>{items.filter(x=>x.kind===k).length}</small></button>)}</div>
    <div className="resource-body">
     <div className="resource-list">{subset.map(e=><button type="button" key={e.id} className={current?.id===e.id?'selected':''} onClick={()=>setSelected(e.id)}><span>{e.id}</span><strong>{e.title}</strong><small>{e.status}</small></button>)}{!subset.length&&<p>当前分类没有符合搜索条件的条目。</p>}</div>

@@ -23,9 +23,10 @@ test('registry: 两个已验收动作登记安全区间且禁止循环', () => {
   assert.ok(range.startFrom > 0 && range.endAt < 240);
 });
 
-test('registry: 未知角色 / 未登记动作返回 null；15 条角色媒体全部已验收且文件落盘', () => {
+test('registry: 未知角色 / 未登记动作返回 null；28 条角色媒体（含 Gemini 三款）全部已验收且文件落盘', () => {
   assert.equal(getCharacterEntry('nobody', 'idle'), null);
   assert.equal(getCharacterEntry('fish', 'dance'), null);
+  assert.equal(getCharacterEntry('gemini', 'curtsy'), null);
   let count = 0;
   for (const id of CHARACTER_IDS) {
     for (const action of CHARACTER_WHITELIST[id]) {
@@ -39,7 +40,17 @@ test('registry: 未知角色 / 未登记动作返回 null；15 条角色媒体�
       count += 1;
     }
   }
-  assert.equal(count, 15);
+  assert.equal(count, 28);
+});
+
+test('registry: Gemini 三款出稿均具备透明静图与多动作动画条目', () => {
+  for (const id of ['gemini', 'gemini-bot', 'gemini-chibi']) {
+    assert.equal(getCharacterEntry(id, 'still')?.file, `${id}-transparent.png`);
+    assert.equal(getCharacterEntry(id, 'idle')?.file, `${id}-idle.webm`);
+    assert.equal(getCharacterEntry(id, 'wave')?.file, `${id}-wave.webm`);
+    assert.equal(getCharacterEntry(id, 'sparkle')?.file, `${id}-sparkle.webm`);
+  }
+  assert.equal(getCharacterEntry('gemini', 'typing')?.file, 'gemini-typing.webm');
 });
 
 test('timeline: 合法角色槽位解析条目并夹紧到整片范围', () => {

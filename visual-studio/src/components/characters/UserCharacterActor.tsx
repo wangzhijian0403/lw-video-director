@@ -14,8 +14,16 @@ import React from 'react';
 import {AbsoluteFill, Img, Video, interpolate, staticFile, useCurrentFrame} from 'remotion';
 import {getCharacterEntry} from './characterRegistry.mjs';
 
-export type UserCharacterId = 'fish' | 'codex' | 'deepseek' | 'doubao' | 'claude';
-export type UserCharacterAction = 'idle' | 'wave' | 'typing' | 'curtsy' | 'share' | 'dance' | 'still';
+export type UserCharacterId =
+  | 'fish'
+  | 'codex'
+  | 'deepseek'
+  | 'doubao'
+  | 'claude'
+  | 'gemini'
+  | 'gemini-bot'
+  | 'gemini-chibi';
+export type UserCharacterAction = 'idle' | 'wave' | 'typing' | 'curtsy' | 'share' | 'dance' | 'sparkle' | 'still';
 
 type ActorEntry = NonNullable<ReturnType<typeof getCharacterEntry>>;
 

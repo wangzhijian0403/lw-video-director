@@ -1,0 +1,155 @@
+{
+  "meta": {
+    "title": "Gemini 三款卡通形象出稿与跨角色联动真渲验收",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "theme": "future"
+  },
+  "scenes": [
+    {
+      "id": "act1",
+      "component": "TYPE-001",
+      "duration": 3,
+      "text": "Gemini 三款卡通形象出稿 · 专属动作实渲",
+      "params": {
+        "title": "GEMINI MASCOT CONCEPTS",
+        "subtitle": "星芒团子 · 双子星机甲崽 · 双子星占星使",
+        "entrance": 0.4,
+        "hold": 2.2,
+        "exit": 0.4
+      }
+    },
+    {
+      "id": "act2",
+      "component": "TYPE-001",
+      "duration": 3,
+      "text": "与 Codex · DeepSeek 同台飙戏实测",
+      "params": {
+        "title": "CROSS-MASCOT ENSEMBLE",
+        "subtitle": "Codex × Gemini × DeepSeek · 透明叠加对戏",
+        "entrance": 0.4,
+        "hold": 2.2,
+        "exit": 0.4
+      }
+    },
+    {
+      "id": "act3",
+      "component": "TYPE-001",
+      "duration": 3,
+      "text": "待机呼吸与超清透明静图定妆",
+      "params": {
+        "title": "IDLE & TRANSPARENT STILL",
+        "subtitle": "VP9 Alpha WebM + 1200px RGBA PNG 全链路就绪",
+        "entrance": 0.4,
+        "hold": 2.2,
+        "exit": 0.4
+      }
+    }
+  ],
+  "subtitles": {
+    "enabled": false,
+    "cues": []
+  },
+  "characters": [
+    {
+      "characterId": "gemini",
+      "action": "sparkle",
+      "x": 160,
+      "y": 290,
+      "width": 440,
+      "height": 440,
+      "start": 0.1,
+      "duration": 2.8,
+      "opacity": 1
+    },
+    {
+      "characterId": "gemini-bot",
+      "action": "wave",
+      "x": 740,
+      "y": 290,
+      "width": 440,
+      "height": 440,
+      "start": 0.1,
+      "duration": 2.8,
+      "opacity": 1
+    },
+    {
+      "characterId": "gemini-chibi",
+      "action": "sparkle",
+      "x": 1320,
+      "y": 290,
+      "width": 440,
+      "height": 440,
+      "start": 0.1,
+      "duration": 2.8,
+      "opacity": 1
+    },
+    {
+      "characterId": "codex",
+      "action": "typing",
+      "x": 190,
+      "y": 320,
+      "width": 390,
+      "height": 390,
+      "start": 3.1,
+      "duration": 2.8,
+      "opacity": 1
+    },
+    {
+      "characterId": "gemini",
+      "action": "typing",
+      "x": 740,
+      "y": 290,
+      "width": 440,
+      "height": 440,
+      "start": 3.1,
+      "duration": 2.8,
+      "opacity": 1
+    },
+    {
+      "characterId": "deepseek",
+      "action": "curtsy",
+      "x": 1330,
+      "y": 320,
+      "width": 390,
+      "height": 390,
+      "start": 3.1,
+      "duration": 2.8,
+      "opacity": 1
+    },
+    {
+      "characterId": "gemini",
+      "action": "idle",
+      "x": 160,
+      "y": 290,
+      "width": 440,
+      "height": 440,
+      "start": 6.1,
+      "duration": 2.8,
+      "opacity": 1
+    },
+    {
+      "characterId": "gemini-bot",
+      "action": "still",
+      "x": 740,
+      "y": 290,
+      "width": 440,
+      "height": 440,
+      "start": 6.1,
+      "duration": 2.8,
+      "opacity": 1
+    },
+    {
+      "characterId": "gemini-chibi",
+      "action": "wave",
+      "x": 1320,
+      "y": 290,
+      "width": 440,
+      "height": 440,
+      "start": 6.1,
+      "duration": 2.8,
+      "opacity": 1
+    }
+  ]
+}

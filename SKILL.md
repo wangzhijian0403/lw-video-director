@@ -39,7 +39,22 @@ agent_created: true
 
 除24个本地 SVG 图标外，新增原创分层插画场景 `ILLUS-STUDIO-01`（工作室）、`ILLUS-CITY-01`（城市夜景）、`ILLUS-NATURE-01`（青山河谷）。有场景/叙事职责时，可直接在 project.json 的 scenes 中与 FredTalk、LW Originals 混用，详情见 [场景素材包02](references/illustration-scene-pack-02.md)。
 
-本地工作台的「素材库」可预览原创分层场景、24 个 SVG 图标，以及 5 个卡通角色共 15 条媒体（待机 / 专属动作 VP9 透明视频、透明 PNG 静图，均已通过真实 Remotion 渲染验收，见 [角色库说明](references/user-character-library.md)）；「动效库」负责 FredTalk / Motion Prompt 动效的选型与本地 MP4 渲染。工作台不是自动搜索磁盘全部素材，也不代表所有外部引用目录都已拿到源码。Windows 可在更新后的仓库根目录双击 `start-lw-studio.cmd` 等待服务就绪，再用浏览器访问 http://127.0.0.1:4173；`/api/health` 可检测服务。绘制场景的画面质量仍需真实审片，不以测试渲染通过替代视觉批准。
+本地工作台的「素材库」可预览原创分层场景、24 个 SVG 图标，以及 8 个卡通角色共 28 条媒体（含 `fish`、`codex`、`deepseek`、`doubao`、`claude` 以及新增 Google Gemini 三款 3D 软渲染形象 `gemini`、`gemini-bot`、`gemini-chibi`；均具备待机 / 专属动作 VP9 透明视频与透明 PNG 静图，均已通过真实 Remotion 渲染验收，见 [角色库说明](references/user-character-library.md)）；「动效库」负责 FredTalk / Motion Prompt 动效的选型与本地 MP4 渲染。工作台不是自动搜索磁盘全部素材，也不代表所有外部引用目录都已拿到源码。Windows 可在更新后的仓库根目录双击 `start-lw-studio.cmd` 等待服务就绪，再用浏览器访问 http://127.0.0.1:4173；`/api/health` 可检测服务。绘制场景的画面质量仍需真实审片，不以测试渲染通过替代视觉批准。
+
+### 卡通角色叠加调用速查（`project.json` → `characters[]`）
+
+在分镜或口播需要吉祥物/AI 模型拟人出镜互动时，直接在 `project.json` 顶层配置 `characters` 数组（1920×1080 基准坐标，视频媒体安全时长建议 `≤ 4.8s`，默认禁止自动循环 `loopAllowed: false`）：
+
+- **一鱼主持人 `fish`**：`idle`（待机）、`wave`（摇鳍打招呼）、`still`（透明静图）
+- **Codex `codex`**：`idle`、`typing`（敲键盘欢呼）、`still`
+- **DeepSeek `deepseek`**：`idle`、`curtsy`（提裙屈膝礼）、`still`
+- **豆包 `doubao`**：`idle`、`share`（举手机分享）、`still`
+- **Claude `claude`**：`idle`、`dance`（机器人舞）、`still`
+- **Gemini 星芒团子 `gemini`（主推软陶团子款）**：`idle`、`wave`（挥手打招呼）、`sparkle`（腾空施展四色星芒光环）、`typing`（悬浮全息键盘疾速编码）、`still`
+- **Gemini 双子星机甲崽 `gemini-bot`（科技潮玩盲盒款）**：`idle`、`wave`、`sparkle`、`still`
+- **Gemini 双子星占星使 `gemini-chibi`（Q 版人偶盲盒款）**：`idle`、`wave`、`sparkle`、`still`
+
+若需突破预渲染片段时长或自由旋转 3D 机位，可在自定义 Remotion 场景中直接挂载原生 3D 骨骼组件 `src/components/characters/GeminiMascot3D.tsx`（Composition ID：`CHAR-GEMINI-3D`）。
 
 ## FredTalk 全库接入状态（LW-FT-FULL-001 · 运行时已装进本 Skill）
 

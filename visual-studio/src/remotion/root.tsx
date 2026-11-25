@@ -17,6 +17,9 @@ import {MotionPromptAdapter} from '../references/MotionPromptAdapter';
 import {ProjectVideo} from '../project/ProjectVideo';
 import {buildTimeline} from '../project/timeline.mjs';
 import type {ProjectFile} from '../project/types';
+import {GeminiMascot3D, type GeminiMascot3DProps} from '../components/characters/GeminiMascot3D';
+import {TerminalEchoMV} from '../mv-duo/TerminalEchoMV';
+import {ScrapbookCutoutMV} from '../mv-duo/ScrapbookCutoutMV';
 
 /** Studio 里直接打开 Project 组合时用的示例工程（渲染时会被 CLI 的 inputProps 覆盖） */
 const defaultProject: ProjectFile = {
@@ -70,6 +73,46 @@ function Root() {
           calculateMetadata={({props}) => ({durationInFrames: Math.round(totalDuration(props.params) * 30)})}
         />
       ))}
+      <Composition
+        id="CHAR-GEMINI-3D"
+        component={GeminiMascot3D}
+        width={960}
+        height={960}
+        fps={24}
+        durationInFrames={120}
+        defaultProps={{
+          variant: 'sparkle',
+          action: 'idle',
+          bgMode: 'transparent',
+          showShadow: true,
+          cameraYaw: 0,
+        } satisfies GeminiMascot3DProps}
+        calculateMetadata={({props}) => {
+          const p = props as GeminiMascot3DProps & {width?: number; height?: number; fps?: number; durationInFrames?: number};
+          return {
+            width: p.width ?? 960,
+            height: p.height ?? 960,
+            fps: p.fps ?? 24,
+            durationInFrames: p.durationInFrames ?? 120,
+          };
+        }}
+      />
+      <Composition
+        id="MV-TERMINAL-30S"
+        component={TerminalEchoMV}
+        width={1920}
+        height={1080}
+        fps={30}
+        durationInFrames={899}
+      />
+      <Composition
+        id="MV-SCRAPBOOK-30S"
+        component={ScrapbookCutoutMV}
+        width={1920}
+        height={1080}
+        fps={30}
+        durationInFrames={929}
+      />
       <Composition
         id="Project"
         component={ProjectVideo}

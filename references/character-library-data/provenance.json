@@ -10,7 +10,10 @@
     "codex",
     "deepseek",
     "doubao",
-    "claude"
+    "claude",
+    "gemini",
+    "gemini-bot",
+    "gemini-chibi"
   ],
   "conversion": {
     "script": "visual-studio/scripts/prepare_character_media.py",
@@ -89,8 +92,8 @@
     },
     {
       "file": "codex-typing.json",
-      "bytes": 611,
-      "sha256": "bd2a913ab2d7e080a90982e7cb71df829600dd21006661964059b9b7165d59f0"
+      "bytes": 625,
+      "sha256": "61ae35b755e997bb9cf0f64d7a3f11823c93a487782ab4c5b0bb798da8bc1e62"
     },
     {
       "file": "codex-typing.mp4",
@@ -209,8 +212,8 @@
     },
     {
       "file": "fish-wave.json",
-      "bytes": 619,
-      "sha256": "4788ae1a5592950da19f0f6cdf4f24e8a3edb1793076cf883099d026af115893"
+      "bytes": 633,
+      "sha256": "ae87711e56b482b0f43bd354b953621c18946aeeb1e81096cc1a54dd40b5c57e"
     },
     {
       "file": "fish-wave.mp4",
@@ -221,6 +224,186 @@
       "file": "fish-wave.webm",
       "bytes": 848109,
       "sha256": "0ef096acf7f9f897f6e9ec4858ec8f96c69e05bd31724eb71a58f26b83c14e6d"
+    },
+    {
+      "file": "gemini-bot-greenscreen.jpg",
+      "bytes": 62862,
+      "sha256": "d95e4456ba6c414ae633dcbdbb839457a8a6448210a8b0defd5d3b7fcbb7d8c4"
+    },
+    {
+      "file": "gemini-bot-idle.json",
+      "bytes": 707,
+      "sha256": "d943517db55a69d3f11a25de4655427372bac3dfcce14f35f744ceae9f502f74"
+    },
+    {
+      "file": "gemini-bot-idle.mp4",
+      "bytes": 364277,
+      "sha256": "89fbe1b9aa8d169b2028470bce63ada7c0006b737bab0241f3578d1595b51451"
+    },
+    {
+      "file": "gemini-bot-idle.webm",
+      "bytes": 929555,
+      "sha256": "f9297b4fe1be80f920f81bba7b7c2371f2b83095b1359ba6f9aa949ab18a8ea3"
+    },
+    {
+      "file": "gemini-bot-sparkle.json",
+      "bytes": 710,
+      "sha256": "ef10824db933f1737138173b84469c5618bd9f237facd1c6a16c522f0ff227cd"
+    },
+    {
+      "file": "gemini-bot-sparkle.mp4",
+      "bytes": 565746,
+      "sha256": "81980f592eb2093a4f39cde954b3cf4a9b4fc98d127980a5c9d541d844f4c76d"
+    },
+    {
+      "file": "gemini-bot-sparkle.webm",
+      "bytes": 1324603,
+      "sha256": "4e7c65904e1bd44da45543e560e7542a49e70833e807111a53974d209725c245"
+    },
+    {
+      "file": "gemini-bot-transparent.png",
+      "bytes": 333914,
+      "sha256": "197e74f8f84fc230b1ebf123d1352de2eea9e08b9bfed7eb75218f2406275668"
+    },
+    {
+      "file": "gemini-bot-wave.json",
+      "bytes": 707,
+      "sha256": "1f4dcbe7de534c4bc3eff3ac1689eb98a9179ec68738f9d5af7129a0dc0b9af9"
+    },
+    {
+      "file": "gemini-bot-wave.mp4",
+      "bytes": 516574,
+      "sha256": "0feb441f2c3b5cb28bc02fb404b29336a0c6737da1efebcd2fdf1509edb217d1"
+    },
+    {
+      "file": "gemini-bot-wave.webm",
+      "bytes": 1249422,
+      "sha256": "1f27e3f2a22894c61de3b5aafea1cfb77962798409a65e064e0c33096dd1ace5"
+    },
+    {
+      "file": "gemini-chibi-greenscreen.jpg",
+      "bytes": 77892,
+      "sha256": "6f3707c96508e18e1e2669a3cec19dc2979aea5f4554e6d0b7568b3fd7cc379e"
+    },
+    {
+      "file": "gemini-chibi-idle.json",
+      "bytes": 709,
+      "sha256": "e76ef466549b89f45159b8abd0e5e8eb41fbe69e1f88fde6e60e70782a6caf6b"
+    },
+    {
+      "file": "gemini-chibi-idle.mp4",
+      "bytes": 425504,
+      "sha256": "5132950543f8752b8ab5145f5b14cbfdf161bf6bb9bb561242c0aa6dba1f4d54"
+    },
+    {
+      "file": "gemini-chibi-idle.webm",
+      "bytes": 995464,
+      "sha256": "a67366c8c510ea5c10fad87d42726c533bc9d8a3c5ff18b510aaf5a90f2c0fae"
+    },
+    {
+      "file": "gemini-chibi-sparkle.json",
+      "bytes": 712,
+      "sha256": "45143a1578596634ca22eacaa177710ea32a223fb6fa796b31a9b96391f46198"
+    },
+    {
+      "file": "gemini-chibi-sparkle.mp4",
+      "bytes": 688567,
+      "sha256": "b2fd537c029d58fe5050588e326817f1e48f96133af3aaec4192ba4ee62f2f91"
+    },
+    {
+      "file": "gemini-chibi-sparkle.webm",
+      "bytes": 1477563,
+      "sha256": "551f5343c8826bdd5ea5edd0842c8203a6a91de0528a897f94e9c69ad27973ef"
+    },
+    {
+      "file": "gemini-chibi-transparent.png",
+      "bytes": 458368,
+      "sha256": "b795ccb089d2358e9fdada5645f58074d7530fbc2889a7e29ae63109072311aa"
+    },
+    {
+      "file": "gemini-chibi-wave.json",
+      "bytes": 709,
+      "sha256": "22a5c18a6e1f0d1ee0596bcf8f0d64b198bafa3fcdc0524aee6a20cca8265894"
+    },
+    {
+      "file": "gemini-chibi-wave.mp4",
+      "bytes": 592325,
+      "sha256": "bd06990793c4c02219299857c419621eb0be15b37a4119be26460fa9686e3b15"
+    },
+    {
+      "file": "gemini-chibi-wave.webm",
+      "bytes": 1328557,
+      "sha256": "c814f8fa60bee26539e376732c051d871073d13a08dd63f00ad8a0515023763d"
+    },
+    {
+      "file": "gemini-greenscreen.jpg",
+      "bytes": 52068,
+      "sha256": "6ba3aea4f46a46f92b1ce8174dcbc1b75c7a8dd3c58bf31c895c98b6b80fecfa"
+    },
+    {
+      "file": "gemini-idle.json",
+      "bytes": 703,
+      "sha256": "18c2eceb7291f83ef8d09164a96fa8ae031f9171e2b0c03f2a9deb141311739e"
+    },
+    {
+      "file": "gemini-idle.mp4",
+      "bytes": 257609,
+      "sha256": "b81a9093be6e44809aab1037d79dafeaba59e6701d00be459275ba2431614baf"
+    },
+    {
+      "file": "gemini-idle.webm",
+      "bytes": 617677,
+      "sha256": "5d1f031719823d959d7e95a76186bc917629ecee0249ac57ac738ea350f115d1"
+    },
+    {
+      "file": "gemini-sparkle.json",
+      "bytes": 706,
+      "sha256": "0256373dd7041058f1cc44759d700c0c84e6539c9024b37729787214c5f0859a"
+    },
+    {
+      "file": "gemini-sparkle.mp4",
+      "bytes": 454094,
+      "sha256": "567a5dfb098fe6909ed316827e8e44a4b349ead5a856134110c6973b60f541ec"
+    },
+    {
+      "file": "gemini-sparkle.webm",
+      "bytes": 978865,
+      "sha256": "3d7ae4d1e6ec8157997b055bba0cf1c2b4fd6ec1b08b9e4080779b32046c328d"
+    },
+    {
+      "file": "gemini-transparent.png",
+      "bytes": 380089,
+      "sha256": "f38e9e45a4cfa451c36a2f5464d7d9487d7bb61e76060c96aead65ea2cf0bf0d"
+    },
+    {
+      "file": "gemini-typing.json",
+      "bytes": 705,
+      "sha256": "8933f7d6ce408c099797723b29468410433a69d2c54f22e6bf9340ec32e35153"
+    },
+    {
+      "file": "gemini-typing.mp4",
+      "bytes": 383327,
+      "sha256": "f7d9c04a69b7488529f400c031676dbfcfb0a280287027b83c09b7ea96b9625f"
+    },
+    {
+      "file": "gemini-typing.webm",
+      "bytes": 763948,
+      "sha256": "ec31056c7a3cea7c7bdb0911133f4e3c176024584476b3cbbd279c86cfad0b52"
+    },
+    {
+      "file": "gemini-wave.json",
+      "bytes": 703,
+      "sha256": "5950a9f522b151c28f5308cee048dc3815500f1e26e1bbb4ad518d542738cd8b"
+    },
+    {
+      "file": "gemini-wave.mp4",
+      "bytes": 420962,
+      "sha256": "c0e62c16ed9749a231d3f21306bf34684050ec91b3ea01470fc382d9f9c47876"
+    },
+    {
+      "file": "gemini-wave.webm",
+      "bytes": 914192,
+      "sha256": "14da725a95c0bb3983008cf9bd846589ac13b4ca7882632c3d599d93866faa34"
     }
   ]
 }

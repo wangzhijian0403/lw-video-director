@@ -15,9 +15,18 @@
  * loopAllowed 一律 false：未验证无缝循环前，禁止自动循环播放。
  */
 
-export const CHARACTER_IDS = ['fish', 'codex', 'deepseek', 'doubao', 'claude'];
+export const CHARACTER_IDS = [
+  'fish',
+  'codex',
+  'deepseek',
+  'doubao',
+  'claude',
+  'gemini',
+  'gemini-bot',
+  'gemini-chibi',
+];
 
-export const CHARACTER_ACTIONS = ['idle', 'wave', 'typing', 'curtsy', 'share', 'dance', 'still'];
+export const CHARACTER_ACTIONS = ['idle', 'wave', 'typing', 'curtsy', 'share', 'dance', 'sparkle', 'still'];
 
 export const CHARACTER_WHITELIST = {
   fish: ['idle', 'wave', 'still'],
@@ -25,6 +34,9 @@ export const CHARACTER_WHITELIST = {
   deepseek: ['idle', 'curtsy', 'still'],
   doubao: ['idle', 'share', 'still'],
   claude: ['idle', 'dance', 'still'],
+  gemini: ['idle', 'wave', 'sparkle', 'typing', 'still'],
+  'gemini-bot': ['idle', 'wave', 'sparkle', 'still'],
+  'gemini-chibi': ['idle', 'wave', 'sparkle', 'still'],
 };
 
 /** 源片统一规格：10s / 24fps（未验收条目也按此记录，便于越界校验） */
@@ -64,6 +76,9 @@ const PREPARED_ACTIONS = {
   deepseek: ['idle', 'curtsy'],
   doubao: ['idle', 'share'],
   claude: ['idle', 'dance'],
+  gemini: ['idle', 'wave', 'sparkle', 'typing'],
+  'gemini-bot': ['idle', 'wave', 'sparkle'],
+  'gemini-chibi': ['idle', 'wave', 'sparkle'],
 };
 
 for (const [character, actions] of Object.entries(PREPARED_ACTIONS)) {

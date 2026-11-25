@@ -8,9 +8,9 @@ v0.2 时的约定是「私有媒体不进 Git、不上传 GitHub」。**2026-11-
 
 > 权利提醒：原包说明只允许用于用户自己的视频、无公开再分发许可。2026-11-24 用户已明确知情并确认推送到**公开**的 `origin/main`（`wangzhijian0403/lw-video-director`），这批素材因此对外可见；后续若需撤回，须同时处理 Git 历史，不能只删文件。
 
-## 验收状态（v0.3）
+## 验收状态（v0.4 · 新增 Gemini 三款 3D 软渲染形象）
 
-15 条条目（5 角色 × 待机 / 专属动作 / 透明静图）**全部为 `verified-basic`**，不再显示「动作待验收」占位：
+28 条条目（原有 5 角色 15 条 + 新增 Gemini 三款出稿 13 条）**全部为 `verified-basic`**：
 
 | 角色 | 待机 | 专属动作 | 透明静图 |
 |---|---|---|---|
@@ -19,6 +19,11 @@ v0.2 时的约定是「私有媒体不进 Git、不上传 GitHub」。**2026-11-
 | deepseek | deepseek-idle.webm | deepseek-curtsy.webm | deepseek-transparent.png |
 | doubao | doubao-idle.webm | doubao-share.webm | doubao-transparent.png |
 | claude | claude-idle.webm | claude-dance.webm | claude-transparent.png |
+| gemini（星芒团子） | gemini-idle.webm | gemini-wave.webm / gemini-sparkle.webm / gemini-typing.webm | gemini-transparent.png |
+| gemini-bot（双子星机甲） | gemini-bot-idle.webm | gemini-bot-wave.webm / gemini-bot-sparkle.webm | gemini-bot-transparent.png |
+| gemini-chibi（双子星占星使） | gemini-chibi-idle.webm | gemini-chibi-wave.webm / gemini-chibi-sparkle.webm | gemini-chibi-transparent.png |
+
+- 新增 3 款 Gemini 角色由原生 `@remotion/three` + Three.js 3D 软渲染模型（`visual-studio/src/components/characters/GeminiMascot3D.tsx`）直出 1200×1200 RGBA 透明静图、960×960 纯绿幕底图及 VP9 `yuva420p` 透明动画 WebM（同时可作为原生 Remotion Composition `CHAR-GEMINI-3D` 实时参数化调用）。
 
 **验收产物**：`exports/character-acceptance.mp4`（1920×1080 / 30fps / 180 帧 / 6s），真 Remotion `Project` Composition，15 个角色槽位分三批各 1.8s 上场。
 

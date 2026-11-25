@@ -14,10 +14,11 @@ test-results/
 !public/**/*.jpg
 !public/**/*.jpeg
 
-# 用户提供的 5 个卡通吉祥物素材（2026-11-24 起按用户要求正式纳入仓库）
+# 8 个卡通吉祥物素材（含原有 5 角色及新增 Gemini 三款 3D 软渲染形象）
 # 父级 .gitignore 忽略所有媒体，这里逐类放行角色目录，保证 clone 后可直接渲染。
 !public/characters/**/*.webm
 !public/characters/**/*.mp4
 !public/characters/**/*.png
 !public/characters/**/*.jpg
 !public/characters/**/*.json
+!projects/gemini-showcase.project.json
