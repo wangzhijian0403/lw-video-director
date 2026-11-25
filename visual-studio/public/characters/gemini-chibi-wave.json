@@ -1,0 +1,17 @@
+{
+  "characterId": "gemini-chibi",
+  "action": "wave",
+  "sourceSha256": "bd06990793c4c02219299857c419621eb0be15b37a4119be26460fa9686e3b15",
+  "outputSha256": "c814f8fa60bee26539e376732c051d871073d13a08dd63f00ad8a0515023763d",
+  "videoAlpha": "VP9 yuva420p (direct 3D RGBA render)",
+  "sourceAudioUsed": false,
+  "loopVerified": true,
+  "fullDurationVisualReview": true,
+  "safeRange": {
+    "start": 0.2,
+    "end": 5.0
+  },
+  "trimmedToSafeRange": true,
+  "generator": "src/components/characters/GeminiMascot3D.tsx + scripts/render_gemini_concepts.mjs",
+  "note": "原生 Remotion Three.js 3D 软渲染直出 RGBA 透明通道 VP9 WebM，无绿幕溢色，已按 4.8s 安全区间对齐"
+}
