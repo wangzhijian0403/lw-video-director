@@ -1,0 +1,17 @@
+{
+  "characterId": "gemini-bot",
+  "action": "sparkle",
+  "sourceSha256": "81980f592eb2093a4f39cde954b3cf4a9b4fc98d127980a5c9d541d844f4c76d",
+  "outputSha256": "4e7c65904e1bd44da45543e560e7542a49e70833e807111a53974d209725c245",
+  "videoAlpha": "VP9 yuva420p (direct 3D RGBA render)",
+  "sourceAudioUsed": false,
+  "loopVerified": true,
+  "fullDurationVisualReview": true,
+  "safeRange": {
+    "start": 0.2,
+    "end": 5.0
+  },
+  "trimmedToSafeRange": true,
+  "generator": "src/components/characters/GeminiMascot3D.tsx + scripts/render_gemini_concepts.mjs",
+  "note": "原生 Remotion Three.js 3D 软渲染直出 RGBA 透明通道 VP9 WebM，无绿幕溢色，已按 4.8s 安全区间对齐"
+}
